@@ -1,4 +1,5 @@
 'use strict';
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const db = require('./db');
@@ -30,6 +31,10 @@ function createApp() {
   app.get('/brand.css', (req, res) => {
     res.type('text/css').set('Cache-Control', 'no-cache').send(brand.css(db.getSettings()));
   });
+  // Version tag on the stylesheet and script links, so browsers fetch the new files after an update
+  // instead of keeping an old copy for 7 days.
+  const assetV = ['style.css', 'app.js'].map((f) => Math.floor(fs.statSync(path.join(__dirname, '..', 'public', f)).mtimeMs).toString(36)).join('');
+  app.use((req, res, next) => { res.locals.assetV = assetV; next(); });
   app.use('/static', express.static(path.join(__dirname, '..', 'public'), { maxAge: '7d' }));
   app.use(express.urlencoded({ extended: false, limit: '300kb', parameterLimit: 5000 }));
   app.use(auth.loadSession);
