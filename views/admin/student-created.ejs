@@ -1,0 +1,11 @@
+<%- include('../partials/head') %>
+<section class="narrow card">
+  <h1><%= t('admin.accountCreated') %></h1>
+  <div class="alert alert-ok credentials" role="status">
+    <p><%= created.full_name %></p>
+    <p><%= t('fields.username') %>: <code><%= created.username %></code><br><%= t('admin.tempPassword') %>: <code><%= created.password %></code></p>
+  </div>
+  <p class="help"><%= t('admin.tempPasswordHelp') %></p>
+  <p><button class="btn" data-print><%= t('common.print') %></button> <a class="btn btn-primary" href="/admin/students/<%= created.id %>"><%= t('common.continue') %></a></p>
+</section>
+<%- include('../partials/foot') %>

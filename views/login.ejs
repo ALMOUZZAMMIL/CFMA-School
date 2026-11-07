@@ -1,0 +1,17 @@
+<%- include('partials/head') %>
+<section class="narrow card">
+  <h1><%= t('auth.loginTitle') %></h1>
+  <p class="muted"><%= t('auth.loginHelp') %></p>
+  <% if (error) { %><div class="alert alert-error" role="alert"><span class="alert-icon" aria-hidden="true">!</span> <%= error %></div><% } %>
+  <form method="post" action="/login" class="form" data-once>
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <input type="hidden" name="next" value="<%= next %>">
+    <label for="username"><%= t('fields.username') %></label>
+    <input id="username" name="username" value="<%= username %>" autocomplete="username" autocapitalize="none" required>
+    <label for="password"><%= t('fields.password') %></label>
+    <input id="password" name="password" type="password" autocomplete="current-password" required>
+    <button class="btn btn-primary btn-block"><%= t('auth.login') %></button>
+  </form>
+  <p class="small muted"><%= t('auth.forgot') %></p>
+</section>
+<%- include('partials/foot') %>

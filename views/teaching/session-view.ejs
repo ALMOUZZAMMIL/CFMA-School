@@ -1,0 +1,29 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('teaching.sessionTitle') %></h1><a class="btn" href="/sessions/<%= s.id %>/edit"><%= t('teaching.correct') %></a></div>
+<section class="card">
+  <dl class="dl">
+    <dt><%= t('common.class') %></dt><dd><%= a.class_name %> · <%= ln(a, 'subject') %></dd>
+    <dt><%= t('common.teacher') %></dt><dd><%= a.teacher_name %></dd>
+    <dt><%= t('common.date') %></dt><dd><%= fmt.longDate(s.date) %>, <%= s.start_time %>–<%= s.end_time %></dd>
+    <dt><%= t('attendance.status') %></dt><dd><%- include('../partials/badge', { kind: 'session', value: s.status }) %><% if (!s.slot_id && s.status !== 'makeup') { %> <span class="small muted">(<%= t('teaching.extraLesson') %>)</span><% } %></dd>
+    <% if (s.reason) { %><dt><%= t('fields.reason') %></dt><dd><%= s.reason %></dd><% } %>
+    <% if (s.status === 'missed' || s.status === 'cancelled') { %>
+      <dt><%= t('fields.makeup_status') %></dt><dd><%- include('../partials/badge', { kind: 'makeup', value: s.makeup_status }) %><% if (s.makeup_planned_date) { %> · <%= fmt.date(s.makeup_planned_date) %><% } %></dd>
+    <% } %>
+    <% if (original) { %><dt><%= t('teaching.makeupFor') %></dt><dd><a href="/sessions/<%= original.id %>"><%= fmt.date(original.date) %> <%= original.start_time %></a></dd><% } %>
+    <% if (s.notes) { %><dt><%= t('common.notes') %></dt><dd class="pre"><%= s.notes %></dd><% } %>
+    <dt><%= t('common.recordedBy') %></dt><dd><%= s.recorded_by_name %> · <%= fmt.dateTime(s.created_at) %></dd>
+  </dl>
+  <% if ((s.status === 'missed' || s.status === 'cancelled') && s.makeup_status !== 'completed') { %>
+    <a class="btn btn-primary" href="/sessions/new?assignment=<%= s.assignment_id %>&makeup_for=<%= s.id %>"><%= t('teaching.recordMakeup') %></a>
+  <% } %>
+  <% if (makeups.length) { %>
+    <h2><%= t('teaching.makeups') %></h2>
+    <ul class="list"><% makeups.forEach(function (m) { %><li><a href="/sessions/<%= m.id %>"><%= fmt.date(m.date) %> <%= m.start_time %>–<%= m.end_time %></a></li><% }) %></ul>
+  <% } %>
+</section>
+<section class="card">
+  <h2><%= t('common.history') %></h2>
+  <%- include('../partials/history', { history }) %>
+</section>
+<%- include('../partials/foot') %>

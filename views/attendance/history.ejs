@@ -1,0 +1,13 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('attendance.historyTitle') %> · <%= cls.name %></h1><a class="btn" href="/attendance/<%= cls.id %><%= date ? '?date=' + date : '' %>"><%= t('common.back') %></a></div>
+<% if (date) { %><p class="muted"><%= fmt.longDate(date) %> · <a href="/attendance/<%= cls.id %>/history"><%= t('common.allDates') %></a></p><% } %>
+<% if (!rows.length) { %><div class="empty"><p><%= t('common.noHistory') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('common.when') %></th><th><%= t('common.who') %></th><th><%= t('students.name') %></th><th><%= t('common.date') %></th><th><%= t('audit.change') %></th></tr></thead>
+  <tbody><% rows.forEach(function (h) { %>
+    <tr><td><%= fmt.dateTime(h.at) %></td><td><%= h.full_name %></td><td><%= h.student_name %></td><td><%= fmt.date(h.date) %></td>
+      <td><% if (h.action === 'update') { %><del><%= t('attendance.st.' + h.before.status) %></del> → <ins><%= t('attendance.st.' + h.after.status) %></ins><% if (h.after.note) { %> · <%= h.after.note %><% } %><% } else { %><%= t('audit.action.create') %>: <%= t('attendance.st.' + h.after.status) %><% } %></td></tr>
+  <% }) %></tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

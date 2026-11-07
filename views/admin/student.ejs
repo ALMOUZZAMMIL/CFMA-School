@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= st.full_name %></h1><div><a class="btn" href="/students/<%= st.id %>"><%= t('admin.viewRecord') %></a> <a class="btn" href="/admin/students"><%= t('common.back') %></a></div></div>
+<p class="muted"><%= t('students.number') %>: <%= st.student_number %> · <%= t('admin.login') %>: <%= st.username || '—' %><% if (st.is_demo) { %> · <span class="tag"><%= t('common.demoData') %></span><% } %></p>
+<section class="card">
+  <form method="post" action="/admin/students/<%= st.id %>" class="row-form"><input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label><%= t('fields.full_name') %><input name="full_name" value="<%= st.full_name %>" required maxlength="120"></label><button class="btn btn-small"><%= t('common.save') %></button></form>
+</section>
+<section class="card">
+  <h2><%= t('admin.classHistory') %></h2>
+  <ul class="list"><% enrollments.forEach(function (e) { %><li><%= e.year_name %> · <%= e.name %></li><% }) %></ul>
+  <form method="post" action="/admin/students/<%= st.id %>/class" class="row-form" data-confirm="<%= t('admin.confirmMove') %>"><input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label><%= t('admin.moveTo') %><select name="class_id"><% classes.forEach(function (c) { %><option value="<%= c.id %>"><%= c.name %></option><% }) %></select></label><button class="btn btn-small"><%= t('admin.move') %></button></form>
+</section>
+<section class="card">
+  <h2><%= t('students.guardians') %></h2>
+  <p class="help"><%= t('admin.guardianHelp') %></p>
+  <% if (!guardians.length) { %><p class="muted"><%= t('admin.noGuardians') %></p><% } else { %>
+  <ul class="list"><% guardians.forEach(function (g) { %><li><a href="/admin/users/<%= g.parent_user_id %>"><%= g.full_name %></a> (<%= g.username %>)<%= g.relationship ? ' · ' + g.relationship : '' %><%= g.phone ? ' · ' + g.phone : '' %>
+    <form method="post" action="/admin/guardians/<%= g.id %>/delete" class="inline" data-confirm="<%= t('admin.confirmUnlink') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('admin.unlink') %></button></form></li><% }) %></ul>
+  <% } %>
+  <div class="grid-2">
+    <form method="post" action="/admin/students/<%= st.id %>/guardians" class="form subcard">
+      <h3><%= t('admin.linkExisting') %></h3>
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label for="parent_id"><%= t('roles.parent') %></label>
+      <select id="parent_id" name="parent_id" required><option value=""><%= t('common.choose') %></option><% parents.forEach(function (p) { %><option value="<%= p.id %>"><%= p.full_name %> (<%= p.username %>)</option><% }) %></select>
+      <label for="rel1"><%= t('fields.relationship') %></label><input id="rel1" name="relationship" maxlength="40">
+      <button class="btn"><%= t('admin.link') %></button>
+    </form>
+    <form method="post" action="/admin/students/<%= st.id %>/guardians" class="form subcard">
+      <h3><%= t('admin.newParent') %></h3>
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label for="pfull"><%= t('fields.full_name') %></label><input id="pfull" name="full_name" required maxlength="120">
+      <label for="puser"><%= t('fields.username') %></label><input id="puser" name="username" required pattern="[A-Za-z0-9._\-]{3,40}" autocapitalize="none">
+      <label for="pphone"><%= t('fields.phone') %></label><input id="pphone" name="phone" type="tel" placeholder="+237 6XX XX XX XX">
+      <label for="plang"><%= t('fields.language') %></label><select id="plang" name="language"><option value="fr">Français</option><option value="en">English</option></select>
+      <label for="rel2"><%= t('fields.relationship') %></label><input id="rel2" name="relationship" maxlength="40">
+      <button class="btn btn-primary"><%= t('admin.createAndLink') %></button>
+    </form>
+  </div>
+</section>
+<%- include('../partials/foot') %>

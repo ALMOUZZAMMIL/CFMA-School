@@ -1,0 +1,109 @@
+<%- include('../partials/head') %>
+<h1><%= t('admin.structure') %></h1>
+<p class="help"><%= t('admin.structureIntro') %></p>
+
+<section class="card" id="years">
+  <h2><%= t('admin.years') %></h2>
+  <% if (!years.length) { %><p class="muted"><%= t('admin.noYears') %></p><% } else { %>
+  <ul class="list"><% years.forEach(function (y) { %>
+    <li><a href="/admin/structure?year=<%= y.id %>" class="<%= y.id === yearId ? 'strong' : '' %>"><%= y.name %></a> · <%= fmt.date(y.start_date) %> – <%= fmt.date(y.end_date) %>
+      <% if (y.is_current) { %><span class="badge badge-held"><span aria-hidden="true">●</span> <%= t('admin.current') %></span><% } else { %>
+      <form method="post" action="/admin/years/<%= y.id %>/current" class="inline" data-confirm="<%= t('admin.confirmCurrent', { name: y.name }) %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn"><%= t('admin.makeCurrent') %></button></form><% } %></li>
+  <% }) %></ul>
+  <% } %>
+  <form method="post" action="/admin/years" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label><%= t('fields.name') %><input name="name" placeholder="2026-2027" required maxlength="40"></label>
+    <label><%= t('common.from') %><input type="date" name="start_date" required></label>
+    <label><%= t('common.to') %><input type="date" name="end_date" required></label>
+    <button class="btn btn-small"><%= t('admin.addYear') %></button>
+  </form>
+</section>
+
+<% if (yearId) { %>
+<section class="card" id="terms">
+  <h2><%= t('admin.terms') %></h2>
+  <p class="help"><%= t('admin.termsHelp') %></p>
+  <% terms.forEach(function (tm) { %>
+  <form method="post" action="/admin/terms/<%= tm.id %>" class="row-form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <input name="name" value="<%= tm.name %>" required maxlength="40" aria-label="<%= t('fields.name') %>">
+    <input type="date" name="start_date" value="<%= tm.start_date %>" required aria-label="<%= t('common.from') %>">
+    <input type="date" name="end_date" value="<%= tm.end_date %>" required aria-label="<%= t('common.to') %>">
+    <button class="btn btn-small"><%= t('common.save') %></button>
+  </form>
+  <% }) %>
+  <form method="post" action="/admin/terms" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="year_id" value="<%= yearId %>">
+    <label><%= t('fields.name') %><input name="name" placeholder="<%= t('admin.termPlaceholder') %>" required maxlength="40"></label>
+    <label><%= t('common.from') %><input type="date" name="start_date" required></label>
+    <label><%= t('common.to') %><input type="date" name="end_date" required></label>
+    <button class="btn btn-small"><%= t('admin.addTerm') %></button>
+  </form>
+</section>
+
+<section class="card" id="closures">
+  <h2><%= t('admin.closures') %></h2>
+  <p class="help"><%= t('admin.closuresHelp') %></p>
+  <% if (closures.length) { %><ul class="list"><% closures.forEach(function (c) { %><li><%= fmt.date(c.start_date) %><%= c.end_date !== c.start_date ? ' – ' + fmt.date(c.end_date) : '' %> · <%= c.reason %>
+    <form method="post" action="/admin/closures/<%= c.id %>/delete" class="inline" data-confirm="<%= t('common.confirmDelete') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('common.delete') %></button></form></li><% }) %></ul><% } %>
+  <form method="post" action="/admin/closures" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="year_id" value="<%= yearId %>">
+    <label><%= t('common.from') %><input type="date" name="start_date" required></label>
+    <label><%= t('common.to') %><input type="date" name="end_date"></label>
+    <label><%= t('fields.reason') %><input name="reason" required maxlength="200"></label>
+    <button class="btn btn-small"><%= t('admin.addClosure') %></button>
+  </form>
+</section>
+<% } %>
+
+<section class="card" id="sections">
+  <h2><%= t('admin.sections') %></h2>
+  <ul class="list"><% sections.forEach(function (s) { %><li><strong><%= s.code %></strong> · <span lang="fr"><%= s.name_fr %></span> / <span lang="en"><%= s.name_en %></span></li><% }) %></ul>
+  <form method="post" action="/admin/sections" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label><%= t('fields.code') %><input name="code" required maxlength="20" class="w-code"></label>
+    <label><%= t('fields.name_fr') %><input name="name_fr" required maxlength="80"></label>
+    <label><%= t('fields.name_en') %><input name="name_en" required maxlength="80"></label>
+    <button class="btn btn-small"><%= t('admin.addSection') %></button>
+  </form>
+</section>
+
+<section class="card" id="subjects">
+  <h2><%= t('admin.subjects') %></h2>
+  <% subjects.forEach(function (s) { %>
+  <form method="post" action="/admin/subjects/<%= s.id %>" class="row-form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <span class="w-code"><strong><%= s.code %></strong></span>
+    <input name="name_fr" value="<%= s.name_fr %>" required aria-label="<%= t('fields.name_fr') %>" lang="fr">
+    <input name="name_en" value="<%= s.name_en %>" required aria-label="<%= t('fields.name_en') %>" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" <%= s.active ? 'checked' : '' %>> <%= t('common.active') %></label>
+    <button class="btn btn-small"><%= t('common.save') %></button>
+  </form>
+  <% }) %>
+  <form method="post" action="/admin/subjects" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label><%= t('fields.code') %><input name="code" required maxlength="20" class="w-code"></label>
+    <label><%= t('fields.name_fr') %><input name="name_fr" required maxlength="80"></label>
+    <label><%= t('fields.name_en') %><input name="name_en" required maxlength="80"></label>
+    <button class="btn btn-small"><%= t('admin.addSubject') %></button>
+  </form>
+</section>
+
+<% if (yearId) { %>
+<section class="card" id="classes">
+  <h2><%= t('admin.classes') %></h2>
+  <% if (!classes.length) { %><p class="muted"><%= t('admin.noClasses') %></p><% } else { %>
+  <div class="table-wrap"><table><thead><tr><th><%= t('fields.name') %></th><th><%= t('fields.section_id') %></th><th><%= t('fields.level') %></th><th><%= t('dashboard.students') %></th></tr></thead>
+    <tbody><% classes.forEach(function (c) { %><tr><td><a href="/admin/students?class=<%= c.id %>"><%= c.name %></a></td><td><%= ln(c, 'section') %></td><td><%= c.level %></td><td><%= c.students %></td></tr><% }) %></tbody></table></div>
+  <% } %>
+  <form method="post" action="/admin/classes" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="year_id" value="<%= yearId %>">
+    <label><%= t('fields.section_id') %><select name="section_id" required><% sections.forEach(function (s) { %><option value="<%= s.id %>"><%= ln(s) %></option><% }) %></select></label>
+    <label><%= t('fields.level') %><input name="level" required maxlength="60" placeholder="<%= t('admin.levelPlaceholder') %>"></label>
+    <label><%= t('fields.name') %><input name="name" required maxlength="60" placeholder="<%= t('admin.classPlaceholder') %>"></label>
+    <button class="btn btn-small"><%= t('admin.addClass') %></button>
+  </form>
+</section>
+<% } %>
+<%- include('../partials/foot') %>

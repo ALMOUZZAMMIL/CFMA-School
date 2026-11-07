@@ -1,0 +1,17 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('absences.title') %></h1><button class="btn no-print" data-print><%= t('common.print') %></button></div>
+<form method="get" class="filters no-print">
+  <label><%= t('absences.threshold') %><input type="number" name="threshold" min="1" max="99" value="<%= threshold %>" class="w-num"></label>
+  <label><%= t('absences.days') %><input type="number" name="days" min="1" max="365" value="<%= days %>" class="w-num"></label>
+  <label><%= t('progress.asOf') %><input type="date" name="date" value="<%= asOf %>"></label>
+  <label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<p class="muted"><%= t('absences.explain', { n: threshold, days: days }) %></p>
+<% if (!rows.length) { %><div class="empty"><p><%= t('absences.none') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('students.name') %></th><th><%= t('students.number') %></th><th><%= t('common.class') %></th><th class="num"><%= t('attendance.st.absent') %></th><th class="num"><%= t('attendance.st.late') %></th><th class="num"><%= t('attendance.st.excused') %></th><th><%= t('absences.last') %></th></tr></thead>
+  <tbody><% rows.forEach(function (r) { %><tr><td><a href="/students/<%= r.id %>"><%= r.full_name %></a></td><td><%= r.student_number %></td><td><%= r.class_name %></td><td class="num"><%= r.absent %></td><td class="num"><%= r.late %></td><td class="num"><%= r.excused %></td><td><%= fmt.date(r.last_date) %></td></tr><% }) %></tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>
