@@ -69,6 +69,17 @@ npm test             # permission, CSRF, duplicate-protection, history and visib
 npm run check-i18n   # English and French files have the same keys and placeholders
 ```
 
+## Public pages, sign-in and account requests
+
+- **Welcome page (`/`)** for visitors, with the school's logo, name, motto and contact details from *Administration > Settings*. Empty contact fields show as "to be provided" instead of invented details.
+- **Sign in (`/login`)** with username *or* email, a show/hide password button and the same error message whether the account exists or not.
+- **Request an account (`/register`).** Public registration never creates an account. A parent, teacher or student fills in a short form, which goes to *Administration > Access requests*. The administrator checks the person's identity, then creates the account with a temporary password and, for a parent, links the child they have checked. Administrator and bursar accounts can never be requested. The form has a per-connection limit and a hidden anti-bot field. It can be switched off in Settings.
+- **Forgot password (`/forgot-password`)** also creates a request for the administration, which resets the password after checking identity. The answer is the same whether or not the account exists, and no email or SMS is sent.
+
+### Logo and colours
+
+Put the school logo in `public/brand/` as `logo.svg`, `logo.png`, `logo.webp` or `logo.jpg`. It is shown as supplied (fixed height, never stretched or recoloured). Without a file, the school's initials are shown. The three brand colours are set in *Administration > Settings*; the main colour must be dark enough for white text.
+
 ## User roles
 
 | Role | Can do |
@@ -104,6 +115,7 @@ The automated tests in `test/app.test.js` cover these cases.
 | `notifications` | In-app notices, such as absence alerts to parents. |
 | `message_outbox` | SMS texts prepared for a future provider. Status stays `not_sent` until a real integration confirms sending. |
 | `audit_log` | History of every creation and correction, with the before and after values, the person and the time. |
+| `access_requests` | Account and password requests from the public pages, with their status and who handled them. |
 | `sessions`, `settings` | Login sessions and school settings. |
 
 ## What the school needs to configure

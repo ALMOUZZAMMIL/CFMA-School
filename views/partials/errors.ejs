@@ -3,7 +3,7 @@
   <span class="alert-icon" aria-hidden="true">!</span> <strong><%= t('validation.fixBelow') %></strong>
   <ul>
   <% errors.forEach(function (e) { %>
-    <li><% if (typeof e === 'string') { %><%= e %><% } else { %><%= t('fields.' + e.field) %>: <%= t(e.key) %><% } %></li>
+    <li><% if (typeof e === 'string') { %><%= e %><% } else if (e.field === 'form') { %><%= t(e.key) %><% } else { %><%= t('fields.' + e.field) %>: <%= t(e.key) %><% } %></li>
   <% }) %>
   </ul>
 </div>

@@ -6,6 +6,10 @@
     <p><%= t('fields.username') %>: <code><%= created.username %></code><br><%= t('admin.tempPassword') %>: <code><%= created.password %></code></p>
   </div>
   <p class="help"><%= t('admin.tempPasswordHelp') %></p>
-  <p><button class="btn" data-print><%= t('common.print') %></button> <a class="btn btn-primary" href="/admin/students/<%= created.id %>"><%= t('common.continue') %></a></p>
+  <% if (created.parent && !created.id) { %><p class="help"><%= t('requests.linkChildrenNext') %></p><% } %>
+  <p><button class="btn" data-print><%= t('common.print') %></button>
+    <% if (created.id) { %><a class="btn btn-primary" href="/admin/students/<%= created.id %>"><%= t('common.continue') %></a>
+    <% } else if (created.userId) { %><a class="btn btn-primary" href="/admin/users/<%= created.userId %>"><%= t('common.continue') %></a><% } %>
+    <a class="btn" href="/admin/requests"><%= t('requests.backToList') %></a></p>
 </section>
 <%- include('../partials/foot') %>

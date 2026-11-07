@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><%= title ? title + ' · ' : '' %><%= settings.school_name %></title>
 <link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/brand.css">
 <script src="/static/app.js" defer></script>
 </head>
 <body>
@@ -14,7 +15,7 @@
 <% } %>
 <header class="topbar">
   <div class="topbar-inner">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">▣</span> <%= settings.school_name %></a>
+    <a class="brand" href="/"><%- include("mark", { size: "sm" }) %> <span><%= settings.school_name %></span></a>
     <form method="post" action="/lang" class="lang-switch">
       <input type="hidden" name="_csrf" value="<%= csrf %>">
       <input type="hidden" name="back" value="<%= originalUrl %>">

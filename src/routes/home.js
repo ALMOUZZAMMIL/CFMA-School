@@ -60,6 +60,7 @@ r.get('/', (req, res) => {
       absentToday: d.prepare("SELECT COUNT(*) n FROM attendance_records WHERE date = ? AND status = 'absent'").get(today).n,
       pendingMakeups: d.prepare("SELECT COUNT(*) n FROM class_sessions WHERE status IN ('missed','cancelled') AND makeup_status = 'planned'").get().n,
     };
+    data.pendingRequests = d.prepare("SELECT COUNT(*) n FROM access_requests WHERE status = 'pending'").get().n;
     const s = db.getSettings();
     data.repeated = reports.repeatedAbsences({ yearId: year.id, threshold: Number(s.repeat_absence_threshold), days: Number(s.repeat_absence_window_days), asOf: today }).slice(0, 5);
   }

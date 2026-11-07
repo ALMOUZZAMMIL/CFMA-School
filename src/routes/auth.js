@@ -17,7 +17,7 @@ r.get('/login', (req, res) => {
 });
 
 r.post('/login', (req, res) => {
-  const username = str(req.body.username, 80);
+  const username = str(req.body.username, 200);
   const password = String(req.body.password || '').slice(0, 200);
   const key = `${req.ip}|${username.toLowerCase()}`;
   const next = safeNext(req.body.next);
@@ -25,7 +25,8 @@ r.post('/login', (req, res) => {
     title: res.locals.t('auth.loginTitle'), next, error: res.locals.t(msgKey), username,
   });
   if (auth.loginLimited(key)) return fail('auth.tooManyAttempts', 429);
-  const user = db.get().prepare('SELECT * FROM users WHERE username = ?').get(username);
+  // Sign in with the username or, if one is on the account, the email address.
+  const user = db.get().prepare('SELECT * FROM users WHERE username = ? OR (email IS NOT NULL AND email = ? COLLATE NOCASE) LIMIT 1').get(username, username);
   const ok = auth.verifyPassword(password, user ? user.password_hash : auth.DUMMY_HASH);
   if (!user || !ok || !user.active) {
     auth.recordLoginFailure(key);

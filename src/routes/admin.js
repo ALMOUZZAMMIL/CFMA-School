@@ -5,6 +5,7 @@ const express = require('express');
 const crypto = require('crypto');
 const db = require('../db');
 const auth = require('../auth');
+const brand = require('../brand');
 const { Validator, int, str, isDate, isTime, minutesBetween } = require('../util');
 
 const r = express.Router();
@@ -162,22 +163,28 @@ r.get('/admin/users', (req, res) => {
   res.render('admin/users', { title: req.t('admin.users'), rows, role, q, roles: ROLES, created: null, errors: [], values: {} });
 });
 
-function createUser({ username, full_name, role, language, phone }, adminId) {
+function createUser({ username, full_name, role, language, phone, email }, adminId) {
   const pw = tempPassword();
-  const info = db.get().prepare(`INSERT INTO users (username, password_hash, full_name, role, language, phone, must_change_password)
-    VALUES (?, ?, ?, ?, ?, ?, 1)`).run(username, auth.hashPassword(pw), full_name, role, language, phone || null);
+  const info = db.get().prepare(`INSERT INTO users (username, password_hash, full_name, role, language, phone, email, must_change_password)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 1)`).run(username, auth.hashPassword(pw), full_name, role, language, phone || null, email || null);
   const id = Number(info.lastInsertRowid);
   db.audit({ entity: 'user', entityId: id, action: 'create', userId: adminId, after: { username, full_name, role } });
   return { id, password: pw };
 }
 
 function validUsername(u) { return /^[a-zA-Z0-9._-]{3,40}$/.test(u); }
+const EMAIL = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
+function emailTaken(email, exceptId) {
+  return !!(email && db.get().prepare('SELECT 1 FROM users WHERE email = ? COLLATE NOCASE AND id != ?').get(email, exceptId || 0));
+}
 
 r.post('/admin/users', (req, res) => {
-  const values = { username: str(req.body.username, 40).toLowerCase(), full_name: str(req.body.full_name, 120), role: str(req.body.role, 10), language: req.body.language === 'en' ? 'en' : 'fr', phone: str(req.body.phone, 30) };
+  const values = { username: str(req.body.username, 40).toLowerCase(), full_name: str(req.body.full_name, 120), role: str(req.body.role, 10), language: req.body.language === 'en' ? 'en' : 'fr', phone: str(req.body.phone, 30), email: str(req.body.email, 200).toLowerCase() };
   const v = new Validator().required(values.username, 'username').required(values.full_name, 'full_name').oneOf(values.role, ROLES, 'role').required(values.role, 'role');
   if (values.username) v.check(validUsername(values.username), 'username', 'admin.usernameFormat');
   if (values.phone) v.check(/^[+\d][\d\s-]{5,20}$/.test(values.phone), 'phone', 'validation.phone');
+  if (values.email) v.check(EMAIL.test(values.email), 'email', 'validation.email');
+  if (emailTaken(values.email)) v.errors.push({ field: 'email', key: 'admin.emailTaken' });
   if (v.ok && db.get().prepare('SELECT 1 FROM users WHERE username = ?').get(values.username)) v.errors.push({ field: 'username', key: 'admin.usernameTaken' });
   if (values.role === 'student') v.errors.push({ field: 'role', key: 'admin.createStudentsFromStudentsPage' });
   const rows = db.get().prepare('SELECT id, username, full_name, role, language, phone, active, must_change_password, last_login_at FROM users ORDER BY role, full_name LIMIT 500').all();
@@ -188,7 +195,7 @@ r.post('/admin/users', (req, res) => {
 });
 
 r.get('/admin/users/:id', (req, res) => {
-  const u = db.get().prepare('SELECT id, username, full_name, role, language, phone, active, must_change_password, last_login_at, created_at FROM users WHERE id = ?').get(int(req.params.id));
+  const u = db.get().prepare('SELECT id, username, full_name, role, language, phone, email, active, must_change_password, last_login_at, created_at FROM users WHERE id = ?').get(int(req.params.id));
   if (!u) return auth.notFound(req, res);
   const children = u.role === 'parent' ? db.get().prepare('SELECT st.*, g.relationship, g.id AS link_id FROM guardians g JOIN students st ON st.id = g.student_id WHERE g.parent_user_id = ?').all(u.id) : [];
   res.render('admin/user', { title: u.full_name, u, children, reset: null });
@@ -197,19 +204,20 @@ r.get('/admin/users/:id', (req, res) => {
 r.post('/admin/users/:id', (req, res) => {
   const u = db.get().prepare('SELECT * FROM users WHERE id = ?').get(int(req.params.id));
   if (!u) return auth.notFound(req, res);
-  const v = { full_name: str(req.body.full_name, 120), phone: str(req.body.phone, 30) || null, language: req.body.language === 'en' ? 'en' : 'fr', active: req.body.active === '1' ? 1 : 0 };
-  if (!v.full_name || (v.phone && !/^[+\d][\d\s-]{5,20}$/.test(v.phone))) return back(res, `/admin/users/${u.id}`, 'error', 'validation.checkFields');
+  const v = { full_name: str(req.body.full_name, 120), phone: str(req.body.phone, 30) || null, email: str(req.body.email, 200).toLowerCase() || null, language: req.body.language === 'en' ? 'en' : 'fr', active: req.body.active === '1' ? 1 : 0 };
+  if (!v.full_name || (v.phone && !/^[+\d][\d\s-]{5,20}$/.test(v.phone)) || (v.email && !EMAIL.test(v.email))) return back(res, `/admin/users/${u.id}`, 'error', 'validation.checkFields');
+  if (emailTaken(v.email, u.id)) return back(res, `/admin/users/${u.id}`, 'error', 'admin.emailTaken');
   if (u.id === req.user.id && !v.active) return back(res, `/admin/users/${u.id}`, 'error', 'admin.cannotDeactivateSelf');
   db.get().transaction(() => {
-    db.get().prepare('UPDATE users SET full_name = @full_name, phone = @phone, language = @language, active = @active WHERE id = @id').run({ ...v, id: u.id });
+    db.get().prepare('UPDATE users SET full_name = @full_name, phone = @phone, email = @email, language = @language, active = @active WHERE id = @id').run({ ...v, id: u.id });
     if (!v.active) db.get().prepare('DELETE FROM sessions WHERE user_id = ?').run(u.id);
-    db.audit({ entity: 'user', entityId: u.id, action: 'update', userId: req.user.id, before: { full_name: u.full_name, phone: u.phone, active: u.active }, after: v });
+    db.audit({ entity: 'user', entityId: u.id, action: 'update', userId: req.user.id, before: { full_name: u.full_name, phone: u.phone, email: u.email, active: u.active }, after: v });
   })();
   back(res, `/admin/users/${u.id}`, 'ok', 'common.saved');
 });
 
 r.post('/admin/users/:id/reset-password', (req, res) => {
-  const u = db.get().prepare('SELECT id, username, full_name, role, language, phone, active, must_change_password, last_login_at, created_at FROM users WHERE id = ?').get(int(req.params.id));
+  const u = db.get().prepare('SELECT id, username, full_name, role, language, phone, email, active, must_change_password, last_login_at, created_at FROM users WHERE id = ?').get(int(req.params.id));
   if (!u) return auth.notFound(req, res);
   const pw = tempPassword();
   db.get().prepare('UPDATE users SET password_hash = ?, must_change_password = 1 WHERE id = ?').run(auth.hashPassword(pw), u.id);
@@ -392,10 +400,126 @@ r.post('/admin/slots/:id/delete', (req, res) => {
   back(res, url, 'ok', 'common.deleted');
 });
 
+/* ---------- Access requests (public "Request an account" and "Forgot password") ---------- */
+
+function suggestUsername(name) {
+  const base = String(name || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, '.').replace(/^\.+|\.+$/g, '').slice(0, 30) || 'user';
+  let u = base;
+  for (let i = 2; db.get().prepare('SELECT 1 FROM users WHERE username = ?').get(u); i++) u = `${base}${i}`;
+  return u.length >= 3 ? u : `${u}.user`;
+}
+
+r.get('/admin/requests', (req, res) => {
+  const status = ['pending', 'approved', 'rejected', 'done'].includes(req.query.status) ? req.query.status : 'pending';
+  const rows = db.get().prepare(`SELECT ar.*, u.full_name AS handled_by_name FROM access_requests ar LEFT JOIN users u ON u.id = ar.handled_by
+    WHERE ar.status = ? ORDER BY ar.created_at ${status === 'pending' ? 'ASC' : 'DESC'} LIMIT 300`).all(status);
+  const counts = Object.fromEntries(db.get().prepare('SELECT status, COUNT(*) n FROM access_requests GROUP BY status').all().map((x) => [x.status, x.n]));
+  res.render('admin/requests', { title: req.t('requests.title'), rows, status, counts });
+});
+
+function loadRequest(req) {
+  return db.get().prepare('SELECT ar.*, u.full_name AS handled_by_name FROM access_requests ar LEFT JOIN users u ON u.id = ar.handled_by WHERE ar.id = ?').get(int(req.params.id));
+}
+
+function requestPage(req, res, ar, { errors = [], values = {}, status = 200 } = {}) {
+  const d = db.get();
+  const year = res.locals.year;
+  let matches = [];
+  if (ar.kind === 'password_reset') {
+    const digits = String(ar.identifier || '').replace(/\D/g, '');
+    const phoneDigits = String(ar.phone || '').replace(/\D/g, '');
+    matches = d.prepare(`SELECT id, username, full_name, role, phone, email, active FROM users WHERE username = @id COLLATE NOCASE OR email = @id COLLATE NOCASE
+      OR (@digits != '' AND length(@digits) >= 6 AND replace(replace(replace(replace(phone, ' ', ''), '+', ''), '-', ''), '.', '') LIKE '%' || @digits)
+      OR (@pd != '' AND length(@pd) >= 6 AND replace(replace(replace(replace(phone, ' ', ''), '+', ''), '-', ''), '.', '') LIKE '%' || @pd)
+      LIMIT 10`).all({ id: ar.identifier || '', digits, pd: phoneDigits });
+  }
+  const students = year ? d.prepare(`SELECT st.id, st.full_name, st.student_number, st.user_id, c.name AS class_name FROM students st
+    JOIN enrollments e ON e.student_id = st.id JOIN classes c ON c.id = e.class_id WHERE c.year_id = ? ORDER BY c.name, st.full_name`).all(year.id) : [];
+  res.status(status).render('admin/request', {
+    title: req.t('requests.title'), ar, matches, students, errors,
+    values: { role: ar.role_requested, username: ar.kind === 'account' ? suggestUsername(ar.full_name) : '', full_name: ar.full_name, phone: ar.phone, email: ar.email, language: ar.language, ...values },
+  });
+}
+
+r.get('/admin/requests/:id', (req, res) => {
+  const ar = loadRequest(req);
+  if (!ar) return auth.notFound(req, res);
+  requestPage(req, res, ar);
+});
+
+// Approving creates the account with a temporary password. Children are linked only by the
+// administrator, after checking the person's identity: never from what the requester typed.
+r.post('/admin/requests/:id/approve', (req, res) => {
+  const ar = loadRequest(req);
+  if (!ar || ar.kind !== 'account' || ar.status !== 'pending') return auth.notFound(req, res);
+  const values = {
+    role: str(req.body.role, 10), username: str(req.body.username, 40).toLowerCase(), full_name: str(req.body.full_name, 120),
+    phone: str(req.body.phone, 30), email: str(req.body.email, 200).toLowerCase(), language: req.body.language === 'en' ? 'en' : 'fr',
+    student_id: int(req.body.student_id), relationship: str(req.body.relationship, 40),
+  };
+  const v = new Validator().required(values.full_name, 'full_name').required(values.username, 'username')
+    .required(values.role, 'role').oneOf(values.role, ['teacher', 'parent', 'student'], 'role');
+  if (values.username) v.check(validUsername(values.username), 'username', 'admin.usernameFormat');
+  if (values.username && db.get().prepare('SELECT 1 FROM users WHERE username = ?').get(values.username)) v.errors.push({ field: 'username', key: 'admin.usernameTaken' });
+  if (values.phone) v.check(/^[+\d][\d\s.-]{5,20}$/.test(values.phone), 'phone', 'validation.phone');
+  if (values.email) v.check(EMAIL.test(values.email), 'email', 'validation.email');
+  if (emailTaken(values.email)) v.errors.push({ field: 'email', key: 'admin.emailTaken' });
+  let student = null;
+  if (values.student_id) student = db.get().prepare('SELECT * FROM students WHERE id = ?').get(values.student_id);
+  if (values.role === 'student') {
+    v.check(!!student, 'student_id', 'requests.pickStudent');
+    if (student) v.check(!student.user_id, 'student_id', 'requests.studentHasLogin');
+  }
+  if (values.student_id && !student) v.errors.push({ field: 'student_id', key: 'validation.choice' });
+  if (!v.ok) return requestPage(req, res, ar, { errors: v.errors, values, status: 400 });
+  let created;
+  db.get().transaction(() => {
+    created = createUser(values, req.user.id);
+    if (values.role === 'student') db.get().prepare('UPDATE students SET user_id = ? WHERE id = ?').run(created.id, student.id);
+    if (values.role === 'parent' && student) {
+      db.get().prepare('INSERT OR IGNORE INTO guardians (parent_user_id, student_id, relationship) VALUES (?, ?, ?)').run(created.id, student.id, values.relationship || null);
+      db.audit({ entity: 'guardian', entityId: student.id, action: 'link', userId: req.user.id, after: { parent_user_id: created.id, relationship: values.relationship } });
+    }
+    db.get().prepare("UPDATE access_requests SET status = 'approved', handled_by = ?, handled_at = datetime('now'), created_user_id = ? WHERE id = ?").run(req.user.id, created.id, ar.id);
+    db.audit({ entity: 'access_request', entityId: ar.id, action: 'approve', userId: req.user.id, after: { user_id: created.id, role: values.role } });
+  })();
+  res.render('admin/student-created', {
+    title: req.t('requests.title'),
+    created: { id: values.role === 'parent' && !student ? null : (student && student.id), userId: created.id, username: values.username, password: created.password, full_name: values.full_name, parent: values.role === 'parent' },
+  });
+});
+
+r.post('/admin/requests/:id/reject', (req, res) => {
+  const ar = loadRequest(req);
+  if (!ar || ar.status !== 'pending') return auth.notFound(req, res);
+  const note = str(req.body.admin_note, 500);
+  db.get().prepare("UPDATE access_requests SET status = 'rejected', admin_note = ?, handled_by = ?, handled_at = datetime('now') WHERE id = ?").run(note || null, req.user.id, ar.id);
+  db.audit({ entity: 'access_request', entityId: ar.id, action: 'reject', userId: req.user.id, reason: note });
+  back(res, '/admin/requests', 'ok', 'requests.rejected');
+});
+
+r.post('/admin/requests/:id/done', (req, res) => {
+  const ar = loadRequest(req);
+  if (!ar || ar.status !== 'pending') return auth.notFound(req, res);
+  const note = str(req.body.admin_note, 500);
+  db.get().prepare("UPDATE access_requests SET status = 'done', admin_note = ?, handled_by = ?, handled_at = datetime('now') WHERE id = ?").run(note || null, req.user.id, ar.id);
+  db.audit({ entity: 'access_request', entityId: ar.id, action: 'done', userId: req.user.id, reason: note });
+  back(res, '/admin/requests', 'ok', 'requests.markedDone');
+});
+
 /* ---------- Settings ---------- */
 
 const SETTING_RULES = {
   school_name: (v) => v.length >= 2 && v.length <= 120,
+  school_motto: (v) => v.length <= 120,
+  school_address: (v) => v.length <= 200,
+  school_phone: (v) => v === '' || /^[+\d][\d\s.-]{5,20}$/.test(v),
+  school_email: (v) => v === '' || EMAIL.test(v),
+  brand_primary: (v) => brand.HEX.test(v) && brand.contrast(v, '#ffffff') >= 4.5,
+  brand_accent: (v) => brand.HEX.test(v),
+  brand_secondary: (v) => brand.HEX.test(v),
+  allow_account_requests: (v) => ['0', '1'].includes(v),
   timezone: (v) => { try { new Intl.DateTimeFormat('en', { timeZone: v }); return true; } catch { return false; } },
   currency: (v) => /^[A-Z]{3}$/.test(v),
   default_language: (v) => ['en', 'fr'].includes(v),
@@ -408,7 +532,7 @@ const SETTING_RULES = {
   repeat_absence_threshold: (v) => /^\d{1,2}$/.test(v) && Number(v) >= 1,
   repeat_absence_window_days: (v) => /^\d{1,3}$/.test(v) && Number(v) >= 1,
 };
-const CHECKBOXES = ['prepare_sms_for_absences', 'show_attendance_to_parents', 'show_attendance_to_students', 'show_progress_to_students'];
+const CHECKBOXES = ['allow_account_requests', 'prepare_sms_for_absences', 'show_attendance_to_parents', 'show_attendance_to_students', 'show_progress_to_students'];
 
 r.get('/admin/settings', (req, res) => res.render('admin/settings', { title: req.t('admin.settings'), errors: [] }));
 
@@ -420,9 +544,10 @@ r.post('/admin/settings', (req, res) => {
     let v;
     if (CHECKBOXES.includes(key)) v = req.body[key] === '1' ? '1' : '0';
     else if (key === 'absence_alert_statuses') v = [].concat(req.body[key] || ['absent']).join(',');
-    else v = str(req.body[key], 120);
+    else v = str(req.body[key], 200);
     if (key === 'currency') v = v.toUpperCase();
-    if (!SETTING_RULES[key](v)) errors.push({ field: key, key: 'validation.checkFields' });
+    if (key.startsWith('brand_')) v = v.toLowerCase();
+    if (!SETTING_RULES[key](v)) errors.push({ field: key, key: key === 'brand_primary' ? 'settings.primaryContrast' : 'validation.checkFields' });
     next[key] = v;
   }
   if (errors.length) {

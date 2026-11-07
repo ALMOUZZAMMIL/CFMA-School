@@ -82,8 +82,21 @@
     "parents": "Parents"
   },
   "days": {
-    "1": "Monday", "2": "Tuesday", "3": "Wednesday", "4": "Thursday", "5": "Friday", "6": "Saturday", "7": "Sunday",
-    "short": { "1": "Mon", "2": "Tue", "3": "Wed", "4": "Thu", "5": "Fri", "6": "Sat" }
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday",
+    "7": "Sunday",
+    "short": {
+      "1": "Mon",
+      "2": "Tue",
+      "3": "Wed",
+      "4": "Thu",
+      "5": "Fri",
+      "6": "Sat"
+    }
   },
   "auth": {
     "loginTitle": "Sign in",
@@ -103,7 +116,11 @@
     "tooShort": "The new password must have at least 8 characters.",
     "mismatch": "The two new passwords are not the same.",
     "sameAsOld": "The new password must be different from the current one.",
-    "passwordChanged": "Your password has been changed."
+    "passwordChanged": "Your password has been changed.",
+    "usernameOrEmail": "Username or email",
+    "showPassword": "Show",
+    "hidePassword": "Hide",
+    "signingIn": "Signing in…"
   },
   "errors": {
     "forbiddenTitle": "Access not allowed",
@@ -125,7 +142,9 @@
     "endAfterStart": "the end time must be after the start time",
     "notFuture": "the date cannot be in the future",
     "phone": "enter a valid phone number",
-    "checkFields": "Some information is missing or not valid. Please check the form and try again."
+    "checkFields": "Some information is missing or not valid. Please check the form and try again.",
+    "email": "enter a valid email address.",
+    "tooShort": "too short."
   },
   "fields": {
     "username": "Username",
@@ -165,7 +184,32 @@
     "name_fr": "Name (French)",
     "code": "Code",
     "student_number": "Student number (matricule)",
-    "relationship": "Relationship (e.g. mother, uncle)"
+    "relationship": "Relationship (e.g. mother, uncle)",
+    "email": "Email address",
+    "details": "Details",
+    "identifier": "Username or email",
+    "confirm": "Confirmation",
+    "student_id": "Student",
+    "school_name": "School name",
+    "school_motto": "Motto",
+    "school_address": "Address",
+    "school_phone": "School phone",
+    "school_email": "School email",
+    "brand_primary": "Main colour",
+    "brand_accent": "Accent colour",
+    "brand_secondary": "Second colour",
+    "allow_account_requests": "Account requests",
+    "timezone": "Time zone",
+    "currency": "Currency",
+    "default_language": "Default language",
+    "parent_absence_alert": "Absence alerts",
+    "prepare_sms_for_absences": "Prepare SMS",
+    "absence_alert_statuses": "Alert statuses",
+    "show_attendance_to_parents": "Attendance for parents",
+    "show_attendance_to_students": "Attendance for students",
+    "show_progress_to_students": "Progress for students",
+    "repeat_absence_threshold": "Repeated absence threshold",
+    "repeat_absence_window_days": "Repeated absence period"
   },
   "dashboard": {
     "hello": "Welcome, {name}",
@@ -227,10 +271,20 @@
     "dateNotOnTimetable": "this class is not on the timetable on this date"
   },
   "session": {
-    "st": { "held": "Held", "missed": "Missed", "cancelled": "Cancelled", "makeup": "Make-up" }
+    "st": {
+      "held": "Held",
+      "missed": "Missed",
+      "cancelled": "Cancelled",
+      "makeup": "Make-up"
+    }
   },
   "makeup": {
-    "st": { "none": "No make-up planned yet", "planned": "Make-up planned", "completed": "Made up", "not_needed": "Not needed" }
+    "st": {
+      "none": "No make-up planned yet",
+      "planned": "Make-up planned",
+      "completed": "Made up",
+      "not_needed": "Not needed"
+    }
   },
   "hours": {
     "title": "Teaching hours",
@@ -246,7 +300,12 @@
     "makeupPending": "Make-ups pending",
     "wholeYear": "Whole year",
     "groupBy": "Group by",
-    "by": { "assignment": "Teacher, class and subject", "teacher": "Teacher", "class": "Class", "subject": "Subject" },
+    "by": {
+      "assignment": "Teacher, class and subject",
+      "teacher": "Teacher",
+      "class": "Class",
+      "subject": "Subject"
+    },
     "period": "Period: {from} to {to}",
     "howTitle": "How are these figures calculated?",
     "how": "Scheduled hours come from the timetable for each week of the term, up to the selected date, minus school closures. Held, missed, cancelled and make-up hours come from the lessons recorded by teachers or administrators. 'Lessons not recorded' counts timetable lessons for which nothing has been entered yet. Taught hours = held + make-up.",
@@ -279,7 +338,12 @@
     "entries": "Progress entries",
     "noEntries": "No progress has been recorded yet.",
     "saved": "Progress saved.",
-    "st": { "in_progress": "In progress", "completed": "Completed", "delayed": "Delayed", "notstarted": "Not started" }
+    "st": {
+      "in_progress": "In progress",
+      "completed": "Completed",
+      "delayed": "Delayed",
+      "notstarted": "Not started"
+    }
   },
   "plans": {
     "title": "Yearly plans",
@@ -344,8 +408,18 @@
     "week": "Week",
     "legend": "P = present · A = absent · L = late · E = excused",
     "signature": "Teacher's signature",
-    "code": { "present": "P", "absent": "A", "late": "L", "excused": "E" },
-    "st": { "present": "Present", "absent": "Absent", "late": "Late", "excused": "Excused" }
+    "code": {
+      "present": "P",
+      "absent": "A",
+      "late": "L",
+      "excused": "E"
+    },
+    "st": {
+      "present": "Present",
+      "absent": "Absent",
+      "late": "Late",
+      "excused": "Excused"
+    }
   },
   "absences": {
     "title": "Repeated absences and lateness",
@@ -381,10 +455,20 @@
     "expiryAfterPublish": "the hide time must be after the visible-from time",
     "otherLanguageOnly": "This announcement is only available in the other language.",
     "visibleUntil": "Visible until {date}",
-    "cat": { "notice": "Notice", "exam": "Exam", "meeting": "Meeting", "event": "Event", "deadline": "Deadline" }
+    "cat": {
+      "notice": "Notice",
+      "exam": "Exam",
+      "meeting": "Meeting",
+      "event": "Event",
+      "deadline": "Deadline"
+    }
   },
   "ann": {
-    "st": { "draft": "Draft", "published": "Published", "archived": "Archived" }
+    "st": {
+      "draft": "Draft",
+      "published": "Published",
+      "archived": "Archived"
+    }
   },
   "outbox": {
     "title": "Prepared SMS messages",
@@ -396,7 +480,12 @@
     "recipient": "Recipient",
     "message": "Message",
     "noPhone": "No phone number",
-    "st": { "not_sent": "Not sent", "sent": "Sent", "delivered": "Delivered", "failed": "Failed" }
+    "st": {
+      "not_sent": "Not sent",
+      "sent": "Sent",
+      "delivered": "Delivered",
+      "failed": "Failed"
+    }
   },
   "notifications": {
     "empty": "You have no notifications.",
@@ -508,7 +597,9 @@
     "needTerms": "Create the terms first (School structure).",
     "viewWeek": "View the week",
     "slotClash": "This time overlaps another lesson of the same teacher or class.",
-    "slotInUse": "This time slot already has recorded lessons, so it cannot be deleted."
+    "slotInUse": "This time slot already has recorded lessons, so it cannot be deleted.",
+    "emailHelp": "Optional. The person can sign in with it instead of the username.",
+    "emailTaken": "this email address is already used by another account."
   },
   "settings": {
     "school": "School",
@@ -528,7 +619,23 @@
     "visibility": "What families can see",
     "show_attendance_to_parents": "Parents can see their child's attendance",
     "show_attendance_to_students": "Students can see their own attendance",
-    "show_progress_to_students": "Students and parents can see where the class is in each subject"
+    "show_progress_to_students": "Students and parents can see where the class is in each subject",
+    "publicPage": "Public page",
+    "publicPageHelp": "Shown on the welcome page and in the footer. Leave a field empty and it shows as \"to be provided\".",
+    "school_motto": "Motto",
+    "school_address": "Address",
+    "school_phone": "Phone",
+    "school_email": "Email",
+    "allow_account_requests": "Allow \"Request an account\" on the public page",
+    "brand": "Logo and colours",
+    "brandHelp": "The logo is used exactly as supplied. To change it, replace the file in public/brand/ (logo.svg, logo.png, logo.webp or logo.jpg).",
+    "logoFound": "Logo file found.",
+    "logoMissing": "No logo file yet: the school initials are shown instead.",
+    "brand_primary": "Main colour",
+    "brand_accent": "Accent colour",
+    "brand_secondary": "Second colour",
+    "primaryHelp": "The main colour is used behind white text, so it must be dark enough to read.",
+    "primaryContrast": "this colour is too light for white text. Choose a darker shade."
   },
   "audit": {
     "title": "Change history",
@@ -536,17 +643,186 @@
     "entity": "Record type",
     "change": "Change",
     "action": {
-      "create": "Created", "update": "Corrected", "delete": "Deleted", "makeup_completed": "Marked as made up",
-      "password_changed": "Password changed", "password_reset": "Password reset", "set_current": "Made current year",
-      "import": "Imported", "archive": "Archived", "prepare_sms": "SMS prepared (not sent)", "change_class": "Class changed",
-      "link": "Parent linked", "unlink": "Parent unlinked"
+      "create": "Created",
+      "update": "Corrected",
+      "delete": "Deleted",
+      "makeup_completed": "Marked as made up",
+      "password_changed": "Password changed",
+      "password_reset": "Password reset",
+      "set_current": "Made current year",
+      "import": "Imported",
+      "archive": "Archived",
+      "prepare_sms": "SMS prepared (not sent)",
+      "change_class": "Class changed",
+      "link": "Parent linked",
+      "unlink": "Parent unlinked",
+      "approve": "Request approved",
+      "reject": "Request rejected",
+      "done": "Request handled"
     },
     "entities": {
-      "class_session": "Lesson", "progress_entry": "Progress", "attendance": "Attendance", "announcement": "Announcement",
-      "plan": "Yearly plan", "plan_chapter": "Chapter", "plan_lesson": "Planned lesson", "academic_year": "School year",
-      "term": "Term", "closure": "Closure", "section": "Section", "subject": "Subject", "class": "Class", "user": "Account",
-      "student": "Student", "guardian": "Parent link", "teaching_assignment": "Teaching assignment",
-      "timetable_slot": "Timetable slot", "settings": "Settings"
+      "class_session": "Lesson",
+      "progress_entry": "Progress",
+      "attendance": "Attendance",
+      "announcement": "Announcement",
+      "plan": "Yearly plan",
+      "plan_chapter": "Chapter",
+      "plan_lesson": "Planned lesson",
+      "academic_year": "School year",
+      "term": "Term",
+      "closure": "Closure",
+      "section": "Section",
+      "subject": "Subject",
+      "class": "Class",
+      "user": "Account",
+      "student": "Student",
+      "guardian": "Parent link",
+      "teaching_assignment": "Teaching assignment",
+      "timetable_slot": "Timetable slot",
+      "settings": "Settings",
+      "access_request": "Access request"
     }
+  },
+  "site": {
+    "metaDescription": "{school}: school portal for timetables, attendance, lesson progress and announcements.",
+    "logoAlt": "{school} logo",
+    "logoPlaceholder": "Logo to be provided",
+    "platformName": "School portal",
+    "language": "Language",
+    "eyebrow": "School portal · Bilingual EN/FR",
+    "heroTitle": "Follow school life, day by day",
+    "heroLead": "Teachers record lessons and attendance in a few taps. Parents and students see what concerns them, and the administration sees the whole picture.",
+    "createAccount": "Request an account",
+    "point1": "In English and in French",
+    "point2": "Each family sees only its own children",
+    "point3": "Works on a basic smartphone",
+    "previewTitle": "Teacher dashboard",
+    "pvScheduled": "Scheduled",
+    "pvTaught": "Taught",
+    "pvMakeup": "Make-up due",
+    "pvProgress": "Maths · lessons covered",
+    "previewCaption": "Illustration with sample figures, not real data.",
+    "featuresTitle": "Everything in one place",
+    "featuresLead": "Four tools for the daily running of the school.",
+    "f1Title": "Teaching hours",
+    "f1Text": "Timetables, lessons held or missed, and make-ups, with clear totals for each teacher.",
+    "f2Title": "Yearly plans and progress",
+    "f2Text": "Plans for each section, level and subject, compared with what has actually been taught.",
+    "f3Title": "Attendance",
+    "f3Text": "Daily registers with correction history, repeated-absence reports and alerts for parents.",
+    "f4Title": "Announcements",
+    "f4Text": "Bilingual notices for teachers, students or parents, for the whole school or one class.",
+    "rolesTitle": "One portal, a view for each person",
+    "roleTeacher": "Your timetable, your classes, lessons, attendance and progress.",
+    "roleParent": "Attendance, timetable and progress of your own children only.",
+    "roleStudent": "Your timetable, your attendance and the school's announcements.",
+    "roleAdminTitle": "Administration",
+    "roleAdmin": "Set up the school year, classes, accounts and timetables, and follow reports and the change history.",
+    "howTitle": "How to get an account",
+    "how1Title": "Send a request",
+    "how1Text": "Fill in the short form. No password is created at this stage.",
+    "how2Title": "The school checks",
+    "how2Text": "The administration confirms who you are, in person or by phone.",
+    "how3Title": "You receive your access",
+    "how3Text": "The school gives you a username and a temporary password, which you change at first sign-in.",
+    "ctaTitle": "Already have an account?",
+    "ctaText": "Sign in with the username or email address the school gave you.",
+    "footerAbout": "The school's portal for teaching hours, yearly plans, attendance and announcements.",
+    "contact": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "toBeProvided": "to be provided",
+    "access": "Access",
+    "signinPanel": "Sign in to see your timetable, your classes or your children's school life.",
+    "signinPrivacy": "Your information is only visible to the people who need it.",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already have an account?"
+  },
+  "access": {
+    "requestTitle": "Request an account",
+    "requestIntro": "Tell the school who you are. An administrator will check your request before giving you access.",
+    "iAm": "I am…",
+    "as": {
+      "parent": "A parent or guardian",
+      "teacher": "A teacher",
+      "student": "A student"
+    },
+    "asHelp": {
+      "parent": "To follow your child's attendance and school life.",
+      "teacher": "To record your lessons, attendance and progress.",
+      "student": "To see your timetable and attendance."
+    },
+    "staffNote": "Administration and finance accounts are created by the school only.",
+    "detailsHelp": "For a parent: your children's names and classes. For a teacher: your subjects. For a student: your class. The school checks this before linking anything to your account.",
+    "confirmText": "I confirm that this information is accurate and that the school may contact me to check it.",
+    "mustConfirm": "please tick the box to confirm.",
+    "noPasswordNote": "Sending this form does not give access straight away. The school will give you a username and a temporary password once your request is approved.",
+    "send": "Send my request",
+    "sending": "Sending…",
+    "tooMany": "Too many requests were sent from this connection. Please try again later or contact the school.",
+    "closed": "Account requests are not open online. Please contact the school administration.",
+    "askSchool": "No account? Ask the school administration.",
+    "sentTitle": "Request received",
+    "sentText": "Thank you. Your request has been recorded for the school administration.",
+    "next1": "An administrator will check your request.",
+    "next2": "The school may call you to confirm who you are.",
+    "next3": "If it is approved, the school will give you your username and temporary password.",
+    "noFollowUp": "No automatic message is sent by this page.",
+    "backHome": "Back to the home page",
+    "forgotLink": "Forgot password?",
+    "forgotTitle": "Forgot your password",
+    "forgotIntro": "Passwords are reset by the school administration after checking who you are. Send a request below.",
+    "contactPhone": "Phone number where the school can reach you (optional)",
+    "forgotHelp": "You can also go directly to the administration office.",
+    "sendReset": "Send the request",
+    "backToSignIn": "Back to sign in",
+    "resetSentTitle": "Request received",
+    "resetSentText": "If this account exists, the administration will see your request.",
+    "resetNext1": "The school will check who you are before resetting anything.",
+    "resetNext2": "You will receive a new temporary password from the school, to change at first sign-in."
+  },
+  "requests": {
+    "title": "Access requests",
+    "intro": "Account and password requests sent from the public pages. Nothing is granted until you approve it.",
+    "st": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "done": "Handled",
+      "rejected": "Rejected"
+    },
+    "nonePending": "No pending requests.",
+    "none": "No requests here.",
+    "type": "Request",
+    "passwordReset": "Password reset",
+    "review": "Review",
+    "accountRequest": "Account request",
+    "verifyFirst": "Check this person's identity in person or by phone before approving. For a parent, confirm which children they are responsible for.",
+    "verifyReset": "Check that the person asking really owns the account before resetting its password.",
+    "approveTitle": "Approve and create the account",
+    "roleHelp": "Only teacher, parent or student accounts can be created from a request.",
+    "linkStudent": "Link to a student",
+    "linkStudentHelp": "For a student account, choose the student. For a parent, you can link one child now and others later from the student's page.",
+    "noLinkNow": "— No link now —",
+    "hasLogin": "has a login",
+    "confirmApprove": "Create this account? A temporary password will be shown once.",
+    "approve": "Approve and create",
+    "matchingAccounts": "Matching accounts",
+    "noMatch": "No account matches this username, email or phone.",
+    "resetHelp": "After resetting, give the temporary password to the person privately, then mark the request as handled.",
+    "note": "Note",
+    "markDone": "Mark as handled",
+    "rejectTitle": "Reject the request",
+    "confirmReject": "Reject this request?",
+    "rejectPlaceholder": "Reason (internal)",
+    "reject": "Reject",
+    "hubHelp": "Review account and password requests.",
+    "linkChildrenNext": "To link more children to this parent, open each student's page.",
+    "backToList": "Back to access requests",
+    "rejected": "Request rejected.",
+    "markedDone": "Request marked as handled.",
+    "pickStudent": "choose the student for a student account.",
+    "studentHasLogin": "this student already has a login.",
+    "pendingCount": "Access requests waiting"
   }
 }

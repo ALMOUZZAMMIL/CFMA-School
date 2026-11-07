@@ -1,17 +1,31 @@
-<%- include('partials/head') %>
-<section class="narrow card">
-  <h1><%= t('auth.loginTitle') %></h1>
-  <p class="muted"><%= t('auth.loginHelp') %></p>
-  <% if (error) { %><div class="alert alert-error" role="alert"><span class="alert-icon" aria-hidden="true">!</span> <%= error %></div><% } %>
-  <form method="post" action="/login" class="form" data-once>
-    <input type="hidden" name="_csrf" value="<%= csrf %>">
-    <input type="hidden" name="next" value="<%= next %>">
-    <label for="username"><%= t('fields.username') %></label>
-    <input id="username" name="username" value="<%= username %>" autocomplete="username" autocapitalize="none" required>
-    <label for="password"><%= t('fields.password') %></label>
-    <input id="password" name="password" type="password" autocomplete="current-password" required>
-    <button class="btn btn-primary btn-block"><%= t('auth.login') %></button>
-  </form>
-  <p class="small muted"><%= t('auth.forgot') %></p>
+<%- include('partials/public-head') %>
+<section class="auth-wrap">
+  <div class="auth-panel" aria-hidden="true">
+    <%- include('partials/mark', { size: 'lg' }) %>
+    <p class="auth-panel-school"><%= settings.school_name %></p>
+    <p class="auth-panel-text"><%= t('site.signinPanel') %></p>
+    <ul class="auth-panel-list small">
+      <li><span aria-hidden="true">✓</span> <%= t('site.point2') %></li>
+      <li><span aria-hidden="true">✓</span> <%= t('site.signinPrivacy') %></li>
+    </ul>
+  </div>
+  <div class="auth-card">
+    <h1><%= t('auth.loginTitle') %></h1>
+    <p class="muted"><%= t('auth.loginHelp') %></p>
+    <% if (error) { %><div class="alert alert-error" role="alert" id="login-error"><span class="alert-icon" aria-hidden="true">!</span> <%= error %></div><% } %>
+    <form method="post" action="/login" class="form" data-once data-loading>
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <input type="hidden" name="next" value="<%= next %>">
+      <label for="username"><%= t('auth.usernameOrEmail') %></label>
+      <input id="username" name="username" value="<%= username %>" autocomplete="username" autocapitalize="none" spellcheck="false" required <% if (error) { %>aria-describedby="login-error" aria-invalid="true"<% } %> <%= username ? '' : 'autofocus' %>>
+      <div class="label-row"><label for="password"><%= t('fields.password') %></label><a class="small" href="/forgot-password"><%= t('access.forgotLink') %></a></div>
+      <div class="pw-field">
+        <input id="password" name="password" type="password" autocomplete="current-password" required <%= username ? 'autofocus' : '' %>>
+        <button type="button" class="pw-toggle" data-pw-toggle="password" aria-controls="password" aria-pressed="false" data-show="<%= t('auth.showPassword') %>" data-hide="<%= t('auth.hidePassword') %>" hidden><%= t('auth.showPassword') %></button>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" data-loading-text="<%= t('auth.signingIn') %>"><%= t('auth.login') %></button>
+    </form>
+    <p class="auth-alt"><%= t('site.noAccount') %> <% if (settings.allow_account_requests === '1') { %><a href="/register"><%= t('access.requestTitle') %></a><% } else { %><%= t('access.askSchool') %><% } %></p>
+  </div>
 </section>
-<%- include('partials/foot') %>
+<%- include('partials/public-foot') %>

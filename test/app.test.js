@@ -242,3 +242,85 @@ test('teaching hours report adds up', async () => {
     assert.ok(r.scheduled >= r.held, 'held hours cannot exceed scheduled (timetabled) hours');
   }
 });
+
+/* ---------- Public pages and access requests ---------- */
+
+test('visitors see the welcome page; signed-in users get their dashboard', async () => {
+  const r = await new Client().get('/');
+  assert.strictEqual(r.status, 200);
+  assert.match(r.text, /href="\/login"/);
+  assert.match(r.text, /href="\/register"/);
+  const c = await loginAs('demo.parent');
+  const d = await c.get('/');
+  assert.strictEqual(d.status, 200);
+  assert.doesNotMatch(d.text, /class="hero"/);
+});
+
+test('"Request an account" creates a pending request and no account', async () => {
+  const usersBefore = q('SELECT COUNT(*) n FROM users').n;
+  const c = new Client();
+  await c.get('/register');
+  // Missing fields are refused with a clear message.
+  const bad = await c.post('/register', { role_requested: 'parent', full_name: 'X' });
+  assert.strictEqual(bad.status, 400);
+  // Administrator and finance roles cannot be requested.
+  const admin = await c.post('/register', { role_requested: 'admin', full_name: 'Demo Requester', phone: '+237 600 00 00 01', details: 'DEMO', confirm: '1' });
+  assert.strictEqual(admin.status, 400);
+  assert.strictEqual(q("SELECT COUNT(*) n FROM access_requests WHERE role_requested NOT IN ('parent','teacher','student')").n, 0);
+  const ok = await c.post('/register', { role_requested: 'parent', full_name: 'DEMO Requesting Parent', phone: '+237 600 00 00 02', email: 'demo.request@example.org', details: 'DEMO child in 6e A', confirm: '1' });
+  assert.strictEqual(ok.status, 200);
+  const ar = q("SELECT * FROM access_requests WHERE full_name = 'DEMO Requesting Parent'");
+  assert.strictEqual(ar.status, 'pending');
+  assert.strictEqual(q('SELECT COUNT(*) n FROM users').n, usersBefore, 'no account is created by a public request');
+  // Bots filling the hidden field get the same answer but nothing is stored.
+  const bot = await c.post('/register', { role_requested: 'parent', full_name: 'Bot', phone: '+237 600 00 00 03', details: 'x', confirm: '1', website: 'http://spam' });
+  assert.strictEqual(bot.status, 200);
+  assert.strictEqual(q("SELECT COUNT(*) n FROM access_requests WHERE full_name = 'Bot'").n, 0);
+});
+
+test('forgot password gives the same answer whether or not the account exists', async () => {
+  const c = new Client();
+  await c.get('/forgot-password');
+  const a = await c.post('/forgot-password', { identifier: 'demo.parent' });
+  const b = await c.post('/forgot-password', { identifier: 'no.such.person' });
+  assert.strictEqual(a.status, 200);
+  assert.strictEqual(b.status, 200);
+  const strip = (t) => t.replace(/name="_csrf" value="[^"]+"/g, '');
+  assert.strictEqual(strip(a.text), strip(b.text));
+  assert.strictEqual(q("SELECT COUNT(*) n FROM access_requests WHERE kind = 'password_reset'").n, 2);
+});
+
+test('only administrators can review access requests', async () => {
+  const ar = q("SELECT id FROM access_requests WHERE kind = 'account' LIMIT 1");
+  for (const u of ['demo.prof.maths', 'demo.parent', 'demo.intendant', 'demo.eleve']) {
+    const c = await loginAs(u);
+    assert.strictEqual((await c.get('/admin/requests')).status, 403, u);
+    assert.strictEqual((await c.get(`/admin/requests/${ar.id}`)).status, 403, u);
+  }
+  assert.strictEqual((await new Client().get('/admin/requests')).status, 302);
+});
+
+test('approving a request creates a non-admin account that signs in with a temporary password', async () => {
+  const ar = q("SELECT id FROM access_requests WHERE full_name = 'DEMO Requesting Parent'");
+  const c = await loginAs('demo.admin');
+  assert.strictEqual((await c.get(`/admin/requests/${ar.id}`)).status, 200);
+  // Even an administrator cannot turn a request into an admin or bursar account.
+  const bad = await c.post(`/admin/requests/${ar.id}/approve`, { role: 'admin', username: 'demo.requested', full_name: 'DEMO Requesting Parent' });
+  assert.strictEqual(bad.status, 400);
+  const ok = await c.post(`/admin/requests/${ar.id}/approve`, { role: 'parent', username: 'demo.requested', full_name: 'DEMO Requesting Parent', email: 'demo.request@example.org', language: 'fr' });
+  assert.strictEqual(ok.status, 200);
+  const password = ok.text.match(/<code>([^<]+)<\/code><br>[^<]*<code>([^<]+)<\/code>/)[2];
+  const user = q("SELECT * FROM users WHERE username = 'demo.requested'");
+  assert.strictEqual(user.role, 'parent');
+  assert.notStrictEqual(user.password_hash, password);
+  assert.strictEqual(q('SELECT COUNT(*) n FROM guardians WHERE parent_user_id = ?', user.id).n, 0, 'no child is linked unless the admin chooses one');
+  assert.strictEqual(q('SELECT status FROM access_requests WHERE id = ?', ar.id).status, 'approved');
+  // The new parent can sign in with their email address, and must change the temporary password.
+  const p = new Client();
+  await p.get('/login');
+  const login = await p.post('/login', { username: 'Demo.Request@example.org', password, next: '/' });
+  assert.strictEqual(login.status, 302);
+  assert.match(login.location, /password/);
+  // An approved request cannot be approved twice.
+  assert.strictEqual((await c.post(`/admin/requests/${ar.id}/approve`, { role: 'parent', username: 'demo.requested2', full_name: 'X' })).status, 404);
+});

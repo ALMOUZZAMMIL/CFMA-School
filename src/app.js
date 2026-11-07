@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const db = require('./db');
 const auth = require('./auth');
+const brand = require('./brand');
 const { translator, formatters, LANGS } = require('./i18n');
 const { todayIn } = require('./util');
 
@@ -25,6 +26,10 @@ function createApp() {
     next();
   });
 
+  // Brand colours from the settings, as CSS variables (no inline styles under the CSP).
+  app.get('/brand.css', (req, res) => {
+    res.type('text/css').set('Cache-Control', 'no-cache').send(brand.css(db.getSettings()));
+  });
   app.use('/static', express.static(path.join(__dirname, '..', 'public'), { maxAge: '7d' }));
   app.use(express.urlencoded({ extended: false, limit: '300kb', parameterLimit: 5000 }));
   app.use(auth.loadSession);
@@ -49,6 +54,8 @@ function createApp() {
     res.locals.originalUrl = req.originalUrl;
     res.locals.csrf = req.user ? req.csrfToken : auth.ensureAnonCsrf(req, res);
     res.locals.year = db.currentYear();
+    res.locals.logoUrl = brand.logoUrl();
+    res.locals.schoolInitials = brand.initials(settings.school_name);
     // Localised name of a bilingual record (subjects, sections).
     res.locals.ln = (row, base = 'name') => (row ? (row[`${base}_${lang}`] || row[`${base}_en`] || row[`${base}_fr`] || '') : '');
     res.locals.flash = null;
@@ -67,6 +74,7 @@ function createApp() {
   app.use(auth.csrfProtect);
 
   app.use(require('./routes/auth'));
+  app.use(require('./routes/public'));
   app.use(auth.requireLogin);
   app.use(require('./routes/home'));
   app.use(require('./routes/teaching'));

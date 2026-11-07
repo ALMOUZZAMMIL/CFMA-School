@@ -259,6 +259,26 @@ CREATE TABLE IF NOT EXISTS audit_log (
   after_json TEXT,
   at TEXT NOT NULL DEFAULT (datetime('now'))
 );
+-- Public "Request an account" and "Forgot password" submissions. Nothing here grants access:
+-- an administrator reviews each request, checks the person's identity and acts on it.
+CREATE TABLE IF NOT EXISTS access_requests (
+  id INTEGER PRIMARY KEY,
+  kind TEXT NOT NULL CHECK (kind IN ('account','password_reset')),
+  role_requested TEXT CHECK (role_requested IN ('teacher','parent','student')),
+  full_name TEXT,
+  identifier TEXT,                 -- password reset: username, email or phone the person typed
+  phone TEXT,
+  email TEXT,
+  language TEXT NOT NULL DEFAULT 'fr',
+  details TEXT,                    -- e.g. child's name and class, subject taught (for the administrator to verify)
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending','approved','rejected','done')),
+  admin_note TEXT,
+  handled_by INTEGER REFERENCES users(id),
+  handled_at TEXT,
+  created_user_id INTEGER REFERENCES users(id),
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE INDEX IF NOT EXISTS ix_audit_entity ON audit_log(entity, entity_id);
 CREATE INDEX IF NOT EXISTS ix_att_student ON attendance_records(student_id, date);
 CREATE INDEX IF NOT EXISTS ix_sessions_assignment ON class_sessions(assignment_id, date);
@@ -268,6 +288,17 @@ CREATE INDEX IF NOT EXISTS ix_progress_assignment ON progress_entries(assignment
 const DEFAULT_SETTINGS = {
   school_name: 'Lycée / High School',
   demo_mode: '0',
+  // Public page details. Empty values are shown as clearly marked placeholders.
+  school_motto: '',
+  school_address: '',
+  school_phone: '',
+  school_email: '',
+  // Brand colours (derive them from the school logo). Text on brand_primary is white.
+  // Defaults taken from the Collège Bilingue Maloum & Ayena flyer: royal blue, green and purple.
+  brand_primary: '#2b3f98',
+  brand_accent: '#1d7f43',
+  brand_secondary: '#8e3c96',
+  allow_account_requests: '1',
   timezone: 'Africa/Douala',
   currency: 'XAF',
   default_language: 'fr',
@@ -284,6 +315,13 @@ const DEFAULT_SETTINGS = {
 
 let db;
 
+// Small, additive migrations for databases created by earlier versions.
+function migrate(d) {
+  const userCols = d.prepare('PRAGMA table_info(users)').all().map((c) => c.name);
+  if (!userCols.includes('email')) d.exec('ALTER TABLE users ADD COLUMN email TEXT');
+  d.exec('CREATE UNIQUE INDEX IF NOT EXISTS uq_users_email ON users(email COLLATE NOCASE) WHERE email IS NOT NULL');
+}
+
 function open(file) {
   const dbFile = file || process.env.DATABASE_FILE || path.join(__dirname, '..', 'data', 'school.db');
   if (dbFile !== ':memory:') fs.mkdirSync(path.dirname(dbFile), { recursive: true });
@@ -291,6 +329,7 @@ function open(file) {
   db.pragma('journal_mode = WAL');
   db.pragma('foreign_keys = ON');
   db.exec(SCHEMA);
+  migrate(db);
   const ins = db.prepare('INSERT OR IGNORE INTO settings (key, value) VALUES (?, ?)');
   for (const [k, v] of Object.entries(DEFAULT_SETTINGS)) ins.run(k, v);
   return db;

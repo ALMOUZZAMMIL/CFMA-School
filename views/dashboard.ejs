@@ -54,6 +54,7 @@
 <% } %>
 
 <% if (user.role === 'admin' && typeof stats !== 'undefined') { %>
+  <% if (pendingRequests) { %><div class="alert alert-pending" role="status"><span class="alert-icon" aria-hidden="true">!</span> <a href="/admin/requests"><strong><%= t('requests.pendingCount') %>: <%= pendingRequests %></strong></a></div><% } %>
   <section class="stats" aria-label="<%= t('dashboard.today') %>">
     <a class="stat" href="/admin/users?role=teacher"><span class="stat-num"><%= stats.teachers %></span><span class="stat-label"><%= t('dashboard.teachers') %></span></a>
     <a class="stat" href="/admin/students"><span class="stat-num"><%= stats.students %></span><span class="stat-label"><%= t('dashboard.students') %></span></a>

@@ -12,6 +12,14 @@
     if (form.hasAttribute('data-once')) {
       if (form.dataset.sent) { e.preventDefault(); return; }
       form.dataset.sent = '1';
+      // Loading state: <form data-loading> with <button data-loading-text="...">
+      if (form.hasAttribute('data-loading')) {
+        form.setAttribute('aria-busy', 'true');
+        form.querySelectorAll('[data-loading-text]').forEach(function (b) {
+          b.dataset.label = b.textContent;
+          b.textContent = b.getAttribute('data-loading-text');
+        });
+      }
       setTimeout(function () {
         form.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
       }, 0);
@@ -21,6 +29,16 @@
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-print]');
     if (t) { e.preventDefault(); window.print(); }
+    // Show / hide password: <button data-pw-toggle="input-id" data-show="..." data-hide="...">
+    var pw = e.target.closest('[data-pw-toggle]');
+    if (pw) {
+      var input = document.getElementById(pw.getAttribute('data-pw-toggle'));
+      var show = input.type === 'password';
+      input.type = show ? 'text' : 'password';
+      pw.setAttribute('aria-pressed', String(show));
+      pw.textContent = pw.getAttribute(show ? 'data-hide' : 'data-show');
+      input.focus();
+    }
     var all = e.target.closest('[data-all-present]');
     if (all) {
       document.querySelectorAll('.att-present input[type=radio]').forEach(function (r) { r.checked = true; });
@@ -64,5 +82,18 @@
   window.addEventListener('online', net);
   window.addEventListener('offline', net);
 
-  document.addEventListener('DOMContentLoaded', function () { applyShowWhen(); updateSummary(); net(); });
+  // Coming back with the browser's Back button: make forms usable again.
+  window.addEventListener('pageshow', function (e) {
+    if (!e.persisted) return;
+    document.querySelectorAll('form[data-sent]').forEach(function (form) {
+      delete form.dataset.sent;
+      form.removeAttribute('aria-busy');
+      form.querySelectorAll('button').forEach(function (b) { b.disabled = false; if (b.dataset.label) b.textContent = b.dataset.label; });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-pw-toggle]').forEach(function (b) { b.hidden = false; });
+    applyShowWhen(); updateSummary(); net();
+  });
 })();

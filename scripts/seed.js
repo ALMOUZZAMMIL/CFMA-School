@@ -28,7 +28,12 @@ const DEMO_PASSWORD = 'demo-password';
 const pw = auth.hashPassword(DEMO_PASSWORD);
 
 d.transaction(() => {
-  db.setSetting('school_name', 'Lycée Démo / Demo High School');
+  // School identity from the school's own 2026-2027 flyer. Student, staff and parent data stay fictional.
+  db.setSetting('school_name', 'Collège Bilingue Maloum & Ayena');
+  db.setSetting('school_motto', 'Discipline · Savoir · Réussite — Discipline · Knowledge · Success');
+  db.setSetting('school_address', 'BP 903 Yaoundé, Cameroun — Etoudi (ancien 6e route Nkolmbong)');
+  db.setSetting('school_phone', '+237 680 90 06 75');
+  db.setSetting('school_email', 'maloumayena@gmail.com');
   db.setSetting('demo_mode', '1');
 
   const year = Number(d.prepare("INSERT INTO academic_years (name, start_date, end_date, is_current) VALUES ('2026-2027', '2026-09-07', '2027-06-30', 1)").run().lastInsertRowid);

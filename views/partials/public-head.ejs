@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="<%= lang %>">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= title ? title + ' · ' : '' %><%= settings.school_name %></title>
+<meta name="description" content="<%= t('site.metaDescription', { school: settings.school_name }) %>">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/brand.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body class="public">
+<a class="skip" href="#main"><%= t('common.skipToContent') %></a>
+<% if (settings.demo_mode === '1') { %><div class="demo-banner" role="note"><%= t('common.demoBanner') %></div><% } %>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="/">
+      <%- include('mark', { size: 'md' }) %>
+      <span class="site-brand-text"><strong><%= settings.school_name %></strong><% if (settings.school_motto) { %><span class="site-motto"><%= settings.school_motto %></span><% } else { %><span class="site-motto"><%= t('site.platformName') %></span><% } %></span>
+    </a>
+    <div class="site-header-actions">
+      <form method="post" action="/lang" class="lang-pill" aria-label="<%= t('site.language') %>">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <input type="hidden" name="back" value="<%= originalUrl %>">
+        <button name="lang" value="fr" class="<%= lang === 'fr' ? 'on' : '' %>" aria-pressed="<%= lang === 'fr' %>" lang="fr" title="Français">FR</button>
+        <button name="lang" value="en" class="<%= lang === 'en' ? 'on' : '' %>" aria-pressed="<%= lang === 'en' %>" lang="en" title="English">EN</button>
+      </form>
+      <% if (path !== '/login') { %><a class="btn btn-primary btn-header" href="/login"><%= t('auth.login') %></a><% } %>
+    </div>
+  </div>
+</header>
+<main id="main">
