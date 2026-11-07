@@ -1,0 +1,15 @@
+<%- include('../partials/head') %>
+<h1><%= t('admin.title') %></h1>
+<div class="hub">
+  <a class="hub-card" href="/admin/structure"><h2><%= t('admin.structure') %></h2><p><%= t('admin.structureHelp') %></p></a>
+  <a class="hub-card" href="/admin/requests"><h2><%= t('requests.title') %></h2><p><%= t('requests.hubHelp') %></p></a>
+  <a class="hub-card" href="/admin/users"><h2><%= t('admin.users') %></h2><p><%= t('admin.usersHelp') %></p></a>
+  <a class="hub-card" href="/admin/students"><h2><%= t('admin.students') %></h2><p><%= t('admin.studentsHelp') %></p></a>
+  <a class="hub-card" href="/admin/timetable"><h2><%= t('admin.timetable') %></h2><p><%= t('admin.timetableHelp') %></p></a>
+  <a class="hub-card" href="/plans"><h2><%= t('plans.title') %></h2><p><%= t('plans.intro') %></p></a>
+  <a class="hub-card" href="/announcements/manage"><h2><%= t('announcements.manageTitle') %></h2><p><%= t('admin.announcementsHelp') %></p></a>
+  <a class="hub-card" href="/admin/settings"><h2><%= t('admin.settings') %></h2><p><%= t('admin.settingsHelp') %></p></a>
+  <a class="hub-card" href="/admin/outbox"><h2><%= t('outbox.title') %></h2><p><%= t('outbox.help') %></p></a>
+  <a class="hub-card" href="/admin/audit"><h2><%= t('audit.title') %></h2><p><%= t('audit.help') %></p></a>
+</div>
+<%- include('../partials/foot') %>

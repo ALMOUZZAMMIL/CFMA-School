@@ -1,0 +1,23 @@
+<%- include('partials/head') %>
+<div class="page-head">
+  <h1><%= t('nav.notifications') %></h1>
+  <% if (rows.some(function (n) { return !n.read_at; })) { %>
+  <form method="post" action="/notifications/read"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="btn"><%= t('notifications.markRead') %></button></form>
+  <% } %>
+</div>
+<% if (!rows.length) { %>
+  <div class="empty"><p><%= t('notifications.empty') %></p></div>
+<% } else { %>
+<ul class="list">
+  <% rows.forEach(function (n) { %>
+  <li class="<%= n.read_at ? '' : 'unread' %>">
+    <% if (!n.read_at) { %><span class="tag"><%= t('common.new') %></span><% } %>
+    <% if (n.kind === 'absence') { %>
+      <%= t('notifications.absence', { student: n.data.student, status: t('attendance.st.' + n.data.status).toLowerCase(), date: fmt.date(n.data.date), class: n.data.class }) %>
+    <% } %>
+    <div class="small muted"><%= fmt.dateTime(n.created_at) %></div>
+  </li>
+  <% }) %>
+</ul>
+<% } %>
+<%- include('partials/foot') %>

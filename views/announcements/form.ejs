@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<h1><%= a.id ? t('announcements.edit') : t('announcements.new') %></h1>
+<%- include('../partials/errors', { errors }) %>
+<form method="post" action="<%= a.id ? '/announcements/' + a.id : '/announcements' %>" class="form card">
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <label for="category"><%= t('fields.category') %></label>
+  <select id="category" name="category"><% categories.forEach(function (c) { %><option value="<%= c %>" <%= a.category === c ? 'selected' : '' %>><%= t('announcements.cat.' + c) %></option><% }) %></select>
+  <p class="help"><%= t('announcements.bilingualHelp') %></p>
+  <div class="grid-2">
+    <fieldset><legend>Français</legend>
+      <label for="title_fr"><%= t('fields.title_fr') %></label><input id="title_fr" name="title_fr" value="<%= a.title_fr || '' %>" maxlength="200" lang="fr">
+      <label for="body_fr"><%= t('fields.body_fr') %></label><textarea id="body_fr" name="body_fr" rows="6" maxlength="5000" lang="fr"><%= a.body_fr || '' %></textarea></fieldset>
+    <fieldset><legend>English</legend>
+      <label for="title_en"><%= t('fields.title_en') %></label><input id="title_en" name="title_en" value="<%= a.title_en || '' %>" maxlength="200" lang="en">
+      <label for="body_en"><%= t('fields.body_en') %></label><textarea id="body_en" name="body_en" rows="6" maxlength="5000" lang="en"><%= a.body_en || '' %></textarea></fieldset>
+  </div>
+  <fieldset><legend><%= t('fields.audience') %></legend><div class="choice-row">
+    <% audiences.forEach(function (r) { %><label class="choice"><input type="checkbox" name="audience" value="<%= r %>" <%= (a.audience || '').split(',').indexOf(r) >= 0 ? 'checked' : '' %>> <%= t('roles.' + r + 's') %></label><% }) %>
+  </div></fieldset>
+  <label for="class_id"><%= t('fields.class_id') %></label>
+  <select id="class_id" name="class_id"><option value=""><%= t('announcements.wholeSchool') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= a.class_id === c.id ? 'selected' : '' %>><%= c.name %></option><% }) %></select>
+  <div class="grid-2">
+    <div><label for="publish_at"><%= t('fields.publish_at') %></label><input id="publish_at" type="datetime-local" name="publish_at" value="<%= a.publish_local || '' %>" required></div>
+    <div><label for="expires_at"><%= t('fields.expires_at') %> <span class="help-inline">(<%= t('common.optional') %>)</span></label><input id="expires_at" type="datetime-local" name="expires_at" value="<%= a.expires_local || '' %>"></div>
+  </div>
+  <p class="help"><%= t('announcements.visibilityHelp', { tz: settings.timezone }) %></p>
+  <div class="actions">
+    <button class="btn" name="action" value="draft"><%= t('announcements.saveDraft') %></button>
+    <button class="btn btn-primary" name="action" value="publish" data-confirm="<%= t('announcements.confirmPublish') %>"><%= t('announcements.publish') %></button>
+    <a class="btn" href="/announcements/manage"><%= t('common.cancel') %></a>
+  </div>
+</form>
+<%- include('../partials/foot') %>

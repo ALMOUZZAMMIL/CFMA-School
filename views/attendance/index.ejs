@@ -1,0 +1,19 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('attendance.title') %></h1><% if (user.role === 'admin' || user.role === 'teacher') { %><a class="btn" href="/reports/absences"><%= t('absences.title') %></a><% } %></div>
+<form method="get" class="filters"><label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" max="<%= today %>"></label><button class="btn"><%= t('common.show') %></button></form>
+<% if (!rows.length) { %><div class="empty"><p><%= t('attendance.noClasses') %></p></div><% } else { %>
+<ul class="tasks">
+  <% rows.forEach(function (c) { %>
+  <li class="task">
+    <div class="task-main"><strong><%= c.name %></strong> · <%= t('attendance.enrolled', { n: c.enrolled }) %>
+      <div class="task-status"><% if (c.total) { %><span class="badge badge-present"><span aria-hidden="true">✓</span> <%= t('attendance.takenCount', { n: c.total, absent: c.absent || 0, late: c.late || 0 }) %></span><% } else { %><span class="badge badge-pending"><span aria-hidden="true">○</span> <%= t('attendance.notTaken') %></span><% } %></div>
+    </div>
+    <div class="task-actions">
+      <a class="btn <%= c.total ? '' : 'btn-primary' %>" href="/attendance/<%= c.id %>?date=<%= date %>"><%= c.total ? t('attendance.review') : t('attendance.take') %></a>
+      <a class="btn" href="/attendance/<%= c.id %>/print?week=<%= date %>"><%= t('attendance.paperRegister') %></a>
+    </div>
+  </li>
+  <% }) %>
+</ul>
+<% } %>
+<%- include('../partials/foot') %>

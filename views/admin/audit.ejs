@@ -1,0 +1,11 @@
+<%- include('../partials/head') %>
+<h1><%= t('audit.title') %></h1>
+<p class="help"><%= t('audit.help') %></p>
+<form method="get" class="filters"><label><%= t('audit.entity') %><select name="entity"><option value=""><%= t('common.all') %></option><% entities.forEach(function (e) { %><option value="<%= e %>" <%= e === entity ? 'selected' : '' %>><%= t('audit.entities.' + e) %></option><% }) %></select></label><button class="btn"><%= t('common.show') %></button></form>
+<% if (!rows.length) { %><div class="empty"><p><%= t('common.noHistory') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('common.when') %></th><th><%= t('common.who') %></th><th><%= t('audit.entity') %></th><th><%= t('audit.change') %></th><th><%= t('fields.change_reason') %></th></tr></thead>
+  <tbody><% rows.forEach(function (h) { %><tr><td class="small"><%= fmt.dateTime(h.at) %></td><td><%= h.full_name || '—' %></td><td><%= t('audit.entities.' + h.entity) %> #<%= h.entity_id || '' %></td><td><%= t('audit.action.' + h.action) %></td><td class="small"><%= h.reason || '' %></td></tr><% }) %></tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

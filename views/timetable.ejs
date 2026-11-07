@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<div class="page-head"><h1><%= t('nav.timetable') %></h1><button class="btn" data-print><%= t('common.print') %></button></div>
+<form method="get" class="filters no-print">
+  <% if (terms.length) { %>
+  <label><%= t('common.term') %>
+    <select name="term"><% terms.forEach(function (tm) { %><option value="<%= tm.id %>" <%= tm.id === termId ? 'selected' : '' %>><%= tm.name %></option><% }) %></select></label>
+  <% } %>
+  <% if (typeof classes !== 'undefined') { %>
+  <label><%= t('common.class') %><select name="class"><option value=""><%= t('common.choose') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= String(c.id) === query.class ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+  <label><%= t('common.teacher') %><select name="teacher"><option value=""><%= t('common.choose') %></option><% teachers.forEach(function (x) { %><option value="<%= x.id %>" <%= String(x.id) === query.teacher ? 'selected' : '' %>><%= x.full_name %></option><% }) %></select></label>
+  <% } %>
+  <% if (typeof children !== 'undefined' && children.length > 1) { %>
+  <label><%= t('common.child') %><select name="student"><% children.forEach(function (c) { %><option value="<%= c.id %>" <%= String(c.id) === query.student ? 'selected' : '' %>><%= c.full_name %></option><% }) %></select></label>
+  <% } %>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<% if (!slots.length) { %>
+  <div class="empty"><p><%= t('timetable.empty') %></p></div>
+<% } else { %>
+  <% [1,2,3,4,5,6,7].forEach(function (d) { var day = slots.filter(function (s) { return s.day_of_week === d; }); if (!day.length) return; %>
+  <section class="card day">
+    <h2><%= t('days.' + d) %></h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th><%= t('common.time') %></th><th><%= t('common.subject') %></th><th><%= t('common.class') %></th><th><%= t('common.teacher') %></th><th><%= t('common.room') %></th></tr></thead>
+      <tbody><% day.forEach(function (s) { %><tr><td><%= s.start_time %>–<%= s.end_time %></td><td><%= ln(s, 'subject') %></td><td><%= s.class_name %></td><td><%= s.teacher_name %></td><td><%= s.room || '—' %></td></tr><% }) %></tbody>
+    </table></div>
+  </section>
+  <% }) %>
+<% } %>
+<%- include('partials/foot') %>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="<%= lang %>"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title><%= t('attendance.registerTitle') %> · <%= cls.name %></title><link rel="stylesheet" href="/static/style.css?v=<%= assetV %>">
+<link rel="stylesheet" href="/brand.css"><script src="/static/app.js?v=<%= assetV %>" defer></script></head>
+<body class="print-page">
+<div class="no-print print-bar"><a class="btn" href="/attendance/<%= cls.id %>"><%= t('common.back') %></a> <button class="btn btn-primary" data-print><%= t('common.print') %></button></div>
+<h1><%= settings.school_name %> — <%= t('attendance.registerTitle') %></h1>
+<p><strong><%= t('common.class') %>:</strong> <%= cls.name %> (<%= ln(cls, 'section') %>) · <strong><%= t('attendance.week') %>:</strong> <%= fmt.date(days[0]) %> – <%= fmt.date(days[5]) %></p>
+<p class="small"><%= t('attendance.legend') %></p>
+<table class="register">
+  <thead><tr><th>#</th><th><%= t('students.name') %></th><% days.forEach(function (d) { %><th><%= t('days.short.' + (days.indexOf(d) + 1)) %><br><%= d.slice(8) %>/<%= d.slice(5, 7) %></th><% }) %></tr></thead>
+  <tbody><% students.forEach(function (st, i) { %><tr><td><%= i + 1 %></td><td><%= st.full_name %></td><% days.forEach(function (d) { var m = marks.get(st.id + '|' + d); %><td class="cell"><%= m ? t('attendance.code.' + m) : '' %></td><% }) %></tr><% }) %></tbody>
+</table>
+<p class="sign"><%= t('attendance.signature') %>: ______________________ &nbsp; <%= t('common.date') %>: ____________</p>
+</body></html>

@@ -1,0 +1,58 @@
+<%- include('../partials/head') %>
+<h1><%= t('admin.settings') %></h1>
+<%- include('../partials/errors', { errors }) %>
+<form method="post" action="/admin/settings" class="form card">
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <h2><%= t('settings.school') %></h2>
+  <div class="grid-2">
+    <div><label for="school_name"><%= t('settings.school_name') %></label><input id="school_name" name="school_name" value="<%= settings.school_name %>" required></div>
+    <div><label for="default_language"><%= t('settings.default_language') %></label><select id="default_language" name="default_language"><option value="fr">Français</option><option value="en" <%= settings.default_language === 'en' ? 'selected' : '' %>>English</option></select></div>
+    <div><label for="timezone"><%= t('settings.timezone') %></label><input id="timezone" name="timezone" value="<%= settings.timezone %>" required><p class="help"><%= t('settings.timezoneHelp') %></p></div>
+    <div><label for="currency"><%= t('settings.currency') %></label><input id="currency" name="currency" value="<%= settings.currency %>" maxlength="3" required class="w-code"><p class="help"><%= t('settings.currencyHelp') %></p></div>
+  </div>
+
+  <h2><%= t('settings.publicPage') %></h2>
+  <p class="help"><%= t('settings.publicPageHelp') %></p>
+  <div class="grid-2">
+    <div><label for="school_motto"><%= t('settings.school_motto') %></label><input id="school_motto" name="school_motto" value="<%= settings.school_motto %>" maxlength="120"></div>
+    <div><label for="school_address"><%= t('settings.school_address') %></label><input id="school_address" name="school_address" value="<%= settings.school_address %>" maxlength="200"></div>
+    <div><label for="school_phone"><%= t('settings.school_phone') %></label><input id="school_phone" name="school_phone" type="tel" value="<%= settings.school_phone %>"></div>
+    <div><label for="school_email"><%= t('settings.school_email') %></label><input id="school_email" name="school_email" type="email" value="<%= settings.school_email %>"></div>
+  </div>
+  <label class="check"><input type="checkbox" name="allow_account_requests" value="1" <%= settings.allow_account_requests === '1' ? 'checked' : '' %>> <%= t('settings.allow_account_requests') %></label>
+
+  <h2><%= t('settings.brand') %></h2>
+  <p class="help"><%= t('settings.brandHelp') %></p>
+  <div class="brand-row">
+    <div class="brand-logo-box"><%- include('../partials/mark', { size: 'lg' }) %><p class="small muted"><%= logoUrl ? t('settings.logoFound') : t('settings.logoMissing') %></p></div>
+    <div class="grid-2 grow">
+      <div><label for="brand_primary"><%= t('settings.brand_primary') %></label><input id="brand_primary" name="brand_primary" type="color" value="<%= settings.brand_primary %>" class="color-input"><p class="help"><%= t('settings.primaryHelp') %></p></div>
+      <div><label for="brand_accent"><%= t('settings.brand_accent') %></label><input id="brand_accent" name="brand_accent" type="color" value="<%= settings.brand_accent %>" class="color-input"></div>
+      <div><label for="brand_secondary"><%= t('settings.brand_secondary') %></label><input id="brand_secondary" name="brand_secondary" type="color" value="<%= settings.brand_secondary %>" class="color-input"></div>
+    </div>
+  </div>
+
+  <h2><%= t('settings.alerts') %></h2>
+  <fieldset><legend><%= t('settings.parent_absence_alert') %></legend><div class="choice-row">
+    <label class="choice"><input type="radio" name="parent_absence_alert" value="none" <%= settings.parent_absence_alert === 'none' ? 'checked' : '' %>> <%= t('settings.alertNone') %></label>
+    <label class="choice"><input type="radio" name="parent_absence_alert" value="in_app" <%= settings.parent_absence_alert === 'in_app' ? 'checked' : '' %>> <%= t('settings.alertInApp') %></label>
+  </div></fieldset>
+  <fieldset><legend><%= t('settings.absence_alert_statuses') %></legend><div class="choice-row">
+    <% ['absent','late'].forEach(function (s) { %><label class="choice"><input type="checkbox" name="absence_alert_statuses" value="<%= s %>" <%= settings.absence_alert_statuses.split(',').indexOf(s) >= 0 ? 'checked' : '' %>> <%= t('attendance.st.' + s) %></label><% }) %>
+  </div></fieldset>
+  <label class="check"><input type="checkbox" name="prepare_sms_for_absences" value="1" <%= settings.prepare_sms_for_absences === '1' ? 'checked' : '' %>> <%= t('settings.prepare_sms_for_absences') %></label>
+  <p class="help"><%= t('settings.smsHelp') %></p>
+
+  <h2><%= t('settings.visibility') %></h2>
+  <label class="check"><input type="checkbox" name="show_attendance_to_parents" value="1" <%= settings.show_attendance_to_parents === '1' ? 'checked' : '' %>> <%= t('settings.show_attendance_to_parents') %></label>
+  <label class="check"><input type="checkbox" name="show_attendance_to_students" value="1" <%= settings.show_attendance_to_students === '1' ? 'checked' : '' %>> <%= t('settings.show_attendance_to_students') %></label>
+  <label class="check"><input type="checkbox" name="show_progress_to_students" value="1" <%= settings.show_progress_to_students === '1' ? 'checked' : '' %>> <%= t('settings.show_progress_to_students') %></label>
+
+  <h2><%= t('absences.title') %></h2>
+  <div class="grid-2">
+    <div><label for="repeat_absence_threshold"><%= t('absences.threshold') %></label><input id="repeat_absence_threshold" type="number" min="1" max="99" name="repeat_absence_threshold" value="<%= settings.repeat_absence_threshold %>" class="w-num"></div>
+    <div><label for="repeat_absence_window_days"><%= t('absences.days') %></label><input id="repeat_absence_window_days" type="number" min="1" max="365" name="repeat_absence_window_days" value="<%= settings.repeat_absence_window_days %>" class="w-num"></div>
+  </div>
+  <button class="btn btn-primary"><%= t('common.save') %></button>
+</form>
+<%- include('../partials/foot') %>

@@ -1,0 +1,21 @@
+<%- include('../partials/head') %>
+<h1><%= t('requests.title') %></h1>
+<p class="help"><%= t('requests.intro') %></p>
+<nav class="tabs" aria-label="<%= t('requests.title') %>">
+  <% ['pending','approved','done','rejected'].forEach(function (s) { %>
+  <a href="/admin/requests?status=<%= s %>" class="<%= status === s ? 'active' : '' %>" <%- status === s ? 'aria-current="page"' : '' %>><%= t('requests.st.' + s) %> (<%= counts[s] || 0 %>)</a>
+  <% }) %>
+</nav>
+<% if (!rows.length) { %><div class="empty"><p><%= status === 'pending' ? t('requests.nonePending') : t('requests.none') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('common.when') %></th><th><%= t('requests.type') %></th><th><%= t('fields.full_name') %></th><th><%= t('fields.phone') %></th><th><%= t('fields.details') %></th><th></th></tr></thead>
+  <tbody><% rows.forEach(function (r) { %>
+    <tr><td class="small"><%= fmt.dateTime(r.created_at) %></td>
+      <td><%= r.kind === 'account' ? t('access.as.' + r.role_requested) : t('requests.passwordReset') %></td>
+      <td><%= r.full_name || r.identifier %></td><td><%= r.phone || '—' %></td>
+      <td class="small clamp"><%= r.details || '' %></td>
+      <td><a class="btn btn-small" href="/admin/requests/<%= r.id %>"><%= status === 'pending' ? t('requests.review') : t('common.view') %></a></td></tr>
+  <% }) %></tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>
