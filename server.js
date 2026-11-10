@@ -16,6 +16,15 @@ const db = require('./src/db');
 const backup = require('./src/backup');
 const auth = require('./src/auth');
 const publicRoutes = require('./src/routes/public');
+const serverLock = require('./src/server-lock');
+
+try {
+  serverLock.acquire(cfg.databaseFile);
+} catch (e) {
+  log.error('refusing to start', { reason: e.message });
+  process.exit(1);
+}
+process.on('exit', () => serverLock.release(cfg.databaseFile));
 
 try {
   db.open(cfg.databaseFile);

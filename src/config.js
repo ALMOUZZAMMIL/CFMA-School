@@ -61,7 +61,8 @@ function load(env = process.env) {
     privilegedMaxHours: intVar('SESSION_MAX_HOURS_PRIVILEGED', PRIVILEGED_MAX_HOURS, 1, 72),
     idleMinutes: idle,
     databaseFile,
-    backupIntervalHours: intVar('BACKUP_INTERVAL_HOURS', 24, 0, 720),
+    // At most a week: longer timers overflow in Node.js and would fire every millisecond.
+    backupIntervalHours: intVar('BACKUP_INTERVAL_HOURS', 24, 0, 168),
     backupKeep: intVar('BACKUP_KEEP', 14, 1, 1000),
     allowDemoInProduction: flag('ALLOW_DEMO_IN_PRODUCTION'),
     hstsMaxAge: intVar('HSTS_MAX_AGE', 15552000, 0, 63072000),

@@ -107,3 +107,106 @@ test('backup pruning keeps only the newest copies', () => {
   for (let i = 0; i < 4; i++) assert.strictEqual(run('backup.js', ['--keep', '2'], env).status, 0);
   assert.strictEqual(fs.readdirSync(path.join(tmp, 'bk')).filter((f) => f.startsWith('school-manual-')).length, 2);
 });
+
+// --- Fixes found by the PR #2 verification ---
+
+function backupOf(tmp, file) {
+  const bk = path.join(tmp, 'bk');
+  const b = run('backup.js', [], { DATABASE_FILE: file, BACKUP_DIR: bk });
+  assert.strictEqual(b.status, 0, b.stderr);
+  return { bk, backupFile: b.stdout.match(/verified: (.+)$/m)[1].trim() };
+}
+
+test('restore still works when the live database is damaged, and keeps its raw files', () => {
+  const { tmp, file } = seededDb();
+  const { bk, backupFile } = backupOf(tmp, file);
+  const users = count(backupFile, 'SELECT COUNT(*) n FROM users');
+  for (const damage of ['pages', 'header']) {
+    const fd = fs.openSync(file, 'r+');
+    if (damage === 'pages') fs.writeSync(fd, Buffer.alloc(8192, 0xff), 0, 8192, 4096 * 3);
+    else fs.writeSync(fd, Buffer.from('garbage'.repeat(20)), 0, 140, 0);
+    fs.closeSync(fd);
+    const r = run('restore.js', [backupFile, '--yes'], { DATABASE_FILE: file, BACKUP_DIR: bk });
+    assert.strictEqual(r.status, 0, `${damage}: ${r.stderr}`);
+    assert.match(r.stderr, /raw files were kept/);
+    assert.strictEqual(count(file, 'SELECT COUNT(*) n FROM users'), users);
+  }
+  assert.strictEqual(fs.readdirSync(bk).filter((f) => f.includes('pre-restore-damaged') && f.endsWith('.raw.db')).length, 2);
+  assert.ok(!fs.readdirSync(bk).some((f) => fs.statSync(path.join(bk, f)).size === 0), 'no empty files left in the backups folder');
+});
+
+test('restore refuses an empty file, a non-school database and a database with no accounts', () => {
+  const { tmp, file } = seededDb();
+  const before = fs.readFileSync(file);
+  const empty = path.join(tmp, 'empty.db');
+  fs.writeFileSync(empty, '');
+  const other = path.join(tmp, 'other.db');
+  const o = new Database(other); o.exec('CREATE TABLE notes (x TEXT)'); o.close();
+  const noUsers = path.join(tmp, 'nousers.db');
+  const n = new Database(noUsers); n.exec('CREATE TABLE users (id INTEGER); CREATE TABLE settings (key TEXT)'); n.close();
+  for (const [f, why] of [[empty, /empty/], [other, /not a school database/], [noUsers, /no user accounts/]]) {
+    const r = run('restore.js', [f, '--yes'], { DATABASE_FILE: file, BACKUP_DIR: path.join(tmp, 'bk') });
+    assert.strictEqual(r.status, 1);
+    assert.match(r.stderr, why);
+  }
+  assert.ok(fs.readFileSync(file).equals(before));
+});
+
+test('a backup that fails its check is deleted, not left looking valid', () => {
+  const { tmp, file } = seededDb();
+  const backup = require('../src/backup');
+  const dir = path.join(tmp, 'bk');
+  const d = new Database(file);
+  d.close(); // closed connection: VACUUM INTO throws
+  assert.throws(() => backup.createBackup(d, { dir, label: 'manual' }));
+  assert.deepStrictEqual(fs.existsSync(dir) ? fs.readdirSync(dir) : [], []);
+});
+
+test('restore and demo reset refuse while a server is using the database; a stale marker is ignored', () => {
+  const { tmp, file } = seededDb();
+  const { bk, backupFile } = backupOf(tmp, file);
+  const lock = require('../src/server-lock').lockFile(file);
+  // A live process (this test runner) holds the marker.
+  fs.writeFileSync(lock, String(process.ppid || process.pid));
+  const before = fs.readFileSync(file);
+  const r = run('restore.js', [backupFile, '--yes'], { DATABASE_FILE: file, BACKUP_DIR: bk });
+  assert.strictEqual(r.status, 1);
+  assert.match(r.stderr, /server is running/);
+  const s = run('seed.js', ['--reset'], { DATABASE_FILE: file, BACKUP_DIR: bk });
+  assert.strictEqual(s.status, 2);
+  assert.match(s.stderr, /server is running/);
+  assert.ok(fs.readFileSync(file).equals(before));
+  // A marker from a process that no longer exists does not block a restore.
+  fs.writeFileSync(lock, '999999');
+  assert.strictEqual(run('restore.js', [backupFile, '--yes'], { DATABASE_FILE: file, BACKUP_DIR: bk }).status, 0);
+  fs.unlinkSync(lock);
+});
+
+test('a real running server blocks restore, and releases the database when it stops', async () => {
+  const { tmp, file } = seededDb();
+  const { bk, backupFile } = backupOf(tmp, file);
+  const { spawn } = require('child_process');
+  const p = spawn(process.execPath, [path.join(ROOT, 'server.js')], { env: { ...process.env, NODE_ENV: 'test', DATABASE_FILE: file, PORT: '0', HOST: '127.0.0.1', LOG_LEVEL: 'info', BACKUP_INTERVAL_HOURS: '0' } });
+  let out = '';
+  p.stdout.on('data', (b) => { out += b; });
+  await new Promise((resolve, reject) => {
+    const t = setTimeout(() => reject(new Error(`no start: ${out}`)), 8000);
+    p.stdout.on('data', () => { if (out.includes('"server started"')) { clearTimeout(t); resolve(); } });
+  });
+  const r = run('restore.js', [backupFile, '--yes'], { DATABASE_FILE: file, BACKUP_DIR: bk });
+  assert.strictEqual(r.status, 1);
+  assert.match(r.stderr, new RegExp(`process ${p.pid}`));
+  const second = run('../server.js', [], { DATABASE_FILE: file, PORT: '0' });
+  assert.strictEqual(second.status, 1, 'a second server on the same database is refused');
+  const exit = new Promise((resolve) => p.on('exit', resolve));
+  p.kill('SIGTERM');
+  assert.strictEqual(await exit, 0);
+  assert.ok(!fs.existsSync(require('../src/server-lock').lockFile(file)), 'marker removed on stop');
+  assert.strictEqual(run('restore.js', [backupFile, '--yes'], { DATABASE_FILE: file, BACKUP_DIR: bk }).status, 0);
+});
+
+test('the automatic backup interval is capped at one week', () => {
+  const config = require('../src/config');
+  assert.throws(() => config.load({ BACKUP_INTERVAL_HOURS: '720' }), /BACKUP_INTERVAL_HOURS must be between 0 and 168/);
+  assert.strictEqual(config.load({ BACKUP_INTERVAL_HOURS: '168' }).backupIntervalHours, 168);
+});

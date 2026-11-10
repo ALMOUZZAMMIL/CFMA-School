@@ -13,17 +13,31 @@ function stamp(date = new Date()) {
   return date.toISOString().replace(/[-:]/g, '').replace(/\..*/, '').replace('T', '-');
 }
 
-// Returns the path of the verified copy. Throws if the copy cannot be made or fails the check.
-function createBackup(d, { dir, label = 'manual' }) {
-  fs.mkdirSync(dir, { recursive: true });
-  let file = path.join(dir, `school-${label}-${stamp()}.db`);
-  for (let i = 2; fs.existsSync(file); i++) file = path.join(dir, `school-${label}-${stamp()}-${i}.db`);
-  d.prepare('VACUUM INTO ?').run(file);
-  verifyBackup(file);
+function uniqueName(dir, label, ext = '.db') {
+  let file = path.join(dir, `school-${label}-${stamp()}${ext}`);
+  for (let i = 2; fs.existsSync(file); i++) file = path.join(dir, `school-${label}-${stamp()}-${i}${ext}`);
   return file;
 }
 
+// Returns the path of the verified copy. Throws if the copy cannot be made or fails the check;
+// a copy that fails is deleted, so the backups folder only ever holds usable files.
+function createBackup(d, { dir, label = 'manual' }) {
+  fs.mkdirSync(dir, { recursive: true });
+  const file = uniqueName(dir, label);
+  try {
+    d.prepare('VACUUM INTO ?').run(file);
+    verifyBackup(file);
+  } catch (err) {
+    try { fs.unlinkSync(file); } catch { /* nothing was written */ }
+    throw err;
+  }
+  return file;
+}
+
+// SQLite reports "ok" for an empty file, so a copy must also be non-empty to count.
 function verifyBackup(file) {
+  const st = fs.statSync(file);
+  if (!st.isFile() || st.size === 0) throw new Error('the file is empty');
   const b = new Database(file, { readonly: true, fileMustExist: true });
   try {
     const result = b.pragma('integrity_check', { simple: true });
@@ -32,6 +46,33 @@ function verifyBackup(file) {
   } finally {
     b.close();
   }
+}
+
+// Stricter check before a file replaces the live database: it must be a school database
+// (core tables present) with at least one account, or the school would be locked out.
+function verifyRestorable(file) {
+  verifyBackup(file);
+  const b = new Database(file, { readonly: true, fileMustExist: true });
+  try {
+    const has = (t) => !!b.prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = ?").get(t);
+    if (!has('users') || !has('settings')) throw new Error('the file is not a school database (no users or settings table)');
+    if (b.prepare('SELECT COUNT(*) n FROM users').get().n === 0) throw new Error('the file has no user accounts');
+    return true;
+  } finally {
+    b.close();
+  }
+}
+
+// Last-resort copy of the raw database files (main file and write-ahead log), used when the
+// database is too damaged for SQLite to copy. Not verified: it is kept for investigation.
+function rawCopy(dbFile, { dir, label }) {
+  fs.mkdirSync(dir, { recursive: true });
+  const base = uniqueName(dir, label, '.raw.db');
+  const out = [];
+  for (const [src, dst] of [[dbFile, base], [`${dbFile}-wal`, `${base}-wal`]]) {
+    if (fs.existsSync(src)) { fs.copyFileSync(src, dst); out.push(dst); }
+  }
+  return out;
 }
 
 // Keeps the newest `keep` copies with this label; older ones with the same label are deleted.
@@ -43,4 +84,4 @@ function pruneBackups(dir, { label, keep }) {
   return removed;
 }
 
-module.exports = { backupDir, createBackup, verifyBackup, pruneBackups, stamp };
+module.exports = { backupDir, createBackup, verifyBackup, verifyRestorable, rawCopy, pruneBackups, stamp };

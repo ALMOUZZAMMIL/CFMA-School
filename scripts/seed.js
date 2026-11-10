@@ -19,6 +19,11 @@ if (process.env.NODE_ENV === 'production') {
 // --reset is only allowed on an empty database or one that already holds demo data,
 // and a verified backup is always written first.
 if (reset && fs.existsSync(dbFile)) {
+  const running = require('../src/server-lock').runningServer(dbFile);
+  if (running) {
+    console.error(`Refusing to reset: the server is running (process ${running}) and using this database. Stop it first.`);
+    process.exit(2);
+  }
   const Database = require('better-sqlite3');
   const backup = require('../src/backup');
   const probe = new Database(dbFile);

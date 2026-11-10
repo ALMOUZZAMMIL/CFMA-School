@@ -114,7 +114,7 @@ or HTTP 503 if the database cannot be read. Point a free uptime monitor at
   and stops if the copy fails. Each upgrade step runs inside a transaction and is rolled back if
   it fails.
 - **Every 24 hours** while running, it writes `school-auto-…db` and keeps the newest 14
-  (`BACKUP_INTERVAL_HOURS`, `BACKUP_KEEP`).
+  (`BACKUP_INTERVAL_HOURS`, at most 168, and `BACKUP_KEEP`).
 - **By hand:** `npm run backup` (safe while the server runs).
 
 Every copy is checked with SQLite's `integrity_check`. Copies on the same disk do not protect
@@ -135,8 +135,11 @@ sudo -u school npm run restore -- /opt/school/backups/school-auto-YYYYMMDD-HHMMS
 sudo systemctl start school
 ```
 
-The restore checks the backup first and refuses a damaged file. It saves the current database as
-`school-pre-restore-…db` before replacing it, so a restore can be undone. Test a restore on
+Before replacing anything, the restore checks the backup and refuses a file that is empty,
+damaged, not a school database, or has no accounts. It also refuses to run while the server is
+still using the database. It then saves the current database as `school-pre-restore-…db`, so a
+restore can be undone. If the current database is too damaged to copy that way, its raw files
+are kept as `school-pre-restore-damaged-….raw.db` and the restore goes ahead. Test a restore on
 a spare computer at least once a term.
 
 ## 8. Updating the application
