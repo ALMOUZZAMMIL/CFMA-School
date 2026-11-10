@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cours enregistrés · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/sessions?status=missed">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="active">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<div class="page-head"><h1>Cours enregistrés</h1></div>
+
+<form method="get" class="filters no-print">
+  <label>Enseignant<select name="teacher"><option value="">Tous les enseignants</option><option value="2" >M. Prof-Maths DÉMO</option><option value="4" >M. Prof-Tech DÉMO</option><option value="3" >Mme Prof-Lettres DÉMO</option><option value="5" >Mrs Teacher-English DEMO</option></select></label>
+  <label>Statut<select name="status"><option value="">Tous</option><option value="held" >Assuré</option><option value="missed" selected>Non assuré</option><option value="cancelled" >Annulé</option><option value="makeup" >Rattrapage</option></select></label>
+  <label>Du<input type="date" name="from" value="2026-09-07"></label>
+  <label>Au<input type="date" name="to" value="2027-06-30"></label>
+  <label class="check"><input type="checkbox" name="pending" value="1" > Rattrapages en attente</label>
+  <button class="btn">Afficher</button>
+</form>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Date</th><th>Heure</th><th>Classe</th><th>Matière</th><th>Enseignant</th><th>Statut</th><th>Rattrapage</th><th></th></tr></thead>
+  <tbody>
+  
+    <tr><td>6 nov. 2026</td><td>07:30–09:30</td><td>1ère F3</td><td>Mathématiques</td><td>M. Prof-Maths DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_128.html">Voir</a></td></tr>
+  
+    <tr><td>20 oct. 2026</td><td>10:00–12:00</td><td>1ère F3</td><td>Mathématiques</td><td>M. Prof-Maths DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_95.html">Voir</a></td></tr>
+  
+    <tr><td>16 oct. 2026</td><td>07:30–09:30</td><td>1ère F3</td><td>Mathématiques</td><td>M. Prof-Maths DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-completed"><span aria-hidden="true">✓</span> Rattrapé</span>
+</td>
+      <td><a href="sessions_89.html">Voir</a></td></tr>
+  
+    <tr><td>13 oct. 2026</td><td>10:00–12:00</td><td>1ère F3</td><td>Mathématiques</td><td>M. Prof-Maths DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_80.html">Voir</a></td></tr>
+  
+    <tr><td>12 oct. 2026</td><td>10:00–13:00</td><td>1ère F3</td><td>Électrotechnique</td><td>M. Prof-Tech DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-completed"><span aria-hidden="true">✓</span> Rattrapé</span>
+</td>
+      <td><a href="sessions_77.html">Voir</a></td></tr>
+  
+    <tr><td>8 oct. 2026</td><td>07:30–09:30</td><td>1ère F3</td><td>Français</td><td>Mme Prof-Lettres DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_71.html">Voir</a></td></tr>
+  
+    <tr><td>29 sept. 2026</td><td>13:00–15:00</td><td>Form 4 A</td><td>Anglais</td><td>Mrs Teacher-English DEMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-completed"><span aria-hidden="true">✓</span> Rattrapé</span>
+</td>
+      <td><a href="sessions_51.html">Voir</a></td></tr>
+  
+    <tr><td>29 sept. 2026</td><td>07:30–09:30</td><td>2nde C</td><td>Français</td><td>Mme Prof-Lettres DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_49.html">Voir</a></td></tr>
+  
+    <tr><td>17 sept. 2026</td><td>10:00–12:00</td><td>2nde C</td><td>Mathématiques</td><td>M. Prof-Maths DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-completed"><span aria-hidden="true">✓</span> Rattrapé</span>
+</td>
+      <td><a href="sessions_25.html">Voir</a></td></tr>
+  
+    <tr><td>16 sept. 2026</td><td>13:00–15:00</td><td>1ère F3</td><td>Électrotechnique</td><td>M. Prof-Tech DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_23.html">Voir</a></td></tr>
+  
+    <tr><td>16 sept. 2026</td><td>07:30–09:30</td><td>2nde C</td><td>Physique-Chimie</td><td>M. Prof-Maths DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-completed"><span aria-hidden="true">✓</span> Rattrapé</span>
+</td>
+      <td><a href="sessions_22.html">Voir</a></td></tr>
+  
+    <tr><td>14 sept. 2026</td><td>10:00–13:00</td><td>1ère F3</td><td>Électrotechnique</td><td>M. Prof-Tech DÉMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-completed"><span aria-hidden="true">✓</span> Rattrapé</span>
+</td>
+      <td><a href="sessions_17.html">Voir</a></td></tr>
+  
+    <tr><td>14 sept. 2026</td><td>07:30–09:30</td><td>Form 4 A</td><td>Mathématiques</td><td>Mrs Teacher-English DEMO</td>
+      <td>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+</td>
+      <td>
+
+<span class="badge badge-planned"><span aria-hidden="true">◷</span> Rattrapage prévu</span>
+</td>
+      <td><a href="sessions_18.html">Voir</a></td></tr>
+  
+  </tbody>
+</table></div>
+
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

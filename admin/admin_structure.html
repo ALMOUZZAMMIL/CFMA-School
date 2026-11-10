@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organisation de l’établissement · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/admin/structure">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="active">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<h1>Organisation de l’établissement</h1>
+<p class="help">Créez d’abord l’année scolaire, puis les trimestres, les sections, les matières et les classes. Rien n’est imposé : utilisez les appellations de votre établissement.</p>
+
+<section class="card" id="years">
+  <h2>Années scolaires</h2>
+  
+  <ul class="list">
+    <li><a href="#" data-unavailable="1" class="strong">2026-2027</a> · 7 sept. 2026 – 30 juin 2027
+      <span class="badge badge-held"><span aria-hidden="true">●</span> Année en cours</span></li>
+  </ul>
+  
+  <form method="post" action="/admin/years" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <label>Nom<input name="name" placeholder="2026-2027" required maxlength="40"></label>
+    <label>Du<input type="date" name="start_date" required></label>
+    <label>Au<input type="date" name="end_date" required></label>
+    <button class="btn btn-small">Ajouter l’année scolaire</button>
+  </form>
+</section>
+
+
+<section class="card" id="terms">
+  <h2>Trimestres</h2>
+  <p class="help">Les trimestres doivent être compris dans les dates de l’année scolaire.</p>
+  
+  <form method="post" action="/admin/terms/1" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <input name="name" value="Trimestre 1 / Term 1" required maxlength="40" aria-label="Nom">
+    <input type="date" name="start_date" value="2026-09-07" required aria-label="Du">
+    <input type="date" name="end_date" value="2026-12-18" required aria-label="Au">
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/terms/2" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <input name="name" value="Trimestre 2 / Term 2" required maxlength="40" aria-label="Nom">
+    <input type="date" name="start_date" value="2027-01-05" required aria-label="Du">
+    <input type="date" name="end_date" value="2027-03-26" required aria-label="Au">
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/terms/3" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <input name="name" value="Trimestre 3 / Term 3" required maxlength="40" aria-label="Nom">
+    <input type="date" name="start_date" value="2027-04-06" required aria-label="Du">
+    <input type="date" name="end_date" value="2027-06-30" required aria-label="Au">
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/terms" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="year_id" value="1">
+    <label>Nom<input name="name" placeholder="ex. Trimestre 1" required maxlength="40"></label>
+    <label>Du<input type="date" name="start_date" required></label>
+    <label>Au<input type="date" name="end_date" required></label>
+    <button class="btn btn-small">Ajouter le trimestre</button>
+  </form>
+</section>
+
+<section class="card" id="closures">
+  <h2>Congés et fermetures</h2>
+  <p class="help">Jours sans cours. Ils ne sont pas comptés dans les heures prévues.</p>
+  <ul class="list"><li>29 oct. 2026 – 30 oct. 2026 · Congé de mi-trimestre (démo) / Mid-term break (demo)
+    <form method="post" action="/admin/closures/1/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>20 mai 2027 · Jour férié (démo) / Public holiday (demo)
+    <form method="post" action="/admin/closures/2/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  <form method="post" action="/admin/closures" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="year_id" value="1">
+    <label>Du<input type="date" name="start_date" required></label>
+    <label>Au<input type="date" name="end_date"></label>
+    <label>Motif<input name="reason" required maxlength="200"></label>
+    <button class="btn btn-small">Ajouter la fermeture</button>
+  </form>
+</section>
+
+
+<section class="card" id="sections">
+  <h2>Sections</h2>
+  <ul class="list"><li><strong>GEN</strong> · <span lang="fr">Enseignement général</span> / <span lang="en">General</span></li><li><strong>TECH</strong> · <span lang="fr">Enseignement technique</span> / <span lang="en">Technical</span></li><li><strong>ANG</strong> · <span lang="fr">Sous-système anglophone</span> / <span lang="en">Anglophone</span></li></ul>
+  <form method="post" action="/admin/sections" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <label>Code<input name="code" required maxlength="20" class="w-code"></label>
+    <label>Nom (français)<input name="name_fr" required maxlength="80"></label>
+    <label>Nom (anglais)<input name="name_en" required maxlength="80"></label>
+    <button class="btn btn-small">Ajouter la section</button>
+  </form>
+</section>
+
+<section class="card" id="subjects">
+  <h2>Matières</h2>
+  
+  <form method="post" action="/admin/subjects/5" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <span class="w-code"><strong>ELEC</strong></span>
+    <input name="name_fr" value="Électrotechnique" required aria-label="Nom (français)" lang="fr">
+    <input name="name_en" value="Electrical Technology" required aria-label="Nom (anglais)" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" checked> Actif</label>
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/subjects/3" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <span class="w-code"><strong>ANGL</strong></span>
+    <input name="name_fr" value="Anglais" required aria-label="Nom (français)" lang="fr">
+    <input name="name_en" value="English Language" required aria-label="Nom (anglais)" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" checked> Actif</label>
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/subjects/2" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <span class="w-code"><strong>FRAN</strong></span>
+    <input name="name_fr" value="Français" required aria-label="Nom (français)" lang="fr">
+    <input name="name_en" value="French" required aria-label="Nom (anglais)" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" checked> Actif</label>
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/subjects/6" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <span class="w-code"><strong>HG</strong></span>
+    <input name="name_fr" value="Histoire-Géographie" required aria-label="Nom (français)" lang="fr">
+    <input name="name_en" value="History and Geography" required aria-label="Nom (anglais)" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" checked> Actif</label>
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/subjects/1" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <span class="w-code"><strong>MATH</strong></span>
+    <input name="name_fr" value="Mathématiques" required aria-label="Nom (français)" lang="fr">
+    <input name="name_en" value="Mathematics" required aria-label="Nom (anglais)" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" checked> Actif</label>
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/subjects/4" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <span class="w-code"><strong>PCT</strong></span>
+    <input name="name_fr" value="Physique-Chimie" required aria-label="Nom (français)" lang="fr">
+    <input name="name_en" value="Physics and Chemistry" required aria-label="Nom (anglais)" lang="en">
+    <label class="check"><input type="checkbox" name="active" value="1" checked> Actif</label>
+    <button class="btn btn-small">Enregistrer</button>
+  </form>
+  
+  <form method="post" action="/admin/subjects" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <label>Code<input name="code" required maxlength="20" class="w-code"></label>
+    <label>Nom (français)<input name="name_fr" required maxlength="80"></label>
+    <label>Nom (anglais)<input name="name_en" required maxlength="80"></label>
+    <button class="btn btn-small">Ajouter la matière</button>
+  </form>
+</section>
+
+
+<section class="card" id="classes">
+  <h2>Classes</h2>
+  
+  <div class="table-wrap"><table><thead><tr><th>Nom</th><th>Section</th><th>Niveau</th><th>Élèves</th></tr></thead>
+    <tbody><tr><td><a href="#" data-unavailable="1">2nde C</a></td><td>Enseignement général</td><td>Seconde C</td><td>12</td></tr><tr><td><a href="#" data-unavailable="1">1ère F3</a></td><td>Enseignement technique</td><td>Première F3</td><td>10</td></tr><tr><td><a href="#" data-unavailable="1">Form 4 A</a></td><td>Sous-système anglophone</td><td>Form 4</td><td>12</td></tr></tbody></table></div>
+  
+  <form method="post" action="/admin/classes" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="year_id" value="1">
+    <label>Section<select name="section_id" required><option value="1">Enseignement général</option><option value="2">Enseignement technique</option><option value="3">Sous-système anglophone</option></select></label>
+    <label>Niveau<input name="level" required maxlength="60" placeholder="ex. Seconde, Form 4"></label>
+    <label>Nom<input name="name" required maxlength="60" placeholder="ex. 2nde C1"></label>
+    <button class="btn btn-small">Ajouter la classe</button>
+  </form>
+</section>
+
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

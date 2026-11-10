@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paramètres · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/admin/settings">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="active">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<h1>Paramètres</h1>
+
+
+<form method="post" action="/admin/settings" class="form card">
+  <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+  <h2>Établissement</h2>
+  <div class="grid-2">
+    <div><label for="school_name">Nom de l’établissement</label><input id="school_name" name="school_name" value="Collège Bilingue Maloum &amp; Ayena" required></div>
+    <div><label for="default_language">Langue par défaut</label><select id="default_language" name="default_language"><option value="fr">Français</option><option value="en" >English</option></select></div>
+    <div><label for="timezone">Fuseau horaire</label><input id="timezone" name="timezone" value="Africa/Douala" required><p class="help">Pour le Cameroun : Africa/Douala.</p></div>
+    <div><label for="currency">Devise</label><input id="currency" name="currency" value="XAF" maxlength="3" required class="w-code"><p class="help">Code à 3 lettres, ex. XAF. Utilisé plus tard par le module financier.</p></div>
+  </div>
+
+  <h2>Page publique</h2>
+  <p class="help">Affiché sur la page d&#39;accueil et en pied de page. Un champ vide s&#39;affiche « à compléter ».</p>
+  <div class="grid-2">
+    <div><label for="school_motto">Devise</label><input id="school_motto" name="school_motto" value="Discipline · Savoir · Réussite — Discipline · Knowledge · Success" maxlength="120"></div>
+    <div><label for="school_address">Adresse</label><input id="school_address" name="school_address" value="BP 903 Yaoundé, Cameroun — Etoudi (ancien 6e route Nkolmbong)" maxlength="200"></div>
+    <div><label for="school_phone">Téléphone</label><input id="school_phone" name="school_phone" type="tel" value="+237 680 90 06 75"></div>
+    <div><label for="school_email">E-mail</label><input id="school_email" name="school_email" type="email" value="maloumayena@gmail.com"></div>
+  </div>
+  <label class="check"><input type="checkbox" name="allow_account_requests" value="1" checked> Autoriser « Demander un compte » sur la page publique</label>
+
+  <h2>Logo et couleurs</h2>
+  <p class="help">Le logo est utilisé tel quel. Pour le changer, remplacez le fichier dans public/brand/ (logo.svg, logo.png, logo.webp ou logo.jpg).</p>
+  <div class="brand-row">
+    <div class="brand-logo-box">
+<img class="logo logo-lg" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+<p class="small muted">Fichier du logo trouvé.</p></div>
+    <div class="grid-2 grow">
+      <div><label for="brand_primary">Couleur principale</label><input id="brand_primary" name="brand_primary" type="color" value="#2b3f98" class="color-input"><p class="help">La couleur principale sert de fond au texte blanc : elle doit être assez foncée pour rester lisible.</p></div>
+      <div><label for="brand_accent">Couleur d&#39;accent</label><input id="brand_accent" name="brand_accent" type="color" value="#1d7f43" class="color-input"></div>
+      <div><label for="brand_secondary">Couleur secondaire</label><input id="brand_secondary" name="brand_secondary" type="color" value="#8e3c96" class="color-input"></div>
+    </div>
+  </div>
+
+  <h2>Alertes d’absence aux parents</h2>
+  <fieldset><legend>Comment les parents sont informés</legend><div class="choice-row">
+    <label class="choice"><input type="radio" name="parent_absence_alert" value="none" > Ne pas alerter les parents</label>
+    <label class="choice"><input type="radio" name="parent_absence_alert" value="in_app" checked> Notification dans le compte du parent</label>
+  </div></fieldset>
+  <fieldset><legend>Alerter pour</legend><div class="choice-row">
+    <label class="choice"><input type="checkbox" name="absence_alert_statuses" value="absent" checked> Absent</label><label class="choice"><input type="checkbox" name="absence_alert_statuses" value="late" > En retard</label>
+  </div></fieldset>
+  <label class="check"><input type="checkbox" name="prepare_sms_for_absences" value="1" > Préparer aussi un SMS (non envoyé tant qu’aucun service SMS n’est connecté)</label>
+  <p class="help">Aucun service SMS ou WhatsApp n’est encore connecté. Les messages préparés apparaissent dans « SMS préparés » avec le statut « Non envoyé ».</p>
+
+  <h2>Ce que les familles peuvent voir</h2>
+  <label class="check"><input type="checkbox" name="show_attendance_to_parents" value="1" checked> Les parents voient les présences de leur enfant</label>
+  <label class="check"><input type="checkbox" name="show_attendance_to_students" value="1" checked> Les élèves voient leurs propres présences</label>
+  <label class="check"><input type="checkbox" name="show_progress_to_students" value="1" checked> Les élèves et les parents voient où en est la classe dans chaque matière</label>
+
+  <h2>Absences et retards répétés</h2>
+  <div class="grid-2">
+    <div><label for="repeat_absence_threshold">Nombre d’absences + retards</label><input id="repeat_absence_threshold" type="number" min="1" max="99" name="repeat_absence_threshold" value="3" class="w-num"></div>
+    <div><label for="repeat_absence_window_days">Sur les derniers (jours)</label><input id="repeat_absence_window_days" type="number" min="1" max="365" name="repeat_absence_window_days" value="30" class="w-num"></div>
+  </div>
+  <button class="btn btn-primary">Enregistrer</button>
+</form>
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

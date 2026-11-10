@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enseignements et emploi du temps · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/admin/timetable">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="active">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<h1>Enseignements et emploi du temps</h1>
+<p class="help">Attribuez d’abord un enseignant à une classe et une matière, puis ajoutez les créneaux hebdomadaires de ce cours pour chaque trimestre.</p>
+<form method="get" class="filters"><label>Classe<select name="class"><option value="">Tous</option><option value="2" >1ère F3</option><option value="1" >2nde C</option><option value="3" >Form 4 A</option></select></label><button class="btn">Afficher</button>
+</form>
+
+<section class="card">
+  <h2>Attribuer un enseignant à une classe et une matière</h2>
+  <form method="post" action="/admin/assignments" class="row-form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <label>Classe<select name="class_id" required><option value="2" >1ère F3</option><option value="1" >2nde C</option><option value="3" >Form 4 A</option></select></label>
+    <label>Matière<select name="subject_id" required><option value="5">Électrotechnique</option><option value="3">Anglais</option><option value="2">Français</option><option value="6">Histoire-Géographie</option><option value="1">Mathématiques</option><option value="4">Physique-Chimie</option></select></label>
+    <label>Enseignant<select name="teacher_id" required><option value="2">M. Prof-Maths DÉMO</option><option value="4">M. Prof-Tech DÉMO</option><option value="3">Mme Prof-Lettres DÉMO</option><option value="5">Mrs Teacher-English DEMO</option></select></label>
+    <button class="btn btn-small">Ajouter</button>
+  </form>
+</section>
+
+
+
+<section class="card" id="a-5">
+  <h3>1ère F3 · Électrotechnique · M. Prof-Tech DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Lundi 10:00–13:00 · Atelier
+    <form method="post" action="/admin/slots/22/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 1 / Term 1 · Mercredi 13:00–15:00 · Atelier
+    <form method="post" action="/admin/slots/25/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Lundi 10:00–13:00 · Atelier
+    <form method="post" action="/admin/slots/23/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Mercredi 13:00–15:00 · Atelier
+    <form method="post" action="/admin/slots/26/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Lundi 10:00–13:00 · Atelier
+    <form method="post" action="/admin/slots/24/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Mercredi 13:00–15:00 · Atelier
+    <form method="post" action="/admin/slots/27/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="5">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-6">
+  <h3>1ère F3 · Français · Mme Prof-Lettres DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Jeudi 07:30–09:30 · A3
+    <form method="post" action="/admin/slots/28/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Jeudi 07:30–09:30 · A3
+    <form method="post" action="/admin/slots/29/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Jeudi 07:30–09:30 · A3
+    <form method="post" action="/admin/slots/30/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="6">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-4">
+  <h3>1ère F3 · Mathématiques · M. Prof-Maths DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Mardi 10:00–12:00 · A3
+    <form method="post" action="/admin/slots/16/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 1 / Term 1 · Vendredi 07:30–09:30 · A3
+    <form method="post" action="/admin/slots/19/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Mardi 10:00–12:00 · A3
+    <form method="post" action="/admin/slots/17/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Vendredi 07:30–09:30 · A3
+    <form method="post" action="/admin/slots/20/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Mardi 10:00–12:00 · A3
+    <form method="post" action="/admin/slots/18/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Vendredi 07:30–09:30 · A3
+    <form method="post" action="/admin/slots/21/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="4">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-2">
+  <h3>2nde C · Français · Mme Prof-Lettres DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Mardi 07:30–09:30 · S12
+    <form method="post" action="/admin/slots/7/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 1 / Term 1 · Vendredi 10:00–11:00 · S12
+    <form method="post" action="/admin/slots/10/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Mardi 07:30–09:30 · S12
+    <form method="post" action="/admin/slots/8/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Vendredi 10:00–11:00 · S12
+    <form method="post" action="/admin/slots/11/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Mardi 07:30–09:30 · S12
+    <form method="post" action="/admin/slots/9/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Vendredi 10:00–11:00 · S12
+    <form method="post" action="/admin/slots/12/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="2">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-1">
+  <h3>2nde C · Mathématiques · M. Prof-Maths DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Lundi 07:30–09:30 · S12
+    <form method="post" action="/admin/slots/1/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 1 / Term 1 · Jeudi 10:00–12:00 · S12
+    <form method="post" action="/admin/slots/4/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Lundi 07:30–09:30 · S12
+    <form method="post" action="/admin/slots/2/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Jeudi 10:00–12:00 · S12
+    <form method="post" action="/admin/slots/5/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Lundi 07:30–09:30 · S12
+    <form method="post" action="/admin/slots/3/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Jeudi 10:00–12:00 · S12
+    <form method="post" action="/admin/slots/6/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="1">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-3">
+  <h3>2nde C · Physique-Chimie · M. Prof-Maths DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Mercredi 07:30–09:30 · Labo
+    <form method="post" action="/admin/slots/13/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Mercredi 07:30–09:30 · Labo
+    <form method="post" action="/admin/slots/14/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Mercredi 07:30–09:30 · Labo
+    <form method="post" action="/admin/slots/15/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="3">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-8">
+  <h3>Form 4 A · Anglais · Mrs Teacher-English DEMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Mardi 13:00–15:00 · B5
+    <form method="post" action="/admin/slots/37/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 1 / Term 1 · Jeudi 13:00–14:00 · B5
+    <form method="post" action="/admin/slots/40/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Mardi 13:00–15:00 · B5
+    <form method="post" action="/admin/slots/38/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Jeudi 13:00–14:00 · B5
+    <form method="post" action="/admin/slots/41/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Mardi 13:00–15:00 · B5
+    <form method="post" action="/admin/slots/39/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Jeudi 13:00–14:00 · B5
+    <form method="post" action="/admin/slots/42/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="8">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-9">
+  <h3>Form 4 A · Histoire-Géographie · Mme Prof-Lettres DÉMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Vendredi 13:00–15:00 · B5
+    <form method="post" action="/admin/slots/43/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Vendredi 13:00–15:00 · B5
+    <form method="post" action="/admin/slots/44/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Vendredi 13:00–15:00 · B5
+    <form method="post" action="/admin/slots/45/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="9">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+<section class="card" id="a-7">
+  <h3>Form 4 A · Mathématiques · Mrs Teacher-English DEMO</h3>
+  
+  <ul class="list"><li>Trimestre 1 / Term 1 · Lundi 07:30–09:30 · B5
+    <form method="post" action="/admin/slots/31/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 1 / Term 1 · Mercredi 10:00–12:00 · B5
+    <form method="post" action="/admin/slots/34/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Lundi 07:30–09:30 · B5
+    <form method="post" action="/admin/slots/32/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 2 / Term 2 · Mercredi 10:00–12:00 · B5
+    <form method="post" action="/admin/slots/35/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Lundi 07:30–09:30 · B5
+    <form method="post" action="/admin/slots/33/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li><li>Trimestre 3 / Term 3 · Mercredi 10:00–12:00 · B5
+    <form method="post" action="/admin/slots/36/delete" class="inline" data-confirm="Supprimer cet élément ? Cette action est définitive."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn danger">Supprimer</button></form></li></ul>
+  
+  
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><input type="hidden" name="assignment_id" value="7">
+    <select name="term_id" aria-label="Trimestre"><option value="1">Trimestre 1 / Term 1</option><option value="2">Trimestre 2 / Term 2</option><option value="3">Trimestre 3 / Term 3</option></select>
+    <select name="day_of_week" aria-label="Jour"><option value="1">Lundi</option><option value="2">Mardi</option><option value="3">Mercredi</option><option value="4">Jeudi</option><option value="5">Vendredi</option><option value="6">Samedi</option></select>
+    <input type="time" name="start_time" required aria-label="Heure de début">
+    <input type="time" name="end_time" required aria-label="Heure de fin">
+    <input name="room" placeholder="Salle" maxlength="40" class="w-code" aria-label="Salle">
+    <button class="btn btn-small">Ajouter le créneau</button>
+  </form>
+  
+</section>
+
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

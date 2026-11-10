@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Absences et retards répétés · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/reports/absences">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="active">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<div class="page-head"><h1>Absences et retards répétés</h1><button class="btn no-print" data-print>Imprimer</button></div>
+<form method="get" class="filters no-print">
+  <label>Nombre d’absences + retards<input type="number" name="threshold" min="1" max="99" value="3" class="w-num"></label>
+  <label>Sur les derniers (jours)<input type="number" name="days" min="1" max="365" value="30" class="w-num"></label>
+  <label>À la date du<input type="date" name="date" value="2026-11-10"></label>
+  <label>Classe<select name="class"><option value="">Tous</option><option value="2" >1ère F3</option><option value="1" >2nde C</option><option value="3" >Form 4 A</option></select></label>
+  <button class="btn">Afficher</button>
+</form>
+<p class="muted">Élèves ayant au moins 3 absences ou retards au cours des 30 derniers jours.</p>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Élève</th><th>Matricule</th><th>Classe</th><th class="num">Absent</th><th class="num">En retard</th><th class="num">Absence justifiée</th><th>Dernière absence ou retard</th></tr></thead>
+  <tbody><tr><td><a href="students_29.html">Gideon DEMO-29</a></td><td>DEMO029</td><td>Form 4 A</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td>9 nov. 2026</td></tr><tr><td><a href="students_20.html">Hervé DEMO-20</a></td><td>DEMO020</td><td>1ère F3</td><td class="num">1</td><td class="num">3</td><td class="num">1</td><td>9 nov. 2026</td></tr><tr><td><a href="students_26.html">Divine DEMO-26</a></td><td>DEMO026</td><td>Form 4 A</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td>21 oct. 2026</td></tr><tr><td><a href="students_6.html">Franck DEMO-06</a></td><td>DEMO006</td><td>2nde C</td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td>27 oct. 2026</td></tr><tr><td><a href="students_33.html">Kelly DEMO-33</a></td><td>DEMO033</td><td>Form 4 A</td><td class="num">1</td><td class="num">2</td><td class="num">0</td><td>6 nov. 2026</td></tr><tr><td><a href="students_34.html">Lionel DEMO-34</a></td><td>DEMO034</td><td>Form 4 A</td><td class="num">2</td><td class="num">1</td><td class="num">2</td><td>26 oct. 2026</td></tr></tbody>
+</table></div>
+
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

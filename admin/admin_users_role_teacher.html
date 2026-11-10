@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comptes · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/admin/users?role=teacher">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="active">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<h1>Comptes</h1>
+
+<form method="get" class="filters">
+  <label>Rôle<select name="role"><option value="">Tous</option><option value="admin" >Administrateur</option><option value="teacher" selected>Enseignant</option><option value="student" >Élève</option><option value="parent" >Parent / tuteur</option><option value="bursar" >Intendant</option></select></label>
+  <label>Rechercher<input name="q" value=""></label><button class="btn">Afficher</button>
+</form>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Nom complet</th><th>Identifiant</th><th>Rôle</th><th>Statut</th><th>Dernière connexion</th></tr></thead>
+  <tbody><tr><td><a href="admin_users_2.html">M. Prof-Maths DÉMO</a></td><td>demo.prof.maths</td><td>Enseignant</td>
+    <td><span class="badge badge-held"><span aria-hidden="true">✓</span> Actif</span></td>
+    <td class="small">—</td></tr><tr><td><a href="admin_users_4.html">M. Prof-Tech DÉMO</a></td><td>demo.prof.tech</td><td>Enseignant</td>
+    <td><span class="badge badge-held"><span aria-hidden="true">✓</span> Actif</span></td>
+    <td class="small">—</td></tr><tr><td><a href="admin_users_3.html">Mme Prof-Lettres DÉMO</a></td><td>demo.prof.lettres</td><td>Enseignant</td>
+    <td><span class="badge badge-held"><span aria-hidden="true">✓</span> Actif</span></td>
+    <td class="small">—</td></tr><tr><td><a href="admin_users_5.html">Mrs Teacher-English DEMO</a></td><td>demo.teacher.eng</td><td>Enseignant</td>
+    <td><span class="badge badge-held"><span aria-hidden="true">✓</span> Actif</span></td>
+    <td class="small">—</td></tr></tbody>
+</table></div>
+
+<section class="card">
+  <h2>Créer un compte</h2>
+  <p class="help">Un mot de passe provisoire est créé. Remettez-le à la personne en privé ; elle devra le changer à sa première connexion. Les comptes élèves se créent depuis la page Élèves.</p>
+  
+
+  <form method="post" action="/admin/users" class="form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <div class="grid-2">
+      <div><label for="full_name">Nom complet</label><input id="full_name" name="full_name" value="" required maxlength="120"></div>
+      <div><label for="username">Identifiant</label><input id="username" name="username" value="" required pattern="[A-Za-z0-9._\-]{3,40}" autocapitalize="none"><p class="help">3 à 40 lettres, chiffres, points, tirets ou tirets bas, sans espace</p></div>
+      <div><label for="role">Rôle</label><select id="role" name="role"><option value="teacher" >Enseignant</option><option value="parent" >Parent / tuteur</option><option value="admin" >Administrateur</option><option value="bursar" >Intendant</option></select></div>
+      <div><label for="phone">Numéro de téléphone <span class="help-inline">(facultatif)</span></label><input id="phone" name="phone" type="tel" value="" placeholder="+237 6XX XX XX XX"></div>
+      <div><label for="email">Adresse e-mail <span class="help-inline">(facultatif)</span></label><input id="email" name="email" type="email" value=""><p class="help">Facultatif. La personne peut l&#39;utiliser pour se connecter à la place de l&#39;identifiant.</p></div>
+      <div><label for="language">Langue</label><select id="language" name="language"><option value="fr">Français</option><option value="en" >English</option></select></div>
+    </div>
+    <button class="btn btn-primary">Créer le compte</button>
+  </form>
+</section>
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

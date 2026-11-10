@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connexion · Collège Bilingue Maloum &amp; Ayena</title>
+<meta name="description" content="Collège Bilingue Maloum &amp; Ayena : portail scolaire pour les emplois du temps, l&#39;appel, la progression des cours et les annonces.">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body class="public" data-root="../" data-role="visiteur"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html" class="on">Visiteur</a> <a href="../admin/index.html">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html">
+      
+<img class="logo logo-md" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+
+      <span class="site-brand-text"><strong>Collège Bilingue Maloum &amp; Ayena</strong><span class="site-motto">Discipline · Savoir · Réussite — Discipline · Knowledge · Success</span></span>
+    </a>
+    <div class="site-header-actions">
+      <form method="post" action="/lang" class="lang-pill" aria-label="Langue">
+        <input type="hidden" name="_csrf" value="V8tHnmNzDTUlf4DkbVsWt29ol-kdJC9A">
+        <input type="hidden" name="back" value="/login">
+        <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr" title="Français">FR</button>
+        <button name="lang" value="en" class="" aria-pressed="false" lang="en" title="English">EN</button>
+      </form>
+      
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<section class="auth-wrap">
+  <div class="auth-panel" aria-hidden="true">
+    
+<img class="logo logo-lg" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+
+    <p class="auth-panel-school">Collège Bilingue Maloum &amp; Ayena</p>
+    <p class="auth-panel-text">Connectez-vous pour voir votre emploi du temps, vos classes ou la scolarité de vos enfants.</p>
+    <ul class="auth-panel-list small">
+      <li><span aria-hidden="true">✓</span> Chaque famille ne voit que ses propres enfants</li>
+      <li><span aria-hidden="true">✓</span> Vos informations ne sont visibles que par les personnes concernées.</li>
+    </ul>
+  </div>
+  <div class="auth-card">
+    <h1>Connexion</h1>
+    <p class="muted">Utilisez l’identifiant et le mot de passe remis par l’établissement.</p>
+    
+    <form method="post" action="/login" class="form" data-once data-loading>
+      <input type="hidden" name="_csrf" value="V8tHnmNzDTUlf4DkbVsWt29ol-kdJC9A">
+      <input type="hidden" name="next" value="/">
+      <label for="username">Identifiant ou e-mail</label>
+      <input id="username" name="username" value="" autocomplete="username" autocapitalize="none" spellcheck="false" required  autofocus>
+      <div class="label-row"><label for="password">Mot de passe</label><a class="small" href="forgot_password.html">Mot de passe oublié ?</a></div>
+      <div class="pw-field">
+        <input id="password" name="password" type="password" autocomplete="current-password" required >
+        <button type="button" class="pw-toggle" data-pw-toggle="password" aria-controls="password" aria-pressed="false" data-show="Afficher" data-hide="Masquer" hidden>Afficher</button>
+      </div>
+      <button class="btn btn-primary btn-block btn-lg" data-loading-text="Connexion…">Se connecter</button>
+    </form>
+    <p class="auth-alt">Pas encore de compte ? <a href="register.html">Demander un compte</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="foot-col">
+      <div class="foot-brand">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <strong>Collège Bilingue Maloum &amp; Ayena</strong></div>
+      <p class="small">Le portail de l&#39;établissement pour les heures de cours, les programmes, l&#39;appel et les annonces.</p>
+    </div>
+    <div class="foot-col">
+      <h2 class="foot-title">Contact</h2>
+      <ul class="foot-list small">
+        <li><span class="foot-label">Adresse:</span> BP 903 Yaoundé, Cameroun — Etoudi (ancien 6e route Nkolmbong)</li>
+        <li><span class="foot-label">Téléphone:</span> <a href="tel:+237680900675">+237 680 90 06 75</a></li>
+        <li><span class="foot-label">E-mail:</span> <a href="mailto:maloumayena@gmail.com">maloumayena@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h2 class="foot-title">Accès</h2>
+      <ul class="foot-list small">
+        <li><a href="login.html">Se connecter</a></li>
+        <li><a href="register.html">Demander un compte</a></li>
+        <li><a href="forgot_password.html">Mot de passe oublié ?</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot-privacy small">Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

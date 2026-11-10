@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emploi du temps · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="eleve"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html" class="on">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="7TUsLJXgcy08oGKNQmuHoVu10zOL5mEj">
+      <input type="hidden" name="back" value="/timetable?student=1">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+    
+      <a href="timetable.html" class="active">Emploi du temps</a>
+    
+    
+      <a href="#" data-unavailable="1" class="">Mon dossier</a>
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+    <span class="nav-user">
+      <span class="who">Aïcha DEMO-01 · Élève</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="7TUsLJXgcy08oGKNQmuHoVu10zOL5mEj"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<div class="page-head"><h1>Emploi du temps</h1><button class="btn" data-print>Imprimer</button></div>
+<form method="get" class="filters no-print">
+  
+  <label>Trimestre
+    <select name="term"><option value="1" selected>Trimestre 1 / Term 1</option><option value="2" >Trimestre 2 / Term 2</option><option value="3" >Trimestre 3 / Term 3</option></select></label>
+  
+  
+  
+  <button class="btn">Afficher</button>
+</form>
+
+  
+  <section class="card day">
+    <h2>Lundi</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Heure</th><th>Matière</th><th>Classe</th><th>Enseignant</th><th>Salle</th></tr></thead>
+      <tbody><tr><td>07:30–09:30</td><td>Mathématiques</td><td>2nde C</td><td>M. Prof-Maths DÉMO</td><td>S12</td></tr></tbody>
+    </table></div>
+  </section>
+  
+  <section class="card day">
+    <h2>Mardi</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Heure</th><th>Matière</th><th>Classe</th><th>Enseignant</th><th>Salle</th></tr></thead>
+      <tbody><tr><td>07:30–09:30</td><td>Français</td><td>2nde C</td><td>Mme Prof-Lettres DÉMO</td><td>S12</td></tr></tbody>
+    </table></div>
+  </section>
+  
+  <section class="card day">
+    <h2>Mercredi</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Heure</th><th>Matière</th><th>Classe</th><th>Enseignant</th><th>Salle</th></tr></thead>
+      <tbody><tr><td>07:30–09:30</td><td>Physique-Chimie</td><td>2nde C</td><td>M. Prof-Maths DÉMO</td><td>Labo</td></tr></tbody>
+    </table></div>
+  </section>
+  
+  <section class="card day">
+    <h2>Jeudi</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Heure</th><th>Matière</th><th>Classe</th><th>Enseignant</th><th>Salle</th></tr></thead>
+      <tbody><tr><td>10:00–12:00</td><td>Mathématiques</td><td>2nde C</td><td>M. Prof-Maths DÉMO</td><td>S12</td></tr></tbody>
+    </table></div>
+  </section>
+  
+  <section class="card day">
+    <h2>Vendredi</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Heure</th><th>Matière</th><th>Classe</th><th>Enseignant</th><th>Salle</th></tr></thead>
+      <tbody><tr><td>10:00–11:00</td><td>Français</td><td>2nde C</td><td>Mme Prof-Lettres DÉMO</td><td>S12</td></tr></tbody>
+    </table></div>
+  </section>
+  
+
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

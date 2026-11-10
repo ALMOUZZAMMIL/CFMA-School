@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demander un compte · Collège Bilingue Maloum &amp; Ayena</title>
+<meta name="description" content="Collège Bilingue Maloum &amp; Ayena : portail scolaire pour les emplois du temps, l&#39;appel, la progression des cours et les annonces.">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body class="public" data-root="../" data-role="visiteur"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html" class="on">Visiteur</a> <a href="../admin/index.html">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="index.html">
+      
+<img class="logo logo-md" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+
+      <span class="site-brand-text"><strong>Collège Bilingue Maloum &amp; Ayena</strong><span class="site-motto">Discipline · Savoir · Réussite — Discipline · Knowledge · Success</span></span>
+    </a>
+    <div class="site-header-actions">
+      <form method="post" action="/lang" class="lang-pill" aria-label="Langue">
+        <input type="hidden" name="_csrf" value="Sv6Q3_VGpFjJk6NO0i4BCdMJ95n1nOI9">
+        <input type="hidden" name="back" value="/register">
+        <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr" title="Français">FR</button>
+        <button name="lang" value="en" class="" aria-pressed="false" lang="en" title="English">EN</button>
+      </form>
+      <a class="btn btn-primary btn-header" href="login.html">Se connecter</a>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<section class="auth-wrap auth-wide">
+  <div class="auth-card">
+    <h1>Demander un compte</h1>
+    <p class="muted">Indiquez à l&#39;établissement qui vous êtes. Un administrateur vérifiera votre demande avant de vous donner accès.</p>
+    <ol class="mini-steps small" aria-label="Comment obtenir un compte">
+      <li>Envoyez une demande</li><li>L&#39;établissement vérifie</li><li>Vous recevez vos accès</li>
+    </ol>
+    
+
+    <form method="post" action="/register" class="form" data-once data-loading novalidate>
+      <input type="hidden" name="_csrf" value="Sv6Q3_VGpFjJk6NO0i4BCdMJ95n1nOI9">
+      <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+
+      <fieldset>
+        <legend>Je suis…</legend>
+        <div class="choice-row">
+          
+          <label class="choice"><input type="radio" name="role_requested" value="parent" checked required>
+            <span><strong>Parent ou tuteur</strong><br><small>Pour suivre l&#39;assiduité et la scolarité de votre enfant.</small></span></label>
+          
+          <label class="choice"><input type="radio" name="role_requested" value="teacher"  required>
+            <span><strong>Enseignant(e)</strong><br><small>Pour enregistrer vos cours, l&#39;appel et la progression.</small></span></label>
+          
+          <label class="choice"><input type="radio" name="role_requested" value="student"  required>
+            <span><strong>Élève</strong><br><small>Pour voir votre emploi du temps et votre assiduité.</small></span></label>
+          
+        </div>
+        <p class="help">Les comptes d&#39;administration et d&#39;intendance sont créés uniquement par l&#39;établissement.</p>
+      </fieldset>
+
+      <div class="grid-2">
+        <div><label for="full_name">Nom complet</label>
+          <input id="full_name" name="full_name" value="" required maxlength="120" autocomplete="name" ></div>
+        <div><label for="phone">Numéro de téléphone</label>
+          <input id="phone" name="phone" type="tel" value="" required placeholder="+237 6XX XX XX XX" autocomplete="tel" ></div>
+        <div><label for="email">Adresse e-mail <span class="help-inline">(facultatif)</span></label>
+          <input id="email" name="email" type="email" value="" autocomplete="email" ></div>
+        <div><label for="language">Langue</label>
+          <select id="language" name="language"><option value="fr">Français</option><option value="en" >English</option></select></div>
+      </div>
+
+      <label for="details">Précisions</label>
+      <textarea id="details" name="details" rows="3" maxlength="1000" required aria-describedby="details-help" ></textarea>
+      <p id="details-help" class="help">Parent : nom et classe de vos enfants. Enseignant : vos matières. Élève : votre classe. L&#39;établissement vérifie ces informations avant de relier quoi que ce soit à votre compte.</p>
+
+      <label class="check"><input type="checkbox" name="confirm" value="1"  required> Je confirme que ces informations sont exactes et que l&#39;établissement peut me contacter pour les vérifier.</label>
+      <div class="alert alert-info small" role="note"><span class="alert-icon" aria-hidden="true">i</span> L&#39;envoi de ce formulaire ne donne pas d&#39;accès immédiat. L&#39;établissement vous remettra un identifiant et un mot de passe provisoire une fois la demande acceptée.</div>
+      <button class="btn btn-primary btn-lg" data-loading-text="Envoi en cours…">Envoyer ma demande</button>
+    </form>
+    <p class="auth-alt">Vous avez déjà un compte ? <a href="login.html">Se connecter</a></p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="foot-col">
+      <div class="foot-brand">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <strong>Collège Bilingue Maloum &amp; Ayena</strong></div>
+      <p class="small">Le portail de l&#39;établissement pour les heures de cours, les programmes, l&#39;appel et les annonces.</p>
+    </div>
+    <div class="foot-col">
+      <h2 class="foot-title">Contact</h2>
+      <ul class="foot-list small">
+        <li><span class="foot-label">Adresse:</span> BP 903 Yaoundé, Cameroun — Etoudi (ancien 6e route Nkolmbong)</li>
+        <li><span class="foot-label">Téléphone:</span> <a href="tel:+237680900675">+237 680 90 06 75</a></li>
+        <li><span class="foot-label">E-mail:</span> <a href="mailto:maloumayena@gmail.com">maloumayena@gmail.com</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h2 class="foot-title">Accès</h2>
+      <ul class="foot-list small">
+        <li><a href="login.html">Se connecter</a></li>
+        <li><a href="register.html">Demander un compte</a></li>
+        <li><a href="forgot_password.html">Mot de passe oublié ?</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot-privacy small">Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

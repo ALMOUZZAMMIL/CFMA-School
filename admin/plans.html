@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Programmes annuels · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/plans">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="active">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<div class="page-head"><h1>Programmes annuels</h1></div>
+<p class="help">Un programme annuel liste les chapitres et leçons d’une section, d’un niveau et d’une matière, avec la date à laquelle chaque leçon doit être atteinte. Chaque section peut avoir son propre programme.</p>
+<form method="get" class="filters"><label>Section<select name="section"><option value="">Tous</option><option value="1" >Enseignement général</option><option value="2" >Enseignement technique</option><option value="3" >Sous-système anglophone</option></select></label><button class="btn">Afficher</button></form>
+
+<div class="table-wrap"><table>
+  <thead><tr><th>Section</th><th>Niveau</th><th>Matière</th><th>Chapitres</th><th>Leçons</th><th></th></tr></thead>
+  <tbody><tr><td>Enseignement général</td><td>Seconde C</td><td>Français</td><td>5</td><td>17</td><td><a href="plans_2.html">Ouvrir</a></td></tr><tr><td>Enseignement général</td><td>Seconde C</td><td>Mathématiques</td><td>5</td><td>17</td><td><a href="plans_1.html">Ouvrir</a></td></tr><tr><td>Enseignement technique</td><td>Première F3</td><td>Électrotechnique</td><td>5</td><td>17</td><td><a href="plans_3.html">Ouvrir</a></td></tr><tr><td>Enseignement technique</td><td>Première F3</td><td>Mathématiques</td><td>5</td><td>17</td><td><a href="plans_4.html">Ouvrir</a></td></tr><tr><td>Sous-système anglophone</td><td>Form 4</td><td>Anglais</td><td>5</td><td>17</td><td><a href="plans_6.html">Ouvrir</a></td></tr><tr><td>Sous-système anglophone</td><td>Form 4</td><td>Mathématiques</td><td>5</td><td>17</td><td><a href="plans_5.html">Ouvrir</a></td></tr></tbody>
+</table></div>
+
+
+<section class="card" id="new">
+  <h2>Nouveau programme annuel</h2>
+  
+
+  <form method="post" action="/plans" class="form">
+    <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <div class="grid-3">
+      <div><label for="section_id">Section</label><select id="section_id" name="section_id" required><option value="1" >Enseignement général</option><option value="2" >Enseignement technique</option><option value="3" >Sous-système anglophone</option></select></div>
+      <div><label for="level">Niveau</label><input id="level" name="level" list="levels" value="" required><datalist id="levels"><option value="Form 4"><option value="Première F3"><option value="Seconde C"></datalist></div>
+      <div><label for="subject_id">Matière</label><select id="subject_id" name="subject_id" required><option value="5" >Électrotechnique</option><option value="3" >Anglais</option><option value="2" >Français</option><option value="6" >Histoire-Géographie</option><option value="1" >Mathématiques</option><option value="4" >Physique-Chimie</option></select></div>
+    </div>
+    <p class="help">Utilisez exactement le même nom de niveau que pour les classes (par exemple « Seconde C » ou « Form 4 »).</p>
+    <label for="title">Titre <span class="help-inline">(facultatif)</span></label><input id="title" name="title" value="" maxlength="200">
+    <button class="btn btn-primary">Créer le programme</button>
+  </form>
+</section>
+
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

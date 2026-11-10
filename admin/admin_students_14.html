@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brice DEMO-14 · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/admin/students/14">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="active">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<div class="page-head"><h1>Brice DEMO-14</h1><div><a class="btn" href="#" data-unavailable="1">Voir le dossier</a> <a class="btn" href="admin_students.html">Retour</a></div></div>
+<p class="muted">Matricule: DEMO014 · Identifiant: — · <span class="tag">Données de démonstration</span></p>
+<section class="card">
+  <form method="post" action="/admin/students/14" class="row-form"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <label>Nom complet<input name="full_name" value="Brice DEMO-14" required maxlength="120"></label><button class="btn btn-small">Enregistrer</button></form>
+</section>
+<section class="card">
+  <h2>Classes</h2>
+  <ul class="list"><li>2026-2027 · 1ère F3</li></ul>
+  <form method="post" action="/admin/students/14/class" class="row-form" data-confirm="Déplacer cet élève dans la classe choisie ? Les présences passées sont conservées."><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+    <label>Changer de classe<select name="class_id"><option value="2">1ère F3</option><option value="1">2nde C</option><option value="3">Form 4 A</option></select></label><button class="btn btn-small">Déplacer</button></form>
+</section>
+<section class="card">
+  <h2>Parents / tuteurs</h2>
+  <p class="help">Un parent ne voit que les enfants associés ici.</p>
+  <p class="muted">Aucun parent n’est encore associé.</p>
+  <div class="grid-2">
+    <form method="post" action="/admin/students/14/guardians" class="form subcard">
+      <h3>Associer un compte parent existant</h3>
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <label for="parent_id">Parent / tuteur</label>
+      <select id="parent_id" name="parent_id" required><option value="">Choisir…</option><option value="9">Parent DEMO 2 (demo.parent.en)</option><option value="8">Parent DÉMO 1 (demo.parent)</option></select>
+      <label for="rel1">Lien de parenté (ex. mère, oncle)</label><input id="rel1" name="relationship" maxlength="40">
+      <button class="btn">Associer</button>
+    </form>
+    <form method="post" action="/admin/students/14/guardians" class="form subcard">
+      <h3>Créer un nouveau compte parent</h3>
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <label for="pfull">Nom complet</label><input id="pfull" name="full_name" required maxlength="120">
+      <label for="puser">Identifiant</label><input id="puser" name="username" required pattern="[A-Za-z0-9._\-]{3,40}" autocapitalize="none">
+      <label for="pphone">Numéro de téléphone</label><input id="pphone" name="phone" type="tel" placeholder="+237 6XX XX XX XX">
+      <label for="plang">Langue</label><select id="plang" name="language"><option value="fr">Français</option><option value="en">English</option></select>
+      <label for="rel2">Lien de parenté (ex. mère, oncle)</label><input id="rel2" name="relationship" maxlength="40">
+      <button class="btn btn-primary">Créer et associer</button>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

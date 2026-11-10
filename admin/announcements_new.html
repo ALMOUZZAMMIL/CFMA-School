@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annonce · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/announcements/new">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="active">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+<h1>Nouvelle annonce</h1>
+
+
+<form method="post" action="/announcements" class="form card">
+  <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+  <label for="category">Type</label>
+  <select id="category" name="category"><option value="notice" selected>Avis</option><option value="exam" >Examen</option><option value="meeting" >Réunion</option><option value="event" >Événement</option><option value="deadline" >Échéance</option></select>
+  <p class="help">Rédigez l’annonce en français, en anglais ou dans les deux langues. Chaque lecteur la voit dans sa langue quand elle est disponible.</p>
+  <div class="grid-2">
+    <fieldset><legend>Français</legend>
+      <label for="title_fr">Titre (français)</label><input id="title_fr" name="title_fr" value="" maxlength="200" lang="fr">
+      <label for="body_fr">Message (français)</label><textarea id="body_fr" name="body_fr" rows="6" maxlength="5000" lang="fr"></textarea></fieldset>
+    <fieldset><legend>English</legend>
+      <label for="title_en">Titre (anglais)</label><input id="title_en" name="title_en" value="" maxlength="200" lang="en">
+      <label for="body_en">Message (anglais)</label><textarea id="body_en" name="body_en" rows="6" maxlength="5000" lang="en"></textarea></fieldset>
+  </div>
+  <fieldset><legend>Destinataires</legend><div class="choice-row">
+    <label class="choice"><input type="checkbox" name="audience" value="teacher" checked> Enseignants</label><label class="choice"><input type="checkbox" name="audience" value="student" checked> Élèves</label><label class="choice"><input type="checkbox" name="audience" value="parent" checked> Parents</label>
+  </div></fieldset>
+  <label for="class_id">Classe</label>
+  <select id="class_id" name="class_id"><option value="">Tout l’établissement</option><option value="2" >1ère F3</option><option value="1" >2nde C</option><option value="3" >Form 4 A</option></select>
+  <div class="grid-2">
+    <div><label for="publish_at">Visible à partir du</label><input id="publish_at" type="datetime-local" name="publish_at" value="2026-11-10T13:24" required></div>
+    <div><label for="expires_at">Masquer après le <span class="help-inline">(facultatif)</span></label><input id="expires_at" type="datetime-local" name="expires_at" value=""></div>
+  </div>
+  <p class="help">L’annonce n’est visible qu’à partir de l’heure « Visible à partir du » (heure de l’établissement, Africa/Douala) et elle est masquée après l’heure « Masquer après le ».</p>
+  <div class="actions">
+    <button class="btn" name="action" value="draft">Enregistrer le brouillon</button>
+    <button class="btn btn-primary" name="action" value="publish" data-confirm="Publier cette annonce ? Elle sera visible par les destinataires choisis à partir de l’heure indiquée.">Publier</button>
+    <a class="btn" href="announcements_manage.html">Annuler</a>
+  </div>
+</form>
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+

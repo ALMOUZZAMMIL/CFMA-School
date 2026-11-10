@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saisir un cours · Collège Bilingue Maloum &amp; Ayena</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/brand.css">
+<script src="../assets/app.js" defer></script><script src="../assets/preview.js" defer></script><link rel="stylesheet" href="../assets/preview.css">
+</head>
+<body data-root="../" data-role="admin"><div class="pvw-banner" role="note"><strong>Aperçu de démonstration</strong> — les liens fonctionnent, les formulaires ne sont pas enregistrés. Voir en tant que : <a href="../visiteur/index.html">Visiteur</a> <a href="../admin/index.html" class="on">Administrateur</a> <a href="../enseignant/index.html">Enseignant</a> <a href="../parent/index.html">Parent</a> <a href="../eleve/index.html">Élève</a></div>
+<a class="skip" href="#main">Aller au contenu principal</a>
+
+<div class="demo-banner" role="note">DONNÉES DE DÉMONSTRATION — tous les noms et enregistrements de ce système sont fictifs. N’enregistrez pas de vraies informations sur les élèves avant que l’établissement ait validé ses règles de protection des données.</div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+<img class="logo logo-sm" src="../assets/logo.png" alt="Logo de Collège Bilingue Maloum &amp; Ayena">
+ <span>Collège Bilingue Maloum &amp; Ayena</span></a>
+    <form method="post" action="/lang" class="lang-switch">
+      <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+      <input type="hidden" name="back" value="/sessions/new?slot=7&amp;date=2026-11-10">
+      <button name="lang" value="en" class="" aria-pressed="false" lang="en">English</button>
+      <button name="lang" value="fr" class="on" aria-pressed="true" lang="fr">Français</button>
+    </form>
+  </div>
+  
+  <nav class="mainnav" aria-label="Menu principal">
+    <a href="index.html" class="">Accueil</a>
+    
+      <a href="teaching.html" class="active">Mes cours</a>
+      <a href="attendance.html" class="">Appel</a>
+      <a href="progress.html" class="">Progression</a>
+      <a href="plans.html" class="">Programmes annuels</a>
+      <a href="reports_hours.html" class="">Rapports</a>
+    
+    
+    
+    
+      <a href="announcements.html" class="">Annonces</a>
+    
+    
+    
+      <a href="admin.html" class="">Administration</a>
+    
+    <span class="nav-user">
+      <span class="who">Admin DÉMO · Administrateur</span>
+      <a href="account_password.html">Changer le mot de passe</a>
+      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir"><button class="linkbtn">Se déconnecter</button></form>
+    </span>
+  </nav>
+  
+</header>
+<div id="net-status" class="net-status" hidden role="status">Vous êtes hors ligne. Les pages ouvertes peuvent ne pas être à jour et les formulaires ne pourront être envoyés qu’au retour de la connexion.</div>
+<main id="main" class="container">
+
+
+
+<h1>Saisir un cours</h1>
+<p class="lead"><strong>2nde C</strong> · Français · Mme Prof-Lettres DÉMO</p>
+
+
+<form method="post" action="/sessions" class="form card" data-once>
+  <input type="hidden" name="_csrf" value="bKCg5mcaSWAFSjVk0GR5eEYgkTeeMnir">
+  <input type="hidden" name="assignment_id" value="2">
+  <input type="hidden" name="client_uuid" value="49488293-69ae-4370-9c79-2a1bb0895425">
+  <input type="hidden" name="slot_id" value="7">
+
+  <fieldset>
+    <legend>Que s’est-il passé ?</legend>
+    <div class="choice-row">
+    
+      <label class="choice"><input type="radio" name="status" value="held" checked required>
+        <span>
+
+<span class="badge badge-held"><span aria-hidden="true">✓</span> Assuré</span>
+<br><small>Le cours a eu lieu comme prévu.</small></span></label>
+    
+      <label class="choice"><input type="radio" name="status" value="missed"  required>
+        <span>
+
+<span class="badge badge-missed"><span aria-hidden="true">✗</span> Non assuré</span>
+<br><small>Le cours n’a pas eu lieu (enseignant absent, etc.).</small></span></label>
+    
+      <label class="choice"><input type="radio" name="status" value="cancelled"  required>
+        <span>
+
+<span class="badge badge-cancelled"><span aria-hidden="true">⊘</span> Annulé</span>
+<br><small>Annulé par l’établissement (événement, examen, etc.).</small></span></label>
+    
+    </div>
+  </fieldset>
+
+  <div class="grid-3">
+    <div><label for="date">Date</label>
+      <input id="date" type="date" name="date" value="2026-11-10" max="2026-11-10" readonly required></div>
+    <div><label for="start_time">Heure de début</label><input id="start_time" type="time" name="start_time" value="07:30" required></div>
+    <div><label for="end_time">Heure de fin</label><input id="end_time" type="time" name="end_time" value="09:30" required></div>
+  </div>
+
+  <div data-show-when="status=missed,cancelled">
+    <label for="reason">Motif <span class="req">*</span></label>
+    <input id="reason" name="reason" value="" maxlength="500" placeholder="ex. maladie, formation, activité de l’établissement">
+    <fieldset>
+      <legend>Rattrapage</legend>
+      <div class="choice-row">
+      
+        <label class="choice"><input type="radio" name="makeup_status" value="planned" > <span>Rattrapage prévu</span></label>
+      
+        <label class="choice"><input type="radio" name="makeup_status" value="none" checked> <span>Rattrapage pas encore prévu</span></label>
+      
+        <label class="choice"><input type="radio" name="makeup_status" value="not_needed" > <span>Pas nécessaire</span></label>
+      
+      </div>
+    </fieldset>
+    <label for="makeup_planned_date">Date prévue du rattrapage</label>
+    <input id="makeup_planned_date" type="date" name="makeup_planned_date" value="">
+  </div>
+
+  
+
+  <label for="notes">Remarques</label>
+  <textarea id="notes" name="notes" rows="3" maxlength="2000"></textarea>
+
+  
+  <div class="actions">
+    <button class="btn btn-primary">Enregistrer</button>
+    <a class="btn" href="#" data-unavailable="1">Annuler</a>
+  </div>
+</form>
+</main>
+<footer class="footer">
+  <p>Collège Bilingue Maloum &amp; Ayena · Les informations sur les élèves et les familles sont confidentielles. Ne les partagez qu’avec les personnes autorisées.</p>
+</footer>
+</body>
+</html>
+
