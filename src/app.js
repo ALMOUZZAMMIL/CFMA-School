@@ -1,22 +1,45 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 const express = require('express');
 const db = require('./db');
+const config = require('./config');
+const log = require('./log');
+const migrate = require('./migrate');
 const auth = require('./auth');
 const brand = require('./brand');
 const { translator, formatters, LANGS } = require('./i18n');
 const { todayIn } = require('./util');
 
 function createApp() {
+  const cfg = config.get();
   const app = express();
   app.set('view engine', 'ejs');
   app.set('views', path.join(__dirname, '..', 'views'));
   app.disable('x-powered-by');
-  if (process.env.TRUST_PROXY === '1') app.set('trust proxy', 1);
+  if (cfg.trustProxy) app.set('trust proxy', 1);
+
+  // A short reference for every request, shown on error pages and written to the logs,
+  // so a problem a user reports can be found. One access-log line per request.
+  app.use((req, res, next) => {
+    const started = process.hrtime.bigint();
+    req.id = crypto.randomBytes(6).toString('hex');
+    res.locals.requestId = req.id;
+    res.set('X-Request-Id', req.id);
+    res.on('finish', () => {
+      const ms = Number(process.hrtime.bigint() - started) / 1e6;
+      const fields = { reqId: req.id, method: req.method, path: req.path, status: res.statusCode, ms: Math.round(ms), user: req.user ? req.user.id : undefined };
+      if (res.statusCode >= 500) log.error('request', fields);
+      else if (req.path !== '/healthz') log.info('request', fields);
+    });
+    next();
+  });
 
   // Security headers. No inline scripts are used, so a strict CSP is possible.
   app.use((req, res, next) => {
+    // HTTPS only, once deployed: tells browsers never to use plain HTTP for this site.
+    if (cfg.production && cfg.hstsMaxAge > 0) res.set('Strict-Transport-Security', `max-age=${cfg.hstsMaxAge}; includeSubDomains`);
     res.set({
       'Content-Security-Policy': "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'",
       'X-Content-Type-Options': 'nosniff',
@@ -25,6 +48,19 @@ function createApp() {
       'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
     });
     next();
+  });
+
+  // Health check for monitoring and hosting platforms. No sign-in, no session, no personal data.
+  app.get('/healthz', (req, res) => {
+    res.set('Cache-Control', 'no-store');
+    try {
+      const d = db.get();
+      d.prepare('SELECT 1').get();
+      res.json({ status: 'ok', database: 'ok', schemaVersion: migrate.currentVersion(d), uptimeSeconds: Math.round(process.uptime()) });
+    } catch (err) {
+      log.error('health check failed', { reqId: req.id, err });
+      res.status(503).json({ status: 'error', database: 'unavailable' });
+    }
   });
 
   // Brand colours from the settings, as CSS variables (no inline styles under the CSP).
@@ -94,12 +130,20 @@ function createApp() {
   app.use((req, res) => auth.notFound(req, res));
   // eslint-disable-next-line no-unused-vars
   app.use((err, req, res, next) => {
-    console.error(err);
-    const t = res.locals.t || translator('en');
     const status = err.status || 500;
-    res.status(status).render('error', {
+    if (status >= 500) log.error('unhandled error', { reqId: req.id, method: req.method, path: req.path, err });
+    else log.warn('request error', { reqId: req.id, method: req.method, path: req.path, status, msg: err.message });
+    const t = res.locals.t || translator('en');
+    if (!res.locals.t) { res.locals.t = t; res.locals.lang = 'en'; }
+    const opts = {
       title: t(status === 413 ? 'errors.tooLargeTitle' : 'errors.serverTitle'),
       message: t(status === 413 ? 'errors.tooLarge' : 'errors.server'),
+      showRef: status >= 500,
+    };
+    res.status(status).render('error', opts, (renderErr, html) => {
+      // If the page itself cannot be drawn (for example the database is down), answer in plain text.
+      if (renderErr) return res.type('text/plain').send(`${opts.title}. ${opts.message} (ref ${req.id})`);
+      res.send(html);
     });
   });
   return app;

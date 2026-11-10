@@ -9,6 +9,8 @@ const reports = require('../reports');
 const { Validator, int, str, isDate } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.use('/progress', auth.requireRole('admin', 'teacher'));
 
 r.get('/progress', auth.requireRole('admin', 'teacher'), (req, res) => {
   const year = res.locals.year;

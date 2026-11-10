@@ -2,6 +2,7 @@
 // Creates the first administrator account on a real installation.
 // Usage: npm run create-admin -- <username> "<Full name>"
 // A temporary password is printed once; it must be changed at first sign-in.
+require('../src/env');
 const crypto = require('crypto');
 const db = require('../src/db');
 const auth = require('../src/auth');

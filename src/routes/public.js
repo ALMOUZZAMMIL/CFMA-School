@@ -15,15 +15,30 @@ r.get('/', (req, res, next) => {
   res.render('public/landing', { title: '' });
 });
 
-// Simple per-IP limit on public submissions, to stop the queue being flooded.
+// Simple per-IP limit on public submissions (6 an hour), to stop the queue being flooded.
+// Expired entries are removed regularly and the map is capped, so memory stays bounded.
+const HOUR = 3600000;
+const MAX_IPS = 10000;
 const hits = new Map();
-function tooMany(ip) {
-  const now = Date.now();
-  const list = (hits.get(ip) || []).filter((t) => now - t < 3600000);
-  hits.set(ip, list);
+function tooMany(ip, now = Date.now()) {
+  const list = (hits.get(ip) || []).filter((t) => now - t < HOUR);
+  if (list.length) hits.set(ip, list); else hits.delete(ip);
   return list.length >= 6;
 }
-function count(ip) { hits.get(ip).push(Date.now()); }
+function count(ip, now = Date.now()) {
+  const list = hits.get(ip) || [];
+  list.push(now);
+  hits.set(ip, list);
+  if (hits.size > MAX_IPS) pruneHits(now);
+}
+function pruneHits(now = Date.now()) {
+  for (const [ip, list] of hits) {
+    const keep = list.filter((t) => now - t < HOUR);
+    if (keep.length) hits.set(ip, keep); else hits.delete(ip);
+  }
+  while (hits.size > MAX_IPS) hits.delete(hits.keys().next().value);
+  return hits.size;
+}
 
 const EMAIL = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
 const PHONE = /^[+\d][\d\s.-]{5,20}$/;
@@ -88,3 +103,4 @@ r.post('/forgot-password', (req, res) => {
 });
 
 module.exports = r;
+module.exports.limiter = { tooMany, count, pruneHits, hits, MAX_IPS };

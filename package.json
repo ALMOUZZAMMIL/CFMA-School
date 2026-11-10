@@ -10,7 +10,9 @@
     "seed": "node scripts/seed.js",
     "create-admin": "node scripts/create-admin.js",
     "check-i18n": "node scripts/check-i18n.js",
-    "test": "node --test test/*.test.js"
+    "test": "node --test test/*.test.js",
+    "backup": "node scripts/backup.js",
+    "restore": "node scripts/restore.js"
   },
   "engines": {
     "node": ">=20"

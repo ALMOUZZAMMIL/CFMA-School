@@ -48,7 +48,7 @@ Every demo account uses the password `demo-password`:
 | `demo.eleve` | Student |
 | `demo.intendant` | Bursar (finance module not built yet) |
 
-To start the demo again from scratch, run `npm run seed -- --reset`.
+To start the demo again from scratch, run `npm run seed -- --reset`. This only works on a demo database: it refuses when `NODE_ENV=production` and refuses a database that has real (non-demo) accounts, and it writes a verified backup before deleting anything.
 
 ## Real installation
 
@@ -58,14 +58,17 @@ To start the demo again from scratch, run `npm run seed -- --reset`.
 4. Create the first administrator: `npm run create-admin -- admin.username "Full Name"`. A temporary password is printed once, and it must be changed at first sign-in.
 5. `npm start`, then sign in and follow the setup checklist on the home page.
 6. **Serve it over HTTPS** in production, for example with Caddy as a reverse proxy, which provides free certificates automatically. Then set `NODE_ENV=production` and `TRUST_PROXY=1`.
-7. **Back up `data/school.db` every day**, for example with a scheduled copy to another disk or to cloud storage. Use `sqlite3 data/school.db ".backup backup.db"` while the server is running.
+7. **Backups.** The server writes a verified copy every 24 hours (`BACKUP_INTERVAL_HOURS`) and keeps the newest 14 (`BACKUP_KEEP`), and it always writes one before upgrading the database. Copy the `backups` folder to another disk or to cloud storage as well. Manual copy: `npm run backup`. Restore (server stopped): `npm run restore -- <file> --yes`.
+
+The full step-by-step guide (server, HTTPS, service, backups, restore, monitoring with `/healthz`) is in [DEPLOYMENT.md](DEPLOYMENT.md).
 
 Low-cost hosting options include a small VPS (about USD 4–6 a month), a computer on the school's own network with no internet needed, or any Node.js host that offers a persistent disk.
 
 ## Tests
 
 ```bash
-npm test             # permission, CSRF, duplicate-protection, history and visibility tests
+npm test             # permissions (every route x every role), CSRF, migrations, backup/restore,
+                     # demo-command protection, idle timeouts, health check and more
 npm run check-i18n   # English and French files have the same keys and placeholders
 ```
 
@@ -152,7 +155,7 @@ Application web légère de gestion scolaire pour un lycée au Cameroun, entièr
 
 **Démarrage :** `npm install`, puis `npm run seed`, puis `npm start`. Ouvrez ensuite http://localhost:3000. Tous les comptes de démonstration utilisent le mot de passe `demo-password`.
 
-**Installation réelle :** `npm run create-admin -- identifiant "Nom complet"`. Servez l'application en HTTPS et sauvegardez chaque jour le fichier `data/school.db`.
+**Installation réelle :** `npm run create-admin -- identifiant "Nom complet"`. Servez l'application en HTTPS. Le serveur fait une sauvegarde vérifiée toutes les 24 heures et avant chaque mise à jour de la base ; copiez aussi le dossier `backups` ailleurs. Restauration (serveur arrêté) : `npm run restore -- <fichier> --yes`. Guide complet : [DEPLOYMENT.md](DEPLOYMENT.md).
 
 **Confidentialité :** seules des données fictives sont fournies. Avant d'enregistrer de vraies informations sur les élèves, l'établissement doit vérifier ses propres obligations en matière de protection des données et de protection de l'enfance. Ce logiciel ne prétend à aucune conformité légale ni à aucune approbation officielle.
 

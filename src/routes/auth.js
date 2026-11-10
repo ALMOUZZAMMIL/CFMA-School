@@ -34,7 +34,7 @@ r.post('/login', (req, res) => {
   }
   auth.clearLoginFailures(key);
   const s = auth.createSession(user.id);
-  auth.setSessionCookie(res, s.token);
+  auth.setSessionCookie(res, s.token, s.maxAgeSeconds);
   db.get().prepare("UPDATE users SET last_login_at = datetime('now') WHERE id = ?").run(user.id);
   res.redirect(user.must_change_password ? '/account/password' : next);
 });

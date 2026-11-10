@@ -120,7 +120,8 @@
     "usernameOrEmail": "Identifiant ou e-mail",
     "showPassword": "Afficher",
     "hidePassword": "Masquer",
-    "signingIn": "Connexion…"
+    "signingIn": "Connexion…",
+    "sessionExpired": "Votre session a été fermée après une période d’inactivité. Veuillez vous reconnecter."
   },
   "errors": {
     "forbiddenTitle": "Accès non autorisé",
@@ -131,7 +132,8 @@
     "serverTitle": "Une erreur s’est produite",
     "server": "Le système n’a pas pu traiter votre demande. Vos données n’ont pas été modifiées. Réessayez ; si le problème continue, prévenez l’administrateur.",
     "tooLargeTitle": "Trop de données",
-    "tooLarge": "Le formulaire contient trop de données. Envoyez-le en plusieurs fois."
+    "tooLarge": "Le formulaire contient trop de données. Envoyez-le en plusieurs fois.",
+    "reference": "Référence pour l’administrateur :"
   },
   "validation": {
     "fixBelow": "Veuillez corriger les points suivants :",

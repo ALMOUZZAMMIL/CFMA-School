@@ -1,13 +1,43 @@
 'use strict';
 // Loads clearly labelled DEMONSTRATION data. All people and records are fictional.
 // Usage: npm run seed            (only on an empty database)
-//        npm run seed -- --reset  (deletes the database file first)
+//        npm run seed -- --reset  (demo databases only; backs up, then starts again)
+// Refuses in NODE_ENV=production and refuses to reset a database with real accounts.
+require('../src/env');
 const fs = require('fs');
 const path = require('path');
 
 const reset = process.argv.includes('--reset');
 const dbFile = process.env.DATABASE_FILE || path.join(__dirname, '..', 'data', 'school.db');
-if (reset) for (const f of [dbFile, `${dbFile}-wal`, `${dbFile}-shm`]) if (fs.existsSync(f)) fs.unlinkSync(f);
+
+// Demo data must never touch a production database.
+if (process.env.NODE_ENV === 'production') {
+  console.error('Refusing to load demo data: NODE_ENV is "production". Demo commands are disabled in production.');
+  process.exit(2);
+}
+
+// --reset is only allowed on an empty database or one that already holds demo data,
+// and a verified backup is always written first.
+if (reset && fs.existsSync(dbFile)) {
+  const Database = require('better-sqlite3');
+  const backup = require('../src/backup');
+  const probe = new Database(dbFile);
+  let isDemo = false; let users = 0;
+  try {
+    const hasTable = (t) => !!probe.prepare("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?").get(t);
+    if (hasTable('users')) users = probe.prepare('SELECT COUNT(*) n FROM users').get().n;
+    if (hasTable('settings')) isDemo = (probe.prepare("SELECT value FROM settings WHERE key='demo_mode'").get() || {}).value === '1';
+    if (users > 0 && !isDemo) {
+      console.error('Refusing to reset: this database holds real (non-demo) accounts. Nothing was deleted.');
+      process.exit(2);
+    }
+    if (users > 0) {
+      const file = backup.createBackup(probe, { dir: backup.backupDir(dbFile), label: 'pre-reset' });
+      console.log(`Backup written before reset: ${file}`);
+    }
+  } finally { probe.close(); }
+  for (const f of [dbFile, `${dbFile}-wal`, `${dbFile}-shm`]) if (fs.existsSync(f)) fs.unlinkSync(f);
+}
 
 const db = require('../src/db');
 const auth = require('../src/auth');
@@ -16,7 +46,7 @@ const { addDays, weekday, todayIn, minutesBetween } = require('../src/util');
 db.open(dbFile);
 const d = db.get();
 if (d.prepare('SELECT COUNT(*) n FROM users').get().n > 0) {
-  console.error('The database already has accounts. Demo data is only loaded into an empty database.\nUse "npm run seed -- --reset" to delete everything and start again with demo data.');
+  console.error('The database already has accounts. Demo data is only loaded into an empty database.\nUse "npm run seed -- --reset" to start again with demo data (only allowed on a demo database).');
   process.exit(1);
 }
 

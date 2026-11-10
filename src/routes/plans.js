@@ -7,6 +7,9 @@ const auth = require('../auth');
 const { Validator, int, str, isDate, parseCsv } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.use('/plans', auth.requireRole('admin', 'teacher'));
+r.post(['/plans', '/plans/*'], auth.requireRole('admin'));
 
 function lists(yearId) {
   return {

@@ -2,9 +2,30 @@
 // Authentication, sessions, CSRF protection and role checks.
 const crypto = require('crypto');
 const db = require('./db');
+const config = require('./config');
 
 const SESSION_COOKIE = 'sid';
-const SESSION_DAYS = Number(process.env.SESSION_DAYS || 7);
+const PRIVILEGED = ['admin', 'bursar'];
+// Last activity is written at most once a minute per session, to keep database writes low.
+const TOUCH_EVERY_MS = 60000;
+
+// SQLite's datetime('now') gives "YYYY-MM-DD HH:MM:SS" in UTC; JavaScript writes ISO strings.
+function parseDbTime(s) {
+  if (!s) return NaN;
+  const iso = s.includes('T') ? s : `${s.replace(' ', 'T')}Z`;
+  return Date.parse(iso);
+}
+function dbTime(ms = Date.now()) { return new Date(ms).toISOString().replace('T', ' ').slice(0, 19); }
+
+// How long a sign-in can last for this role, in milliseconds.
+function maxLifetimeMs(role) {
+  const cfg = config.get();
+  return PRIVILEGED.includes(role) ? cfg.privilegedMaxHours * 3600000 : cfg.sessionDays * 86400000;
+}
+function idleLimitMs(role) {
+  const m = config.get().idleMinutes[role];
+  return (m || 60) * 60000;
+}
 
 function hashPassword(password) {
   const salt = crypto.randomBytes(16);
@@ -28,9 +49,12 @@ function sha256(s) { return crypto.createHash('sha256').update(s).digest('hex');
 function createSession(userId) {
   const token = crypto.randomBytes(32).toString('base64url');
   const csrf = crypto.randomBytes(24).toString('base64url');
-  const expires = new Date(Date.now() + SESSION_DAYS * 86400000).toISOString();
-  db.get().prepare('INSERT INTO sessions (token_hash, user_id, csrf_token, expires_at) VALUES (?, ?, ?, ?)').run(sha256(token), userId, csrf, expires);
-  return { token, csrf, expires };
+  const u = db.get().prepare('SELECT role FROM users WHERE id = ?').get(userId);
+  const lifetime = maxLifetimeMs(u && u.role);
+  const expires = new Date(Date.now() + lifetime).toISOString();
+  db.get().prepare('INSERT INTO sessions (token_hash, user_id, csrf_token, expires_at, last_seen_at) VALUES (?, ?, ?, ?, ?)')
+    .run(sha256(token), userId, csrf, expires, dbTime());
+  return { token, csrf, expires, maxAgeSeconds: Math.floor(lifetime / 1000) };
 }
 
 function destroySession(token) {
@@ -49,35 +73,45 @@ function parseCookies(header) {
 }
 
 function cookieOptions(maxAgeSeconds) {
-  const secure = process.env.COOKIE_SECURE === '1' || process.env.NODE_ENV === 'production';
+  const secure = config.get().cookieSecure;
   return `Path=/; HttpOnly; SameSite=Lax; Max-Age=${maxAgeSeconds}${secure ? '; Secure' : ''}`;
 }
 
-function setSessionCookie(res, token) {
-  res.append('Set-Cookie', `${SESSION_COOKIE}=${token}; ${cookieOptions(SESSION_DAYS * 86400)}`);
+function setSessionCookie(res, token, maxAgeSeconds) {
+  res.append('Set-Cookie', `${SESSION_COOKIE}=${token}; ${cookieOptions(maxAgeSeconds || config.get().sessionDays * 86400)}`);
 }
 
 function clearSessionCookie(res) {
   res.append('Set-Cookie', `${SESSION_COOKIE}=; ${cookieOptions(0)}`);
 }
 
-// Loads the logged-in user (if any) into req.user.
+// Loads the logged-in user (if any) into req.user. A sign-in ends when it passes its expiry
+// time, when the account is deactivated, or after the role's idle time without any request.
 function loadSession(req, res, next) {
   req.cookies = parseCookies(req.headers.cookie);
   const token = req.cookies[SESSION_COOKIE];
   req.user = null;
   if (token) {
-    const row = db.get().prepare(`SELECT s.csrf_token, s.expires_at, u.* FROM sessions s JOIN users u ON u.id = s.user_id
-      WHERE s.token_hash = ?`).get(sha256(token));
-    if (row && row.expires_at > new Date().toISOString() && row.active) {
-      req.csrfToken = row.csrf_token;
-      delete row.password_hash;
-      delete row.csrf_token;
-      req.user = row;
-      req.sessionToken = token;
-    } else if (row) {
-      destroySession(token);
-      clearSessionCookie(res);
+    const hash = sha256(token);
+    const row = db.get().prepare(`SELECT s.csrf_token, s.expires_at, s.last_seen_at, s.created_at AS session_created_at, u.* FROM sessions s
+      JOIN users u ON u.id = s.user_id WHERE s.token_hash = ?`).get(hash);
+    const now = Date.now();
+    if (row) {
+      const lastSeen = parseDbTime(row.last_seen_at || row.session_created_at);
+      const idle = !(now - lastSeen < idleLimitMs(row.role));
+      // Also caps sessions created before a role's lifetime was shortened.
+      const tooOld = !(now - parseDbTime(row.session_created_at) < maxLifetimeMs(row.role));
+      if (row.expires_at > new Date(now).toISOString() && row.active && !idle && !tooOld) {
+        if (now - lastSeen >= TOUCH_EVERY_MS) db.get().prepare('UPDATE sessions SET last_seen_at = ? WHERE token_hash = ?').run(dbTime(now), hash);
+        req.csrfToken = row.csrf_token;
+        for (const k of ['password_hash', 'csrf_token', 'last_seen_at', 'session_created_at']) delete row[k];
+        req.user = row;
+        req.sessionToken = token;
+      } else {
+        destroySession(token);
+        clearSessionCookie(res);
+        if (row.active) res.append('Set-Cookie', 'flash=info|auth.sessionExpired; Path=/; Max-Age=60; SameSite=Lax; HttpOnly');
+      }
     }
   }
   next();
@@ -131,24 +165,47 @@ function notFound(req, res) {
   return res.status(404).render('error', { title: res.locals.t('errors.notFoundTitle'), message: res.locals.t('errors.notFound') });
 }
 
-// Very small in-memory limiter for login attempts (per IP + username).
+// Small in-memory limiter for login attempts: 8 failures per IP + username, and 100 per IP
+// across all usernames, within 15 minutes. Old entries are removed regularly so memory stays
+// bounded, and the map never grows past MAX_KEYS.
+const WINDOW_MS = 15 * 60000;
+const PER_KEY = 8;
+const PER_IP = 100; // high, because a whole school can share one internet address
+const MAX_KEYS = 10000;
 const attempts = new Map();
-function loginLimited(key) {
-  const now = Date.now();
-  const rec = attempts.get(key);
-  if (!rec || now - rec.first > 15 * 60000) return false;
-  return rec.count >= 8;
+
+function ipOf(key) { return `ip:${String(key).split('|')[0]}`; }
+function over(k, limit, now) {
+  const rec = attempts.get(k);
+  return !!rec && now - rec.first <= WINDOW_MS && rec.count >= limit;
 }
-function recordLoginFailure(key) {
-  const now = Date.now();
-  const rec = attempts.get(key);
-  if (!rec || now - rec.first > 15 * 60000) attempts.set(key, { first: now, count: 1 });
-  else rec.count++;
+function loginLimited(key, now = Date.now()) {
+  return over(key, PER_KEY, now) || over(ipOf(key), PER_IP, now);
+}
+function bump(k, now) {
+  const rec = attempts.get(k);
+  if (!rec || now - rec.first > WINDOW_MS) {
+    attempts.delete(k);
+    attempts.set(k, { first: now, count: 1 });
+  } else rec.count++;
+}
+function recordLoginFailure(key, now = Date.now()) {
+  bump(key, now);
+  bump(ipOf(key), now);
+  if (attempts.size > MAX_KEYS) pruneAttempts(now);
 }
 function clearLoginFailures(key) { attempts.delete(key); }
+
+// Removes expired entries; if still too many, drops the oldest (Map keeps insertion order).
+function pruneAttempts(now = Date.now()) {
+  for (const [k, rec] of attempts) if (now - rec.first > WINDOW_MS) attempts.delete(k);
+  while (attempts.size > MAX_KEYS) attempts.delete(attempts.keys().next().value);
+  return attempts.size;
+}
 
 module.exports = {
   hashPassword, verifyPassword, DUMMY_HASH, createSession, destroySession, setSessionCookie, clearSessionCookie,
   loadSession, csrfProtect, ensureAnonCsrf, requireLogin, requireRole, forbidden, notFound,
-  loginLimited, recordLoginFailure, clearLoginFailures,
+  loginLimited, recordLoginFailure, clearLoginFailures, pruneAttempts, attempts, MAX_KEYS,
+  parseDbTime, dbTime, idleLimitMs, maxLifetimeMs,
 };

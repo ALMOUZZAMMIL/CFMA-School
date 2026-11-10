@@ -7,6 +7,8 @@ const auth = require('../auth');
 const { int, str, isDate, addDays, toCsv } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.use('/attendance', auth.requireRole('admin', 'teacher'));
 const STATUSES = ['present', 'absent', 'late', 'excused'];
 
 function classRow(id, yearId) {

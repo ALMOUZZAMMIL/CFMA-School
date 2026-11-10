@@ -7,6 +7,9 @@ const { visibleAnnouncements } = require('./home');
 const { Validator, int, str } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.post(['/announcements', '/announcements/*'], auth.requireRole('admin'));
+r.get(['/announcements/manage', '/announcements/new', '/announcements/:id/edit'], auth.requireRole('admin'));
 const CATEGORIES = ['notice', 'exam', 'meeting', 'event', 'deadline'];
 const AUDIENCES = ['teacher', 'student', 'parent'];
 
