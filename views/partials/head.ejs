@@ -1,59 +1,64 @@
+<% var menu = (typeof nav !== "undefined" && nav) || null; %>
 <!doctype html>
 <html lang="<%= lang %>">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><%= title ? title + ' · ' : '' %><%= settings.school_name %></title>
+<link rel="preload" href="/static/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/static/style.css?v=<%= assetV %>">
 <link rel="stylesheet" href="/brand.css">
 <script src="/static/app.js?v=<%= assetV %>" defer></script>
 </head>
-<body>
+<body class="portal<%= menu ? ' has-nav' : '' %><%= menu && menu.tabs.length ? ' has-tabs' : '' %>" data-confirm-ok="<%= t('common.confirm') %>" data-confirm-cancel="<%= t('common.cancel') %>">
 <a class="skip" href="#main"><%= t('common.skipToContent') %></a>
+<div class="shell">
+<% if (menu) { %>
+  <nav id="menu" class="sidebar" aria-label="<%= t('nav.main') %>">
+    <div class="sb-head">
+      <a class="sb-brand" href="/"><%- include('mark', { size: 'sm' }) %><span><strong><%= settings.school_name %></strong><% if (year) { %><small><%= t('common.year') %> <%= year.name %></small><% } %></span></a>
+      <a class="sb-close iconbtn" href="#" aria-label="<%= t('nav.closeMenu') %>"><%- include('icon', { name: 'close' }) %></a>
+    </div>
+    <div class="sb-scroll">
+    <% menu.groups.forEach(function (g) { %>
+      <% if (g.title) { %><p class="sb-group"><%= t(g.title) %></p><% } %>
+      <ul class="sb-list">
+      <% g.items.forEach(function (i) { %>
+        <li><a class="sb-item<%= i.active ? ' on' : '' %>" href="<%= i.href %>"<% if (i.active) { %> aria-current="page"<% } %>><%- include('icon', { name: i.icon }) %><span class="sb-label"><%= t(i.key) %></span><% if (i.count) { %><span class="count"><%= i.count %><span class="sr"> <%= t('common.unread') %></span></span><% } %></a></li>
+      <% }) %>
+      </ul>
+    <% }) %>
+    </div>
+    <div class="sb-foot">
+      <span class="avatar" aria-hidden="true"><%= user.full_name.split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase() %></span>
+      <span class="sb-me"><strong><%= user.full_name %></strong><small><%= t('roles.' + user.role) %></small></span>
+    </div>
+  </nav>
+  <a class="sb-backdrop" href="#" tabindex="-1" aria-hidden="true"></a>
+<% } %>
+<div class="shell-main">
 <% if (settings.demo_mode === '1') { %>
-<div class="demo-banner" role="note"><%= t('common.demoBanner') %></div>
+  <details class="demo-strip" role="note"><summary><%- include('icon', { name: 'info', cls: 'ico-sm' }) %><span><%= t('common.demoShort') %></span></summary><p><%= t('common.demoBanner') %></p></details>
 <% } %>
 <header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="/"><%- include("mark", { size: "sm" }) %> <span><%= settings.school_name %></span></a>
-    <form method="post" action="/lang" class="lang-switch">
-      <input type="hidden" name="_csrf" value="<%= csrf %>">
-      <input type="hidden" name="back" value="<%= originalUrl %>">
-      <button name="lang" value="en" class="<%= lang === 'en' ? 'on' : '' %>" aria-pressed="<%= lang === 'en' %>" lang="en">English</button>
-      <button name="lang" value="fr" class="<%= lang === 'fr' ? 'on' : '' %>" aria-pressed="<%= lang === 'fr' %>" lang="fr">Français</button>
-    </form>
-  </div>
-  <% if (user && !user.must_change_password) { %>
-  <nav class="mainnav" aria-label="<%= t('nav.main') %>">
-    <a href="/" class="<%= path === '/' ? 'active' : '' %>"><%= t('nav.dashboard') %></a>
-    <% if (user.role === 'teacher' || user.role === 'admin') { %>
-      <a href="/teaching" class="<%= path.startsWith('/teaching') || path.startsWith('/sessions') ? 'active' : '' %>"><%= t('nav.teaching') %></a>
-      <a href="/attendance" class="<%= path.startsWith('/attendance') ? 'active' : '' %>"><%= t('nav.attendance') %></a>
-      <a href="/progress" class="<%= path.startsWith('/progress') ? 'active' : '' %>"><%= t('nav.progress') %></a>
-      <a href="/plans" class="<%= path.startsWith('/plans') ? 'active' : '' %>"><%= t('nav.plans') %></a>
-      <a href="/reports/hours" class="<%= path.startsWith('/reports') ? 'active' : '' %>"><%= t('nav.reports') %></a>
-    <% } %>
-    <% if (user.role !== 'bursar' && user.role !== 'admin') { %>
-      <a href="/timetable" class="<%= path.startsWith('/timetable') ? 'active' : '' %>"><%= t('nav.timetable') %></a>
-    <% } %>
-    <% if (user.role === 'student') { %>
-      <a href="/me" class="<%= path.startsWith('/students') ? 'active' : '' %>"><%= t('nav.myRecord') %></a>
-    <% } %>
-    <% if (user.role !== 'bursar') { %>
-      <a href="/announcements" class="<%= path.startsWith('/announcements') ? 'active' : '' %>"><%= t('nav.announcements') %></a>
-    <% } %>
-    <% if (user.role === 'parent') { %>
-      <a href="/notifications" class="<%= path.startsWith('/notifications') ? 'active' : '' %>"><%= t('nav.notifications') %><% if (unread) { %> <span class="count"><%= unread %><span class="sr"> <%= t('common.unread') %></span></span><% } %></a>
-    <% } %>
-    <% if (user.role === 'admin') { %>
-      <a href="/admin" class="<%= path.startsWith('/admin') ? 'active' : '' %>"><%= t('nav.admin') %></a>
-    <% } %>
-    <span class="nav-user">
-      <span class="who"><%= user.full_name %> · <%= t('roles.' + user.role) %></span>
-      <a href="/account/password"><%= t('auth.changePassword') %></a>
-      <form method="post" action="/logout" class="inline"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn"><%= t('auth.logout') %></button></form>
-    </span>
-  </nav>
+  <% if (menu) { %><a class="iconbtn menu-btn" href="#menu" aria-label="<%= t('nav.openMenu') %>" aria-controls="menu"><%- include('icon', { name: 'menu' }) %></a><% } %>
+  <a class="tb-brand" href="/"><%- include('mark', { size: 'sm' }) %><span><%= settings.school_name %></span></a>
+  <span class="tb-spacer"></span>
+  <form method="post" action="/lang" class="seg" aria-label="<%= t('site.language') %>">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <input type="hidden" name="back" value="<%= originalUrl %>">
+    <button name="lang" value="fr" class="<%= lang === 'fr' ? 'on' : '' %>" aria-pressed="<%= lang === 'fr' %>" lang="fr" title="Français">FR</button>
+    <button name="lang" value="en" class="<%= lang === 'en' ? 'on' : '' %>" aria-pressed="<%= lang === 'en' %>" lang="en" title="English">EN</button>
+  </form>
+  <% if (user) { %>
+  <details class="account">
+    <summary class="iconbtn" aria-label="<%= t('nav.account') %>"><%- include('icon', { name: 'user' }) %></summary>
+    <div class="account-menu">
+      <p class="account-who"><strong><%= user.full_name %></strong><small><%= t('roles.' + user.role) %></small></p>
+      <a href="/account/password"><%- include('icon', { name: 'key', cls: 'ico-sm' }) %><%= t('auth.changePassword') %></a>
+      <form method="post" action="/logout"><input type="hidden" name="_csrf" value="<%= csrf %>"><button type="submit"><%- include('icon', { name: 'logout', cls: 'ico-sm' }) %><%= t('auth.logout') %></button></form>
+    </div>
+  </details>
   <% } %>
 </header>
 <div id="net-status" class="net-status" hidden role="status"><%= t('common.offline') %></div>

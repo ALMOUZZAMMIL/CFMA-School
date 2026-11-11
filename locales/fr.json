@@ -55,7 +55,9 @@
     "deleted": "Supprimé.",
     "noChanges": "Aucune modification.",
     "alreadySaved": "Cette saisie était déjà enregistrée. Elle n’a pas été enregistrée deux fois.",
-    "confirmDelete": "Supprimer cet élément ? Cette action est définitive."
+    "confirmDelete": "Supprimer cet élément ? Cette action est définitive.",
+    "confirm": "Confirmer",
+    "demoShort": "Données de démonstration : tous les noms sont fictifs."
   },
   "nav": {
     "main": "Menu principal",
@@ -69,7 +71,19 @@
     "myRecord": "Mon dossier",
     "announcements": "Annonces",
     "notifications": "Notifications",
-    "admin": "Administration"
+    "admin": "Administration",
+    "groupTeaching": "Pédagogie",
+    "groupPeople": "Communauté",
+    "groupSchool": "Établissement",
+    "requests": "Demandes d’accès",
+    "structure": "Structure",
+    "audit": "Historique",
+    "menu": "Menu",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "more": "Plus",
+    "account": "Mon compte",
+    "quick": "Navigation rapide"
   },
   "roles": {
     "admin": "Administrateur",

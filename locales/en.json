@@ -55,7 +55,9 @@
     "deleted": "Deleted.",
     "noChanges": "Nothing was changed.",
     "alreadySaved": "This entry was already saved. It has not been saved twice.",
-    "confirmDelete": "Delete this item? This cannot be undone."
+    "confirmDelete": "Delete this item? This cannot be undone.",
+    "confirm": "Confirm",
+    "demoShort": "Demo data: all names are fictitious."
   },
   "nav": {
     "main": "Main menu",
@@ -69,7 +71,19 @@
     "myRecord": "My record",
     "announcements": "Announcements",
     "notifications": "Notifications",
-    "admin": "Administration"
+    "admin": "Administration",
+    "groupTeaching": "Teaching",
+    "groupPeople": "People",
+    "groupSchool": "School",
+    "requests": "Access requests",
+    "structure": "School structure",
+    "audit": "Change history",
+    "menu": "Menu",
+    "openMenu": "Open the menu",
+    "closeMenu": "Close the menu",
+    "more": "More",
+    "account": "My account",
+    "quick": "Quick navigation"
   },
   "roles": {
     "admin": "Administrator",
