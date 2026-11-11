@@ -12,6 +12,7 @@
   <div class="auth-card">
     <h1><%= t('auth.loginTitle') %></h1>
     <p class="muted"><%= t('auth.loginHelp') %></p>
+    <% if (!error && flash) { %><div class="alert alert-<%= flash.type %>" role="status"><span class="alert-icon" aria-hidden="true">i</span> <%= flash.message %></div><% } %>
     <% if (error) { %><div class="alert alert-error" role="alert" id="login-error"><span class="alert-icon" aria-hidden="true">!</span> <%= error %></div><% } %>
     <form method="post" action="/login" class="form" data-once data-loading>
       <input type="hidden" name="_csrf" value="<%= csrf %>">

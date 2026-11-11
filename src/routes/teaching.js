@@ -8,6 +8,8 @@ const auth = require('../auth');
 const { Validator, int, str, isDate, weekday, minutesBetween } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.use(['/teaching', '/sessions'], auth.requireRole('admin', 'teacher'));
 const STATUSES = ['held', 'missed', 'cancelled', 'makeup'];
 const MAKEUP = ['none', 'planned', 'completed', 'not_needed'];
 

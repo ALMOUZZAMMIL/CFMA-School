@@ -57,6 +57,15 @@
   <% } %>
 </header>
 <div id="net-status" class="net-status" hidden role="status"><%= t('common.offline') %></div>
+<% if (user) { %>
+<div id="session-warning" class="net-status session-warning" hidden role="alert" data-user="<%= user.id %>">
+  <span data-session-msg="warning"><%= t('idle.warning') %></span>
+  <span data-session-msg="ended" hidden><%= t('idle.ended') %></span>
+  <span data-session-msg="restored" hidden><%= t('idle.restored') %></span>
+  <button type="button" class="btn btn-small" data-session-action="stay"><%= t('idle.stay') %></button>
+  <a class="btn btn-small" href="/login" target="_blank" rel="noopener" data-session-action="signin" hidden><%= t('idle.signIn') %></a>
+</div>
+<% } %>
 <main id="main" class="container">
 <% if (flash) { %>
   <div class="alert alert-<%= flash.type %>" role="<%= flash.type === 'error' ? 'alert' : 'status' %>">

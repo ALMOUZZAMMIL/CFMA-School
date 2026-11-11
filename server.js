@@ -1,27 +1,109 @@
 'use strict';
-const fs = require('fs');
-const path = require('path');
+require('./src/env');
 
-// Load .env if present (simple KEY=VALUE lines, no extra dependency needed).
-const envFile = path.join(__dirname, '.env');
-if (fs.existsSync(envFile)) {
-  for (const line of fs.readFileSync(envFile, 'utf8').split(/\r?\n/)) {
-    const m = line.match(/^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/);
-    if (m && process.env[m[1]] === undefined) process.env[m[1]] = m[2].replace(/^["']|["']$/g, '');
-  }
+// Files the server creates (database, logs of SQLite, backups) are private to its account.
+process.umask(0o077);
+
+const config = require('./src/config');
+const log = require('./src/log');
+
+let cfg;
+try {
+  cfg = config.get();
+} catch (e) {
+  console.error(e.message);
+  process.exit(1);
 }
 
 const db = require('./src/db');
-db.open();
-const { createApp } = require('./src/app');
+const backup = require('./src/backup');
+const auth = require('./src/auth');
+const publicRoutes = require('./src/routes/public');
+const serverLock = require('./src/server-lock');
 
-const port = Number(process.env.PORT || 3000);
-const host = process.env.HOST || '0.0.0.0';
-createApp().listen(port, host, () => {
-  console.log(`School system running on http://localhost:${port}`);
+try {
+  serverLock.acquire(cfg.databaseFile);
+} catch (e) {
+  log.error('refusing to start', { reason: e.message });
+  process.exit(1);
+}
+process.on('exit', () => serverLock.release(cfg.databaseFile));
+
+try {
+  db.open(cfg.databaseFile);
+} catch (e) {
+  log.error('could not open or upgrade the database; the server was not started', { err: e, backupFile: e.backupFile });
+  process.exit(1);
+}
+
+// A demonstration database (fictional people, shared demo password) must not be served as
+// the real school site by accident.
+if (cfg.production && db.getSettings().demo_mode === '1' && !cfg.allowDemoInProduction) {
+  log.error('refusing to start: NODE_ENV=production but the database holds DEMO data (demo_mode=1). Use a real database, or set ALLOW_DEMO_IN_PRODUCTION=1 for a public demonstration site.');
+  db.close();
+  process.exit(1);
+}
+
+// TRUST_PROXY=1 tells the app to believe the visitor address sent by the proxy. If the app is
+// also reachable directly, a visitor could send a fake address and dodge the sign-in limits.
+if (cfg.trustProxy && !['127.0.0.1', '::1', 'localhost'].includes(cfg.host)) {
+  log.warn('TRUST_PROXY=1 but the app listens on all interfaces; set HOST=127.0.0.1 so only the reverse proxy can reach it', { host: cfg.host });
+}
+
+const { createApp } = require('./src/app');
+const server = createApp().listen(cfg.port, cfg.host, () => {
+  const { port } = server.address();
+  log.info('server started', { url: `http://localhost:${port}`, port, env: cfg.nodeEnv, database: cfg.databaseFile });
 });
 
-// Remove expired sessions once an hour.
-setInterval(() => {
-  db.get().prepare('DELETE FROM sessions WHERE expires_at < ?').run(new Date().toISOString());
-}, 3600000).unref();
+const timers = [];
+// Remove expired sessions and device tokens once an hour.
+timers.push(setInterval(() => {
+  try {
+    db.get().prepare('DELETE FROM sessions WHERE expires_at < ?').run(new Date().toISOString());
+    require('./src/login-guard').purgeExpiredDevices();
+  } catch (err) { log.error('session purge failed', { err }); }
+}, 3600000));
+// Clear old rate-limit entries every 10 minutes.
+timers.push(setInterval(() => { auth.pruneAttempts(); publicRoutes.limiter.pruneHits(); }, 600000));
+// Automatic verified backup (BACKUP_INTERVAL_HOURS=0 turns it off).
+if (cfg.backupIntervalHours > 0) {
+  timers.push(setInterval(() => {
+    try {
+      const { file, removed } = backup.autoBackup(db.get(), cfg.databaseFile, { keep: cfg.backupKeep });
+      log.info('automatic backup written', { file, removed: removed.length });
+    } catch (err) {
+      log.error('automatic backup failed', { err });
+    }
+  }, cfg.backupIntervalHours * 3600000));
+}
+for (const t of timers) t.unref();
+
+// Graceful shutdown: stop taking new requests, let current ones finish, then close the
+// database cleanly (this also folds the write-ahead log into the main file).
+let stopping = false;
+function shutdown(signal) {
+  if (stopping) return;
+  stopping = true;
+  log.info('shutting down', { signal });
+  for (const t of timers) clearInterval(t);
+  const force = setTimeout(() => {
+    log.error('shutdown took longer than 10 seconds; forcing exit');
+    try { db.close(); } catch { /* already closed */ }
+    process.exit(1);
+  }, 10000);
+  force.unref();
+  server.close(() => {
+    try { db.close(); } catch (err) { log.error('database close failed', { err }); }
+    log.info('stopped');
+    process.exit(signal === 'uncaughtException' ? 1 : 0);
+  });
+  if (server.closeIdleConnections) server.closeIdleConnections();
+}
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('unhandledRejection', (err) => log.error('unhandled promise rejection', { err }));
+process.on('uncaughtException', (err) => {
+  log.error('uncaught exception; stopping', { err });
+  shutdown('uncaughtException');
+});

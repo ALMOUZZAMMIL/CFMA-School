@@ -23,7 +23,10 @@ function canTakeAttendance(user, classId) {
   if (!user) return false;
   if (user.role === 'admin') return true;
   if (user.role !== 'teacher') return false;
-  return !!db.get().prepare('SELECT 1 FROM teaching_assignments WHERE teacher_id = ? AND class_id = ? LIMIT 1').get(user.id, classId);
+  // Class lists are student information: only classes of the current school year.
+  return !!db.get().prepare(`SELECT 1 FROM teaching_assignments ta JOIN classes c ON c.id = ta.class_id
+    JOIN academic_years y ON y.id = c.year_id AND y.is_current = 1
+    WHERE ta.teacher_id = ? AND ta.class_id = ? LIMIT 1`).get(user.id, classId);
 }
 
 // Student ids this user is allowed to view.
@@ -44,7 +47,9 @@ function canViewStudent(user, studentId) {
   if (user.role === 'admin') return true;
   if (user.role === 'parent' || user.role === 'student') return visibleStudentIds(user).includes(studentId);
   if (user.role === 'teacher') {
+    // Only students in a class the teacher teaches in the current school year.
     return !!db.get().prepare(`SELECT 1 FROM enrollments e JOIN teaching_assignments ta ON ta.class_id = e.class_id
+      JOIN classes c ON c.id = e.class_id JOIN academic_years y ON y.id = c.year_id AND y.is_current = 1
       WHERE e.student_id = ? AND ta.teacher_id = ? LIMIT 1`).get(studentId, user.id);
   }
   return false; // bursar has no access to academic records

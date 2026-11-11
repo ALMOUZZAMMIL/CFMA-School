@@ -120,7 +120,8 @@
     "usernameOrEmail": "Username or email",
     "showPassword": "Show",
     "hidePassword": "Hide",
-    "signingIn": "Signing in…"
+    "signingIn": "Signing in…",
+    "sessionExpired": "Your session ended because it was inactive for too long. Please sign in again."
   },
   "errors": {
     "forbiddenTitle": "Access not allowed",
@@ -131,7 +132,8 @@
     "serverTitle": "Something went wrong",
     "server": "The system could not complete your request. Your data has not been changed. Please try again; if it continues, tell the administrator.",
     "tooLargeTitle": "Too much data",
-    "tooLarge": "The form contained too much data. Please send it in smaller parts."
+    "tooLarge": "The form contained too much data. Please send it in smaller parts.",
+    "reference": "Reference for the administrator:"
   },
   "validation": {
     "fixBelow": "Please correct the following:",
@@ -824,5 +826,14 @@
     "pickStudent": "choose the student for a student account.",
     "studentHasLogin": "this student already has a login.",
     "pendingCount": "Access requests waiting"
+  },
+  "idle": {
+    "warning": "You will be signed out in less than 2 minutes because of inactivity.",
+    "stay": "Stay signed in",
+    "ended": "Your session has ended. What you typed is still on this page: sign in again in a new tab, then come back here and save.",
+    "signIn": "Sign in (new tab)",
+    "restored": "You are signed in again. You can now save this page.",
+    "endedTitle": "Session ended",
+    "formNotSaved": "Your session ended because it was inactive for too long, so this form was not saved. Use your browser's Back button to return to what you typed, sign in again in a new tab, then save again."
   }
 }

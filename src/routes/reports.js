@@ -7,6 +7,9 @@ const reports = require('../reports');
 const { int, isDate, toCsv } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.use('/reports', auth.requireRole('admin', 'teacher'));
+r.use('/admin', auth.requireRole('admin'));
 
 function filters(req, res) {
   const year = res.locals.year;
