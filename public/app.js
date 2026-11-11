@@ -3,11 +3,57 @@
   'use strict';
 
   // Confirm before important or destructive actions: <form data-confirm="...">, <button data-confirm="...">
+  // Shown in the portal's own dialog where the browser supports <dialog>, otherwise the browser's confirm.
+  var dialogSupported = typeof window.HTMLDialogElement === 'function';
+  function askConfirm(msg, onYes) {
+    var body = document.body;
+    var dlg = document.createElement('dialog');
+    dlg.className = 'dialog';
+    dlg.setAttribute('aria-labelledby', 'confirm-msg');
+    var inner = document.createElement('div');
+    inner.className = 'dialog-body';
+    var icon = document.createElement('span');
+    icon.className = 'dialog-icon';
+    icon.setAttribute('aria-hidden', 'true');
+    icon.textContent = '!';
+    var p = document.createElement('p');
+    p.id = 'confirm-msg';
+    p.textContent = msg;
+    inner.appendChild(icon); inner.appendChild(p);
+    var foot = document.createElement('div');
+    foot.className = 'dialog-foot';
+    var no = document.createElement('button');
+    no.type = 'button'; no.className = 'btn'; no.textContent = body.getAttribute('data-confirm-cancel') || 'Cancel';
+    var yes = document.createElement('button');
+    yes.type = 'button'; yes.className = 'btn btn-primary'; yes.textContent = body.getAttribute('data-confirm-ok') || 'OK';
+    foot.appendChild(no); foot.appendChild(yes);
+    dlg.appendChild(inner); dlg.appendChild(foot);
+    body.appendChild(dlg);
+    var done = function () { dlg.close(); dlg.remove(); };
+    no.addEventListener('click', done);
+    dlg.addEventListener('cancel', function () { setTimeout(function () { if (dlg.isConnected) dlg.remove(); }, 0); });
+    yes.addEventListener('click', function () { done(); onYes(); });
+    dlg.showModal();
+    no.focus();
+  }
+
   document.addEventListener('submit', function (e) {
     var form = e.target;
     var submitter = e.submitter;
     var msg = (submitter && submitter.getAttribute('data-confirm')) || form.getAttribute('data-confirm');
-    if (msg && !window.confirm(msg)) { e.preventDefault(); return; }
+    if (msg && form.dataset.confirmed !== '1') {
+      if (!dialogSupported || !form.requestSubmit) {
+        if (!window.confirm(msg)) { e.preventDefault(); return; }
+      } else {
+        e.preventDefault();
+        askConfirm(msg, function () {
+          form.dataset.confirmed = '1';
+          if (submitter && submitter.form === form) form.requestSubmit(submitter); else form.requestSubmit();
+          delete form.dataset.confirmed;
+        });
+        return;
+      }
+    }
     // Prevent double submission on slow connections (server also rejects duplicates).
     if (form.hasAttribute('data-once')) {
       if (form.dataset.sent) { e.preventDefault(); return; }
@@ -24,6 +70,28 @@
         form.querySelectorAll('button').forEach(function (b) { b.disabled = true; });
       }, 0);
     }
+  });
+
+  // Phone menu: works without JavaScript through the #menu link; with it, no history entry is added
+  // and Escape closes it. The account menu closes when clicking elsewhere.
+  var menu = document.getElementById('menu');
+  function setMenu(open) {
+    if (!menu) return;
+    menu.classList.toggle('open', open);
+    if (open) { var first = menu.querySelector('.sb-item'); if (first) first.focus(); }
+    if (!open && location.hash === '#menu') history.replaceState(null, '', location.pathname + location.search);
+  }
+  document.addEventListener('click', function (e) {
+    if (menu) {
+      if (e.target.closest('a[href="#menu"]')) { e.preventDefault(); setMenu(true); return; }
+      if (e.target.closest('.sb-close, .sb-backdrop')) { e.preventDefault(); setMenu(false); return; }
+    }
+    document.querySelectorAll('details.account[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    if (menu && (menu.classList.contains('open') || location.hash === '#menu')) setMenu(false);
+    document.querySelectorAll('details.account[open]').forEach(function (d) { d.removeAttribute('open'); d.querySelector('summary').focus(); });
   });
 
   document.addEventListener('click', function (e) {
