@@ -106,11 +106,17 @@ function rememberDevice(cookieValue, user, now = Date.now()) {
   return [tok, ...existing].slice(0, MAX_DEVICE_TOKENS).join('.');
 }
 
+// Revocation: when a password is changed or reset, or an account is deactivated, its known
+// devices are forgotten (optionally keeping the browser that made the change).
+function revokeDevices(userId, { keep = null } = {}) {
+  return db.get().prepare('DELETE FROM device_tokens WHERE user_id = ? AND token_hash IS NOT ?').run(userId, keep).changes;
+}
+
 function purgeExpiredDevices(now = Date.now()) {
   return db.get().prepare('DELETE FROM device_tokens WHERE expires_at < ?').run(new Date(now).toISOString()).changes;
 }
 
 module.exports = {
   WINDOW_MS, LIMITS, MAX_KEYS, DEVICE_COOKIE, DEVICE_DAYS, counters,
-  accountKey, knownDevice, blocked, recordFailure, recordSuccess, rememberDevice, prune, purgeExpiredDevices,
+  accountKey, knownDevice, blocked, recordFailure, recordSuccess, rememberDevice, revokeDevices, prune, purgeExpiredDevices,
 };

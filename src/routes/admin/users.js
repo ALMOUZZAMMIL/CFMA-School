@@ -4,6 +4,7 @@
 const express = require('express');
 const db = require('../../db');
 const auth = require('../../auth');
+const guard = require('../../login-guard');
 const { Validator, int, str } = require('../../util');
 const { ROLES, back, tempPassword, createUser, validUsername, EMAIL, emailTaken } = require('./shared');
 
@@ -52,7 +53,10 @@ r.post('/admin/users/:id', (req, res) => {
   if (u.id === req.user.id && !v.active) return back(res, `/admin/users/${u.id}`, 'error', 'admin.cannotDeactivateSelf');
   db.get().transaction(() => {
     db.get().prepare('UPDATE users SET full_name = @full_name, phone = @phone, email = @email, language = @language, active = @active WHERE id = @id').run({ ...v, id: u.id });
-    if (!v.active) db.get().prepare('DELETE FROM sessions WHERE user_id = ?').run(u.id);
+    if (!v.active) {
+      db.get().prepare('DELETE FROM sessions WHERE user_id = ?').run(u.id);
+      guard.revokeDevices(u.id);
+    }
     db.audit({ entity: 'user', entityId: u.id, action: 'update', userId: req.user.id, before: { full_name: u.full_name, phone: u.phone, email: u.email, active: u.active }, after: v });
   })();
   back(res, `/admin/users/${u.id}`, 'ok', 'common.saved');
@@ -64,6 +68,7 @@ r.post('/admin/users/:id/reset-password', (req, res) => {
   const pw = tempPassword();
   db.get().prepare('UPDATE users SET password_hash = ?, must_change_password = 1 WHERE id = ?').run(auth.hashPassword(pw), u.id);
   db.get().prepare('DELETE FROM sessions WHERE user_id = ?').run(u.id);
+  guard.revokeDevices(u.id);
   db.audit({ entity: 'user', entityId: u.id, action: 'password_reset', userId: req.user.id });
   const children = u.role === 'parent' ? db.get().prepare('SELECT st.*, g.relationship, g.id AS link_id FROM guardians g JOIN students st ON st.id = g.student_id WHERE g.parent_user_id = ?').all(u.id) : [];
   res.render('admin/user', { title: u.full_name, u, children, reset: pw });

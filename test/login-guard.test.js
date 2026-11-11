@@ -93,3 +93,36 @@ test('device tokens are stored hashed, expire, and a forged token is ignored', a
   assert.strictEqual(guard.knownDevice(dev.cookies.dev, user, Date.now() + 91 * 86400000), null, 'expires after 90 days');
   assert.ok(guard.purgeExpiredDevices(Date.now() + 91 * 86400000) >= 1);
 });
+
+test('revocation: password change forgets other devices (keeps this one); admin reset and deactivation forget all', async () => {
+  const d = ctx.db.get();
+  const uid = (u) => d.prepare('SELECT id FROM users WHERE username = ?').get(u).id;
+  const n = (u) => d.prepare('SELECT COUNT(*) n FROM device_tokens WHERE user_id = ?').get(uid(u)).n;
+  d.prepare('DELETE FROM device_tokens').run();
+
+  // Two devices for the same teacher; the password is changed on the first.
+  const a = await knownDevice('102.244.5.1', 'demo.teacher.eng');
+  await knownDevice('102.244.5.2', 'demo.teacher.eng');
+  assert.strictEqual(n('demo.teacher.eng'), 2);
+  assert.strictEqual(await tryLogin(a, 'demo.teacher.eng', 'demo-password'), 302);
+  const page = await a.get('/account/password');
+  const r = await a.post('/account/password', { current: 'demo-password', password: 'new-password-123', confirm: 'new-password-123' });
+  assert.ok([200, 302].includes(r.status), `password change: ${r.status}`);
+  void page;
+  assert.strictEqual(n('demo.teacher.eng'), 1, 'only the browser that changed the password stays known');
+  const user = d.prepare("SELECT * FROM users WHERE username = 'demo.teacher.eng'").get();
+  assert.ok(guard.knownDevice(a.cookies.dev, user), 'and it is the right one');
+
+  // Admin resets a password, and deactivates an account.
+  await knownDevice('102.244.5.3', 'demo.prof.lettres');
+  await knownDevice('102.244.5.4', 'demo.eleve');
+  const admin = await new Client(ctx.base).login('demo.admin');
+  await admin.get(`/admin/users/${uid('demo.prof.lettres')}`);
+  assert.strictEqual((await admin.post(`/admin/users/${uid('demo.prof.lettres')}/reset-password`, {})).status, 200);
+  assert.strictEqual(n('demo.prof.lettres'), 0);
+  const eleve = d.prepare("SELECT * FROM users WHERE username = 'demo.eleve'").get();
+  await admin.get(`/admin/users/${eleve.id}`);
+  await admin.post(`/admin/users/${eleve.id}`, { full_name: eleve.full_name, language: eleve.language });
+  assert.strictEqual(d.prepare('SELECT active FROM users WHERE id = ?').get(eleve.id).active, 0);
+  assert.strictEqual(n('demo.eleve'), 0);
+});

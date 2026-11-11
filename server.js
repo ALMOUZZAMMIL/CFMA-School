@@ -44,6 +44,12 @@ if (cfg.production && db.getSettings().demo_mode === '1' && !cfg.allowDemoInProd
   process.exit(1);
 }
 
+// TRUST_PROXY=1 tells the app to believe the visitor address sent by the proxy. If the app is
+// also reachable directly, a visitor could send a fake address and dodge the sign-in limits.
+if (cfg.trustProxy && !['127.0.0.1', '::1', 'localhost'].includes(cfg.host)) {
+  log.warn('TRUST_PROXY=1 but the app listens on all interfaces; set HOST=127.0.0.1 so only the reverse proxy can reach it', { host: cfg.host });
+}
+
 const { createApp } = require('./src/app');
 const server = createApp().listen(cfg.port, cfg.host, () => {
   const { port } = server.address();

@@ -93,6 +93,8 @@ r.post('/account/password', auth.requireLogin, (req, res) => {
   // Sign out other devices.
   db.get().prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash != ?')
     .run(req.user.id, require('crypto').createHash('sha256').update(req.sessionToken).digest('hex'));
+  // Forget other known devices too; this browser stays known.
+  guard.revokeDevices(req.user.id, { keep: guard.knownDevice(req.cookies[guard.DEVICE_COOKIE], req.user) });
   db.audit({ entity: 'user', entityId: req.user.id, action: 'password_changed', userId: req.user.id });
   res.flash('ok', 'auth.passwordChanged');
   res.redirect('/');
