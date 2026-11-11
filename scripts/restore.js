@@ -4,6 +4,7 @@
 // The current database is itself backed up (label "pre-restore") before it is replaced,
 // so a restore can always be undone.
 require('../src/env');
+process.umask(0o077); // database and backup files private to this account
 const fs = require('fs');
 const path = require('path');
 const Database = require('better-sqlite3');
@@ -49,7 +50,8 @@ try {
     }
   }
   const tmp = `${dbFile}.restoring`;
-  fs.copyFileSync(source, tmp);
+  backup.privately(() => fs.copyFileSync(source, tmp));
+  backup.secureFile(tmp);
   for (const f of [`${dbFile}-wal`, `${dbFile}-shm`]) if (fs.existsSync(f)) fs.unlinkSync(f);
   fs.renameSync(tmp, dbFile);
   backup.verifyBackup(dbFile);

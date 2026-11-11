@@ -12,7 +12,7 @@ before(async () => { dbInfo = seededDb(); ctx = await startApp(dbInfo.file); rou
 after(() => { ctx.server.close(); fs.rmSync(dbInfo.tmp, { recursive: true, force: true }); });
 
 const q = (sql, ...a) => ctx.db.get().prepare(sql).get(...a);
-const PUBLIC = new Set(['/brand.css', '/login', '/logout', '/lang', '/register', '/forgot-password', '/healthz']);
+const PUBLIC = new Set(['/brand.css', '/login', '/logout', '/lang', '/register', '/forgot-password', '/healthz', '/session/status']);
 
 // GET pages each non-admin role may open (pattern level; record-level checks are in app.test.js).
 const ALL_SIGNED_IN = ['/', '/account/password', '/notifications'];
@@ -26,10 +26,10 @@ const GET_ALLOWED = {
 };
 // POST actions each non-admin role may use.
 const POST_ALLOWED = {
-  teacher: ['/account/password', '/notifications/read', '/sessions', '/sessions/:id', '/progress/:aid', '/attendance/:classId'],
-  parent: ['/account/password', '/notifications/read'],
-  student: ['/account/password', '/notifications/read'],
-  bursar: ['/account/password', '/notifications/read'],
+  teacher: ['/account/password', '/notifications/read', '/sessions', '/sessions/:id', '/progress/:aid', '/attendance/:classId', '/session/keepalive'],
+  parent: ['/account/password', '/notifications/read', '/session/keepalive'],
+  student: ['/account/password', '/notifications/read', '/session/keepalive'],
+  bursar: ['/account/password', '/notifications/read', '/session/keepalive'],
 };
 const USERS = { teacher: 'demo.prof.maths', parent: 'demo.parent', student: 'demo.eleve', bursar: 'demo.intendant' };
 const fill = (p) => p.replace(/:\w+/g, '1');

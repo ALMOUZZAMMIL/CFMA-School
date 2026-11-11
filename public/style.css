@@ -376,3 +376,5 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .alert-pending { background: var(--secondary-soft); border-color: var(--secondary); }
 @media print { .site-header, .site-footer { display: none !important; } }
 .choice small { display: inline-block; line-height: 1.35; margin-top: .15rem; color: var(--muted); }
+.session-warning [hidden] { display: none !important; }
+.session-warning .btn { margin: .25rem .2rem 0; }

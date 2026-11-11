@@ -102,7 +102,11 @@ function loadSession(req, res, next) {
       // Also caps sessions created before a role's lifetime was shortened.
       const tooOld = !(now - parseDbTime(row.session_created_at) < maxLifetimeMs(row.role));
       if (row.expires_at > new Date(now).toISOString() && row.active && !idle && !tooOld) {
-        if (now - lastSeen >= TOUCH_EVERY_MS) db.get().prepare('UPDATE sessions SET last_seen_at = ? WHERE token_hash = ?').run(dbTime(now), hash);
+        // A status check (used by the page to warn before sign-out) must not count as activity.
+        const touch = req.path !== '/session/status' && now - lastSeen >= TOUCH_EVERY_MS;
+        if (touch) db.get().prepare('UPDATE sessions SET last_seen_at = ? WHERE token_hash = ?').run(dbTime(now), hash);
+        const seen = touch ? now : lastSeen;
+        req.sessionRemainingMs = Math.min(seen + idleLimitMs(row.role), parseDbTime(row.session_created_at) + maxLifetimeMs(row.role), Date.parse(row.expires_at)) - now;
         req.csrfToken = row.csrf_token;
         for (const k of ['password_hash', 'csrf_token', 'last_seen_at', 'session_created_at']) delete row[k];
         req.user = row;
@@ -110,7 +114,10 @@ function loadSession(req, res, next) {
       } else {
         destroySession(token);
         clearSessionCookie(res);
-        if (row.active) res.append('Set-Cookie', 'flash=info|auth.sessionExpired; Path=/; Max-Age=60; SameSite=Lax; HttpOnly');
+        if (row.active) {
+          res.append('Set-Cookie', 'flash=info|auth.sessionExpired; Path=/; Max-Age=60; SameSite=Lax; HttpOnly');
+          req.sessionJustExpired = true;
+        }
       }
     }
   }
@@ -133,6 +140,10 @@ function csrfProtect(req, res, next) {
   const expected = req.user ? req.csrfToken : req.cookies.pre_csrf;
   if (!sent || !expected || sent.length !== expected.length ||
       !crypto.timingSafeEqual(Buffer.from(sent), Buffer.from(expected))) {
+    // A form sent after the sign-in ended for inactivity: say so plainly, and how to recover.
+    if (req.sessionJustExpired) {
+      return res.status(403).render('error', { title: res.locals.t('idle.endedTitle'), message: res.locals.t('idle.formNotSaved') });
+    }
     return res.status(403).render('error', { title: res.locals.t('errors.forbiddenTitle'), message: res.locals.t('errors.csrf') });
   }
   next();
@@ -165,47 +176,13 @@ function notFound(req, res) {
   return res.status(404).render('error', { title: res.locals.t('errors.notFoundTitle'), message: res.locals.t('errors.notFound') });
 }
 
-// Small in-memory limiter for login attempts: 8 failures per IP + username, and 100 per IP
-// across all usernames, within 15 minutes. Old entries are removed regularly so memory stays
-// bounded, and the map never grows past MAX_KEYS.
-const WINDOW_MS = 15 * 60000;
-const PER_KEY = 8;
-const PER_IP = 100; // high, because a whole school can share one internet address
-const MAX_KEYS = 10000;
-const attempts = new Map();
-
-function ipOf(key) { return `ip:${String(key).split('|')[0]}`; }
-function over(k, limit, now) {
-  const rec = attempts.get(k);
-  return !!rec && now - rec.first <= WINDOW_MS && rec.count >= limit;
-}
-function loginLimited(key, now = Date.now()) {
-  return over(key, PER_KEY, now) || over(ipOf(key), PER_IP, now);
-}
-function bump(k, now) {
-  const rec = attempts.get(k);
-  if (!rec || now - rec.first > WINDOW_MS) {
-    attempts.delete(k);
-    attempts.set(k, { first: now, count: 1 });
-  } else rec.count++;
-}
-function recordLoginFailure(key, now = Date.now()) {
-  bump(key, now);
-  bump(ipOf(key), now);
-  if (attempts.size > MAX_KEYS) pruneAttempts(now);
-}
-function clearLoginFailures(key) { attempts.delete(key); }
-
-// Removes expired entries; if still too many, drops the oldest (Map keeps insertion order).
-function pruneAttempts(now = Date.now()) {
-  for (const [k, rec] of attempts) if (now - rec.first > WINDOW_MS) attempts.delete(k);
-  while (attempts.size > MAX_KEYS) attempts.delete(attempts.keys().next().value);
-  return attempts.size;
-}
+// Sign-in rate limits live in login-guard.js. pruneAttempts is kept for the server's timer.
+const guard = require('./login-guard');
+const pruneAttempts = (now) => guard.prune(now);
 
 module.exports = {
   hashPassword, verifyPassword, DUMMY_HASH, createSession, destroySession, setSessionCookie, clearSessionCookie,
   loadSession, csrfProtect, ensureAnonCsrf, requireLogin, requireRole, forbidden, notFound,
-  loginLimited, recordLoginFailure, clearLoginFailures, pruneAttempts, attempts, MAX_KEYS,
+  pruneAttempts, cookieOptions,
   parseDbTime, dbTime, idleLimitMs, maxLifetimeMs,
 };

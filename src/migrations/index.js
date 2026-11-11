@@ -5,4 +5,5 @@ module.exports = [
   require('./001-baseline'),
   require('./002-user-email'),
   require('./003-session-activity'),
+  require('./004-device-tokens'),
 ];

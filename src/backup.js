@@ -13,6 +13,31 @@ function stamp(date = new Date()) {
   return date.toISOString().replace(/[-:]/g, '').replace(/\..*/, '').replace('T', '-');
 }
 
+// Backups hold password hashes and pupils' records, so only the account that runs the
+// application may read them: folder 700 (rwx------), files 600 (rw-------). On Windows these
+// calls have no effect; protect the folder with the account's own permissions there.
+const DIR_MODE = 0o700;
+const FILE_MODE = 0o600;
+
+function secureDir(dir) {
+  fs.mkdirSync(dir, { recursive: true, mode: DIR_MODE });
+  try {
+    const st = fs.statSync(dir);
+    // Tighten an existing folder if this account owns it (never touch someone else's folder).
+    if (typeof process.getuid !== 'function' || st.uid === process.getuid()) fs.chmodSync(dir, DIR_MODE);
+  } catch { /* reported by the write that follows */ }
+}
+
+function secureFile(file) {
+  try { fs.chmodSync(file, FILE_MODE); } catch { /* file may not exist (failed copy) */ }
+}
+
+// Runs fn with a restrictive umask, so files are never readable by others even for a moment.
+function privately(fn) {
+  const old = process.umask(0o077);
+  try { return fn(); } finally { process.umask(old); }
+}
+
 function uniqueName(dir, label, ext = '.db') {
   let file = path.join(dir, `school-${label}-${stamp()}${ext}`);
   for (let i = 2; fs.existsSync(file); i++) file = path.join(dir, `school-${label}-${stamp()}-${i}${ext}`);
@@ -22,10 +47,11 @@ function uniqueName(dir, label, ext = '.db') {
 // Returns the path of the verified copy. Throws if the copy cannot be made or fails the check;
 // a copy that fails is deleted, so the backups folder only ever holds usable files.
 function createBackup(d, { dir, label = 'manual' }) {
-  fs.mkdirSync(dir, { recursive: true });
+  secureDir(dir);
   const file = uniqueName(dir, label);
   try {
-    d.prepare('VACUUM INTO ?').run(file);
+    privately(() => d.prepare('VACUUM INTO ?').run(file));
+    secureFile(file);
     verifyBackup(file);
   } catch (err) {
     try { fs.unlinkSync(file); } catch { /* nothing was written */ }
@@ -66,11 +92,11 @@ function verifyRestorable(file) {
 // Last-resort copy of the raw database files (main file and write-ahead log), used when the
 // database is too damaged for SQLite to copy. Not verified: it is kept for investigation.
 function rawCopy(dbFile, { dir, label }) {
-  fs.mkdirSync(dir, { recursive: true });
+  secureDir(dir);
   const base = uniqueName(dir, label, '.raw.db');
   const out = [];
   for (const [src, dst] of [[dbFile, base], [`${dbFile}-wal`, `${base}-wal`]]) {
-    if (fs.existsSync(src)) { fs.copyFileSync(src, dst); out.push(dst); }
+    if (fs.existsSync(src)) { privately(() => fs.copyFileSync(src, dst)); secureFile(dst); out.push(dst); }
   }
   return out;
 }
@@ -84,4 +110,12 @@ function pruneBackups(dir, { label, keep }) {
   return removed;
 }
 
-module.exports = { backupDir, createBackup, verifyBackup, verifyRestorable, rawCopy, pruneBackups, stamp };
+// The scheduled backup run by the server: one verified copy, then old automatic copies removed.
+function autoBackup(d, dbFile, { keep }) {
+  const dir = backupDir(dbFile);
+  const file = createBackup(d, { dir, label: 'auto' });
+  const removed = pruneBackups(dir, { label: 'auto', keep });
+  return { file, removed };
+}
+
+module.exports = { backupDir, createBackup, autoBackup, secureDir, secureFile, privately, DIR_MODE, FILE_MODE, verifyBackup, verifyRestorable, rawCopy, pruneBackups, stamp };

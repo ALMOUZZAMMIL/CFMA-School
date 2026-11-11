@@ -15,6 +15,13 @@ function classRow(id, yearId) {
   return db.get().prepare('SELECT c.*, se.name_en AS section_en, se.name_fr AS section_fr FROM classes c JOIN sections se ON se.id = c.section_id WHERE c.id = ? AND c.year_id = ?').get(id, yearId);
 }
 
+// Keeps a date inside the current school year (class lists and registers never reach other years).
+function clampToYear(date, year) {
+  if (date < year.start_date) return year.start_date;
+  if (date > year.end_date) return year.end_date;
+  return date;
+}
+
 function roster(classId) {
   return db.get().prepare(`SELECT st.* FROM enrollments e JOIN students st ON st.id = e.student_id WHERE e.class_id = ? ORDER BY st.full_name`).all(classId);
 }
@@ -36,7 +43,7 @@ r.get('/attendance/:classId', auth.requireRole('admin', 'teacher'), (req, res) =
   const year = res.locals.year;
   const cls = year && classRow(int(req.params.classId), year.id);
   if (!cls || !access.canTakeAttendance(req.user, cls.id)) return auth.notFound(req, res);
-  const date = isDate(req.query.date) ? req.query.date : res.locals.today;
+  const date = clampToYear(isDate(req.query.date) ? req.query.date : res.locals.today, year);
   const students = roster(cls.id);
   const existing = new Map(db.get().prepare(`SELECT ar.*, u.full_name AS recorded_by_name, u2.full_name AS updated_by_name FROM attendance_records ar
     JOIN users u ON u.id = ar.recorded_by LEFT JOIN users u2 ON u2.id = ar.updated_by WHERE ar.class_id = ? AND ar.date = ?`).all(cls.id, date).map((x) => [x.student_id, x]));
@@ -51,7 +58,8 @@ r.post('/attendance/:classId', auth.requireRole('admin', 'teacher'), (req, res) 
   const cls = year && classRow(int(req.params.classId), year.id);
   if (!cls || !access.canTakeAttendance(req.user, cls.id)) return auth.notFound(req, res);
   const date = str(req.body.date, 10);
-  if (!isDate(date) || date > res.locals.today) {
+  // Only days of the current school year, and never in the future.
+  if (!isDate(date) || date > res.locals.today || date < year.start_date || date > year.end_date) {
     res.flash('error', 'attendance.badDate');
     return res.redirect(`/attendance/${cls.id}`);
   }
@@ -117,7 +125,7 @@ r.get('/attendance/:classId/print', auth.requireRole('admin', 'teacher'), (req, 
   const year = res.locals.year;
   const cls = year && classRow(int(req.params.classId), year.id);
   if (!cls || !access.canTakeAttendance(req.user, cls.id)) return auth.notFound(req, res);
-  let start = isDate(req.query.week) ? req.query.week : res.locals.today;
+  let start = clampToYear(isDate(req.query.week) ? req.query.week : res.locals.today, year);
   const dow = new Date(`${start}T00:00:00Z`).getUTCDay();
   start = addDays(start, dow === 0 ? -6 : 1 - dow);
   const days = [0, 1, 2, 3, 4, 5].map((i) => addDays(start, i));
@@ -131,8 +139,8 @@ r.get('/attendance/:classId/export.csv', auth.requireRole('admin', 'teacher'), (
   const year = res.locals.year;
   const cls = year && classRow(int(req.params.classId), year.id);
   if (!cls || !access.canTakeAttendance(req.user, cls.id)) return auth.notFound(req, res);
-  const from = isDate(req.query.from) ? req.query.from : year.start_date;
-  const to = isDate(req.query.to) ? req.query.to : year.end_date;
+  const from = clampToYear(isDate(req.query.from) ? req.query.from : year.start_date, year);
+  const to = clampToYear(isDate(req.query.to) ? req.query.to : year.end_date, year);
   const t = req.t;
   const rows = db.get().prepare(`SELECT ar.date, st.student_number, st.full_name, ar.status, ar.note, u.full_name AS by_name
     FROM attendance_records ar JOIN students st ON st.id = ar.student_id JOIN users u ON u.id = ar.recorded_by

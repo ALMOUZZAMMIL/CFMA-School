@@ -3,6 +3,7 @@
 // Usage: npm run backup                 (copy kept in BACKUP_DIR or <database folder>/backups)
 //        npm run backup -- --keep 30    (also delete older manual copies, keeping the newest 30)
 require('../src/env');
+process.umask(0o077); // database and backup files private to this account
 const path = require('path');
 const Database = require('better-sqlite3');
 const backup = require('../src/backup');

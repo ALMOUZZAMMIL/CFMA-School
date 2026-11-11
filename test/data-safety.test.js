@@ -210,3 +210,52 @@ test('the automatic backup interval is capped at one week', () => {
   assert.throws(() => config.load({ BACKUP_INTERVAL_HOURS: '720' }), /BACKUP_INTERVAL_HOURS must be between 0 and 168/);
   assert.strictEqual(config.load({ BACKUP_INTERVAL_HOURS: '168' }).backupIntervalHours, 168);
 });
+
+// --- Backup file permissions (shared servers) ---
+const mode = (f) => fs.statSync(f).mode & 0o777;
+const posix = process.platform !== 'win32';
+
+test('backups are private to the application account: folder 700, files 600 (manual, automatic, pre-migration, pre-restore)', { skip: !posix }, () => {
+  const { tmp, file } = seededDb();
+  const bk = path.join(tmp, 'bk');
+  // An existing, too-open folder is tightened.
+  fs.mkdirSync(bk, { mode: 0o755 }); fs.chmodSync(bk, 0o755);
+  // Run under a permissive umask to prove the code does not rely on the system default.
+  const env = { DATABASE_FILE: file, BACKUP_DIR: bk };
+  const manual = spawnSync('sh', ['-c', `umask 022 && "${process.execPath}" "${path.join(ROOT, 'scripts', 'backup.js')}"`], { env: { ...process.env, NODE_ENV: 'test', ...env }, encoding: 'utf8' });
+  assert.strictEqual(manual.status, 0, manual.stderr);
+  assert.strictEqual(mode(bk), 0o700);
+
+  const backup = require('../src/backup');
+  const old = process.umask(0o022);
+  try {
+    process.env.BACKUP_DIR = bk;
+    const d = new Database(file);
+    try {
+      backup.autoBackup(d, file, { keep: 5 });
+      // pre-migration copy, written by the migration runner
+      require('../src/migrate').run(d, { file, migrations: [...require('../src/migrate').ALL, { version: 900, name: 'noop', up() {} }] });
+    } finally { d.close(); }
+  } finally { process.umask(old); delete process.env.BACKUP_DIR; }
+
+  const r = run('restore.js', [path.join(bk, fs.readdirSync(bk).find((f) => f.startsWith('school-manual-'))), '--yes'], env);
+  assert.strictEqual(r.status, 0, r.stderr);
+  const files = fs.readdirSync(bk);
+  for (const prefix of ['school-manual-', 'school-auto-', 'school-pre-migration-', 'school-pre-restore-']) {
+    const f = files.find((x) => x.startsWith(prefix));
+    assert.ok(f, `${prefix} backup exists`);
+    assert.strictEqual(mode(path.join(bk, f)), 0o600, `${f} is ${mode(path.join(bk, f)).toString(8)}`);
+  }
+  assert.strictEqual(mode(file), 0o600, 'restored database is private too');
+  // The restored database is a working school database.
+  assert.ok(count(file, 'SELECT COUNT(*) n FROM users') > 0);
+});
+
+test('raw copies of a damaged database are private too', { skip: !posix }, () => {
+  const { tmp, file } = seededDb();
+  const backup = require('../src/backup');
+  const dir = path.join(tmp, 'raw');
+  const old = process.umask(0o022);
+  try { for (const f of backup.rawCopy(file, { dir, label: 'x' })) assert.strictEqual(mode(f), 0o600); } finally { process.umask(old); }
+  assert.strictEqual(mode(dir), 0o700);
+});

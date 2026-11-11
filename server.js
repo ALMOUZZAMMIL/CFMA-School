@@ -1,6 +1,9 @@
 'use strict';
 require('./src/env');
 
+// Files the server creates (database, logs of SQLite, backups) are private to its account.
+process.umask(0o077);
+
 const config = require('./src/config');
 const log = require('./src/log');
 
@@ -48,9 +51,12 @@ const server = createApp().listen(cfg.port, cfg.host, () => {
 });
 
 const timers = [];
-// Remove expired sessions once an hour.
+// Remove expired sessions and device tokens once an hour.
 timers.push(setInterval(() => {
-  try { db.get().prepare('DELETE FROM sessions WHERE expires_at < ?').run(new Date().toISOString()); } catch (err) { log.error('session purge failed', { err }); }
+  try {
+    db.get().prepare('DELETE FROM sessions WHERE expires_at < ?').run(new Date().toISOString());
+    require('./src/login-guard').purgeExpiredDevices();
+  } catch (err) { log.error('session purge failed', { err }); }
 }, 3600000));
 // Clear old rate-limit entries every 10 minutes.
 timers.push(setInterval(() => { auth.pruneAttempts(); publicRoutes.limiter.pruneHits(); }, 600000));
@@ -58,9 +64,7 @@ timers.push(setInterval(() => { auth.pruneAttempts(); publicRoutes.limiter.prune
 if (cfg.backupIntervalHours > 0) {
   timers.push(setInterval(() => {
     try {
-      const dir = backup.backupDir(cfg.databaseFile);
-      const file = backup.createBackup(db.get(), { dir, label: 'auto' });
-      const removed = backup.pruneBackups(dir, { label: 'auto', keep: cfg.backupKeep });
+      const { file, removed } = backup.autoBackup(db.get(), cfg.databaseFile, { keep: cfg.backupKeep });
       log.info('automatic backup written', { file, removed: removed.length });
     } catch (err) {
       log.error('automatic backup failed', { err });

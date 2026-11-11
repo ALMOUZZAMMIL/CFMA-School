@@ -96,4 +96,44 @@
     document.querySelectorAll('[data-pw-toggle]').forEach(function (b) { b.hidden = false; });
     applyShowWhen(); updateSummary(); net();
   });
+
+  // Warning before an idle sign-out, and recovery after one. Nothing typed is stored in the
+  // browser: the form simply stays on the page, and after signing in again in another tab its
+  // security token is refreshed so it can be saved. Only same-origin requests are made.
+  var box = document.getElementById('session-warning');
+  if (box && window.fetch) {
+    var userId = box.getAttribute('data-user');
+    var timer = null;
+    var show = function (which) {
+      box.hidden = !which;
+      box.querySelectorAll('[data-session-msg]').forEach(function (m) { m.hidden = m.getAttribute('data-session-msg') !== which; });
+      box.querySelector('[data-session-action="stay"]').hidden = which !== 'warning';
+      box.querySelector('[data-session-action="signin"]').hidden = which !== 'ended';
+    };
+    var token = function () { var i = document.querySelector('input[name="_csrf"]'); return i ? i.value : ''; };
+    var schedule = function (seconds) { clearTimeout(timer); timer = setTimeout(check, Math.max(15, seconds) * 1000); };
+    var apply = function (st) {
+      if (!st.signedIn || String(st.user) !== userId) { box.dataset.state = 'ended'; show('ended'); schedule(15); return; }
+      if (box.dataset.state === 'ended') {
+        // Signed in again (same person): refresh the form tokens so this page can be saved.
+        document.querySelectorAll('input[name="_csrf"]').forEach(function (i) { i.value = st.csrf; });
+        show('restored');
+        box.dataset.state = '';
+        setTimeout(function () { if (box.dataset.state !== 'ended') show(null); }, 8000);
+      } else if (st.remainingSeconds <= 150) show('warning');
+      else show(null);
+      schedule(st.remainingSeconds <= 150 ? st.remainingSeconds + 5 : st.remainingSeconds - 120);
+    };
+    var check = function () {
+      fetch('/session/status', { credentials: 'same-origin', cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(apply)
+        .catch(function () { schedule(60); });
+    };
+    box.querySelector('[data-session-action="stay"]').addEventListener('click', function () {
+      fetch('/session/keepalive', { method: 'POST', credentials: 'same-origin', headers: { 'x-csrf-token': token() } })
+        .then(function (r) { return r.json(); }).then(apply).catch(function () { schedule(30); });
+    });
+    check();
+  }
 })();

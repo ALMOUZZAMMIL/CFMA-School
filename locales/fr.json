@@ -826,5 +826,14 @@
     "pickStudent": "choisissez l'élève pour un compte élève.",
     "studentHasLogin": "cet élève a déjà un compte.",
     "pendingCount": "Demandes d'accès en attente"
+  },
+  "idle": {
+    "warning": "Vous serez déconnecté dans moins de 2 minutes pour inactivité.",
+    "stay": "Rester connecté",
+    "ended": "Votre session est terminée. Votre saisie est toujours sur cette page : reconnectez-vous dans un nouvel onglet, puis revenez ici et enregistrez.",
+    "signIn": "Se reconnecter (nouvel onglet)",
+    "restored": "Vous êtes de nouveau connecté. Vous pouvez enregistrer cette page.",
+    "endedTitle": "Session terminée",
+    "formNotSaved": "Votre session a été fermée après une période d’inactivité : ce formulaire n’a pas été enregistré. Utilisez le bouton Retour du navigateur pour retrouver votre saisie, reconnectez-vous dans un nouvel onglet, puis enregistrez à nouveau."
   }
 }

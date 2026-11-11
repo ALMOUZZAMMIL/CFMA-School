@@ -4,6 +4,7 @@
 //        npm run seed -- --reset  (demo databases only; backs up, then starts again)
 // Refuses in NODE_ENV=production and refuses to reset a database with real accounts.
 require('../src/env');
+process.umask(0o077); // database and backup files private to this account
 const fs = require('fs');
 const path = require('path');
 

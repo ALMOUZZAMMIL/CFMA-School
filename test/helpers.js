@@ -26,7 +26,7 @@ function startApp(file) {
 }
 
 class Client {
-  constructor(base) { this.base = base; this.cookies = {}; }
+  constructor(base, headers = {}) { this.base = base; this.cookies = {}; this.extra = headers; }
   store(res) {
     for (const c of res.headers.getSetCookie()) {
       const [kv] = c.split(';');
@@ -36,7 +36,7 @@ class Client {
   }
   header() { return Object.entries(this.cookies).filter(([, v]) => v).map(([k, v]) => `${k}=${v}`).join('; '); }
   async get(p) {
-    const res = await fetch(this.base + p, { headers: { cookie: this.header() }, redirect: 'manual' });
+    const res = await fetch(this.base + p, { headers: { ...this.extra, cookie: this.header() }, redirect: 'manual' });
     this.store(res);
     const text = await res.text();
     const m = text.match(/name="_csrf" value="([^"]+)"/);
@@ -45,7 +45,7 @@ class Client {
   }
   async post(p, data = {}, { csrf = true } = {}) {
     const body = new URLSearchParams(csrf ? { _csrf: this.csrf, ...data } : data);
-    const res = await fetch(this.base + p, { method: 'POST', body, headers: { cookie: this.header(), 'content-type': 'application/x-www-form-urlencoded' }, redirect: 'manual' });
+    const res = await fetch(this.base + p, { method: 'POST', body, headers: { ...this.extra, cookie: this.header(), 'content-type': 'application/x-www-form-urlencoded' }, redirect: 'manual' });
     this.store(res);
     return { status: res.status, text: await res.text(), location: res.headers.get('location') };
   }

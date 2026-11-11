@@ -18,7 +18,7 @@ test('health check answers without signing in and reveals nothing private', asyn
   const body = await res.json();
   assert.strictEqual(body.status, 'ok');
   assert.strictEqual(body.database, 'ok');
-  assert.strictEqual(body.schemaVersion, 3);
+  assert.strictEqual(body.schemaVersion, 4);
   assert.deepStrictEqual(Object.keys(body).sort(), ['database', 'schemaVersion', 'status', 'uptimeSeconds']);
   assert.ok(!res.headers.get('set-cookie'), 'no session or CSRF cookie');
   assert.ok(res.headers.get('x-request-id'));
@@ -75,20 +75,17 @@ test('a parent sign-in keeps the normal multi-day lifetime', async () => {
   assert.ok((Date.parse(row.expires_at) - Date.now()) / 86400000 > 6.9);
 });
 
-test('login limiter: blocks after 8 failures, forgets old entries, and stays under its size cap', () => {
-  const auth = require('../src/auth');
-  auth.attempts.clear();
+test('login limiter memory: old entries are forgotten and the map stays under its size cap', () => {
+  const guard = require('../src/login-guard');
+  guard.counters.clear();
   const t0 = Date.now();
-  for (let i = 0; i < 8; i++) auth.recordLoginFailure('1.2.3.4|someone', t0);
-  assert.ok(auth.loginLimited('1.2.3.4|someone', t0));
-  assert.ok(!auth.loginLimited('1.2.3.4|someone', t0 + 16 * 60000), 'window expires');
-  // Many usernames from one address hit the per-address ceiling.
-  for (let i = 0; i < 100; i++) auth.recordLoginFailure(`5.6.7.8|user${i}`, t0);
-  assert.ok(auth.loginLimited('5.6.7.8|fresh-name', t0));
-  assert.ok(auth.pruneAttempts(t0 + 16 * 60000) === 0, 'expired entries removed');
-  for (let i = 0; i < auth.MAX_KEYS + 500; i++) auth.recordLoginFailure(`10.0.${i}|u`, t0);
-  assert.ok(auth.attempts.size <= auth.MAX_KEYS + 1, `size ${auth.attempts.size}`);
-  auth.attempts.clear();
+  for (let i = 0; i < 8; i++) guard.recordFailure({ ip: '1.2.3.4', account: 'n:someone' }, t0);
+  assert.strictEqual(guard.blocked({ ip: '1.2.3.4', account: 'n:someone' }, t0), 'pair');
+  assert.strictEqual(guard.blocked({ ip: '1.2.3.4', account: 'n:someone' }, t0 + 16 * 60000), null, 'window expires');
+  assert.strictEqual(guard.prune(t0 + 16 * 60000), 0, 'expired entries removed');
+  for (let i = 0; i < guard.MAX_KEYS + 500; i++) guard.recordFailure({ ip: `10.0.${i}`, account: 'n:u' }, t0);
+  assert.ok(guard.counters.size <= guard.MAX_KEYS + 3, `size ${guard.counters.size}`);
+  guard.counters.clear();
 });
 
 test('public form limiter forgets old entries and stays under its size cap', () => {

@@ -126,6 +126,26 @@ example:
 30 2 * * * rsync -a /opt/school/backups/ /mnt/second-disk/school-backups/
 ```
 
+### Who can read the backups
+
+Backups contain password hashes and pupils' records. On a server with more than one account:
+
+- Run the app under its own account (`school` above) and keep `BACKUP_DIR` and the database
+  folder owned by that account: `sudo chown -R school:school /opt/school/data /opt/school/backups`.
+- The app creates the backup folder as `700` (only its owner can open it) and every backup,
+  automatic or manual, as `600` (only its owner can read it). It tightens an existing backup
+  folder it owns to `700`. The server and the `npm run` commands also use a private file mask
+  (`umask 077`), so the database itself is created `600`.
+- Check: `ls -ld /opt/school/backups` shows `drwx------`, and `ls -l /opt/school/backups` shows
+  `-rw-------` for each file.
+- Run `backup` and `restore` as the same account (`sudo -u school npm run …`). Running them as
+  `root` creates root-owned files the app cannot read.
+- If another account copies the backups off the server (for example `rsync` run by a backup
+  user), give that account read access deliberately (for example with a group), rather than
+  opening the folder to everyone.
+- On Windows these permission settings have no effect: protect the folder with the account's own
+  file permissions.
+
 ## 7. Restore
 
 ```bash
@@ -151,6 +171,24 @@ sudo systemctl restart school
 
 Database changes run automatically at start, after a verified backup.
 
+## Sign-in protection (password guessing)
+
+Failed sign-ins are counted over 15 minutes:
+
+| Limit | Effect |
+| --- | --- |
+| 8 failures from one address on one account | that address cannot try that account |
+| 20 failures on one account, from any addresses | the account is closed to unknown devices |
+| 100 failures from one address, any accounts | that address cannot sign in from unknown devices |
+| 8 failures on one known device | that device is treated as unknown |
+
+A *known device* is a browser where the account has already signed in (a random token, stored
+hashed in the database, valid 90 days). The password is always required. Because known devices are
+judged only on their own failures, a pupil flooding the school's shared internet address cannot
+lock staff out of the computers and phones they normally use. Someone signing in for the very
+first time on a new device from a flooded address must wait up to 15 minutes. Behind Caddy, keep
+`TRUST_PROXY=1` so each visitor's real address is used.
+
 ## Sign-in timeouts
 
 | Role | Signed out after no activity for | Longest sign-in |
@@ -162,3 +200,8 @@ Database changes run automatically at start, after a verified backup.
 | Student | 1 hour | 7 days |
 
 These can be changed with `IDLE_MINUTES_<ROLE>` and `SESSION_MAX_HOURS_PRIVILEGED` in `.env`.
+
+About 2 minutes before an idle sign-out, signed-in pages show a warning with a **Stay signed in**
+button. If the sign-out happens anyway, the page keeps what was typed (nothing is saved in the
+browser's storage), asks the person to sign in again in a new tab, then lets them save the same
+page. A form sent after the sign-out is never saved, and the message explains how to recover.
