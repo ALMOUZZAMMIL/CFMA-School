@@ -1,0 +1,109 @@
+{
+ "section": "GEN",
+ "level": "3e",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Éducation à la citoyenneté et à la morale – 3e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Éduquer les masses, s'impliquer dans le processus électoral",
+   "lessons": [
+    {
+     "title": "L1 : Les fondements de la démocratie",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : Les formes de démocratie",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "TD1 : Les manifestations de la démocratie dans le monde",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L3 : Les élections au Cameroun",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "TP1 : Calcul des sièges à l'issue du scrutin proportionnel",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L4 : Le processus électoral au Cameroun",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "D1 : Le rôle des structures en charge des élections au Cameroun",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "TD2 : Simulation des phases de l'élection municipale",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Promouvoir la vie en société",
+   "lessons": [
+    {
+     "title": "L5 : Les partis politiques",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "D2 : Les problèmes des partis politiques au Cameroun",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L6 : Les syndicats",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "D3 : Les problèmes des syndicats au Cameroun",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L7 : Les tontines",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L8 : Les coopératives",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "TD3 : Étude d'une coopérative, l'UCCAO",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Promouvoir l'entrepreneuriat",
+   "lessons": [
+    {
+     "title": "L9 : Généralités sur l'économie",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L10 : Les entreprises",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L11 : Le fonctionnement de l'entreprise",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L12 : Les petits métiers",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "TD4 : Montage d'un microprojet économique",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

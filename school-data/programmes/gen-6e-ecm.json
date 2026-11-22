@@ -1,0 +1,123 @@
+{
+ "section": "GEN",
+ "level": "6e",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Éducation à la citoyenneté et à la morale – 6e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "L'intégration à la vie familiale",
+   "lessons": [
+    {
+     "title": "L1 : La notion d'éducation à la citoyenneté",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : La famille",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : Le mariage",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "TD1 : La cérémonie de la dot",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L4 : Les droits et les devoirs des membres de la famille",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "D1 : L'état civil, les trois actes",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L5 : Les institutions et les mesures de protection de la famille",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "D2 : Le patrimoine familial",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Prévenir les accidents de circulation et s'insérer harmonieusement dans son établissement",
+   "lessons": [
+    {
+     "title": "L6 : La route",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L7 : Le code de la route",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "D3 : Les comportements irresponsables sur la route",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L8 : L'établissement scolaire",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "TD2 : L'environnement scolaire",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Prévenir les conflits",
+   "lessons": [
+    {
+     "title": "L9 : Le divorce",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L10 : La procédure de la succession",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L11 : Les conflits de succession",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L12 : Les conflits à l'école",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "TD3 : Les conflits au sein de la communauté (frères, voisins)",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Promouvoir et protéger les droits de l'homme",
+   "lessons": [
+    {
+     "title": "L13 : Les droits de la personne humaine",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "D4 : Les instruments de protection des droits de l'homme",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L14 : Les formes d'exploitation et d'abus sur les enfants",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L15 : La délinquance juvénile",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}
