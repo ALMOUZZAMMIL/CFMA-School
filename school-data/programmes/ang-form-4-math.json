@@ -1,0 +1,375 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathematics – Form 4",
+ "source": "National harmonised progression sheet (dated for 2025-26), 4 periods/week, 78 lessons; dates moved to 2026-27 by week number",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Algebraic processes",
+   "lessons": [
+    {
+     "title": "Lesson 1: Expansion of expressions (a ± b)(c ± d), (a ± b)²",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Factorisation by grouping and difference of two squares",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Identities for the sum and difference of two cubes",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Factorisation of quadratic trinomials, a = 1",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 5: Factorisation of quadratic trinomials, a ≠ 1, 0",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 6: Solving quadratic equations by factorisation",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 7: Solving quadratic equations by completing the square",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 8: Developing the quadratic formula",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 9: Solving quadratic equations using the quadratic formula",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 10: Developing quadratic equations from the roots",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 11: Long division with algebraic expressions",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 12: Factor theorem and remainder theorem",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 13: Factorising polynomials of degree 3",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 14: Solving cubic equations",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Equations and inequations",
+   "lessons": [
+    {
+     "title": "Lesson 15: Interval notation, inequality signs and the number line; linear inequalities in one unknown",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 16: Absolute inequalities and inequalities of the form a ≤ mx ± n ≤ b",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 17: Solutions to quadratic inequalities",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 18: Graphical solutions to linear simultaneous equations",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 19: Graphical solutions to linear inequalities (half plane)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 20: Graphical solutions to simultaneous linear inequalities",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 21: Graphs of quadratic functions",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 22: The discriminant and the nature of roots of a quadratic equation",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 23: Graphical solutions to quadratic equations",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Surds, indices and logarithms; matrices",
+   "lessons": [
+    {
+     "title": "Lesson 24: Simplification of surds; rationalising the denominator; bounds of an irrational number",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 25: Laws of indices and simple exponential equations",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 26: Laws of logarithms and simple logarithmic equations",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 27: Operations with matrices",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 28: The determinant, adjugate and inverse of a matrix",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 29: Solving simultaneous linear equations using matrices",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Estimations, approximations and errors",
+   "lessons": [
+    {
+     "title": "Lesson 30: Approximations: place value, degree of accuracy, rounding",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 31: Significant figures; absolute, relative and percentage error; maximum and minimum values",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 36: Standard form and operations with numbers in standard form",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Vectors in two dimensions",
+   "lessons": [
+    {
+     "title": "Lesson 37: Definition, representation, magnitude and direction of vectors; operations with vectors",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 38: Angle between two vectors; perpendicular and parallel vectors",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 39: Vector geometry; the midpoint theorem and proportional division of a vector",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Sequences",
+   "lessons": [
+    {
+     "title": "Lesson 40: Arithmetic progressions: general term and arithmetic mean",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 41: Sum of the first n terms of an AP; geometric progressions: general term and geometric mean",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 42: Sum of the first n terms of a GP; real-life applications of sequences",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Loci and geometrical constructions",
+   "lessons": [
+    {
+     "title": "Lesson 43: Locus of a point from a fixed point and from fixed lines",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 44: Constructing perpendicular bisectors, parallel lines and angle bisectors",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 45: Constructing triangles from given dimensions",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 46: Constructing special angles (60°, 30°, 90°, 45°); dividing a line segment into equal parts",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 47: Constructing the circumcircle and incircle of a triangle; concentric circles",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Trigonometry",
+   "lessons": [
+    {
+     "title": "Lesson 48: Trigonometric ratios of special angles and the Pythagorean identity",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 49: Graphs of trigonometric functions",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 50: Angles of elevation and depression",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 51: Height of an inaccessible object",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 52: Sine and cosine rules",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 53: Bearings in two dimensions",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Simple transformations",
+   "lessons": [
+    {
+     "title": "Lesson 54: Transformation of a point, line and plane figure using matrix operators",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 55: Isometric transformations: translation, reflection",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 56: Isometric transformations: rotation",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 57: Enlargement",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 58: Reflection and rotation geometrically",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 60: Enlargement geometrically",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 61: Shear and stretch",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 62: Invariant point, invariant line",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 63: Successive transformations",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 64: Properties of the determinant of a matrix operator",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The earth as a sphere",
+   "lessons": [
+    {
+     "title": "Lesson 65: The great circle, meridians and longitudes",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 66: GMT, time zones and local time",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 67: Positions and distances on the earth's surface",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Networks",
+   "lessons": [
+    {
+     "title": "Lesson 68: Flow diagrams",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 69: Graphs of networks and related vocabulary",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 70: Types and properties of graphs",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 71: Graphs in real life",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Circles and circle theorems",
+   "lessons": [
+    {
+     "title": "Lesson 72: Circle vocabulary and properties",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 73: Area of a circle and circumference",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 74: Arc length, area of a sector and area of a segment",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 75: Circle theorems: angle properties",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 76: Circle theorems: intersecting chords",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 77: Circle theorems: tangent properties and chords",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 78: Cyclic quadrilaterals; concentric circles and rings",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}
