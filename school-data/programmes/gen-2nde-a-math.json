@@ -1,0 +1,145 @@
+{
+ "section": "GEN",
+ "level": "2nde A",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 2nde A",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027 (2nde A-ABI), 7 chapitres, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Calcul dans ℝ",
+   "lessons": [
+    {
+     "title": "Leçon 1 : ℝ et ses sous-ensembles (ℕ, ℤ, 𝔻, ℚ et ℝ)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Opérations dans ℝ",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Comparaison et encadrement d'un réel",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 4 : Valeur absolue d'un réel",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Puissance à exposant entier relatif d'un nombre réel",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 6 : Calcul approché : écriture scientifique d'un nombre décimal",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Calcul littéral",
+   "lessons": [
+    {
+     "title": "Leçon 7 : Diverses factorisations simples",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 8 : Développement des polynômes",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 9 : Simplification des fractions rationnelles",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Équations, inéquations et systèmes",
+   "lessons": [
+    {
+     "title": "Leçon 10 : Équations dont la résolution se ramène à celle d'équations du premier degré dans ℝ",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Leçon 11 : Tableau des signes d'un binôme ax + b",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 12 : Systèmes d'équations linéaires dans ℝ²",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 13 : Inéquations du premier degré dans ℝ² ; systèmes d'inéquations linéaires dans ℝ²",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 14 : Résolution graphique des systèmes linéaires d'équations du premier degré dans ℝ²",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Proportionnalité",
+   "lessons": [
+    {
+     "title": "Leçon 15 : Situations de proportionnalité",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "5. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 16 : Tableau des effectifs ou des fréquences",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 17 : Mode, moyenne",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 18 : Diagrammes à bâtons, à bandes, circulaires, semi-circulaires ; pictogramme",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "6. Fonctions",
+   "lessons": [
+    {
+     "title": "Leçon 19 : Fonctions et applications",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 20 : Taux d'accroissement d'une fonction",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 21 : Ensemble de définition, sens de variation et courbe des fonctions x ↦ ax + b, affines par intervalle, et des fonctions usuelles",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "7. Dénombrement",
+   "lessons": [
+    {
+     "title": "Leçon 22 : Premiers outils de dénombrement : diagramme de Venn ; tableaux à double entrée",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 23 : Premiers outils de dénombrement : arbre de choix ; arbre des parties",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

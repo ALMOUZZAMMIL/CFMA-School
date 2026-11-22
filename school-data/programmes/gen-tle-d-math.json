@@ -1,0 +1,253 @@
+{
+ "section": "GEN",
+ "level": "Tle D",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – Tle D",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027, 13 chapitres, 4 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Nombres complexes : approche algébrique",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Écriture algébrique, calculs dans ℂ",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Nombres complexes conjugués",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Module d'un nombre complexe",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 4 : Équations de degré 2 et 3 dans ℂ",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Fonctions numériques d'une variable réelle",
+   "lessons": [
+    {
+     "title": "Leçon 5 : Limites des fonctions trigonométriques et des fonctions irrationnelles",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 6 : Fonction continue sur un intervalle",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 7 : Fonction continue et strictement monotone",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Leçon 8 : Dérivabilité de f⁻¹ et inégalités des accroissements finis",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 9 : Représentations graphiques des fonctions",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Statistiques à deux variables",
+   "lessons": [
+    {
+     "title": "Leçon 10 : Tableaux à double entrée des effectifs et nuage de points",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 11 : Ajustements linéaires",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Suites numériques",
+   "lessons": [
+    {
+     "title": "Leçon 12 : Notion de récurrence",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 13 : Quelques généralités sur les suites",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 14 : Étude de la convergence de certaines suites",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Notion de graphes",
+   "lessons": [
+    {
+     "title": "Leçon 15 : Quelques vocabulaires",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Leçon 16 : Quelques propriétés et algorithmes",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Nombres complexes : approche géométrique",
+   "lessons": [
+    {
+     "title": "Leçon 17 : Représentation d'un complexe : image et affixe",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 18 : Écriture trigonométrique et notation exponentielle",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 19 : Linéarisation et racines n-ièmes",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 20 : Complexes et géométrie",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Primitives d'une fonction",
+   "lessons": [
+    {
+     "title": "Leçon 21 : Primitives d'une fonction continue sur un intervalle",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 22 : Détermination des primitives",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Fonctions logarithmes",
+   "lessons": [
+    {
+     "title": "Leçon 23 : Le logarithme népérien",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Leçon 24 : Autres fonctions logarithmes",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Probabilités",
+   "lessons": [
+    {
+     "title": "Leçon 25 : Vocabulaire des probabilités",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 26 : Probabilité d'un événement : calculs",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 27 : Probabilités conditionnelles",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 28 : Variables aléatoires",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 29 : Épreuves de Bernoulli et loi binomiale",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Similitudes directes planes",
+   "lessons": [
+    {
+     "title": "Leçon 30 : Expressions complexes et expressions analytiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 31 : Propriétés des similitudes directes et utilisations",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Fonctions exponentielles",
+   "lessons": [
+    {
+     "title": "Leçon 33 : Étude de quelques fonctions définies à l'aide de exp",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Calcul des intégrales",
+   "lessons": [
+    {
+     "title": "Leçon 34 : Présentation et propriétés de calcul",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 35 : Applications : calculs d'aires",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 36 : Positivité et inégalité de la moyenne",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Leçon 37 : Quelques méthodes de calcul des intégrales",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Leçon 38 : Valeurs approchées d'une intégrale",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "13. Équations différentielles",
+   "lessons": [
+    {
+     "title": "Leçon 39 : Présentation",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 40 : Équations f′ = g et f′ = af",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 41 : Équations af″ + bf′ + cf = 0",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 42 : Équations af″ + bf′ + cf = d",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

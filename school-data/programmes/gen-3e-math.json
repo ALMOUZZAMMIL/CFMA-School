@@ -1,0 +1,299 @@
+{
+ "section": "GEN",
+ "level": "3e",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 3e",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027, 16 chapitres, 4 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Arithmétique",
+   "lessons": [
+    {
+     "title": "Leçon 1 : PGCD : algorithme des soustractions",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : PGCD : algorithme d'Euclide",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Relation entre le PPCM et le PGCD de deux entiers naturels",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Thalès dans le triangle",
+   "lessons": [
+    {
+     "title": "Leçon 4 : Propriété directe de Thalès",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Propriété réciproque de Thalès",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Nombres réels",
+   "lessons": [
+    {
+     "title": "Leçon 6 : Racines carrées d'un réel positif",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 7 : Ensemble des nombres réels",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 8 : Somme et produit des nombres réels comportant un radical",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 9 : Quotient des nombres réels comportant un radical",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 10 : Puissances entières d'un nombre réel",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 11 : Comparaison de deux nombres réels comportant un radical",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 12 : Encadrement d'un nombre réel",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 13 : Intervalles de ℝ",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Trigonométrie dans le triangle rectangle",
+   "lessons": [
+    {
+     "title": "Leçon 14 : Sinus, cosinus et tangente d'un angle aigu dans un triangle rectangle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 15 : Mesure d'un angle aigu et longueur d'un côté dans un triangle rectangle",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Calcul littéral",
+   "lessons": [
+    {
+     "title": "Leçon 16 : Expression littérale",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 17 : Monômes et polynômes",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 18 : Développement et réduction d'une expression littérale",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 19 : Factorisation d'une expression littérale",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 20 : Fractions rationnelles",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Section d'une pyramide ou d'un cône par un plan parallèle à la base",
+   "lessons": [
+    {
+     "title": "Leçon 21 : Section d'un cône et éléments métriques",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 22 : Section d'une pyramide et éléments métriques",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "7. Multiplication d'un vecteur par un nombre",
+   "lessons": [
+    {
+     "title": "Leçon 23 : Produit d'un vecteur par un nombre réel",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Leçon 24 : Vecteurs colinéaires ; vecteurs directeurs d'une droite",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Coordonnées d'un vecteur",
+   "lessons": [
+    {
+     "title": "Leçon 25 : Coordonnées d'un vecteur AB",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 26 : Distance de deux points",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 27 : Condition de colinéarité",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 28 : Condition d'orthogonalité",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Équations et inéquations du 1er degré à une inconnue dans ℝ",
+   "lessons": [
+    {
+     "title": "Leçon 29 : Équations de la forme ax + b = 0",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 30 : Équations se ramenant à une équation du 1er degré à une inconnue dans ℝ",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 31 : Inéquations de la forme ax + b > 0",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Équations de droites",
+   "lessons": [
+    {
+     "title": "Leçon 32 : Équation cartésienne d'une droite passant par deux points",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 33 : Équations cartésiennes",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 34 : Équation cartésienne d'une droite de coefficient directeur donné",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Équations du 1er degré dans ℝ × ℝ",
+   "lessons": [
+    {
+     "title": "Leçon 36 : Équations du premier degré dans ℝ × ℝ",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 37 : Systèmes de deux équations du premier degré dans ℝ × ℝ",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Angles dans un cercle",
+   "lessons": [
+    {
+     "title": "Leçon 38 : Angles inscrits et angles au centre associés",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Leçon 39 : Angles inscrits interceptant le même arc",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "13. Polygones réguliers",
+   "lessons": [
+    {
+     "title": "Leçon 40 : Polygones réguliers particuliers : triangle équilatéral ; hexagone régulier",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 41 : Polygones réguliers particuliers : carré ; octogone régulier",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "14. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 42 : Regroupement en classes : classe modale ; fréquence d'une classe",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 43 : Regroupement en classes : moyenne d'une série statistique",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 44 : Représentations graphiques d'une série statistique regroupée en classes",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "15. Homothétie",
+   "lessons": [
+    {
+     "title": "Leçon 45 : Image d'un point par une homothétie",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 46 : Agrandissement ; réduction",
+     "date": "2027-04-26"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "16. Applications linéaires et applications affines",
+   "lessons": [
+    {
+     "title": "Leçon 47 : Applications affines : images et antécédents ; sens de variation",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Leçon 48 : Représentation graphique d'une application affine",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Leçon 49 : Applications affines par intervalles",
+     "date": "2027-05-17"
+    }
+   ]
+  }
+ ]
+}
