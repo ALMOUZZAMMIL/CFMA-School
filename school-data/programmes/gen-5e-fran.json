@@ -1,0 +1,359 @@
+{
+ "section": "GEN",
+ "level": "5e",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 5e",
+ "source": "Séquences didactiques (fiches datées 2024/2025, reprises pour 2026/2027), 6 modules de 32 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – La vie quotidienne (la lettre officielle, le compte rendu oral)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : N'kum-Wam, le huitième notable (David Massoma Pandong), activités augurales",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Grammaire : la communication verbale",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Orthographe : la ponctuation (le point, le point d'interrogation, le point d'exclamation, la virgule)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Oral : le compte rendu oral, préparer un compte rendu",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Écrit : la lettre officielle, produire l'en-tête",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Grammaire : les classes de mots, mots variables et mots invariables",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Vocabulaire : la vie quotidienne ; la formation des mots (dérivation et composition)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Oral : produire un compte rendu",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Écrit : la lettre officielle, rédiger le corps de la lettre",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Grammaire : les registres de langue, le registre soutenu",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Conjugaison : les temps simples de l'indicatif",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Oral : présenter un compte rendu",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Écrit : la lettre officielle, rédiger la formule finale",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – La vie socioculturelle (la description associée au récit)",
+   "lessons": [
+    {
+     "title": "Grammaire : l'accord sujet-verbe",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Conjugaison : les temps composés de l'indicatif",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Oral : le commentaire de l'image, identifier la nature de l'image et en décrire les composantes",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Écrit : la description associée au récit, identifier les éléments d'un texte descriptif enrichi de passages narratifs",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Grammaire : la phrase déclarative",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Orthographe : les indices spatio-temporels",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Oral : analyser et interpréter une image",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Écrit : la description associée au récit, produire un paragraphe",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lecture suivie : N'kum-Wam, le huitième notable, bilan de l'étude de l'œuvre",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Grammaire : les expansions du nom (l'adjectif qualificatif, le complément du nom)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Vocabulaire : la vie socioculturelle ; le sens propre et le sens figuré",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Oral : commenter une image liée à la vie socioculturelle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Écrit : la description associée au récit, introduire et conclure",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – La citoyenneté et l'environnement (la description et l'expression des sentiments)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : L'Arbre fétiche (Jean Pliya), activités augurales",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Grammaire : la subordonnée relative",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Conjugaison : le présent et l'imparfait de l'indicatif",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Oral : la récitation, lire et comprendre un texte et acquérir les techniques de mémorisation",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Écrit : introduire un texte descriptif intégrant l'expression des sentiments",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Grammaire : la phrase négative",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Orthographe : l'accord du participe passé employé avec l'auxiliaire être",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Oral : la récitation, gestuelle appropriée et techniques de diction",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Écrit : rédiger un paragraphe descriptif enrichi de l'expression des sentiments",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Grammaire : la phrase emphatique",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Vocabulaire : les sentiments liés à la citoyenneté et à l'environnement ; synonymes et antonymes",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Oral : la récitation, déclamer un texte mémorisé",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Écrit : la description et l'expression des sentiments, conclure",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 – La vie économique (le dialogue associé au récit)",
+   "lessons": [
+    {
+     "title": "Grammaire : les degrés de signification de l'adjectif qualificatif, le comparatif",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Conjugaison : le passé simple",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Oral : la compréhension orale, maîtriser les stratégies d'écoute et de prise de notes",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Écrit : le dialogue associé au récit, présenter ses éléments constitutifs",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Grammaire : les degrés de signification de l'adjectif qualificatif, le superlatif",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Orthographe : l'accord du participe passé employé avec l'auxiliaire avoir",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Oral : répondre correctement aux questions posées sur un texte écouté",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Écrit : les techniques d'insertion d'un dialogue dans une narration",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lecture suivie : L'Arbre fétiche, bilan de l'étude de l'œuvre",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Grammaire : la voix active et la voix passive",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Vocabulaire : la vie économique ; homonymes et paronymes",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Oral : résumer un texte écouté",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Écrit : produire un dialogue associé au récit",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Bien-être et santé (la narration intégrant des dialogues, l'exposé)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : Père inconnu (Pabe Mongo), activités augurales",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Grammaire : les registres de langue, le registre courant",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Conjugaison : le mode impératif",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Oral : l'exposé oral, préparer un exposé",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Écrit : produire une introduction pour une narration intégrant des dialogues",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Grammaire : la phrase impérative",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Orthographe : les homophones grammaticaux (c'est/s'est/sait ; son/sont)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Oral : rédiger un exposé",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Écrit : rédiger un paragraphe de récit avec dialogue",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Grammaire : la subordonnée complétive",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Vocabulaire : les champs lexicaux du bien-être et de la santé",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Oral : présenter un exposé",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Écrit : produire une conclusion",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 – Médias et communication (le compte rendu)",
+   "lessons": [
+    {
+     "title": "Grammaire : la voix pronominale",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Conjugaison : le mode participe",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Oral : produire le compte rendu oral d'une émission radiophonique",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Écrit : le compte rendu, préparer un compte rendu (prendre des notes)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Grammaire : la phrase exclamative",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Orthographe : le pluriel des adjectifs de couleur",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Oral : produire le compte rendu oral d'une émission télévisée",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Écrit : organiser un compte rendu, élaborer le plan",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lecture suivie : Père inconnu, bilan de l'étude de l'œuvre",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Grammaire : la subordonnée circonstancielle de temps",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Vocabulaire : les médias et la communication",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Oral : produire le compte rendu oral d'un événement vécu",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Écrit : rédiger un compte rendu",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}
