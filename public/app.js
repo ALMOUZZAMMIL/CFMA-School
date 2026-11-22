@@ -72,6 +72,8 @@
     }
   });
 
+  try { if (localStorage.getItem('csma.menuFolded') === '1') document.documentElement.classList.add('sb-folded'); } catch (err) { /* private mode */ }
+
   // Phone menu: works without JavaScript through the #menu link; with it, no history entry is added
   // and Escape closes it. The account menu closes when clicking elsewhere.
   var menu = document.getElementById('menu');
@@ -83,15 +85,23 @@
   }
   document.addEventListener('click', function (e) {
     if (menu) {
-      if (e.target.closest('a[href="#menu"]')) { e.preventDefault(); setMenu(true); return; }
+      if (e.target.closest('a[href="#menu"]')) {
+        e.preventDefault();
+        // On a computer the menu button folds the side menu to icons (remembered in this browser).
+        if (window.matchMedia('(min-width: 1101px)').matches && e.target.closest('[data-menu-toggle]')) {
+          var folded = document.documentElement.classList.toggle('sb-folded');
+          try { localStorage.setItem('csma.menuFolded', folded ? '1' : '0'); } catch (err) { /* private mode */ }
+        } else setMenu(true);
+        return;
+      }
       if (e.target.closest('.sb-close, .sb-backdrop')) { e.preventDefault(); setMenu(false); return; }
     }
-    document.querySelectorAll('details.account[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); });
+    document.querySelectorAll('details.dropdown[open]').forEach(function (d) { if (!d.contains(e.target)) d.removeAttribute('open'); });
   });
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     if (menu && (menu.classList.contains('open') || location.hash === '#menu')) setMenu(false);
-    document.querySelectorAll('details.account[open]').forEach(function (d) { d.removeAttribute('open'); d.querySelector('summary').focus(); });
+    document.querySelectorAll('details.dropdown[open]').forEach(function (d) { d.removeAttribute('open'); d.querySelector('summary').focus(); });
   });
 
   document.addEventListener('click', function (e) {

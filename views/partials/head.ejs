@@ -1,4 +1,4 @@
-<% var menu = (typeof nav !== "undefined" && nav) || null; %>
+<% var menu = (typeof nav !== "undefined" && nav) || null; var initials = (typeof user !== "undefined" && user) ? user.full_name.split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase() : ''; %>
 <!doctype html>
 <html lang="<%= lang %>">
 <head>
@@ -30,7 +30,7 @@
     <% }) %>
     </div>
     <div class="sb-foot">
-      <span class="avatar" aria-hidden="true"><%= user.full_name.split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('').toUpperCase() %></span>
+      <span class="avatar" aria-hidden="true"><%= initials %></span>
       <span class="sb-me"><strong><%= user.full_name %></strong><small><%= t('roles.' + user.role) %></small></span>
     </div>
   </nav>
@@ -41,8 +41,11 @@
   <details class="demo-strip" role="note"><summary><%- include('icon', { name: 'info', cls: 'ico-sm' }) %><span><%= t('common.demoShort') %></span></summary><p><%= t('common.demoBanner') %></p></details>
 <% } %>
 <header class="topbar">
-  <% if (menu) { %><a class="iconbtn menu-btn" href="#menu" aria-label="<%= t('nav.openMenu') %>" aria-controls="menu"><%- include('icon', { name: 'menu' }) %></a><% } %>
+  <% if (menu) { %><a class="iconbtn menu-btn" href="#menu" aria-label="<%= t('nav.openMenu') %>" aria-controls="menu" data-menu-toggle><%- include('icon', { name: 'menu' }) %></a><% } %>
   <a class="tb-brand" href="/"><%- include('mark', { size: 'sm' }) %><span><%= settings.school_name %></span></a>
+  <% if (menu && path !== "/" && typeof title !== "undefined" && title) { %>
+  <nav class="crumbs" aria-label="<%= t('nav.breadcrumb') %>"><a href="/"><%= t('nav.dashboard') %></a><%- include('icon', { name: 'chevron', cls: 'ico-sm' }) %><span aria-current="page"><%= title %></span></nav>
+  <% } %>
   <span class="tb-spacer"></span>
   <form method="post" action="/lang" class="seg" aria-label="<%= t('site.language') %>">
     <input type="hidden" name="_csrf" value="<%= csrf %>">
@@ -50,10 +53,22 @@
     <button name="lang" value="fr" class="<%= lang === 'fr' ? 'on' : '' %>" aria-pressed="<%= lang === 'fr' %>" lang="fr" title="Français">FR</button>
     <button name="lang" value="en" class="<%= lang === 'en' ? 'on' : '' %>" aria-pressed="<%= lang === 'en' %>" lang="en" title="English">EN</button>
   </form>
+  <% if (menu && menu.quickAdd.length) { %>
+  <details class="dropdown quick-add">
+    <summary class="iconbtn iconbtn-primary" aria-label="<%= t('nav.quickAdd') %>" title="<%= t('nav.quickAdd') %>"><%- include('icon', { name: 'plus' }) %></summary>
+    <div class="dropdown-menu">
+      <p class="dropdown-title"><%= t('nav.quickAdd') %></p>
+      <% menu.quickAdd.forEach(function (q) { %><a href="<%= q.href %>"><%- include('icon', { name: q.icon, cls: 'ico-sm' }) %><%= t(q.key) %></a><% }) %>
+    </div>
+  </details>
+  <% } %>
+  <% if (menu && menu.bell) { %>
+  <a class="iconbtn bell" href="<%= menu.bell.href %>" title="<%= t(menu.bell.key) %>"><%- include('icon', { name: 'bell' }) %><span class="sr"><%= t(menu.bell.key) %></span><% if (menu.bell.count) { %><span class="bell-count"><%= menu.bell.count %></span><% } %></a>
+  <% } %>
   <% if (user) { %>
-  <details class="account">
-    <summary class="iconbtn" aria-label="<%= t('nav.account') %>"><%- include('icon', { name: 'user' }) %></summary>
-    <div class="account-menu">
+  <details class="dropdown account">
+    <summary class="user-chip" aria-label="<%= t('nav.account') %>"><span class="avatar" aria-hidden="true"><%= initials %></span><span class="user-chip-name"><%= user.full_name %><small><%= t('roles.' + user.role) %></small></span><%- include('icon', { name: 'chevron-down', cls: 'ico-sm' }) %></summary>
+    <div class="dropdown-menu">
       <p class="account-who"><strong><%= user.full_name %></strong><small><%= t('roles.' + user.role) %></small></p>
       <a href="/account/password"><%- include('icon', { name: 'key', cls: 'ico-sm' }) %><%= t('auth.changePassword') %></a>
       <form method="post" action="/logout"><input type="hidden" name="_csrf" value="<%= csrf %>"><button type="submit"><%- include('icon', { name: 'logout', cls: 'ico-sm' }) %><%= t('auth.logout') %></button></form>

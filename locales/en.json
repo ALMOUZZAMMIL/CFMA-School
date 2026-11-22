@@ -83,7 +83,9 @@
     "closeMenu": "Close the menu",
     "more": "More",
     "account": "My account",
-    "quick": "Quick navigation"
+    "quick": "Quick navigation",
+    "breadcrumb": "Breadcrumb",
+    "quickAdd": "Add"
   },
   "roles": {
     "admin": "Administrator",
@@ -252,7 +254,28 @@
     "mySummary": "My summary",
     "noChildren": "No child is linked to your account yet. Please contact the school administration.",
     "attendanceLine": "This year: {absent} absent · {late} late · {excused} excused",
-    "financeLater": "The finance module is not switched on yet. It is planned for a later phase."
+    "financeLater": "The finance module is not switched on yet. It is planned for a later phase.",
+    "subtitleAdmin": "Here is how the school is doing today.",
+    "subtitleTeacher": "Your classes and lessons at a glance.",
+    "kpiStudentsSub": "Enrolled this year",
+    "kpiTeachersSub": "Active accounts",
+    "kpiAttendance": "Registers taken today",
+    "kpiAttendanceSub": "{absent} absent today",
+    "kpiMakeupsSub": "Missed lessons still to catch up",
+    "trendTitle": "Attendance rate, last 8 weeks",
+    "trendHelp": "Share of register entries marked present or late each week. The darker bar is the current week.",
+    "trendEmpty": "No registers have been taken yet this year.",
+    "weekOf": "Week of {date}",
+    "hoursTitle": "Teaching hours this year",
+    "hoursDelivered": "{done} h delivered out of {planned} h planned",
+    "behindTitle": "Furthest behind the yearly plan",
+    "behindNone": "No yearly plans to compare yet.",
+    "lessonsBehind": "{n} lesson(s) behind",
+    "ahead": "{n} lesson(s) ahead",
+    "onTrack": "On track",
+    "planned": "Planned by today",
+    "myProgress": "My programme progress",
+    "attendanceRateChild": "Attendance rate"
   },
   "teaching": {
     "dayTitle": "Classes by day",

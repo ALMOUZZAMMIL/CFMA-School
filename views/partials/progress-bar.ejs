@@ -1,0 +1,3 @@
+<%# Progress against the yearly plan: bar = lessons completed, purple mark = where the plan expects the class today. Drawn in SVG (no inline styles under the CSP). %>
+<% var done = Math.max(0, Math.min(100, p.pct)); var plan = Math.max(0, Math.min(100, p.plannedPct)); %>
+<svg class="pbar" viewBox="0 0 100 8" preserveAspectRatio="none" role="img" aria-label="<%= t('progress.actual') %> <%= done %> %<% if (p.plannedToDate) { %> · <%= t('dashboard.planned') %> <%= plan %> %<% } %>"><rect class="pbar-track" width="100" height="8"></rect><rect class="pbar-fill <%= p.gap < 0 ? 'pbar-late' : 'pbar-ok' %>" width="<%= done %>" height="8"></rect><% if (p.plannedToDate) { %><rect class="pbar-plan" x="<%= Math.max(0, plan - 0.8) %>" width="1.6" height="8"></rect><% } %></svg>

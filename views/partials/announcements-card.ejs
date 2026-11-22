@@ -1,0 +1,11 @@
+<section class="card">
+  <div class="card-head"><h2><%= t('announcements.latest') %></h2><a href="/announcements"><%= t('common.seeAll') %></a></div>
+  <% if (!announcements.length) { %><p class="muted"><%= t('announcements.empty') %></p><% } else { %>
+  <ul class="list">
+    <% announcements.forEach(function (a) { %>
+    <li><span class="tag"><%= t('announcements.cat.' + a.category) %></span> <a href="/announcements/<%= a.id %>"><%= (lang === 'en' ? (a.title_en || a.title_fr) : (a.title_fr || a.title_en)) %></a>
+      <span class="small muted">· <%= fmt.dateTime(a.publish_at) %></span></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</section>

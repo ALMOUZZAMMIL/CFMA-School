@@ -46,6 +46,25 @@ const TABS = {
   student: ['home', 'myRecord', 'timetable', 'announcements'],
 };
 
+// The "+" button in the header: shortcuts to the forms each role uses most.
+const QUICK_ADD = {
+  admin: [
+    { href: '/admin/students#add-student', key: 'admin.addStudent', icon: 'users' },
+    { href: '/admin/users#add-user', key: 'admin.addUser', icon: 'user' },
+    { href: '/announcements/new', key: 'announcements.new', icon: 'megaphone' },
+  ],
+  teacher: [
+    { href: '/teaching', key: 'teaching.recordSession', icon: 'clock' },
+    { href: '/attendance', key: 'attendance.take', icon: 'attendance' },
+  ],
+};
+
+// The bell in the header: where it leads and which counter it shows.
+const BELL = {
+  admin: { href: '/admin/requests', key: 'nav.requests', count: 'requests' },
+  parent: { href: '/notifications', key: 'nav.notifications', count: 'unread' },
+};
+
 function isActive(item, path) {
   if (item.href === '/') return path === '/';
   return item.match.some((p) => path === p || path.startsWith(`${p}/`));
@@ -61,7 +80,8 @@ function build(role, path, counts = {}) {
   }));
   const all = groups.flatMap((g) => g.items);
   const tabs = (TABS[role] || []).map((k) => (k === 'more' ? { id: 'more', href: '#menu', key: 'nav.more', icon: 'menu', active: false, count: 0 } : all.find((i) => i.id === k)));
-  return { groups, tabs };
+  const bell = BELL[role] ? { ...BELL[role], count: counts[BELL[role].count] || 0 } : null;
+  return { groups, tabs, quickAdd: QUICK_ADD[role] || [], bell };
 }
 
-module.exports = { build, ITEMS, MENUS, TABS };
+module.exports = { build, ITEMS, MENUS, TABS, QUICK_ADD, BELL };

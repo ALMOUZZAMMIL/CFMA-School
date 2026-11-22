@@ -83,7 +83,9 @@
     "closeMenu": "Fermer le menu",
     "more": "Plus",
     "account": "Mon compte",
-    "quick": "Navigation rapide"
+    "quick": "Navigation rapide",
+    "breadcrumb": "Fil d'Ariane",
+    "quickAdd": "Ajouter"
   },
   "roles": {
     "admin": "Administrateur",
@@ -252,7 +254,28 @@
     "mySummary": "Mon résumé",
     "noChildren": "Aucun enfant n’est encore associé à votre compte. Veuillez contacter l’administration.",
     "attendanceLine": "Cette année : {absent} absence(s) · {late} retard(s) · {excused} absence(s) justifiée(s)",
-    "financeLater": "Le module financier n’est pas encore activé. Il est prévu pour une phase ultérieure."
+    "financeLater": "Le module financier n’est pas encore activé. Il est prévu pour une phase ultérieure.",
+    "subtitleAdmin": "Voici la situation de l'établissement aujourd'hui.",
+    "subtitleTeacher": "Vos classes et vos leçons en un coup d'œil.",
+    "kpiStudentsSub": "Inscrits cette année",
+    "kpiTeachersSub": "Comptes actifs",
+    "kpiAttendance": "Appels faits aujourd'hui",
+    "kpiAttendanceSub": "{absent} absent(s) aujourd'hui",
+    "kpiMakeupsSub": "Cours manqués à rattraper",
+    "trendTitle": "Taux de présence, 8 dernières semaines",
+    "trendHelp": "Part des élèves notés présents ou en retard chaque semaine. La barre foncée est la semaine en cours.",
+    "trendEmpty": "Aucun appel n'a encore été fait cette année.",
+    "weekOf": "Semaine du {date}",
+    "hoursTitle": "Heures d'enseignement cette année",
+    "hoursDelivered": "{done} h faites sur {planned} h prévues",
+    "behindTitle": "Les plus en retard sur la progression",
+    "behindNone": "Aucune progression annuelle à comparer pour l'instant.",
+    "lessonsBehind": "{n} leçon(s) de retard",
+    "ahead": "{n} leçon(s) d'avance",
+    "onTrack": "Dans les temps",
+    "planned": "Prévu à ce jour",
+    "myProgress": "Ma progression du programme",
+    "attendanceRateChild": "Taux de présence"
   },
   "teaching": {
     "dayTitle": "Cours par jour",

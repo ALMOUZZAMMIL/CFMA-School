@@ -27,12 +27,45 @@ function visibleAnnouncements(user, limit = 5) {
     AND ${roleCond} AND ${classCond} ORDER BY a.publish_at DESC LIMIT ${Number(limit)}`).all(...params);
 }
 
+// Attendance per school week, oldest first, for the dashboard chart (read only).
+// Rate = (present + late) / all marks: a late pupil was in class.
+function weeklyAttendance(year, today, weeks = 8) {
+  const d = new Date(`${today}T00:00:00Z`);
+  const monday = new Date(d);
+  monday.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  const iso = (x) => x.toISOString().slice(0, 10);
+  const out = [];
+  for (let i = weeks - 1; i >= 0; i--) {
+    const from = new Date(monday);
+    from.setUTCDate(monday.getUTCDate() - 7 * i);
+    const to = new Date(from);
+    to.setUTCDate(from.getUTCDate() + 6);
+    if (iso(to) < year.start_date) continue;
+    out.push({ from: iso(from) < year.start_date ? year.start_date : iso(from), to: iso(to) > today ? today : iso(to), weekStart: iso(from) });
+  }
+  if (!out.length) return [];
+  const rows = db.get().prepare(`SELECT date, status, COUNT(*) n FROM attendance_records WHERE date BETWEEN ? AND ? GROUP BY date, status`).all(out[0].from, out[out.length - 1].to);
+  return out.map((w) => {
+    const c = { present: 0, late: 0, absent: 0, excused: 0 };
+    rows.filter((r) => r.date >= w.from && r.date <= w.to).forEach((r) => { c[r.status] = (c[r.status] || 0) + r.n; });
+    const total = c.present + c.late + c.absent + c.excused;
+    return { ...w, ...c, total, rate: total ? Math.round(((c.present + c.late) / total) * 1000) / 10 : null };
+  });
+}
+
+function sumHours(rows) {
+  return rows.reduce((acc, x) => ({ scheduled: acc.scheduled + x.scheduled, delivered: acc.delivered + x.delivered, missed: acc.missed + x.missed + x.cancelled, notRecorded: acc.notRecorded + x.notRecorded }), { scheduled: 0, delivered: 0, missed: 0, notRecorded: 0 });
+}
+
+const round1 = (n) => Math.round(n * 10) / 10;
+
 r.get('/', (req, res) => {
   const u = req.user;
   const year = res.locals.year;
   const today = res.locals.today;
   const data = { title: req.t('nav.dashboard'), announcements: visibleAnnouncements(u, 5) };
   if (!year && u.role === 'admin') return res.render('dashboard', { ...data, setupNeeded: true });
+  if (u.role === 'teacher') Object.assign(data, { slots: [], hours: null, myProgress: [], pendingMakeups: 0 });
   if (u.role === 'teacher' && year) {
     data.slots = db.get().prepare(`SELECT ts.*, c.name AS class_name, c.id AS class_id, s.name_en AS subject_en, s.name_fr AS subject_fr,
         cs.id AS session_id, cs.status AS session_status,
@@ -46,7 +79,11 @@ r.get('/', (req, res) => {
     data.pendingMakeups = db.get().prepare(`SELECT COUNT(*) n FROM class_sessions cs JOIN teaching_assignments ta ON ta.id = cs.assignment_id
       WHERE ta.teacher_id = ? AND cs.status IN ('missed','cancelled') AND cs.makeup_status = 'planned'`).get(u.id).n;
     const summary = reports.hoursSummary({ yearId: year.id, teacherId: u.id, asOf: today });
-    data.hours = summary.rows.reduce((acc, x) => ({ scheduled: acc.scheduled + x.scheduled, delivered: acc.delivered + x.delivered, missed: acc.missed + x.missed + x.cancelled, notRecorded: acc.notRecorded + x.notRecorded }), { scheduled: 0, delivered: 0, missed: 0, notRecorded: 0 });
+    data.hours = sumHours(summary.rows);
+    ['scheduled', 'delivered', 'missed'].forEach((k) => { data.hours[k] = round1(data.hours[k]); });
+    data.myProgress = access.teacherAssignments(u.id, year.id)
+      .map((a) => ({ a, p: reports.progressFor({ ...a, year_id: year.id }, today) }))
+      .filter((x) => x.p.plan);
   }
   if (u.role === 'admin' && year) {
     const d = db.get();
@@ -63,6 +100,17 @@ r.get('/', (req, res) => {
     data.pendingRequests = d.prepare("SELECT COUNT(*) n FROM access_requests WHERE status = 'pending'").get().n;
     const s = db.getSettings();
     data.repeated = reports.repeatedAbsences({ yearId: year.id, threshold: Number(s.repeat_absence_threshold), days: Number(s.repeat_absence_window_days), asOf: today }).slice(0, 5);
+    data.trend = weeklyAttendance(year, today);
+    data.hours = sumHours(reports.hoursSummary({ yearId: year.id, asOf: today }).rows);
+    ['scheduled', 'delivered', 'missed'].forEach((k) => { data.hours[k] = round1(data.hours[k]); });
+    // The five teaching assignments furthest behind their yearly plan.
+    data.behind = d.prepare(`SELECT ta.*, c.name AS class_name, c.level, c.section_id, c.year_id, s.name_en AS subject_en, s.name_fr AS subject_fr, u.full_name AS teacher_name
+      FROM teaching_assignments ta JOIN classes c ON c.id = ta.class_id JOIN subjects s ON s.id = ta.subject_id JOIN users u ON u.id = ta.teacher_id
+      WHERE c.year_id = ?`).all(year.id)
+      .map((a) => ({ a, p: reports.progressFor(a, today) }))
+      .filter((x) => x.p.plan && x.p.total)
+      .sort((x, y) => x.p.gap - y.p.gap || x.p.pct - y.p.pct)
+      .slice(0, 5);
   }
   if ((u.role === 'parent' || u.role === 'student') && year) {
     const ids = access.visibleStudentIds(u);
