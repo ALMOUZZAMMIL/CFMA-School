@@ -709,3 +709,64 @@ a.metric:hover { background: var(--primary-tint); color: var(--text); }
   .page-actions .btn { flex: 1 1 auto; padding-inline: .6rem; }
   .dash-grid.cols-4 { gap: .75rem; }
 }
+
+/* ---------- Weekly timetable grid ---------- */
+/* Subject colours: eight soft tints, picked from the subject number so a subject keeps its colour. */
+.tt-summary { margin: -.25rem 0 .75rem; }
+.tt-grid-card { padding: 0; overflow: hidden; }
+.tt-grid { table-layout: fixed; min-width: 760px; }
+.tt-grid th, .tt-grid td { border: 1px solid var(--line); vertical-align: top; padding: .4rem .45rem; }
+.tt-grid thead th { text-align: center; background: var(--subtle); }
+.tt-grid .tt-time { width: 92px; white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: 600; color: var(--text-2); background: var(--subtle); }
+.tt-grid .tt-time span { display: block; font-weight: 400; color: var(--muted); font-size: .8em; }
+.tt-break td { background: var(--subtle); color: var(--muted); font-size: .78rem; text-align: center; padding: .15rem; letter-spacing: .02em; }
+.tt-break .tt-time { font-weight: 400; font-size: .75rem; }
+.tt-lesson { border-left: 4px solid var(--tt-line, var(--primary)) !important; background: var(--tt-bg, var(--primary-tint)); line-height: 1.3; }
+.tt-lesson strong { display: block; font-size: .86rem; color: var(--text); }
+.tt-lesson span { display: block; font-size: .8rem; color: var(--text-2); }
+.tt-lesson .tt-who { color: var(--muted); font-size: .76rem; }
+.tt-lesson .tt-extra { display: inline; }
+.tt-lesson .tt-extra::before { content: "+ "; }
+.tt-c0 { --tt-bg: #eef1fb; --tt-line: #2b3f98; }
+.tt-c1 { --tt-bg: #e8f5ed; --tt-line: #1d7f43; }
+.tt-c2 { --tt-bg: #f5ecf6; --tt-line: #8e3c96; }
+.tt-c3 { --tt-bg: #fdf3e1; --tt-line: #b7791f; }
+.tt-c4 { --tt-bg: #e6f4f7; --tt-line: #19788c; }
+.tt-c5 { --tt-bg: #fdecec; --tt-line: #b42318; }
+.tt-c6 { --tt-bg: #eef3e2; --tt-line: #5b7a1a; }
+.tt-c7 { --tt-bg: #f0eefa; --tt-line: #5a46b0; }
+/* Phones get the day-by-day list instead of the wide grid. */
+.tt-list-phone { display: none; }
+@media (max-width: 760px) {
+  .tt-grid-card { display: none; }
+  .tt-list-phone { display: block; }
+}
+@media print {
+  .tt-grid-card { display: block !important; }
+  .tt-list-phone { display: none !important; }
+  .tt-grid { min-width: 0; font-size: 10px; }
+}
+
+/* ---------- School calendar ---------- */
+.cal-next { display: flex; gap: 1rem; align-items: center; border-left: 4px solid var(--accent); }
+.cal-next h2 { margin: .1rem 0 .2rem; font-size: 1.1rem; }
+.cal-filters { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 var(--gap); }
+.cal-filters .chip { display: inline-block; padding: .3rem .75rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-strong); color: var(--text-2); font-size: .82rem; text-decoration: none; }
+.cal-filters .chip.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+.cal-month h2 { font-size: 1rem; text-transform: capitalize; margin: 0 0 .5rem; }
+.cal-list { list-style: none; margin: 0; padding: 0; }
+.cal-item { display: grid; grid-template-columns: 52px 1fr auto; gap: .8rem; align-items: start; padding: .65rem 0; border-top: 1px solid var(--line); }
+.cal-item:first-child { border-top: 0; }
+.cal-item.is-past { opacity: .55; }
+.cal-item.is-now .cal-title::after { content: ""; display: inline-block; width: 8px; height: 8px; margin-left: .4rem; border-radius: 50%; background: var(--accent); vertical-align: middle; }
+.cal-title { font-weight: 600; color: var(--text); }
+.cal-check { color: var(--warn); margin-top: .2rem; }
+.cal-badge { width: 52px; text-align: center; border-radius: 8px; padding: .25rem 0; background: var(--primary-soft); color: var(--primary-dark); font-size: .7rem; text-transform: uppercase; letter-spacing: .03em; line-height: 1.1; }
+.cal-badge span { display: block; font-size: 1.3rem; font-weight: 700; letter-spacing: 0; }
+.cal-evaluation, .cal-tag-evaluation { background: var(--secondary-soft); color: var(--secondary); }
+.cal-deadline, .cal-tag-deadline { background: var(--warn-soft); color: var(--warn); }
+.cal-holiday, .cal-tag-holiday { background: var(--accent-soft); color: var(--accent-text); }
+.cal-meeting, .cal-tag-meeting { background: #e6f4f7; color: #19788c; }
+@media (max-width: 560px) { .cal-item { grid-template-columns: 46px 1fr; } .cal-item .tag { grid-column: 2; justify-self: start; } .cal-badge { width: 46px; } }
+.tt-lesson.tt-clash { box-shadow: inset 0 0 0 2px var(--bad); }
+.tt-lesson .tt-clash-note { display: inline-block; margin-bottom: .2rem; padding: 0 .35rem; border-radius: 4px; background: var(--bad-soft); color: var(--bad); font-size: .7rem; font-weight: 700; }

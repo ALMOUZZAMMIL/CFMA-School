@@ -15,7 +15,7 @@ const q = (sql, ...a) => ctx.db.get().prepare(sql).get(...a);
 const PUBLIC = new Set(['/brand.css', '/login', '/logout', '/lang', '/register', '/forgot-password', '/healthz', '/session/status']);
 
 // GET pages each non-admin role may open (pattern level; record-level checks are in app.test.js).
-const ALL_SIGNED_IN = ['/', '/account/password', '/notifications'];
+const ALL_SIGNED_IN = ['/', '/account/password', '/notifications', '/calendar'];
 const GET_ALLOWED = {
   teacher: [...ALL_SIGNED_IN, '/teaching', '/timetable', '/sessions/:id', '/sessions/:id/edit', '/sessions', '/progress', '/progress/:aid',
     '/attendance', '/attendance/:classId', '/attendance/:classId/history', '/attendance/:classId/print', '/attendance/:classId/export.csv',

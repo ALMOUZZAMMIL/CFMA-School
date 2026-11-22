@@ -85,7 +85,8 @@
     "account": "My account",
     "quick": "Quick navigation",
     "breadcrumb": "Breadcrumb",
-    "quickAdd": "Add"
+    "quickAdd": "Add",
+    "calendar": "School calendar"
   },
   "roles": {
     "admin": "Administrator",
@@ -545,7 +546,11 @@
     "marksLater": "Marks and report cards will be added in a later phase."
   },
   "timetable": {
-    "empty": "No timetable to show. Choose a term, class or teacher."
+    "empty": "No timetable to show. Choose a term, class or teacher.",
+    "summary": "{lessons} lessons a week, {hours} hours in total.",
+    "shortBreak": "Short break ({minutes} min)",
+    "longBreak": "Long break ({minutes} min)",
+    "clash": "Same time: option groups or a clash?"
   },
   "admin": {
     "title": "Administration",
@@ -872,5 +877,28 @@
     "restored": "You are signed in again. You can now save this page.",
     "endedTitle": "Session ended",
     "formNotSaved": "Your session ended because it was inactive for too long, so this form was not saved. Use your browser's Back button to return to what you typed, sign in again in a new tab, then save again."
+  },
+  "calendar": {
+    "title": "School calendar",
+    "empty": "The calendar of activities has not been loaded yet.",
+    "next": "Coming up",
+    "now": "Happening now",
+    "filter": "Show",
+    "all": "Everything",
+    "noneOfType": "Nothing of this type this year.",
+    "until": "until {date}",
+    "toConfirm": "To confirm:",
+    "cat": {
+      "term": "Term",
+      "evaluation": "Evaluation",
+      "deadline": "Deadline",
+      "meeting": "Meeting",
+      "week": "Special week",
+      "celebration": "Event",
+      "tutorial": "Tutorials",
+      "admin": "Staff",
+      "holiday": "Holiday",
+      "other": "Other"
+    }
   }
 }
