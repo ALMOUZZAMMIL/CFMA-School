@@ -11,7 +11,7 @@
 </head>
 <body class="public">
 <a class="skip" href="#main"><%= t('common.skipToContent') %></a>
-<% if (settings.demo_mode === '1') { %><div class="demo-banner" role="note"><%= t('common.demoBanner') %></div><% } %>
+<% if (settings.demo_mode === '1') { %><details class="demo-strip" role="note"><summary><%- include('icon', { name: 'info', cls: 'ico-sm' }) %><span><%= t('common.demoShort') %></span></summary><p><%= t('common.demoBanner') %></p></details><% } %>
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/">

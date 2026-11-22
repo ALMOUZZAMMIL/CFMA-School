@@ -9,7 +9,7 @@
       <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
       <label for="identifier"><%= t('fields.identifier') %></label>
       <input id="identifier" name="identifier" value="<%= values.identifier || '' %>" required maxlength="120" autocapitalize="none" autofocus>
-      <label for="phone"><%= t('access.contactPhone') %> <span class="help-inline">(<%= t('common.optional') %>)</span></label>
+      <label for="phone"><%= t('access.contactPhone') %></label>
       <input id="phone" name="phone" type="tel" value="<%= values.phone || '' %>" placeholder="+237 6XX XX XX XX">
       <p class="help"><%= t('access.forgotHelp') %></p>
       <button class="btn btn-primary btn-block btn-lg" data-loading-text="<%= t('access.sending') %>"><%= t('access.sendReset') %></button>
