@@ -1,0 +1,139 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "HECON",
+ "subject_fr": "Économie familiale (Food and Nutrition)",
+ "subject_en": "Home Economics (Food and Nutrition)",
+ "title": "Food and Nutrition – Form 3",
+ "source": "National harmonised progression sheet 2026-2027 (IPSC)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Digestion and absorption",
+   "lessons": [
+    {
+     "title": "Lesson 1: Notion of digestion, absorption and the role of teeth",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Digestion: the various stages of the digestive system",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 3: Digestion in the stomach and in the ileum; enzymes in digestion",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Hygiene for food safety",
+   "lessons": [
+    {
+     "title": "Lesson 4: Notion of personal hygiene; rules for personal hygiene",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 7: Notion of kitchen hygiene; reasons for kitchen hygiene",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 8: Preventive measures for food safety; safety measures in buying and preparing food",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 9: Classification of kitchen waste; ways of disposal; products used to clean kitchen sinks",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 10: Cleaning kitchen floors; products used to clean different kitchen floors",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3: Kitchen safety and accidents",
+   "lessons": [
+    {
+     "title": "Lesson 13: Common kitchen accidents and their causes; safety precautions against kitchen accidents",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 14: First aid for common kitchen accidents",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 4: Raising agents",
+   "lessons": [
+    {
+     "title": "Lesson 15: Notion of raising agents and the rules underlying how they work",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 16: Principles under which raising agents work; mechanical raising agents",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 19: Chemical and biological raising agents; foods they act on; recipes using different raising agents",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5: Cake making",
+   "lessons": [
+    {
+     "title": "Lesson 20: Basic ingredients and general rules in cake making",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 21: Rubbing-in method: examples of cakes, steps and recipes",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 22: Creaming method: examples of cakes, steps and recipes",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 25: Melting method: examples of cakes, steps and recipes",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 26: Whisking method: examples of cakes, steps and recipes",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 27: Faults in cake making; different cake recipes",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 6: Pastry making",
+   "lessons": [
+    {
+     "title": "Lesson 28: Definition and types of pastry: short crust, flaky",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 31: Puff pastry, hot water pastry and choux pastry; rules and faults in pastry making",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 32: Different pastry products, their recipes and making them",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 33: Pastry products",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

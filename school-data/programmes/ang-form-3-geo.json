@@ -1,0 +1,213 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Geography – Form 3",
+ "source": "Harmonised syllabus coverage progression sheet 2026/2027, 2 h/week, 42 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Planetary relations of the earth in the universe",
+   "lessons": [
+    {
+     "title": "Lesson 1: Our planet, the earth (size, shape and proofs)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Further study 1: The universe and its influence on the earth and its people",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 2: Earth divisions (latitudes and longitudes)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Practical work 1: Locating a place on a map (reading geographical coordinates)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 3: Great circles and the International Date Line (meaning, illustration, importance)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 4: Local time, standard time and time zones",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Practical work 2: Calculation of time and date",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Lesson 5: Rotation of the earth and its effects",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Lesson 6: Revolution of the earth and its effects",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Processes operating in nature and protection from environmental hazards",
+   "lessons": [
+    {
+     "title": "Lesson 7: The internal structure of the earth",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 8: Rocks (definition, classification, characteristics, rock cycle)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 9: Theories of the earth's structure (continental drift)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 10: Plate tectonics",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 11: Volcanicity (definition, types, intrusive and extrusive features)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 12: Impact of volcanicity on man",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 13: Earthquakes: definition, causes, manifestation, impact on man, adaptation and mitigation",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 14: Denudation (definition, major processes, main agents)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 15: Weathering (definition, types, general factors)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 16: Physical weathering processes and products",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 17: Chemical weathering processes",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Further study 2: Impacts of weathering on the environment",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 18: Action of rivers on the landscape (the long profile of a river)",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 19: The upper course: erosional processes and features",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 20: The middle course: main characteristics and landforms",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 21: The lower course: main processes and features",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 22: Man and flood plain interactions",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 23: Wave action in coastal areas (meaning, types of waves)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 24: Main erosional features of wave action",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 25: Main depositional features of wave action",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 26: Impacts of wave action on human development along the coast",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 27: Semi-arid and desert landscapes (location, wind erosion processes and features)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 28: Depositional features of wind action",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 29: Man in hot desert environments",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 3: Weather and climate, adaptation to climatic excesses",
+   "lessons": [
+    {
+     "title": "Lesson 30: The atmosphere",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 31: Weather and climate",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 32: Weather elements (air temperature, rainfall totals, atmospheric humidity)",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 33: Weather elements (wind, atmospheric pressure, sunshine)",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 34: Condensation (meaning, forms of condensation)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 35: Precipitation (definition, measurement, types of rainfall)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 36: Planetary distribution of pressure belts and planetary winds",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 37: Local winds",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 38: Factors affecting temperature",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 39: The hydrological cycle",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 40: Global warming",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 41: Floods, droughts and desertification",
+     "date": "2027-05-17"
+    },
+    {
+     "title": "Lesson 42: Water scarcity",
+     "date": "2027-05-24"
+    }
+   ]
+  }
+ ]
+}
