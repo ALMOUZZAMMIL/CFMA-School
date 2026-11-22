@@ -1,0 +1,7 @@
+/* Banner shown only in the static demo preview (scripts/export-demo.js). */
+.pvw-banner { background: #fff4cc; border-bottom: 1px solid #e0b100; color: #4a3b00; font-size: .82rem; padding: .45rem 1rem; display: flex; flex-wrap: wrap; gap: .3rem .8rem; align-items: center; justify-content: center; text-align: center; position: relative; z-index: 40; }
+.pvw-banner a { color: #2b3f98; font-weight: 600; margin: 0 .15rem; }
+.pvw-banner a.on { text-decoration: none; background: #2b3f98; color: #fff; border-radius: 999px; padding: .05rem .55rem; }
+.pvw-banner.pvw-flash { background: #fde68a; }
+.has-nav .pvw-banner { margin-left: var(--sidebar-w, 0); }
+@media (max-width: 760px) { .has-nav .pvw-banner { margin-left: 0; } }

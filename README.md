@@ -164,3 +164,7 @@ Application web légère de gestion scolaire pour un lycée au Cameroun, entièr
 ## Changing the look
 
 See [docs/customising-the-look.md](docs/customising-the-look.md) to change colours, sizes and corners without programming. Layout inspired by the free Kiaalap template by Colorlib (MIT); no Kiaalap code is used.
+
+## Static demo preview
+
+`npm run export-demo` builds a read-only copy of the portal with the fictional demo data into `dist/` (every page each demo account can open, in FR and EN). Vercel uses it for previews (`vercel.json`). Forms do not save anything there; the real school installation runs `npm start`.
