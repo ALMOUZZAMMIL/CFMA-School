@@ -1,0 +1,121 @@
+{
+ "section": "GEN",
+ "level": "2nde A",
+ "subject": "PHILO",
+ "subject_fr": "Philosophie",
+ "subject_en": "Philosophy",
+ "title": "Philosophie – 2nde A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Seconde A4 allemand/espagnol/arabe), 2 h/semaine, 20 leçons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – Qu'est-ce que la philosophie ?",
+   "lessons": [
+    {
+     "title": "Définitions de la philosophie",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Origine, objet et méthode de la philosophie",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Rôle du philosophe dans la cité",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 1 – La philosophie antique",
+   "lessons": [
+    {
+     "title": "Survol historique",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Thématiques et problématiques",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – La logique classique",
+   "lessons": [
+    {
+     "title": "Définition et importance de la logique",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Le concept",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Le jugement",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Le raisonnement",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Les principes logiques de la pensée",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 – La dissertation philosophique",
+   "lessons": [
+    {
+     "title": "Généralités",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Introduction",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Thèse",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Antithèse",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Synthèse et conclusion",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 – Le commentaire philosophique de texte",
+   "lessons": [
+    {
+     "title": "Généralités",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Introduction",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Examen analytique",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Examen critique",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Réinterprétation et conclusion",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}
