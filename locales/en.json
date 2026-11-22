@@ -419,7 +419,10 @@
     "importRowMissing": "Row {row}: the chapter and lesson are required.",
     "importRowDate": "Row {row}: the date is not valid (use DD/MM/YYYY).",
     "importRowHours": "Row {row}: the number of hours is not valid.",
-    "importRowTerm": "Row {row}: no term is called '{term}'."
+    "importRowTerm": "Row {row}: no term is called '{term}'.",
+    "cycle1": "First cycle",
+    "cycle2": "Second cycle",
+    "subjectCount": "Subjects: {n}"
   },
   "attendance": {
     "title": "Attendance",
@@ -643,7 +646,9 @@
     "slotClash": "This time overlaps another lesson of the same teacher or class.",
     "slotInUse": "This time slot already has recorded lessons, so it cannot be deleted.",
     "emailHelp": "Optional. The person can sign in with it instead of the username.",
-    "emailTaken": "this email address is already used by another account."
+    "emailTaken": "this email address is already used by another account.",
+    "pickClass": "Choose a class to see and edit its courses and weekly slots.",
+    "courseCount": "Courses: {n}"
   },
   "settings": {
     "school": "School",

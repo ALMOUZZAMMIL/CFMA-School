@@ -419,7 +419,10 @@
     "importRowMissing": "Ligne {row} : le chapitre et la leçon sont obligatoires.",
     "importRowDate": "Ligne {row} : la date n’est pas valide (utilisez JJ/MM/AAAA).",
     "importRowHours": "Ligne {row} : le nombre d’heures n’est pas valide.",
-    "importRowTerm": "Ligne {row} : aucun trimestre ne s’appelle « {term} »."
+    "importRowTerm": "Ligne {row} : aucun trimestre ne s’appelle « {term} ».",
+    "cycle1": "Premier cycle",
+    "cycle2": "Second cycle",
+    "subjectCount": "Matières : {n}"
   },
   "attendance": {
     "title": "Appel",
@@ -643,7 +646,9 @@
     "slotClash": "Ce créneau chevauche un autre cours du même enseignant ou de la même classe.",
     "slotInUse": "Ce créneau a déjà des cours enregistrés : il ne peut pas être supprimé.",
     "emailHelp": "Facultatif. La personne peut l'utiliser pour se connecter à la place de l'identifiant.",
-    "emailTaken": "cette adresse e-mail est déjà utilisée par un autre compte."
+    "emailTaken": "cette adresse e-mail est déjà utilisée par un autre compte.",
+    "pickClass": "Choisissez une classe pour voir et modifier ses cours et ses créneaux.",
+    "courseCount": "Cours : {n}"
   },
   "settings": {
     "school": "Établissement",

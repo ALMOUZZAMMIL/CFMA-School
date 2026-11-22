@@ -94,7 +94,7 @@ d.transaction(() => {
   const HIST = subject('HG', 'Histoire-Géographie', 'History and Geography');
 
   const cls = (sec, level, name) => Number(d.prepare('INSERT INTO classes (year_id, section_id, level, name) VALUES (?, ?, ?, ?)').run(year, sec, level, name).lastInsertRowid);
-  const c2C = cls(GEN, 'Seconde C', '2nde C');
+  const c2C = cls(GEN, '2nde C', '2nde C');
   const c1F3 = cls(TECH, 'Première F3', '1ère F3');
   const cF4 = cls(ANG, 'Form 4', 'Form 4 A');
 
@@ -166,8 +166,8 @@ d.transaction(() => {
     [`${prefix} 4 (${en ? 'demo' : 'démo'})`, [1, 2, 3, 4].map((i) => `${en ? 'Lesson' : 'Leçon'} 4.${i}`), t2],
     [`${prefix} 5 (${en ? 'demo' : 'démo'})`, [1, 2, 3].map((i) => `${en ? 'Lesson' : 'Leçon'} 5.${i}`), t3],
   ];
-  plan(GEN, 'Seconde C', MATH, 'Mathématiques — Seconde C (exemple)', demoChapters('Chapitre', false));
-  plan(GEN, 'Seconde C', FRAN, 'Français — Seconde C (exemple)', demoChapters('Séquence', false));
+  plan(GEN, '2nde C', MATH, 'Mathématiques — Seconde C (exemple)', demoChapters('Chapitre', false));
+  plan(GEN, '2nde C', FRAN, 'Français — Seconde C (exemple)', demoChapters('Séquence', false));
   plan(TECH, 'Première F3', ELEC, 'Électrotechnique — Première F3 (exemple)', demoChapters('Module', false));
   plan(TECH, 'Première F3', MATH, 'Mathématiques — Première F3 (exemple)', demoChapters('Chapitre', false));
   plan(ANG, 'Form 4', MATH, 'Mathematics — Form 4 (example)', demoChapters('Topic', true));
