@@ -12,21 +12,23 @@ before(async () => { dbInfo = seededDb(); ctx = await startApp(dbInfo.file); rou
 after(() => { ctx.server.close(); fs.rmSync(dbInfo.tmp, { recursive: true, force: true }); });
 
 const q = (sql, ...a) => ctx.db.get().prepare(sql).get(...a);
-const PUBLIC = new Set(['/brand.css', '/login', '/logout', '/lang', '/register', '/forgot-password', '/healthz', '/session/status']);
+const PUBLIC = new Set(['/brand.css', '/login', '/logout', '/lang', '/register', '/forgot-password', '/healthz', '/session/status',
+  // Fingerprint scanners call these; they answer only to a registered device (see scanner.test.js).
+  '/iclock/cdata', '/iclock/getrequest', '/iclock/devicecmd']);
 
 // GET pages each non-admin role may open (pattern level; record-level checks are in app.test.js).
 const ALL_SIGNED_IN = ['/', '/account/password', '/notifications'];
 const GET_ALLOWED = {
   teacher: [...ALL_SIGNED_IN, '/teaching', '/timetable', '/sessions/:id', '/sessions/:id/edit', '/sessions', '/progress', '/progress/:aid',
     '/attendance', '/attendance/:classId', '/attendance/:classId/history', '/attendance/:classId/print', '/attendance/:classId/export.csv',
-    '/announcements', '/announcements/:id', '/students/:id', '/plans', '/plans/:id', '/reports/hours', '/reports/absences', '/sessions/new'],
+    '/announcements', '/announcements/:id', '/students/:id', '/plans', '/plans/:id', '/reports/hours', '/reports/absences', '/sessions/new', '/my-scans'],
   parent: [...ALL_SIGNED_IN, '/timetable', '/announcements', '/announcements/:id', '/students/:id'],
   student: [...ALL_SIGNED_IN, '/timetable', '/announcements', '/announcements/:id', '/students/:id', '/me'],
   bursar: [...ALL_SIGNED_IN],
 };
 // POST actions each non-admin role may use.
 const POST_ALLOWED = {
-  teacher: ['/account/password', '/notifications/read', '/sessions', '/sessions/:id', '/progress/:aid', '/attendance/:classId', '/session/keepalive'],
+  teacher: ['/account/password', '/notifications/read', '/sessions', '/sessions/:id', '/progress/:aid', '/attendance/:classId', '/session/keepalive', '/my-scans/corrections'],
   parent: ['/account/password', '/notifications/read', '/session/keepalive'],
   student: ['/account/password', '/notifications/read', '/session/keepalive'],
   bursar: ['/account/password', '/notifications/read', '/session/keepalive'],

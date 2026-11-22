@@ -104,6 +104,8 @@ d.transaction(() => {
   const tLang = user('demo.prof.lettres', 'Mme Prof-Lettres DÉMO', 'teacher', 'fr');
   const tTech = user('demo.prof.tech', 'M. Prof-Tech DÉMO', 'teacher', 'fr');
   const tEng = user('demo.teacher.eng', 'Mrs Teacher-English DEMO', 'teacher', 'en');
+  // Staff numbers as typed on the fingerprint scanner (demo). Fingerprints themselves never reach the portal.
+  [tMath, tLang, tTech, tEng].forEach((id, i) => d.prepare('UPDATE users SET scanner_pin = ? WHERE id = ?').run(String(101 + i), id));
   user('demo.intendant', 'Intendant DÉMO', 'bursar', 'fr');
 
   const assign = (tid, cid, sid) => Number(d.prepare('INSERT INTO teaching_assignments (teacher_id, class_id, subject_id) VALUES (?, ?, ?)').run(tid, cid, sid).lastInsertRowid);

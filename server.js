@@ -64,6 +64,18 @@ timers.push(setInterval(() => {
     require('./src/login-guard').purgeExpiredDevices();
   } catch (err) { log.error('session purge failed', { err }); }
 }, 3600000));
+// Fingerprint scanner: every 5 minutes, bring today's lessons up to date (a lesson nobody
+// scanned back from becomes "unconfirmed"; a finished day records lessons with no scan).
+timers.push(setInterval(() => {
+  try {
+    const scanner = require('./src/scanner');
+    const settings = db.getSettings();
+    if (!settings.scanner_start_date) return;
+    const { date } = scanner.nowIn(settings.timezone);
+    scanner.recomputeDate(date);
+    scanner.recomputeDate(require('./src/util').addDays(date, -1));
+  } catch (err) { log.error('scanner update failed', { err }); }
+}, 300000));
 // Clear old rate-limit entries every 10 minutes.
 timers.push(setInterval(() => { auth.pruneAttempts(); publicRoutes.limiter.pruneHits(); }, 600000));
 // Automatic verified backup (BACKUP_INTERVAL_HOURS=0 turns it off).

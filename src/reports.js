@@ -65,8 +65,11 @@ function hoursSummary({ yearId, termId, teacherId, classId, subjectId, asOf }) {
     const m = { held: 0, missed: 0, cancelled: 0, makeup: 0 };
     let recordedScheduled = 0;
     let makeupPending = 0;
+    let scannedMin = 0;
     for (const s of sessions) {
       m[s.status] += minutesBetween(s.start_time, s.end_time);
+      // Held lessons backed by a fingerprint scan (or a correction an admin approved).
+      if (s.status === 'held' && s.source && s.source !== 'manual') scannedMin += minutesBetween(s.start_time, s.end_time);
       if (s.slot_id && scheduledKeys.has(`${s.slot_id}|${s.date}`)) recordedScheduled++;
       if ((s.status === 'missed' || s.status === 'cancelled') && s.makeup_status === 'planned') makeupPending++;
     }
@@ -75,6 +78,7 @@ function hoursSummary({ yearId, termId, teacherId, classId, subjectId, asOf }) {
       ...a,
       scheduled: h(scheduledMin),
       held: h(m.held),
+      scanned: h(scannedMin),
       missed: h(m.missed),
       cancelled: h(m.cancelled),
       makeup: h(m.makeup),

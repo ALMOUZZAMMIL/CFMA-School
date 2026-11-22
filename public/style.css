@@ -239,6 +239,8 @@ h3 { font-size: 1rem; margin: 1rem 0 .4rem; font-weight: 700; }
 .card > .card-head:first-child { margin: -1.1rem -1.25rem 1rem; padding: .9rem 1.25rem; border-bottom: 1px solid var(--line); }
 .card > .card-head:first-child h2 { font-size: 1rem; }
 .subcard { border: 1px dashed var(--line-strong); border-radius: var(--radius); padding: .8rem; }
+.subcard + .subcard { margin-top: .6rem; }
+.warn-text { color: var(--warn); font-weight: 600; }
 .card-head, .page-head { display: flex; justify-content: space-between; align-items: center; gap: .6rem; flex-wrap: wrap; }
 .card-head { margin-bottom: .4rem; }
 .card-head h2 { margin: 0; }
