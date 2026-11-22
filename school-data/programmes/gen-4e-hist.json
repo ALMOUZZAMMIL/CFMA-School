@@ -1,0 +1,101 @@
+{
+ "section": "GEN",
+ "level": "4e",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "Histoire – 4e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine (la fiche annonce 16 leçons, 14 sont listées), 1 TD, 3 dossiers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Esclavage et traites négrières",
+   "lessons": [
+    {
+     "title": "L1 : L'esclavage en Afrique, le cas du Cameroun",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : La traite arabe",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : La traite atlantique",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L4 : Les résistances à la traite négrière",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L5 : Les mouvements migratoires en Afrique",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "D1 : La traite négrière, des atrocités à l'abolition",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "TD1 : Les formes de survivance de l'esclavage au Cameroun actuel",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La promotion de l'intégration régionale",
+   "lessons": [
+    {
+     "title": "D2 : Les atrocités de la traite négrière",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L6 : Les nouvelles organisations socioéconomiques et politiques en Afrique occidentale et centrale",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L7 : Les nouvelles organisations socioéconomiques et politiques en Afrique orientale et australe",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L8 : Les tentatives de modernisation en Afrique du Nord, cas de la Tunisie et de l'Égypte",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L9 : L'islam et l'émergence des nouvelles organisations sociopolitiques et économiques en Afrique occidentale",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L10 : Une tentative de regroupement politique en Afrique centrale, l'empire de Rabah",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L11 : L'émergence de nouvelles organisations sociopolitiques et économiques en Afrique orientale et australe",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La gestion durable des ressources naturelles",
+   "lessons": [
+    {
+     "title": "L12 : La première révolution industrielle et ses conséquences",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "D3 : Les grandes figures africaines au XIXe siècle",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L13 : La deuxième révolution industrielle",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L14 : Les conséquences sociales et économiques des révolutions industrielles des XVIIIe et XIXe siècles",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

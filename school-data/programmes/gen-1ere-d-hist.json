@@ -1,0 +1,139 @@
+{
+ "section": "GEN",
+ "level": "1ère D",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "Histoire – 1ère D",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Premières), 2 h/semaine, 21 leçons, 2 TD, 3 dossiers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La promotion de la créativité et de la maîtrise de la nature",
+   "lessons": [
+    {
+     "title": "L1 : L'Europe de la Renaissance",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : L'industrialisation de l'Europe",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : Les fondements de l'impérialisme européen",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "D1 : La deuxième conférence de Berlin",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La promotion, la protection et la revendication des droits de l'Homme",
+   "lessons": [
+    {
+     "title": "L4 : Les conquêtes françaises",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L5 : Les conquêtes anglaises",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L6 : Les conquêtes des autres puissances",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L7 : Les réactions africaines face aux agressions européennes",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L8 : L'exploitation économique",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L9 : La Chine, des traités inégaux à l'éveil du nationalisme",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L10 : L'impérialisme européen en Inde et en Indochine",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La prévention et le règlement des conflits",
+   "lessons": [
+    {
+     "title": "L11 : La Première Guerre mondiale",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "D2 : L'Afrique dans la Première Guerre mondiale",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L12 : Le règlement de la Première Guerre mondiale",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L13 : La crise économique de 1929",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "D3 : La résolution de la crise économique de 1929",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La promotion de l'intégration nationale",
+   "lessons": [
+    {
+     "title": "L14 : Les mouvements migratoires des peuples",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L15 : La constitution des premières entités politiques",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "TD1 : Organisation d'une chefferie de ta localité",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "TD2 : Le patrimoine culturel du terroir de l'apprenant",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L16 : Le Cameroun au centre des intérêts étrangers",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L17 : La constitution de l'entité territoriale du Cameroun au XXe siècle",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L18 : Les Camerounais face à l'administration étrangère",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L19 : La partition du Cameroun, une conséquence de la Première Guerre mondiale",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L20 : La vie des Camerounais dans le territoire sous administration française",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "L21 : La vie des Camerounais dans le territoire sous administration anglaise",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,113 @@
+{
+ "section": "GEN",
+ "level": "2nde",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "Histoire – 2nde",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Secondes), 2 h/semaine, 16 leçons, 2 TD, 3 dossiers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La promotion de l'esprit de leadership et de bâtisseur ; lutter contre les dominations étrangères",
+   "lessons": [
+    {
+     "title": "L1 : Les disciplines affinitaires de l'histoire",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "D1 : Les grandes divisions géologiques de l'histoire de la Terre",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : Les civilisations des peuples paléo-négritiques du Cameroun",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "D2 : Les sites préhistoriques du Cameroun",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : L'Égypte pharaonique",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L4 : La Grèce antique",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L5 : Les civilisations de la Mésopotamie",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L6 : Le Mali",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L7 : Le Kanem",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La promotion de l'esprit de leadership et de bâtisseur",
+   "lessons": [
+    {
+     "title": "L8 : Le royaume du Bénin",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L9 : Le royaume du Congo",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L10 : Le Monomotapa",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "TD1 : Organisation sociopolitique d'une société traditionnelle locale",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L11 : L'Europe féodale",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L12 : La Chine des Song",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L13 : Les civilisations précolombiennes",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Adaptation à un environnement multireligieux",
+   "lessons": [
+    {
+     "title": "L14 : Le judaïsme",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L15 : Le christianisme",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "TD2 : Les Églises chrétiennes de votre localité",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "D3 : Les Églises de réveil au Cameroun",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L16 : L'islam et sa diversité",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}
