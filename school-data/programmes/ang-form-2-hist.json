@@ -1,0 +1,147 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "History – Form 2",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 22 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Origin of the peopling of Cameroon: the Pygmies and the Sao",
+   "lessons": [
+    {
+     "title": "Lesson 1: The Sao and the Pygmies",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 1 (end): The Sao and the Pygmies",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The peopling of Cameroon",
+   "lessons": [
+    {
+     "title": "Lesson 2: Migration waves in Cameroon",
+     "date": "2026-10-03"
+    },
+    {
+     "title": "Lesson 2 (continued and end): Migration waves in Cameroon",
+     "date": "2026-10-03"
+    },
+    {
+     "title": "Guided work 1: The people of the region where the school is located",
+     "date": "2026-10-03"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Pre-colonial Cameroon: the different socio-political organisations",
+   "lessons": [
+    {
+     "title": "Lesson 3: Generalities on state-like (structured) societies of Cameroon",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Further study 1: A study of one state-like and one equalisation state in Cameroon",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 3 (continued and end): Generalities on state-like and equalisation states of Cameroon",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Africa from the 9th to the 16th century",
+   "lessons": [
+    {
+     "title": "Lesson 4: Ghana from the 9th to the 10th centuries",
+     "date": "2026-11-13"
+    },
+    {
+     "title": "Guided work 2: Enquiry on traditional rites of the region",
+     "date": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Africa from the 9th to the 16th century (continued)",
+   "lessons": [
+    {
+     "title": "Lesson 5: Mali",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Lesson 6: Kanem-Bornu",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Lesson 7: The Kingdom of Congo",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Lesson 8: Great Zimbabwe",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Lesson 9: African arts",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Guided work 2: The arts in your region",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Further study 2: Factors for the decline of African empires",
+     "date": "2027-02-12"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Contacts with the outside world",
+   "lessons": [
+    {
+     "title": "Lesson 11: Contacts between East Africa and the Indian Ocean",
+     "date": "2027-03-12"
+    },
+    {
+     "title": "Lesson 10: Contacts between West Africa and the Sudan with the Arabs and Europeans",
+     "date": "2027-02-19"
+    },
+    {
+     "title": "Lesson 12: The first contact of Cameroon with the Europeans",
+     "date": "2027-03-19"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Medieval Europe",
+   "lessons": [
+    {
+     "title": "Lesson 13: Europe from the Dark Ages to the Renaissance",
+     "date": "2027-03-25"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "America from the 8th to the 15th centuries",
+   "lessons": [
+    {
+     "title": "Lesson 14: The Americas: the rise, peak and decline of the Inca, Maya and Aztec",
+     "date": "2027-04-23"
+    }
+   ]
+  }
+ ]
+}

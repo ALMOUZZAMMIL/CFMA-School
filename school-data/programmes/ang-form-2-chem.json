@@ -1,0 +1,267 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "CHEM",
+ "subject_fr": "Chimie",
+ "subject_en": "Chemistry",
+ "title": "Chemistry – Form 2",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 52 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Chapter 1: The atom",
+   "lessons": [
+    {
+     "title": "Dalton's atomic theory",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Composition of the atom",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Structure of the atom (Bohr's model)",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Relationship between subatomic particles",
+     "date": "2026-09-18"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chapter 2: Chemical symbols, formulae and valency",
+   "lessons": [
+    {
+     "title": "Chemical symbols and names of elements",
+     "date": "2026-10-09"
+    },
+    {
+     "title": "Names and formulae of radicals",
+     "date": "2026-10-09"
+    },
+    {
+     "title": "Valency of elements and radicals",
+     "date": "2026-10-09"
+    },
+    {
+     "title": "Chemical symbols and formulae",
+     "date": "2026-10-09"
+    },
+    {
+     "title": "Use of tables to derive chemical formulae",
+     "date": "2026-10-09"
+    },
+    {
+     "title": "Names of compounds",
+     "date": "2026-10-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chapter 3: The Periodic Table",
+   "lessons": [
+    {
+     "title": "The Periodic Table: brief history and purpose to classify elements",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "The modern Periodic Table",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Families of elements: names",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Families of elements: properties",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Reactivity of families",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Review of the Periodic Table",
+     "date": "2026-11-06"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chapter 4: Chemical reactions and equations",
+   "lessons": [
+    {
+     "title": "Chemical changes (review)",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Examples of chemical reactions",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Writing chemical equations (word equations)",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Writing chemical equations (symbolic equations)",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Balancing chemical equations (binary compound formation)",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Balancing chemical equations (complex compounds formed)",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Law of conservation of mass: types of changes in matter",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Law of conservation of mass: definition and experimental demonstration",
+     "date": "2026-12-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 5: Reactions with oxygen of air",
+   "lessons": [
+    {
+     "title": "The composition of air (percentage composition by volume of nitrogen and oxygen)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Uses of active and inactive air",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Air as a mixture",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Separation of the components of air by fractional distillation",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Reaction of substances with oxygen of air (burning paper and cooking gas)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Reaction of substances with oxygen of air (burning wood and cloths)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Reaction of substances with oxygen of air (burning metals and non-metals)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Rusting (definition and conditions)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Iron rusting (composition and examples)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Disadvantages of rusting and methods of prevention",
+     "date": "2027-02-05"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 6: Mixtures and pure substances",
+   "lessons": [
+    {
+     "title": "States of matter: summary review",
+     "date": "2027-02-26"
+    },
+    {
+     "title": "Techniques of separation: review",
+     "date": "2027-02-26"
+    },
+    {
+     "title": "Techniques of separation: distillation",
+     "date": "2027-02-26"
+    },
+    {
+     "title": "Techniques of separation: paper and column chromatography",
+     "date": "2027-02-26"
+    },
+    {
+     "title": "Definitions: sublimation, melting point and boiling point",
+     "date": "2027-02-26"
+    },
+    {
+     "title": "Criteria for purity",
+     "date": "2027-02-26"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 7: Action of heat on materials",
+   "lessons": [
+    {
+     "title": "Sources of energy: fossil fuels",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Uses of fossil fuels",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Action of heat on substances: hydrates and oxides (with balanced equations)",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Action of heat on substances: carbonates and nitrates (with balanced equations)",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Experimental study of the change in mass when substances are heated (carbonates)",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Concept of reversibility (action of heat on hydrated copper(II) sulphate)",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Techniques for separation: review",
+     "date": "2027-03-25"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Chapter 8: Action of electricity on materials",
+   "lessons": [
+    {
+     "title": "Action of electricity on metals and non-metals",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "Action of electricity on solid compounds",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "Action of electricity on aqueous solutions",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "Conductors and non-conductors",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "Electrolytes and non-electrolytes",
+     "date": "2027-04-30"
+    }
+   ]
+  }
+ ]
+}

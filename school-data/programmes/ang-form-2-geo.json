@@ -1,0 +1,131 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Geography – Form 2",
+ "source": "Harmonised syllabus coverage progression sheet 2026-27 (MINESEC), 8 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Man in his environment – population",
+   "lessons": [
+    {
+     "title": "First contact, diagnostic evaluation and presentation of the programme",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 1: A rapid growth of the world's population (historical evolution, factors, implications on natural resources)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Practical work 1: Calculation of demographic indices (birth rate, death rate, natural increase)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 2: Uneven distribution of world population (density, spatial distribution, factors)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Practical work 2: Population densities in Cameroon",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 1: Man in his environment – the equatorial and tropical zones",
+   "lessons": [
+    {
+     "title": "Lesson 3: Man in the equatorial zone (location, climate, resources, methods of exploitation)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 3 (end): Problems faced and proposed solutions",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Further study 1: Deforestation in Cameroon (causes, manifestations, consequences, solutions)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 4: Man in the tropical zone (location, climate, resources)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 4 (end): Methods of exploitation, problems faced, proposed solutions",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Further study 2: Firewood crisis (causes, manifestations, consequences, solutions)",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 1: Man in his environment – resources and climate",
+   "lessons": [
+    {
+     "title": "Further study 3: Products gathered from the wild in Cameroon (njangsa, eru, bush mango, bitter cola)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Practical work 3: Identification of the biological resources in Cameroon",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 5: Man and climatic changes",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Further study 4: Water scarcity",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 2: Space occupation",
+   "lessons": [
+    {
+     "title": "Lesson 6: Countrysides in Africa (agricultural landscapes, rural settlements, attractive and repulsive aspects)",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 7: Towns in Africa (urban landscapes, informal activities)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 7 (end): Problems of African cities",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Further study 5: Informal sector activities in Africa",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Practical work 4: Location of regional and divisional headquarters",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Further study 6: Urban problems in Cameroon (types, causes, consequences, solutions)",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 8: Relationship between towns and countryside (economic)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 8 (end): Relationship between towns and countryside (socio-cultural and information)",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Further study 7: Rural exodus in Cameroon (causes, consequences, making the countryside attractive)",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

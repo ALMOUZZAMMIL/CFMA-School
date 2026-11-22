@@ -1,0 +1,165 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "ANGL",
+ "subject_fr": "Anglais",
+ "subject_en": "English Language",
+ "title": "English Language – Form 2",
+ "source": "Form 2 syllabus by week (30 weeks, 4 h/week); dates worked out from the school calendar",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Satisfying basic daily needs (15 h)",
+   "lessons": [
+    {
+     "title": "Week 1: Using public transportation – simple present tense; prepositions of movement; sounds /ʃ/ and /ʒ/",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Week 2: Consulting health professionals – modals and polite expressions; sounds /i/ and /iː/",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Week 2: Preparing and ordering meals – connectives of order and sequence; sounds /ʌ/ and /ɑ/",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Week 3: Ordering meals; being informed about the weather, news and sports – adverbs of frequency and manner; idioms",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Week 4: Treating illnesses and taking medication – modals expressing obligation; writing an informal letter",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Week 5: Using the telephone; shopping – imperatives; present continuous tense; writing a shopping list",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Week 6: Revision, evaluation and remediation",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Involvement in community activities and concerns (20 h)",
+   "lessons": [
+    {
+     "title": "Week 7: Participating in community work – simple sentences, simple past, active and passive voice; stress on two-syllable words",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Week 8: Celebrating public national holidays – present perfect; punctuation (exclamation mark, colon)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Week 9: Rights and duties of the child; young parliamentarians – question tags; active and passive voice",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Week 10: Setting up a neighbourhood watch – past perfect tense; prefixes denoting opposites; sounds /θ/ and /ð/",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Week 11: Volunteering and community service – compound sentences (cause and effect); abstract, concrete, countable and uncountable nouns",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Week 12: Revision, evaluation and remediation",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3: Gaining access to and using public services (20 h)",
+   "lessons": [
+    {
+     "title": "Week 13: Accessing healthcare services using ICT – affirmative, negative and interrogative sentences; ICT register",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Week 14: Accessing popular education services – modals of possibility, obligation, ability and permission; the formal letter",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Week 15: Garbage collection and disposal; postal services – imperatives (revision); addressing an envelope, money order form",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Week 16: Using library services; recreational services – reported speech",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Week 17: Recreational centres, banks and financial institutions – connectors, conditionals (type two); sounds /e/ and /eɪ/",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Week 18: Revision, evaluation and remediation",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4: Current global issues in the media (20 h)",
+   "lessons": [
+    {
+     "title": "Week 19: Finding out about scientific developments – comparatives and superlatives",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Week 20: Exploring issues related to pollution – expressing opinions (believe, think); sounds /ɔ/ and /ɔː/",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Week 21: Violence and corruption at school and in the community – coordinating and subordinating conjunctions",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Week 22: Exploring the world of entertainment – comparative adverbs; writing a poster",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Week 23: Healthcare issues: HIV/AIDS, cholera, malaria – punctuation (comma, exclamation mark, colon)",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Week 24: Revision, evaluation and remediation",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5: Exploring cultural issues and practices (20 h)",
+   "lessons": [
+    {
+     "title": "Week 25: Film shows and concerts by national artists – future tense",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Week 26: Attending festivals – simple past and past perfect (revision); descriptive adjectives",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Week 27: Visiting museums and handicraft centres – collective nouns",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Week 28: Exploring traditional dance – future tense, relative pronouns; sounds /s/ and /z/",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Week 29: Gender roles – indefinite and possessive pronouns; sounds /tʃ/ and /dʒ/",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Week 30: Revision, evaluation and remediation; general revision and end-of-year evaluation",
+     "date": "2027-04-19"
+    }
+   ]
+  }
+ ]
+}
