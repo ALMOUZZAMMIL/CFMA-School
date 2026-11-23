@@ -791,7 +791,9 @@
     "signinPanel": "Sign in to see your timetable, your classes or your children's school life.",
     "signinPrivacy": "Your information is only visible to the people who need it.",
     "noAccount": "No account yet?",
-    "haveAccount": "Already have an account?"
+    "haveAccount": "Already have an account?",
+    "welcomeBack": "Welcome back.",
+    "signinShort": "Sign in to open your space."
   },
   "access": {
     "requestTitle": "Request an account",

@@ -10,6 +10,7 @@
 // The real school installation never uses this; it runs `npm start`.
 'use strict';
 const { spawn, execFileSync } = require('child_process');
+const crypto = require('crypto');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
@@ -88,7 +89,28 @@ async function crawl(b, start) {
   return pages;
 }
 
+// Speed (slow mobile networks): the three stylesheets and two scripts are
+// joined and minified into one file each, and every file gets a name that
+// changes when its content changes (site.3f9a1c2b7d.css). Browsers can then
+// keep them for a year (see vercel.json) and each new page is a single small
+// download. The look is unchanged: same CSS, same order.
+let A = null; // published names of the fingerprinted files, filled by buildAssets()
+
+function useAssets(html) {
+  return html
+    .replace(/<link rel="preload" href="\.\.\/\.\.\/assets\/fonts\/[^"]*"[^>]*>/g, '')
+    .replace(/<link rel="stylesheet" href="\.\.\/\.\.\/assets\/(brand|preview)\.css">/g, '')
+    .replace(/<script src="\.\.\/\.\.\/assets\/preview\.js" defer><\/script>/g, '')
+    .replace(/<link rel="stylesheet" href="\.\.\/\.\.\/assets\/style\.css">/, `${A.preload}<link rel="stylesheet" href="../../assets/v/${A.css}">`)
+    .replace(/<script src="\.\.\/\.\.\/assets\/app\.js" defer><\/script>/g, `<script src="../../assets/v/${A.js}" defer></script>`)
+    .replace(/\.\.\/\.\.\/assets\/(icons\.svg|brand\/logo\.svg)/g, (m, f) => `../../assets/v/${A[f]}`);
+}
+
 function rewrite(html, pages, lang, dir) {
+  return useAssets(rewritePage(html, pages, lang, dir));
+}
+
+function rewritePage(html, pages, lang, dir) {
   const L = LABELS[lang];
   const roleLinks = ['visiteur', ...ROLES.map((r) => r.dir)].map((d) => `<a href="../${d}/index.html"${d === dir ? ' class="on" aria-current="true"' : ''}>${L[d]}</a>`).join(' ');
   const banner = `<div class="pvw-banner" role="note"><strong>${L.banner}</strong> <span>${L.view} ${roleLinks}</span></div>`;
@@ -105,12 +127,43 @@ function rewrite(html, pages, lang, dir) {
     .replace(/<body([^>]*)>/, `<body$1 data-pvw-lang="${lang}" data-pvw-role="${dir}">${banner}`);
 }
 
+function fingerprint(name, data) {
+  const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 10);
+  const ext = path.extname(name);
+  const out = `${path.basename(name, ext)}.${hash}${ext}`;
+  write(path.join(OUT, 'assets', 'v', out), data);
+  return out;
+}
+
+async function buildAssets(brandCss) {
+  const esbuild = require('esbuild');
+  const pub = (f) => fs.readFileSync(path.join(ROOT, 'public', f));
+  const extra = (f) => fs.readFileSync(path.join(__dirname, 'export-demo', f), 'utf8');
+  // Plain copies at the old addresses, for anything outside the demo pages.
+  fs.cpSync(path.join(ROOT, 'public'), path.join(OUT, 'assets'), { recursive: true });
+  write(path.join(OUT, 'assets', 'brand.css'), brandCss);
+  const fonts = {};
+  for (const f of fs.readdirSync(path.join(ROOT, 'public', 'fonts')).filter((n) => n.endsWith('.woff2'))) fonts[f] = fingerprint(f, pub(path.join('fonts', f)));
+  let css = [pub('style.css').toString('utf8'), brandCss, extra('preview.css')].join('\n');
+  css = css.replace(/url\("\/static\/fonts\/([^"]+)"\)/g, (m, f) => `url("${fonts[f]}")`);
+  css = (await esbuild.transform(css, { loader: 'css', minify: true })).code;
+  const js = (await esbuild.transform([pub('app.js').toString('utf8'), extra('preview.js')].join(';\n'), { loader: 'js', minify: true, target: 'es2015' })).code;
+  A = {
+    css: fingerprint('site.css', css),
+    js: fingerprint('site.js', js),
+    'icons.svg': fingerprint('icons.svg', pub('icons.svg')),
+    'brand/logo.svg': fingerprint('logo.svg', pub(path.join('brand', 'logo.svg'))),
+  };
+  // Start downloading both fonts at once instead of after the stylesheet arrives.
+  A.preload = Object.values(fonts).map((f) => `<link rel="preload" href="../../assets/v/${f}" as="font" type="font/woff2" crossorigin>`).join('');
+}
+
 function write(file, text) { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, text); }
 
 function save(pages, lang, dir) {
   const L = LABELS[lang];
   for (const [key, html] of pages) write(path.join(OUT, lang, dir, fileFor(key)), rewrite(html, pages, lang, dir));
-  write(path.join(OUT, lang, dir, 'missing.html'), `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${L.missing}</title><link rel="stylesheet" href="../../assets/style.css"><link rel="stylesheet" href="../../assets/preview.css"></head><body class="pvw-missing"><main class="container"><div class="empty card"><p>${L.missing}</p><a class="btn btn-primary" href="index.html">${L.back}</a></div></main></body></html>`);
+  write(path.join(OUT, lang, dir, 'missing.html'), `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${L.missing}</title><link rel="stylesheet" href="../../assets/v/${A.css}"></head><body class="pvw-missing"><main class="container"><div class="empty card"><p>${L.missing}</p><a class="btn btn-primary" href="index.html">${L.back}</a></div></main></body></html>`);
   console.log(`  ${lang}/${dir}: ${pages.size} pages`);
 }
 
@@ -125,6 +178,7 @@ async function main() {
       try { if ((await fetch(BASE + '/healthz')).ok) break; } catch { /* not up yet */ }
       await new Promise((r) => setTimeout(r, 200));
     }
+    await buildAssets(await (await fetch(BASE + '/brand.css')).text());
     for (const lang of LANGS) {
       const visitor = new Browser();
       visitor.jar.lang = lang;
@@ -140,9 +194,6 @@ async function main() {
         save(await crawl(b, '/'), lang, role.dir);
       }
     }
-    const brandCss = await (await fetch(BASE + '/brand.css')).text();
-    fs.cpSync(path.join(ROOT, 'public'), path.join(OUT, 'assets'), { recursive: true });
-    write(path.join(OUT, 'assets', 'brand.css'), brandCss);
     const css = path.join(OUT, 'assets', 'style.css');
     fs.writeFileSync(css, fs.readFileSync(css, 'utf8').replace(/url\("\/static\//g, 'url("'));
     fs.copyFileSync(path.join(__dirname, 'export-demo', 'preview.css'), path.join(OUT, 'assets', 'preview.css'));
