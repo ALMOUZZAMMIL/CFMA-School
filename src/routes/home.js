@@ -53,6 +53,48 @@ function weeklyAttendance(year, today, weeks = 8) {
   });
 }
 
+// Monday..Saturday of the current week, for the week strip above the agenda.
+function weekDays(today) {
+  const d = new Date(`${today}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7));
+  return Array.from({ length: 6 }, (_, i) => {
+    const x = new Date(d); x.setUTCDate(d.getUTCDate() + i);
+    const date = x.toISOString().slice(0, 10);
+    return { date, dow: i + 1, today: date === today };
+  });
+}
+
+// Today's lessons across the school (admin agenda), from the timetable (read only).
+function schoolAgenda(today, limit = 6) {
+  return db.get().prepare(`SELECT ts.start_time, ts.end_time, c.name AS class_name, s.name_en AS subject_en, s.name_fr AS subject_fr,
+      u.full_name AS teacher_name, cs.status AS session_status
+    FROM timetable_slots ts JOIN terms t ON t.id = ts.term_id JOIN teaching_assignments ta ON ta.id = ts.assignment_id
+    JOIN classes c ON c.id = ta.class_id JOIN subjects s ON s.id = ta.subject_id JOIN users u ON u.id = ta.teacher_id
+    LEFT JOIN class_sessions cs ON cs.slot_id = ts.id AND cs.date = @today
+    WHERE ts.day_of_week = @dow AND @today BETWEEN t.start_date AND t.end_date
+    AND NOT EXISTS (SELECT 1 FROM closures cl WHERE @today BETWEEN cl.start_date AND cl.end_date)
+    ORDER BY ts.start_time, c.name LIMIT ${Number(limit)}`).all({ today, dow: weekday(today) });
+}
+
+// One pupil's register marks for the last school days (Mon-Fri), oldest first.
+function recentDays(studentId, today, days = 10) {
+  const out = [];
+  const d = new Date(`${today}T00:00:00Z`);
+  while (out.length < days) {
+    const dow = d.getUTCDay();
+    if (dow !== 0 && dow !== 6) out.unshift(d.toISOString().slice(0, 10));
+    d.setUTCDate(d.getUTCDate() - 1);
+  }
+  const rows = db.get().prepare(`SELECT date, status FROM attendance_records WHERE student_id = ? AND date BETWEEN ? AND ? ORDER BY date`).all(studentId, out[0], out[out.length - 1]);
+  // Several lessons a day: show the worst mark of the day (absent > late > excused > present).
+  const rank = { absent: 4, late: 3, excused: 2, present: 1 };
+  return out.map((date) => {
+    const marks = rows.filter((r) => r.date === date).map((r) => r.status);
+    const status = marks.sort((a, b) => (rank[b] || 0) - (rank[a] || 0))[0] || null;
+    return { date, status };
+  });
+}
+
 function sumHours(rows) {
   return rows.reduce((acc, x) => ({ scheduled: acc.scheduled + x.scheduled, delivered: acc.delivered + x.delivered, missed: acc.missed + x.missed + x.cancelled, notRecorded: acc.notRecorded + x.notRecorded }), { scheduled: 0, delivered: 0, missed: 0, notRecorded: 0 });
 }
@@ -63,7 +105,7 @@ r.get('/', (req, res) => {
   const u = req.user;
   const year = res.locals.year;
   const today = res.locals.today;
-  const data = { title: req.t('nav.dashboard'), announcements: visibleAnnouncements(u, 5) };
+  const data = { title: req.t('nav.dashboard'), announcements: visibleAnnouncements(u, 5), week: weekDays(today) };
   if (!year && u.role === 'admin') return res.render('dashboard', { ...data, setupNeeded: true });
   if (u.role === 'teacher') Object.assign(data, { slots: [], hours: null, myProgress: [], pendingMakeups: 0 });
   if (u.role === 'teacher' && year) {
@@ -101,6 +143,7 @@ r.get('/', (req, res) => {
     const s = db.getSettings();
     data.repeated = reports.repeatedAbsences({ yearId: year.id, threshold: Number(s.repeat_absence_threshold), days: Number(s.repeat_absence_window_days), asOf: today }).slice(0, 5);
     data.trend = weeklyAttendance(year, today);
+    data.agenda = schoolAgenda(today);
     data.hours = sumHours(reports.hoursSummary({ yearId: year.id, asOf: today }).rows);
     ['scheduled', 'delivered', 'missed'].forEach((k) => { data.hours[k] = round1(data.hours[k]); });
     // The five teaching assignments furthest behind their yearly plan.
@@ -119,7 +162,7 @@ r.get('/', (req, res) => {
       const cls = access.studentClass(id, year.id);
       const att = db.get().prepare(`SELECT SUM(status='absent') absent, SUM(status='late') late, SUM(status='excused') excused, COUNT(*) total
         FROM attendance_records WHERE student_id = ? AND date BETWEEN ? AND ?`).get(id, year.start_date, year.end_date);
-      return { ...st, class_name: cls && cls.name, att };
+      return { ...st, class_name: cls && cls.name, att, days: recentDays(id, today) };
     });
   }
   res.render('dashboard', data);

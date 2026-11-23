@@ -275,7 +275,12 @@
     "onTrack": "Dans les temps",
     "planned": "Prévu à ce jour",
     "myProgress": "Ma progression du programme",
-    "attendanceRateChild": "Taux de présence"
+    "attendanceRateChild": "Taux de présence",
+    "agenda": "Agenda du jour",
+    "agendaEmpty": "Aucun cours à l'emploi du temps aujourd'hui.",
+    "thisWeek": "Cette semaine",
+    "lastDays": "{n} derniers jours de classe",
+    "noMark": "Pas d'appel ce jour"
   },
   "teaching": {
     "dayTitle": "Cours par jour",

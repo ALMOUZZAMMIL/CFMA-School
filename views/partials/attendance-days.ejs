@@ -1,0 +1,12 @@
+<%# Last school days for one pupil: one round mark per day (worst mark of the day). %>
+<% var mark = { present: 'check', late: 'clock', absent: 'close', excused: 'info' }; %>
+<div class="att-days">
+  <p class="att-days-title small muted"><%= t('dashboard.lastDays', { n: days.length }) %></p>
+  <ol class="att-days-row">
+    <% days.forEach(function (d) { %>
+    <li><span class="att-days-date"><%= d.date.slice(8, 10) %>/<%= d.date.slice(5, 7) %></span>
+      <% if (d.status) { %><span class="att-dot att-<%= d.status %>" title="<%= t('attendance.st.' + d.status) %>"><%- include('icon', { name: mark[d.status], cls: 'ico-xs' }) %><span class="sr-only"><%= t('attendance.st.' + d.status) %></span></span><% } else { %><span class="att-dot att-none" title="<%= t('dashboard.noMark') %>">–<span class="sr-only"><%= t('dashboard.noMark') %></span></span><% } %>
+    </li>
+    <% }) %>
+  </ol>
+</div>

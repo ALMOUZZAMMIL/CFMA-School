@@ -54,6 +54,13 @@
       <% } %>
     </section>
     <section class="card">
+      <div class="card-head"><h2><%= t('dashboard.agenda') %></h2><a href="/admin/timetable"><%= t('nav.timetable') %></a></div>
+      <%- include('partials/agenda', { week: week, items: agenda }) %>
+    </section>
+  </div>
+
+  <div class="dash-grid cols-3">
+    <section class="card">
       <div class="card-head"><h2><%= t('dashboard.today') %></h2><a href="/teaching"><%= t('common.seeAll') %></a></div>
       <div class="metric-row">
         <a class="metric" href="/teaching"><strong><%= stats.sessionsToday %></strong><span><%= t('dashboard.sessionsToday') %></span></a>
@@ -68,9 +75,6 @@
         <li><a href="/teaching"><%= t('hours.notRecorded') %></a><strong><%= hours.notRecorded %></strong></li>
       </ul>
     </section>
-  </div>
-
-  <div class="dash-grid cols-2">
     <section class="card">
       <div class="card-head"><h2><%= t('dashboard.behindTitle') %></h2><a href="/progress"><%= t('common.seeAll') %></a></div>
       <% if (!behind.length) { %><p class="muted"><%= t('dashboard.behindNone') %></p><% } else { %>
@@ -130,6 +134,7 @@
   <div class="dash-grid cols-2-1">
     <section class="card">
       <div class="card-head"><h2><%= t('dashboard.todayClasses') %></h2><a href="/teaching"><%= t('common.seeAll') %></a></div>
+      <%- include('partials/agenda', { week: week, items: [], stripOnly: true }) %>
       <% if (!slots || !slots.length) { %>
         <div class="empty"><p><%= t('dashboard.noClassesToday') %></p><a class="btn" href="/timetable"><%= t('dashboard.viewTimetable') %></a></div>
       <% } else { %>
@@ -193,6 +198,7 @@
         <div class="metric"><strong class="<%= c.att.late ? 'text-warn' : '' %>"><%= c.att.late || 0 %></strong><span><%= t('attendance.st.late') %></span></div>
         <div class="metric"><strong><%= c.att.excused || 0 %></strong><span><%= t('attendance.st.excused') %></span></div>
       </div>
+      <%- include('partials/attendance-days', { days: c.days }) %>
       <% } %>
       <div class="actions"><a class="btn btn-primary" href="/students/<%= c.id %>"><%= t('common.open') %></a><a class="btn" href="/timetable?student=<%= c.id %>"><%- include('partials/icon', { name: 'calendar', cls: 'ico-sm' }) %><%= t('nav.timetable') %></a></div>
     </section>
