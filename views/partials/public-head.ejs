@@ -9,9 +9,11 @@
 <link rel="stylesheet" href="/brand.css">
 <script src="/static/app.js?v=<%= assetV %>" defer></script>
 </head>
-<body class="public">
+<body class="public<%= locals.split ? ' public-split' : '' %>">
 <a class="skip" href="#main"><%= t('common.skipToContent') %></a>
 <% if (settings.demo_mode === '1') { %><details class="demo-strip" role="note"><summary><%- include('icon', { name: 'info', cls: 'ico-sm' }) %><span><%= t('common.demoShort') %></span></summary><p><%= t('common.demoBanner') %></p></details><% } %>
+<% if (locals.split) { %><div class="split">
+<% } else { %>
 <header class="site-header">
   <div class="site-header-inner">
     <a class="site-brand" href="/">
@@ -30,3 +32,4 @@
   </div>
 </header>
 <main id="main">
+<% } %>

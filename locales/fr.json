@@ -781,7 +781,9 @@
     "signinPanel": "Connectez-vous pour voir votre emploi du temps, vos classes ou la scolarité de vos enfants.",
     "signinPrivacy": "Vos informations ne sont visibles que par les personnes concernées.",
     "noAccount": "Pas encore de compte ?",
-    "haveAccount": "Vous avez déjà un compte ?"
+    "haveAccount": "Vous avez déjà un compte ?",
+    "welcomeBack": "Bon retour parmi nous.",
+    "signinShort": "Connectez-vous pour accéder à votre espace."
   },
   "access": {
     "requestTitle": "Demander un compte",
