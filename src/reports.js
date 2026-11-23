@@ -2,6 +2,18 @@
 // Calculations for teaching hours and lesson progress. Kept separate from routes so they
 // can be tested and reused by printable views and CSV exports.
 const db = require('./db');
+const schoolDays = require('./school-days');
+
+// The school calendar changes rarely; keep it for a few seconds so a page listing hundreds of
+// classes does not rebuild it for each one.
+const calCache = new Map();
+function schoolCalendar(yearId) {
+  const hit = calCache.get(yearId);
+  if (hit && Date.now() - hit.at < 5000) return hit.cal;
+  const cal = schoolDays.calendar(yearId);
+  calCache.set(yearId, { at: Date.now(), cal });
+  return cal;
+}
 const { minutesBetween, weekday, eachDate } = require('./util');
 
 function closedDates(yearId) {
@@ -117,7 +129,8 @@ function progressFor(a, asOf) {
   const plannedToDate = plannedIndex + 1;
   // The oldest lesson that was due by asOf and is not finished: how long the class has waited for it.
   const oldestLate = lessons.find((l) => l.isLate) || null;
-  const daysBehind = oldestLate ? Math.round((Date.parse(`${asOf}T00:00:00Z`) - Date.parse(`${oldestLate.planned_date}T00:00:00Z`)) / 86400000) : 0;
+  // Counted in school days: weekends, holidays and exam periods do not make a class later.
+  const daysBehind = oldestLate ? schoolCalendar(a.year_id).between(oldestLate.planned_date, asOf) : 0;
   return {
     plan,
     chapters,
@@ -142,7 +155,7 @@ function progressFor(a, asOf) {
  * Curriculum status of one progress result, from the school's settings:
  *   no_plan     no progression sheet for this class and subject
  *   not_submitted  the sheet is still a draft (not locked), so it cannot be tracked yet
- *   on_track    nothing overdue by more than progress_grace_days
+ *   on_track    nothing overdue by more than progress_grace_days (school days)
  *   behind      the oldest unfinished lesson was due more than progress_grace_days ago
  *   far_behind  ... more than progress_alert_days ago
  *   ahead       more lessons completed than planned so far
@@ -150,8 +163,8 @@ function progressFor(a, asOf) {
 function curriculumStatus(p, settings) {
   if (!p.plan || !p.total) return 'no_plan';
   if (p.plan.status === 'draft') return 'not_submitted';
-  const grace = Number(settings.progress_grace_days) || 7;
-  const alert = Math.max(Number(settings.progress_alert_days) || 21, grace);
+  const grace = Number(settings.progress_grace_days) || 5;
+  const alert = Math.max(Number(settings.progress_alert_days) || 15, grace);
   if (p.daysBehind > alert) return 'far_behind';
   if (p.daysBehind > grace) return 'behind';
   if (p.gap > 0) return 'ahead';

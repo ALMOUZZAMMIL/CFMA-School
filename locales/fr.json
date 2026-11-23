@@ -389,14 +389,14 @@
       "completed": "Terminée",
       "delayed": "En retard",
       "notstarted": "Pas commencée",
-      "far_behind": "Fort retard : {n} leçon(s), {days} jours",
-      "behind": "En retard : {n} leçon(s), {days} jours",
+      "far_behind": "Fort retard : {n} leçon(s), {days} jours de classe",
+      "behind": "En retard : {n} leçon(s), {days} jours de classe",
       "ahead": "{n} leçon(s) d'avance",
       "on_track": "À jour",
       "not_submitted": "Fiche non soumise",
       "no_plan": "Pas de fiche de progression"
     },
-    "explainStatus": "Pour chaque classe et matière : la leçon où elle devrait être aujourd'hui selon la fiche de progression verrouillée, la dernière leçon réellement atteinte, et si elle est en retard. En retard = une leçon prévue il y a plus de {grace} jours n'est pas terminée ; fort retard = plus de {alert} jours.",
+    "explainStatus": "Pour chaque classe et matière : la leçon où elle devrait être aujourd'hui selon la fiche de progression verrouillée, la dernière leçon réellement atteinte, et si elle est en retard. Les retards sont comptés en jours de classe (week-ends, congés et périodes d'examen exclus). En retard = une leçon prévue il y a plus de {grace} jours de classe n'est pas terminée ; fort retard = plus de {alert}.",
     "status": "Situation",
     "shouldBeOn": "Devrait être à",
     "reached": "Atteint",
@@ -410,10 +410,10 @@
     "classesBehind": "Classes en retard",
     "farBehindCol": "Fort retard",
     "worstDelay": "Plus long retard",
-    "days": "{n} jours",
+    "days": "{n} jours de classe",
     "cnt": {
-      "far_behind": "en fort retard (plus de {days} jours)",
-      "behind": "en retard (plus de {days} jours)",
+      "far_behind": "en fort retard (plus de {days} jours de classe)",
+      "behind": "en retard (plus de {days} jours de classe)",
       "on_track": "à jour ou en avance",
       "no_sheet": "sans fiche de progression verrouillée"
     },
@@ -441,7 +441,9 @@
     "hour": "Heure",
     "recorded": "Enregistré",
     "notRecorded": "Non enregistré",
-    "nowBadge": "maintenant"
+    "nowBadge": "maintenant",
+    "examPaused": "période d'examen, les cours s'arrêtent.",
+    "examContinues": "période d'examen, les cours continuent."
   },
   "plans": {
     "title": "Fiches de progression",
@@ -574,7 +576,61 @@
       "request_approved": "Demande approuvée, fiche ouverte",
       "request_rejected": "Demande refusée",
       "reopened": "Ouverte pour modification par l'administration",
-      "window_closed": "Verrouillée de nouveau par l'administration"
+      "window_closed": "Verrouillée de nouveau par l'administration",
+      "term_submitted": "Trimestre remis et verrouillé",
+      "scheduled": "Dates calculées à partir des durées"
+    },
+    "termSubmitted": "La partie de la fiche pour ce trimestre est remise et verrouillée.",
+    "scheduled": "Les dates ont été calculées à partir des durées.",
+    "scheduleNothing": "Rien à changer : donnez d'abord une durée aux leçons.",
+    "importRowTermClosed": "Ligne {row} : la période de dépôt pour « {term} » n'est pas ouverte.",
+    "importRowChapterLocked": "Ligne {row} : ce chapitre appartient à un trimestre verrouillé.",
+    "duration": "Temps pour terminer",
+    "durNone": "Durée…",
+    "dur": {
+      "1d": "1 jour",
+      "2d": "2 jours",
+      "3d": "3 jours",
+      "2-3d": "2 à 3 jours",
+      "1w": "1 semaine",
+      "1-2w": "1 à 2 semaines",
+      "2w": "2 semaines",
+      "2-3w": "2 à 3 semaines",
+      "3w": "3 semaines",
+      "4w": "4 semaines"
+    },
+    "timeFrame": "Période",
+    "fromTo": "{from} → {to}",
+    "examInside": "contient des examens (non comptés)",
+    "chapterSpan": "{from} → {to}",
+    "addLessonHelp": "Choisissez combien de temps la leçon doit prendre (par exemple 2 jours, 1 semaine, 1 à 2 semaines), puis cliquez sur « Calculer les dates ». Vous pouvez aussi saisir une date vous-même.",
+    "examsTitle": "Périodes d'examen ({n})",
+    "examsHelp": "les cours s'arrêtent ces jours-là, ils sont donc sautés",
+    "sched": {
+      "title": "Calculer les dates",
+      "help": "Chaque leçon commence quand la précédente se termine et dure le temps choisi, en jours de classe. Les week-ends, congés et périodes d'examen sont sautés. Chaque chapitre commence au plus tôt au début de son trimestre.",
+      "button": "Calculer les dates"
+    },
+    "win": {
+      "title": "Périodes de dépôt des fiches de progression",
+      "help": "Pour chaque trimestre, les dates pendant lesquelles les enseignants peuvent déposer ou compléter leur fiche de progression pour ce trimestre. En dehors de ces dates, ils ne peuvent rien écrire ; après la période, toute modification demande votre accord. Laissez vide pour ne pas limiter.",
+      "opens": "Ouverture",
+      "closes": "Fermeture",
+      "isOpen": "Ouverte",
+      "isPast": "Fermée",
+      "isSoon": "À venir",
+      "invalid": "Vérifiez les dates : chaque période a une date d'ouverture et de fermeture, l'ouverture en premier.",
+      "closedNow": "La période de dépôt est fermée. Attendez que l'administration ouvre la suivante.",
+      "openBadge": "ouvert au dépôt",
+      "openUntil": "Période de dépôt ouverte pour {terms} jusqu'au {date}.",
+      "closedDraft": "La période de dépôt est fermée : vous ne pouvez pas modifier ce brouillon avant que l'administration ouvre la suivante.",
+      "closedList": "La période de dépôt des fiches de progression est fermée. L'administration en ouvre une chaque trimestre.",
+      "waitWindow": "En attente de la période de dépôt",
+      "termOpen": "Période de dépôt ouverte pour {terms} jusqu'au {date}.",
+      "termOpenHelp": "Vous pouvez ajouter et modifier les chapitres et leçons de ce trimestre. Les leçons des autres trimestres, et celles déjà enseignées, restent verrouillées. Quand vous avez terminé, verrouillez ce trimestre.",
+      "confirmTerm": "Verrouiller la partie de la fiche pour ce trimestre ? Ensuite, toute modification demande l'accord de l'administration.",
+      "submitTerm": "Remettre et verrouiller {terms}",
+      "termDone": "Vous avez remis la partie de la fiche pour ce trimestre."
     }
   },
   "attendance": {
@@ -706,7 +762,10 @@
     "summary": "{lessons} cours par semaine, {hours} heures au total.",
     "shortBreak": "Petite pause ({minutes} min)",
     "longBreak": "Grande pause ({minutes} min)",
-    "clash": "Même horaire : options ou conflit ?"
+    "clash": "Même horaire : options ou conflit ?",
+    "examsTitle": "Périodes d'examen du trimestre",
+    "examContinue": "les cours continuent",
+    "currentLesson": "Leçon en cours (fiche de progression)"
   },
   "admin": {
     "title": "Administration",
@@ -839,9 +898,9 @@
     "primaryHelp": "La couleur principale sert de fond au texte blanc : elle doit être assez foncée pour rester lisible.",
     "primaryContrast": "cette couleur est trop claire pour du texte blanc. Choisissez une teinte plus foncée.",
     "curriculumTitle": "Suivi du programme",
-    "curriculumHelp": "Une classe est en retard quand sa plus ancienne leçon non terminée était prévue il y a plus que le premier nombre de jours, et en fort retard au-delà du second. Le dernier champ est la durée pendant laquelle une demande approuvée garde une fiche de progression verrouillée ouverte.",
-    "progressGrace": "En retard après (jours)",
-    "progressAlert": "En fort retard après (jours)",
+    "curriculumHelp": "Compté en jours de classe : les week-ends, congés et périodes d'examen où les cours s'arrêtent ne comptent pas. Une classe est en retard quand sa plus ancienne leçon non terminée était prévue il y a plus que le premier nombre de jours de classe, et en fort retard au-delà du second. Le dernier champ est la durée pendant laquelle une demande approuvée garde une fiche verrouillée ouverte.",
+    "progressGrace": "En retard après (jours de classe)",
+    "progressAlert": "En fort retard après (jours de classe)",
     "planWindow": "Durée d'ouverture après approbation (heures)"
   },
   "audit": {
@@ -1065,5 +1124,22 @@
       "holiday": "Congé",
       "other": "Autre"
     }
+  },
+  "exams": {
+    "title": "Calendrier des examens",
+    "help": "Les périodes d'examen de l'année. Si les cours s'arrêtent pendant un examen, ces jours sont sautés quand les dates des leçons sont calculées à partir de leurs durées, et ils ne comptent pas dans le retard d'une classe.",
+    "none": "Aucune période d'examen pour l'instant.",
+    "name": "Examen",
+    "lessons": "Cours pendant les examens",
+    "pause": "Les cours s'arrêtent",
+    "continue": "Les cours continuent",
+    "addedHere": "ajouté ici",
+    "confirmDelete": "Supprimer cette période d'examen ?",
+    "add": "Ajouter une période d'examen",
+    "from": "Du",
+    "to": "Au",
+    "nameFr": "Nom (français)",
+    "nameEn": "Nom (anglais)",
+    "importedNoDelete": "Cette période d'examen vient du fichier du calendrier scolaire. Vous pouvez choisir si les cours s'arrêtent, mais pas la supprimer ici."
   }
 }

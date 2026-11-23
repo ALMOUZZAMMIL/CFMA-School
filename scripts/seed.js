@@ -270,6 +270,18 @@ d.transaction(() => {
   });
   audit(pPhys, 'lesson_added', tMath, stamp(-2, '19:25:00'), { after: { title: 'Leçon 2.3', planned_date: addDays('2026-09-14', 28) } });
 
+  // Exam timetable (demo): an exam week in two weeks' time; lessons stop during it.
+  const monday = addDays(today, 1 - weekday(today));
+  d.prepare(`INSERT INTO school_events (year_id, start_date, end_date, category, title_fr, title_en, pauses_lessons, source)
+    VALUES (?, ?, ?, 'evaluation', 'Évaluations de fin de trimestre (démo)', 'End-of-term tests (demo)', 1, 'admin')`).run(year, addDays(monday, 14), addDays(monday, 18));
+  // Upload window for the next term's progression sheets: open now (demo).
+  d.prepare('UPDATE terms SET plan_window_start = ?, plan_window_end = ? WHERE id = ?').run(addDays(today, -7), addDays(today, 14), t2);
+  // The draft sheet uses durations; its dates are worked out from them (skipping the exam week).
+  const durs = [[5, 5], [5, 10], [2, 2], [5, 5], [10, 15]];
+  d.prepare('SELECT l.id FROM plan_lessons l JOIN plan_chapters c ON c.id = l.chapter_id WHERE c.plan_id = ? ORDER BY c.ordinal, l.ordinal').all(pPhys)
+    .forEach((l, i) => d.prepare('UPDATE plan_lessons SET duration_days = ?, duration_max_days = ? WHERE id = ?').run(durs[i % durs.length][0], durs[i % durs.length][1], l.id));
+  require('../src/school-days').schedulePlan(d.prepare('SELECT * FROM plans WHERE id = ?').get(pPhys), () => true);
+
   // Announcements.
   const ann = (cat, tfr, bfr, ten, ben, audience, classId, publishAt) => d.prepare(`INSERT INTO announcements (category, title_fr, body_fr, title_en, body_en, audience, class_id, publish_at, status, created_by)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'published', ?)`).run(cat, tfr, bfr, ten, ben, audience, classId, publishAt, admin);

@@ -17,6 +17,9 @@ const planId = (title) => q('SELECT id FROM plans WHERE title = ?', title).id;
 const firstLesson = (pid) => q('SELECT l.* FROM plan_lessons l JOIN plan_chapters c ON c.id = l.chapter_id WHERE c.plan_id = ? ORDER BY c.ordinal, l.ordinal LIMIT 1', pid);
 
 test('a locked sheet cannot be changed or deleted by its teacher, nor by the administration without opening it', async () => {
+  // No upload window open during this test (windows are tested below).
+  const saved = ctx.db.get().prepare('SELECT id, plan_window_start, plan_window_end FROM terms').all();
+  run('UPDATE terms SET plan_window_start = NULL, plan_window_end = NULL');
   const pid = planId('Mathématiques — Seconde C (exemple)');
   const l = firstLesson(pid);
   const lessons = q('SELECT COUNT(*) n FROM plan_lessons l JOIN plan_chapters c ON c.id = l.chapter_id WHERE c.plan_id = ?', pid).n;
@@ -31,6 +34,7 @@ test('a locked sheet cannot be changed or deleted by its teacher, nor by the adm
   }
   assert.deepStrictEqual(firstLesson(pid), l);
   assert.strictEqual(q('SELECT COUNT(*) n FROM plan_lessons l JOIN plan_chapters c ON c.id = l.chapter_id WHERE c.plan_id = ?', pid).n, lessons);
+  saved.forEach((t) => run('UPDATE terms SET plan_window_start = ?, plan_window_end = ? WHERE id = ?', t.plan_window_start, t.plan_window_end, t.id));
 });
 
 test('a teacher drafts the sheet for a subject they teach, then submitting locks it', async () => {
@@ -165,4 +169,59 @@ test('curriculum tracker: classes behind are flagged, with how far behind', asyn
   const mine = await teacher.get('/progress');
   assert.strictEqual(mine.status, 200);
   assert.doesNotMatch(mine.text, /Teacher-English/);
+});
+
+test('upload window: on a locked sheet a teacher can add and change only the open term, then lock it', async () => {
+  const pid = planId('Mathématiques — Première F3 (exemple)');
+  const t2 = q("SELECT * FROM terms WHERE ordinal = 2");
+  assert.ok(t2.plan_window_start <= ctx.db.get().prepare("SELECT date('now') d").get().d, 'seeded window is open');
+  const c = await new Client(ctx.base).login('demo.prof.maths');
+  await c.get(`/plans/${pid}`);
+  const term1Lesson = firstLesson(pid);
+  await c.post(`/plans/lessons/${term1Lesson.id}`, { title: 'Term 1 change', planned_date: term1Lesson.planned_date });
+  assert.strictEqual(firstLesson(pid).title, term1Lesson.title, 'term 1 stays locked');
+  const ch2 = q('SELECT * FROM plan_chapters WHERE plan_id = ? AND term_id = ? ORDER BY ordinal LIMIT 1', pid, t2.id);
+  await c.post(`/plans/chapters/${ch2.id}/lessons`, { title: 'Révision (term 2)', duration: '1-2w' });
+  const added = q("SELECT * FROM plan_lessons WHERE chapter_id = ? AND title = 'Révision (term 2)'", ch2.id);
+  assert.ok(added, 'term 2 lesson added');
+  assert.strictEqual(added.duration_days, 5);
+  assert.strictEqual(added.duration_max_days, 10);
+  await c.post(`/plans/${pid}/schedule`);
+  const sched = q('SELECT * FROM plan_lessons WHERE id = ?', added.id);
+  assert.ok(sched.start_date && sched.planned_date > sched.start_date, 'dates worked out');
+  assert.ok(sched.start_date >= t2.start_date);
+  await c.post(`/plans/${pid}/submit`);
+  assert.ok(q('SELECT 1 FROM plan_term_submissions WHERE plan_id = ? AND term_id = ?', pid, t2.id));
+  await c.post(`/plans/chapters/${ch2.id}/lessons`, { title: 'After term lock' });
+  assert.ok(!q("SELECT 1 FROM plan_lessons WHERE title = 'After term lock'"));
+});
+
+test('module dates skip weekends, holidays and exam periods; delays are counted in school days', () => {
+  const days = require('../src/school-days');
+  const year = q('SELECT id FROM academic_years WHERE is_current = 1').id;
+  const ex = run("INSERT INTO school_events (year_id, start_date, end_date, category, title_fr, title_en, pauses_lessons, source) VALUES (?, '2027-03-08', '2027-03-12', 'evaluation', 'Test', 'Test', 1, 'admin')", year);
+  const cal = days.calendar(year);
+  assert.strictEqual(cal.isSchoolDay('2027-03-06'), false); // Saturday
+  assert.strictEqual(cal.isSchoolDay('2027-03-09'), false); // exam week
+  // 1 week starting Monday 1 March: 1-5 March. 2 weeks: the exam week is skipped, so it ends 19 March.
+  assert.strictEqual(cal.nth('2027-03-01', 5), '2027-03-05');
+  assert.strictEqual(cal.nth('2027-03-01', 10), '2027-03-19');
+  // Due 5 March, checked 19 March: 5 school days late, not 14 calendar days.
+  assert.strictEqual(cal.between('2027-03-05', '2027-03-19'), 5);
+  run('UPDATE school_events SET pauses_lessons = 0 WHERE id = ?', ex.lastInsertRowid);
+  assert.strictEqual(days.calendar(year).nth('2027-03-01', 10), '2027-03-12');
+});
+
+test('exam timetable: the administration adds exam periods and chooses whether lessons stop', async () => {
+  const admin = await new Client(ctx.base).login('demo.admin');
+  await admin.get('/calendar/exams');
+  await admin.post('/calendar/exams', { start_date: '2027-04-12', end_date: '2027-04-16', title_fr: 'Examens T3', title_en: 'Term 3 exams', pauses_lessons: '1' });
+  const e = q("SELECT * FROM school_events WHERE title_fr = 'Examens T3'");
+  assert.ok(e && e.pauses_lessons === 1 && e.source === 'admin');
+  await admin.post(`/calendar/exams/${e.id}/pause`, { pauses_lessons: '0' });
+  assert.strictEqual(q('SELECT pauses_lessons FROM school_events WHERE id = ?', e.id).pauses_lessons, 0);
+  const teacher = await new Client(ctx.base).login('demo.prof.maths');
+  assert.strictEqual((await teacher.get('/calendar/exams')).status, 403);
+  const tt = await teacher.get('/timetable');
+  assert.match(tt.text, /tt-track/); // each lesson shows where the class is in its sheet
 });

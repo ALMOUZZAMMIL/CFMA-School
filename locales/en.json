@@ -389,14 +389,14 @@
       "completed": "Completed",
       "delayed": "Delayed",
       "notstarted": "Not started",
-      "far_behind": "Far behind: {n} lesson(s), {days} days",
-      "behind": "Behind: {n} lesson(s), {days} days",
+      "far_behind": "Far behind: {n} lesson(s), {days} school days",
+      "behind": "Behind: {n} lesson(s), {days} school days",
       "ahead": "{n} lesson(s) ahead",
       "on_track": "On track",
       "not_submitted": "Sheet not submitted",
       "no_plan": "No progression sheet"
     },
-    "explainStatus": "For each class and subject: the lesson it should be on today according to the locked progression sheet, the last lesson actually reached, and whether it is behind. Behind = a lesson due more than {grace} days ago is not finished; far behind = more than {alert} days.",
+    "explainStatus": "For each class and subject: the lesson it should be on today according to the locked progression sheet, the last lesson actually reached, and whether it is behind. Delays are counted in school days (weekends, holidays and exam periods are not counted). Behind = a lesson due more than {grace} school days ago is not finished; far behind = more than {alert}.",
     "status": "Status",
     "shouldBeOn": "Should be on",
     "reached": "Reached",
@@ -410,10 +410,10 @@
     "classesBehind": "Classes behind",
     "farBehindCol": "Far behind",
     "worstDelay": "Longest delay",
-    "days": "{n} days",
+    "days": "{n} school days",
     "cnt": {
-      "far_behind": "far behind (over {days} days)",
-      "behind": "behind (over {days} days)",
+      "far_behind": "far behind (over {days} school days)",
+      "behind": "behind (over {days} school days)",
       "on_track": "on track or ahead",
       "no_sheet": "no locked progression sheet"
     },
@@ -441,7 +441,9 @@
     "hour": "Time",
     "recorded": "Recorded",
     "notRecorded": "Not recorded",
-    "nowBadge": "now"
+    "nowBadge": "now",
+    "examPaused": "exam period, lessons stop.",
+    "examContinues": "exam period, lessons go on."
   },
   "plans": {
     "title": "Progression sheets",
@@ -574,7 +576,61 @@
       "request_approved": "Request approved, sheet opened",
       "request_rejected": "Request refused",
       "reopened": "Opened for changes by the administration",
-      "window_closed": "Locked again by the administration"
+      "window_closed": "Locked again by the administration",
+      "term_submitted": "Term handed in and locked",
+      "scheduled": "Dates worked out from durations"
+    },
+    "termSubmitted": "This term's part of the sheet is handed in and locked.",
+    "scheduled": "The dates have been worked out from the durations.",
+    "scheduleNothing": "Nothing to change: give the lessons a duration first.",
+    "importRowTermClosed": "Row {row}: the upload window for '{term}' is not open.",
+    "importRowChapterLocked": "Row {row}: this chapter belongs to a locked term.",
+    "duration": "Time to finish",
+    "durNone": "Duration…",
+    "dur": {
+      "1d": "1 day",
+      "2d": "2 days",
+      "3d": "3 days",
+      "2-3d": "2 to 3 days",
+      "1w": "1 week",
+      "1-2w": "1 to 2 weeks",
+      "2w": "2 weeks",
+      "2-3w": "2 to 3 weeks",
+      "3w": "3 weeks",
+      "4w": "4 weeks"
+    },
+    "timeFrame": "Time frame",
+    "fromTo": "{from} → {to}",
+    "examInside": "includes exams (not counted)",
+    "chapterSpan": "{from} → {to}",
+    "addLessonHelp": "Choose how long the lesson should take (for example 2 days, 1 week, 1 to 2 weeks), then press 'Work out the dates'. You can also type a date yourself.",
+    "examsTitle": "Exam periods ({n})",
+    "examsHelp": "lessons stop on these days, so they are skipped",
+    "sched": {
+      "title": "Work out the dates",
+      "help": "Each lesson starts when the previous one ends and lasts the time you chose, in school days. Weekends, holidays and exam periods are skipped. Each chapter starts no earlier than the start of its term.",
+      "button": "Work out the dates"
+    },
+    "win": {
+      "title": "Upload windows for progression sheets",
+      "help": "For each term, the dates during which teachers can upload or complete their progression sheet for that term. Outside these dates teachers cannot write; after the window, changes need your approval. Leave both empty for no limit.",
+      "opens": "Opens",
+      "closes": "Closes",
+      "isOpen": "Open now",
+      "isPast": "Closed",
+      "isSoon": "Coming",
+      "invalid": "Check the dates: each window needs an opening and a closing date, the opening first.",
+      "closedNow": "The upload window is closed. Wait for the administration to open the next one.",
+      "openBadge": "open for upload",
+      "openUntil": "Upload window open for {terms} until {date}.",
+      "closedDraft": "The upload window is closed: you cannot change this draft until the administration opens the next one.",
+      "closedList": "The upload window for progression sheets is closed. The administration opens one each term.",
+      "waitWindow": "Waiting for the upload window",
+      "termOpen": "Upload window open for {terms} until {date}.",
+      "termOpenHelp": "You can add and change the chapters and lessons of this term. Lessons of other terms, and lessons already taught, stay locked. When you have finished, lock this term.",
+      "confirmTerm": "Lock this term's part of the sheet? After this, changes need the administration's approval.",
+      "submitTerm": "Hand in and lock {terms}",
+      "termDone": "You have handed in this term's part of the sheet."
     }
   },
   "attendance": {
@@ -706,7 +762,10 @@
     "summary": "{lessons} lessons a week, {hours} hours in total.",
     "shortBreak": "Short break ({minutes} min)",
     "longBreak": "Long break ({minutes} min)",
-    "clash": "Same time: option groups or a clash?"
+    "clash": "Same time: option groups or a clash?",
+    "examsTitle": "Exam periods this term",
+    "examContinue": "lessons go on",
+    "currentLesson": "Lesson now (progression sheet)"
   },
   "admin": {
     "title": "Administration",
@@ -839,9 +898,9 @@
     "primaryHelp": "The main colour is used behind white text, so it must be dark enough to read.",
     "primaryContrast": "this colour is too light for white text. Choose a darker shade.",
     "curriculumTitle": "Curriculum tracking",
-    "curriculumHelp": "A class is marked behind when its oldest unfinished lesson was due more than the first number of days ago, and far behind after the second. The last field is how long an approved change request keeps a locked progression sheet open.",
-    "progressGrace": "Behind after (days)",
-    "progressAlert": "Far behind after (days)",
+    "curriculumHelp": "Counted in school days: weekends, holidays and exam periods during which lessons stop are not counted. A class is behind when its oldest unfinished lesson was due more than the first number of school days ago, and far behind after the second. The last field is how long an approved change request keeps a locked progression sheet open.",
+    "progressGrace": "Behind after (school days)",
+    "progressAlert": "Far behind after (school days)",
     "planWindow": "Edit window after approval (hours)"
   },
   "audit": {
@@ -1065,5 +1124,22 @@
       "holiday": "Holiday",
       "other": "Other"
     }
+  },
+  "exams": {
+    "title": "Exam timetable",
+    "help": "Exam periods for the year. If lessons stop during an exam period, those days are skipped when lesson dates are worked out from their durations, and they are not counted when measuring how far behind a class is.",
+    "none": "No exam periods yet.",
+    "name": "Exam",
+    "lessons": "Lessons during the exams",
+    "pause": "Lessons stop",
+    "continue": "Lessons go on",
+    "addedHere": "added here",
+    "confirmDelete": "Delete this exam period?",
+    "add": "Add an exam period",
+    "from": "From",
+    "to": "To",
+    "nameFr": "Name (French)",
+    "nameEn": "Name (English)",
+    "importedNoDelete": "This exam period comes from the school calendar file. You can choose whether lessons stop, but not delete it here."
   }
 }

@@ -4,6 +4,10 @@
 <% if (user.role === 'admin' && pendingRequests) { %>
 <p class="notice"><span aria-hidden="true">◷</span> <%= t('plans.req.waiting', { n: pendingRequests }) %> <a class="btn btn-primary btn-small" href="/plans/requests"><%= t('plans.req.review') %></a></p>
 <% } else if (user.role === 'admin') { %><p><a href="/plans/requests"><%= t('plans.requestsTitle') %></a></p><% } %>
+<% if (user.role === 'teacher' && windowsLimited) { %>
+  <% if (openTerms.length) { %><p class="notice notice-ok">✎ <%= t('plans.win.openUntil', { terms: openTerms.map(function (x) { return x.name; }).join(', '), date: fmt.date(openTerms[0].plan_window_end) }) %></p>
+  <% } else { %><p class="notice"><%= t('plans.win.closedList') %></p><% } %>
+<% } %>
 <% if (user.role === 'teacher') { %>
 <section class="card" id="mine">
   <div class="card-head"><h2><%= t('plans.mine.title') %></h2></div>
@@ -15,7 +19,7 @@
     <tbody><% mine.forEach(function (m) { %>
       <tr><td><%= m.level %> <span class="small muted"><%= ln(m, 'section') %></span></td><td><%= ln(m, 'subject') %></td><td><%= m.plan_id ? m.lessons : '—' %></td>
         <td><%- include('sheet-status', { status: m.plan_id ? m.status : null, windowOpen: m.windowOpen, pending: m.pending }) %></td>
-        <td><% if (m.plan_id) { %><a href="/plans/<%= m.plan_id %>"><%= t('common.open') %></a><% } else { %>
+        <td><% if (m.plan_id) { %><a href="/plans/<%= m.plan_id %>"><%= t('common.open') %></a><% } else if (windowsLimited && !openTerms.length) { %><span class="small muted"><%= t('plans.win.waitWindow') %></span><% } else { %>
           <form method="post" action="/plans" class="inline">
             <input type="hidden" name="_csrf" value="<%= csrf %>">
             <input type="hidden" name="section_id" value="<%= m.section_id %>"><input type="hidden" name="level" value="<%= m.level %>"><input type="hidden" name="subject_id" value="<%= m.subject_id %>">
@@ -47,6 +51,25 @@
   <% }) %>
 </section>
 <% }) %>
+<% } %>
+<% if (user.role === 'admin') { %>
+<section class="card" id="windows">
+  <h2><%= t('plans.win.title') %></h2>
+  <p class="help"><%= t('plans.win.help') %></p>
+  <form method="post" action="/plans/windows" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="table-wrap"><table>
+      <thead><tr><th><%= t('common.term') %></th><th><%= t('plans.win.opens') %></th><th><%= t('plans.win.closes') %></th><th><%= t('progress.status') %></th></tr></thead>
+      <tbody><% terms.forEach(function (tm) { var on = tm.plan_window_start && tm.plan_window_start <= today && tm.plan_window_end >= today; %>
+        <tr><td><%= tm.name %> <span class="small muted"><%= fmt.date(tm.start_date) %> – <%= fmt.date(tm.end_date) %></span></td>
+          <td><input type="date" name="start_<%= tm.id %>" value="<%= tm.plan_window_start || '' %>" aria-label="<%= t('plans.win.opens') %> <%= tm.name %>"></td>
+          <td><input type="date" name="end_<%= tm.id %>" value="<%= tm.plan_window_end || '' %>" aria-label="<%= t('plans.win.closes') %> <%= tm.name %>"></td>
+          <td><% if (on) { %><span class="badge badge-in_progress">✎ <%= t('plans.win.isOpen') %></span><% } else if (tm.plan_window_start && tm.plan_window_end < today) { %><span class="badge badge-none"><%= t('plans.win.isPast') %></span><% } else if (tm.plan_window_start) { %><span class="badge badge-planned"><%= t('plans.win.isSoon') %></span><% } else { %><span class="small muted">—</span><% } %></td></tr>
+      <% }) %></tbody>
+    </table></div>
+    <button class="btn btn-primary"><%= t('common.save') %></button>
+  </form>
+</section>
 <% } %>
 <% if (user.role === 'admin') { %>
 <section class="card" id="new">

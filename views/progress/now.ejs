@@ -12,6 +12,7 @@
   <button class="btn"><%= t('common.show') %></button>
 </form>
 <h2 class="h-sub"><%= fmt.longDate(date) %><%= time ? ' · ' + time : '' %></h2>
+<% exams.forEach(function (e) { %><p class="notice">‖ <strong><%= ln(e, 'title') %></strong> · <%= e.pauses_lessons ? t('progress.examPaused') : t('progress.examContinues') %></p><% }) %>
 <% if (closed) { %><div class="empty"><p><%= t('progress.nowClosed') %></p></div>
 <% } else if (!rows.length) { %><div class="empty"><p><%= t('progress.nowNone') %></p></div>
 <% } else { %>

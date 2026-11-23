@@ -961,3 +961,13 @@ form.inline { display: inline; }
 .h-sub { font-size: 1.05rem; margin: .5rem 0 .75rem; }
 .page-head .actions { margin-top: 0; }
 .tracker td:first-child { white-space: nowrap; }
+.notice-ok { background: var(--ok-soft); border-color: var(--ok-line); }
+.term-window { background: var(--primary-tint); border-radius: var(--radius); padding: .6rem .8rem; margin: .5rem 0; }
+.exam-card summary { cursor: pointer; }
+.exam-list { margin: .6rem 0 0; padding-left: 0; list-style: none; display: grid; gap: .35rem; }
+.exam-note { display: inline-block; color: var(--warn); margin-left: .35rem; }
+.row-form select { max-width: 11rem; }
+.tt-track { display: block; margin-top: .25rem; font-size: .72rem; line-height: 1.25; padding: .15rem .35rem; border-radius: 6px; background: rgba(255, 255, 255, .7); color: var(--text-2); }
+.tt-track-behind { color: var(--warn); }
+.tt-track-far_behind { color: var(--bad); font-weight: 600; }
+.tt-exams .exam-list li.is-now { font-weight: 600; }

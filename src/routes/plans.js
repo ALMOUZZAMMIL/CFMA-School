@@ -10,6 +10,7 @@ const { groupPlans } = require('../class-groups');
 const db = require('../db');
 const auth = require('../auth');
 const lock = require('../plan-lock');
+const days = require('../school-days');
 const { Validator, int, str, isDate, parseCsv } = require('../util');
 
 const r = express.Router();
@@ -48,7 +49,7 @@ function renderList(req, res, { errors = [], values = {}, status = 200 } = {}) {
     WHERE p.year_id = ? AND (? IS NULL OR p.section_id = ?) ORDER BY CASE se.code WHEN 'ANG' THEN 1 WHEN 'GEN' THEN 2 WHEN 'TECH' THEN 3 ELSE 4 END, se.id, p.level, s.name_fr`).all(year.id, sectionId, sectionId);
   const mine = req.user.role === 'teacher' ? teacherSheets(req.user.id, year.id) : [];
   const pendingRequests = req.user.role === 'admin' ? lock.pendingCount() : 0;
-  res.status(status).render('plans/list', { title: req.t('plans.title'), lockNow: lock.nowUtc(), rows, groups: groupPlans(rows), sectionId, mine, pendingRequests, ...lists(year.id), errors, values });
+  res.status(status).render('plans/list', { title: req.t('plans.title'), lockNow: lock.nowUtc(), openTerms: lock.openTerms(year.id, res.locals.today), windowsLimited: lock.windowsDefined(year.id), rows, groups: groupPlans(rows), sectionId, mine, pendingRequests, ...lists(year.id), errors, values });
 }
 
 r.get('/plans', auth.requireRole('admin', 'teacher'), (req, res) => {
@@ -63,6 +64,10 @@ r.post('/plans', auth.requireRole('admin', 'teacher'), (req, res) => {
   const values = { section_id: int(req.body.section_id), level: str(req.body.level, 60), subject_id: int(req.body.subject_id), title: str(req.body.title, 200) };
   const v = new Validator().required(values.section_id, 'section_id').required(values.level, 'level').required(values.subject_id, 'subject_id');
   if (v.ok && req.user.role === 'teacher' && !lock.teaches(req.user.id, { ...values, year_id: year.id })) return auth.forbidden(req, res);
+  if (v.ok && req.user.role === 'teacher' && lock.windowsDefined(year.id) && !lock.openTerms(year.id, res.locals.today).length) {
+    res.flash('error', 'plans.win.closedNow');
+    return res.redirect('/plans');
+  }
   if (v.ok && db.get().prepare('SELECT 1 FROM plans WHERE year_id = ? AND section_id = ? AND level = ? AND subject_id = ?').get(year.id, values.section_id, values.level, values.subject_id)) {
     v.errors.push({ field: 'level', key: 'plans.exists' });
   }
@@ -150,15 +155,23 @@ function renderPlan(req, res, plan, { importErrors = [], csv = '', status = 200 
     JOIN users u ON u.id = pr.requested_by LEFT JOIN users d ON d.id = pr.decided_by WHERE pr.plan_id = ? ORDER BY pr.id DESC`).all(plan.id);
   res.status(status).render(view, {
     title: plan.title, plan, chapters: planContent(plan.id), terms: lists(plan.year_id).terms, importErrors, csv,
-    lockState: lock.state(req.user, plan), history: lock.history(plan.id), requests,
+    durations: Object.keys(days.DURATIONS), durationKey: days.durationKey, exams: days.examPeriods(plan.year_id),
+    lockState: stateOf(req, res, plan), history: lock.history(plan.id), requests,
   });
 }
 
-// Loads the plan behind a change and refuses it unless the sheet is open to this user.
-function editable(req, res, plan, back) {
+function stateOf(req, res, plan) {
+  return lock.state(req.user, plan, lock.nowUtc(), res.locals.today);
+}
+
+// Loads the plan behind a change and refuses it unless the sheet is open to this user: the whole
+// sheet (draft or approved window), or, during a term's upload window, the chapters of that term.
+// A lesson that already has recorded progress can only change with the whole sheet open.
+function editable(req, res, plan, back, { termId, lesson } = {}) {
   if (!plan) { auth.notFound(req, res); return false; }
-  const s = lock.state(req.user, plan);
+  const s = stateOf(req, res, plan);
   if (s.canEdit) return true;
+  if (termId !== undefined && s.canEditTerm(termId) && !(lesson && lesson.used)) return true;
   if (!s.isAdmin && !s.isTeacher) { auth.notFound(req, res); return false; }
   res.flash('error', 'plans.lockedNoChange');
   res.redirect(back || `/plans/${plan.id}`);
@@ -174,12 +187,27 @@ r.get('/plans/:id', auth.requireRole('admin', 'teacher'), (req, res) => {
 // "Submit and lock": first submission of a draft, or the end of an edit window.
 r.post('/plans/:id/submit', auth.requireRole('admin', 'teacher'), (req, res) => {
   const plan = loadPlan(int(req.params.id));
+  if (!plan) return auth.notFound(req, res);
+  const st = stateOf(req, res, plan);
+  // During a term's upload window: lock the part of the sheet for that term.
+  if (!st.canEdit && st.canSubmitTerms) {
+    db.get().transaction(() => {
+      const ins = db.get().prepare('INSERT OR IGNORE INTO plan_term_submissions (plan_id, term_id, submitted_by) VALUES (?, ?, ?)');
+      st.termIds.forEach((tid) => ins.run(plan.id, tid, req.user.id));
+      lock.log(plan.id, 'term_submitted', req.user.id, { after: { terms: st.openTerms.filter((t) => st.termIds.includes(t.id)).map((t) => t.name) } });
+    })();
+    res.flash('ok', 'plans.termSubmitted');
+    return res.redirect(`/plans/${plan.id}`);
+  }
   if (!editable(req, res, plan)) return;
   const lessons = db.get().prepare('SELECT COUNT(*) n FROM plan_lessons l JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE ch.plan_id = ?').get(plan.id).n;
   if (!lessons) { res.flash('error', 'plans.submitEmpty'); return res.redirect(`/plans/${plan.id}`); }
   const wasDraft = plan.status === 'draft';
   db.get().transaction(() => {
     if (wasDraft) {
+      // Terms whose upload window is open now count as handed in.
+      const ins = db.get().prepare('INSERT OR IGNORE INTO plan_term_submissions (plan_id, term_id, submitted_by) VALUES (?, ?, ?)');
+      st.openTerms.forEach((t) => ins.run(plan.id, t.id, req.user.id));
       db.get().prepare("UPDATE plans SET status = 'locked', submitted_by = ?, submitted_at = datetime('now'), edit_until = NULL, edit_user_id = NULL WHERE id = ?").run(req.user.id, plan.id);
     } else {
       db.get().prepare('UPDATE plans SET edit_until = NULL, edit_user_id = NULL WHERE id = ?').run(plan.id);
@@ -195,7 +223,7 @@ r.post('/plans/:id/submit', auth.requireRole('admin', 'teacher'), (req, res) => 
 r.post('/plans/:id/requests', auth.requireRole('teacher'), (req, res) => {
   const plan = loadPlan(int(req.params.id));
   if (!plan) return auth.notFound(req, res);
-  const s = lock.state(req.user, plan);
+  const s = stateOf(req, res, plan);
   if (!s.isTeacher) return auth.notFound(req, res);
   if (!s.canRequest) { res.flash('info', s.pending ? 'plans.requestAlready' : 'plans.requestNotNeeded'); return res.redirect(`/plans/${plan.id}`); }
   const reason = str(req.body.reason, 1000);
@@ -239,11 +267,11 @@ r.post('/plans/:id/close-window', auth.requireRole('admin'), (req, res) => {
 
 r.post('/plans/:id/chapters', auth.requireRole('admin', 'teacher'), (req, res) => {
   const plan = loadPlan(int(req.params.id));
-  if (!editable(req, res, plan)) return;
+  const termId = int(req.body.term_id);
+  if (!editable(req, res, plan, null, { termId })) return;
   const title = str(req.body.title, 200);
   if (!title) { res.flash('error', 'validation.required'); return res.redirect(`/plans/${plan.id}`); }
   const max = db.get().prepare('SELECT COALESCE(MAX(ordinal), 0) m FROM plan_chapters WHERE plan_id = ?').get(plan.id).m;
-  const termId = int(req.body.term_id);
   const term = termId && db.get().prepare('SELECT id FROM terms WHERE id = ? AND year_id = ?').get(termId, plan.year_id);
   const info = db.get().prepare('INSERT INTO plan_chapters (plan_id, term_id, ordinal, title) VALUES (?, ?, ?, ?)').run(plan.id, term ? termId : null, max + 1, title);
   lock.log(plan.id, 'chapter_added', req.user.id, { after: { chapter_id: Number(info.lastInsertRowid), title } });
@@ -255,40 +283,45 @@ function lessonInput(body) {
   const title = str(body.title, 200);
   const plannedDate = str(body.planned_date, 10) || null;
   const hours = body.planned_hours ? Number(String(body.planned_hours).replace(',', '.')) : null;
-  const ok = !!title && (!plannedDate || isDate(plannedDate)) && (hours === null || (hours >= 0 && hours < 500));
-  return { ok, title, plannedDate, hours };
+  const dur = str(body.duration, 10);
+  const range = dur ? days.DURATIONS[dur] : null;
+  const ok = !!title && (!plannedDate || isDate(plannedDate)) && (hours === null || (hours >= 0 && hours < 500)) && (!dur || !!range);
+  return { ok, title, plannedDate, hours, durMin: range ? range[0] : null, durMax: range ? range[1] : null };
 }
 
 r.post('/plans/chapters/:cid/lessons', auth.requireRole('admin', 'teacher'), (req, res) => {
   const ch = db.get().prepare('SELECT * FROM plan_chapters WHERE id = ?').get(int(req.params.cid));
   if (!ch) return auth.notFound(req, res);
   const plan = loadPlan(ch.plan_id);
-  if (!editable(req, res, plan, `/plans/${ch.plan_id}#ch-${ch.id}`)) return;
+  if (!editable(req, res, plan, `/plans/${ch.plan_id}#ch-${ch.id}`, { termId: ch.term_id })) return;
   const x = lessonInput(req.body);
   if (!x.ok) { res.flash('error', 'validation.checkFields'); return res.redirect(`/plans/${ch.plan_id}#ch-${ch.id}`); }
   const max = db.get().prepare('SELECT COALESCE(MAX(ordinal), 0) m FROM plan_lessons WHERE chapter_id = ?').get(ch.id).m;
-  const info = db.get().prepare('INSERT INTO plan_lessons (chapter_id, ordinal, title, planned_date, planned_hours) VALUES (?, ?, ?, ?, ?)').run(ch.id, max + 1, x.title, x.plannedDate, x.hours);
-  lock.log(plan.id, 'lesson_added', req.user.id, { after: { lesson_id: Number(info.lastInsertRowid), chapter: ch.title, title: x.title, planned_date: x.plannedDate, planned_hours: x.hours } });
+  const info = db.get().prepare('INSERT INTO plan_lessons (chapter_id, ordinal, title, planned_date, planned_hours, duration_days, duration_max_days) VALUES (?, ?, ?, ?, ?, ?, ?)')
+    .run(ch.id, max + 1, x.title, x.plannedDate, x.hours, x.durMin, x.durMax);
+  lock.log(plan.id, 'lesson_added', req.user.id, { after: { lesson_id: Number(info.lastInsertRowid), chapter: ch.title, title: x.title, planned_date: x.plannedDate, planned_hours: x.hours, duration: days.durationKey(x.durMin, x.durMax) || null } });
   res.flash('ok', 'common.saved');
   res.redirect(`/plans/${ch.plan_id}#ch-${ch.id}`);
 });
 
 function loadLesson(id) {
-  return db.get().prepare('SELECT l.*, ch.plan_id, ch.title AS chapter_title FROM plan_lessons l JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE l.id = ?').get(id);
+  return db.get().prepare(`SELECT l.*, ch.plan_id, ch.term_id, ch.title AS chapter_title,
+      (SELECT COUNT(*) FROM progress_entries pe WHERE pe.lesson_id = l.id) AS used
+    FROM plan_lessons l JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE l.id = ?`).get(id);
 }
 
 r.post('/plans/lessons/:lid', auth.requireRole('admin', 'teacher'), (req, res) => {
   const l = loadLesson(int(req.params.lid));
   if (!l) return auth.notFound(req, res);
   const plan = loadPlan(l.plan_id);
-  if (!editable(req, res, plan, `/plans/${l.plan_id}#ch-${l.chapter_id}`)) return;
+  if (!editable(req, res, plan, `/plans/${l.plan_id}#ch-${l.chapter_id}`, { termId: l.term_id, lesson: l })) return;
   const x = lessonInput(req.body);
   if (!x.ok) { res.flash('error', 'validation.checkFields'); return res.redirect(`/plans/${l.plan_id}#ch-${l.chapter_id}`); }
-  if (x.title === l.title && x.plannedDate === l.planned_date && x.hours === l.planned_hours) return res.redirect(`/plans/${l.plan_id}#ch-${l.chapter_id}`);
-  db.get().prepare('UPDATE plan_lessons SET title = ?, planned_date = ?, planned_hours = ? WHERE id = ?').run(x.title, x.plannedDate, x.hours, l.id);
+  if (x.title === l.title && x.plannedDate === l.planned_date && x.hours === l.planned_hours && x.durMin === l.duration_days && x.durMax === l.duration_max_days) return res.redirect(`/plans/${l.plan_id}#ch-${l.chapter_id}`);
+  db.get().prepare('UPDATE plan_lessons SET title = ?, planned_date = ?, planned_hours = ?, duration_days = ?, duration_max_days = ? WHERE id = ?').run(x.title, x.plannedDate, x.hours, x.durMin, x.durMax, l.id);
   lock.log(plan.id, 'lesson_changed', req.user.id, {
-    before: { lesson_id: l.id, title: l.title, planned_date: l.planned_date, planned_hours: l.planned_hours },
-    after: { lesson_id: l.id, title: x.title, planned_date: x.plannedDate, planned_hours: x.hours },
+    before: { lesson_id: l.id, title: l.title, planned_date: l.planned_date, planned_hours: l.planned_hours, duration: days.durationKey(l.duration_days, l.duration_max_days) || null },
+    after: { lesson_id: l.id, title: x.title, planned_date: x.plannedDate, planned_hours: x.hours, duration: days.durationKey(x.durMin, x.durMax) || null },
   });
   res.flash('ok', 'common.saved');
   res.redirect(`/plans/${l.plan_id}#ch-${l.chapter_id}`);
@@ -298,7 +331,7 @@ r.post('/plans/lessons/:lid/delete', auth.requireRole('admin', 'teacher'), (req,
   const l = loadLesson(int(req.params.lid));
   if (!l) return auth.notFound(req, res);
   const plan = loadPlan(l.plan_id);
-  if (!editable(req, res, plan, `/plans/${l.plan_id}#ch-${l.chapter_id}`)) return;
+  if (!editable(req, res, plan, `/plans/${l.plan_id}#ch-${l.chapter_id}`, { termId: l.term_id, lesson: l })) return;
   if (db.get().prepare('SELECT 1 FROM progress_entries WHERE lesson_id = ?').get(l.id)) {
     res.flash('error', 'plans.lessonInUse');
   } else {
@@ -313,7 +346,7 @@ r.post('/plans/chapters/:cid/delete', auth.requireRole('admin', 'teacher'), (req
   const ch = db.get().prepare('SELECT * FROM plan_chapters WHERE id = ?').get(int(req.params.cid));
   if (!ch) return auth.notFound(req, res);
   const plan = loadPlan(ch.plan_id);
-  if (!editable(req, res, plan)) return;
+  if (!editable(req, res, plan, null, { termId: ch.term_id })) return;
   if (db.get().prepare('SELECT 1 FROM progress_entries pe JOIN plan_lessons l ON l.id = pe.lesson_id WHERE l.chapter_id = ?').get(ch.id)) {
     res.flash('error', 'plans.lessonInUse');
   } else {
@@ -323,6 +356,47 @@ r.post('/plans/chapters/:cid/delete', auth.requireRole('admin', 'teacher'), (req
     res.flash('ok', 'common.deleted');
   }
   res.redirect(`/plans/${ch.plan_id}`);
+});
+
+// Works out the lesson dates from their durations, skipping weekends, holidays and exam periods.
+r.post('/plans/:id/schedule', auth.requireRole('admin', 'teacher'), (req, res) => {
+  const plan = loadPlan(int(req.params.id));
+  if (!plan) return auth.notFound(req, res);
+  const st = stateOf(req, res, plan);
+  if (!st.canEdit && !st.termIds.length) return editable(req, res, plan);
+  const used = new Set(db.get().prepare(`SELECT DISTINCT pe.lesson_id FROM progress_entries pe JOIN plan_lessons l ON l.id = pe.lesson_id
+    JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE ch.plan_id = ?`).all(plan.id).map((x) => x.lesson_id));
+  let changed = [];
+  db.get().transaction(() => {
+    changed = days.schedulePlan(plan, (ch, l) => st.canEditTerm(ch.term_id) && (st.canEdit || !used.has(l.id)));
+    if (changed.length) lock.log(plan.id, 'scheduled', req.user.id, { after: { lessons: changed.length, first: changed[0].after.start_date, last: changed[changed.length - 1].after.planned_date } });
+  })();
+  res.flash(changed.length ? 'ok' : 'info', changed.length ? 'plans.scheduled' : 'plans.scheduleNothing');
+  res.redirect(`/plans/${plan.id}`);
+});
+
+// Upload windows: for each term, the dates during which teachers may upload or complete their sheet.
+r.post('/plans/windows', auth.requireRole('admin'), (req, res) => {
+  const year = res.locals.year;
+  if (!year) return res.redirect('/plans');
+  const terms = db.get().prepare('SELECT * FROM terms WHERE year_id = ? ORDER BY ordinal').all(year.id);
+  const next = [];
+  for (const t of terms) {
+    const a = str(req.body[`start_${t.id}`], 10) || null;
+    const b = str(req.body[`end_${t.id}`], 10) || null;
+    if ((a && !isDate(a)) || (b && !isDate(b)) || (!a !== !b) || (a && b && a > b)) { res.flash('error', 'plans.win.invalid'); return res.redirect('/plans#windows'); }
+    next.push({ t, a, b });
+  }
+  db.get().transaction(() => {
+    const upd = db.get().prepare('UPDATE terms SET plan_window_start = ?, plan_window_end = ? WHERE id = ?');
+    for (const { t, a, b } of next) {
+      if (t.plan_window_start === a && t.plan_window_end === b) continue;
+      upd.run(a, b, t.id);
+      db.audit({ entity: 'term', entityId: t.id, action: 'plan_window', userId: req.user.id, before: { start: t.plan_window_start, end: t.plan_window_end }, after: { start: a, end: b } });
+    }
+  })();
+  res.flash('ok', 'common.saved');
+  res.redirect('/plans#windows');
 });
 
 // Accepts DD/MM/YYYY (common in Cameroon) or YYYY-MM-DD.
@@ -336,7 +410,11 @@ function normDate(s) {
 // CSV import: chapter, lesson, planned date, planned hours, term name (optional). Lines are appended.
 r.post('/plans/:id/import', auth.requireRole('admin', 'teacher'), (req, res) => {
   const plan = loadPlan(int(req.params.id));
-  if (!editable(req, res, plan)) return;
+  if (!plan) return auth.notFound(req, res);
+  const st = stateOf(req, res, plan);
+  // During a term's upload window only that term's chapters can be added to a locked sheet.
+  const termMode = !st.canEdit && st.termIds.length > 0;
+  if (!termMode && !editable(req, res, plan)) return;
   const csv = String(req.body.csv || '').slice(0, 200000);
   const rows = parseCsv(csv);
   const terms = lists(plan.year_id).terms;
@@ -345,7 +423,9 @@ r.post('/plans/:id/import', auth.requireRole('admin', 'teacher'), (req, res) => 
   const parsed = rows.map((r0, i) => {
     const [chapter, lesson, date, hours, termName] = r0;
     const planned = normDate(date);
-    const term = termName ? terms.find((t) => t.name.toLowerCase() === termName.toLowerCase()) : null;
+    let term = termName ? terms.find((t) => t.name.toLowerCase() === termName.toLowerCase()) : null;
+    if (termMode && !termName) term = terms.find((t) => t.id === st.termIds[0]);
+    if (termMode && term && !st.termIds.includes(term.id)) errors.push(req.t('plans.importRowTermClosed', { row: i + 1, term: term.name }));
     if (!chapter || !lesson) errors.push(req.t('plans.importRowMissing', { row: i + 1 }));
     if (planned && !isDate(planned)) errors.push(req.t('plans.importRowDate', { row: i + 1 }));
     if (hours && !(Number(hours.replace(',', '.')) >= 0)) errors.push(req.t('plans.importRowHours', { row: i + 1 }));
@@ -353,6 +433,13 @@ r.post('/plans/:id/import', auth.requireRole('admin', 'teacher'), (req, res) => 
     return { chapter, lesson, planned, hours: hours ? Number(hours.replace(',', '.')) : null, termId: term ? term.id : null };
   });
   if (!rows.length) errors.push(req.t('plans.importEmpty'));
+  if (termMode) {
+    // Rows may not be added to an existing chapter of a term that is not open.
+    const existing = new Map(db.get().prepare('SELECT title, term_id FROM plan_chapters WHERE plan_id = ?').all(plan.id).map((c) => [c.title.toLowerCase(), c.term_id]));
+    parsed.forEach((row, i) => {
+      if (row.chapter && existing.has(row.chapter.toLowerCase()) && !st.termIds.includes(existing.get(row.chapter.toLowerCase()))) errors.push(req.t('plans.importRowChapterLocked', { row: i + 1 }));
+    });
+  }
   if (errors.length) return renderPlan(req, res, plan, { importErrors: errors, csv, status: 400 });
   const d = db.get();
   let lessons = 0;

@@ -2,7 +2,7 @@
 <% var loc = lang === 'en' ? 'en-GB' : 'fr-FR';
    function md(s, o) { return new Date(s + 'T00:00:00Z').toLocaleDateString(loc, Object.assign({ timeZone: 'UTC' }, o)); }
    function pick(e, k) { return lang === 'en' ? (e[k + '_en'] || e[k + '_fr']) : (e[k + '_fr'] || e[k + '_en']); } %>
-<div class="page-head"><h1><%= t('calendar.title') %></h1><button class="btn" data-print><%= t('common.print') %></button></div>
+<div class="page-head"><h1><%= t('calendar.title') %></h1><div class="actions no-print"><% if (user.role === 'admin') { %><a class="btn btn-primary" href="/calendar/exams"><%= t('exams.title') %></a><% } %><button class="btn" data-print><%= t('common.print') %></button></div></div>
 <% if (!months.length && !filter) { %>
   <div class="empty"><p><%= t('calendar.empty') %></p></div>
 <% } else { %>

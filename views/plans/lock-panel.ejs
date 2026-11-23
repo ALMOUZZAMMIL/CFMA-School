@@ -4,6 +4,10 @@
 <% if (plan.status === 'draft') { %>
   <h2><span aria-hidden="true">✎</span> <%= t('plans.lock.draftTitle') %></h2>
   <p><%= t('plans.lock.draftHelp') %></p>
+  <% if (s.isTeacher && s.windowsLimited) { %>
+    <% if (s.openTerms.length) { %><p class="lock-window"><strong><%= t('plans.win.openUntil', { terms: s.openTerms.map(function (x) { return x.name; }).join(', '), date: fmt.date(s.openTerms[0].plan_window_end) }) %></strong></p>
+    <% } else { %><p class="notice"><%= t('plans.win.closedDraft') %></p><% } %>
+  <% } %>
   <% if (s.canSubmit) { %>
   <form method="post" action="/plans/<%= plan.id %>/submit" data-confirm="<%= t('plans.lock.confirmSubmit') %>">
     <input type="hidden" name="_csrf" value="<%= csrf %>">
@@ -30,6 +34,18 @@
     <% } %>
   <% } else { %>
     <p><%= s.isAdmin ? t('plans.lock.lockedHelpAdmin') : t('plans.lock.lockedHelp') %></p>
+  <% } %>
+  <% if (s.termIds.length) { var tn = s.openTerms.filter(function (x) { return s.termIds.indexOf(x.id) >= 0; }); %>
+    <div class="term-window">
+      <p><strong><%= t('plans.win.termOpen', { terms: tn.map(function (x) { return x.name; }).join(', '), date: fmt.date(tn[0].plan_window_end) }) %></strong></p>
+      <p><%= t('plans.win.termOpenHelp') %></p>
+      <form method="post" action="/plans/<%= plan.id %>/submit" data-confirm="<%= t('plans.win.confirmTerm') %>" class="inline">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <button class="btn btn-primary"><%= t('plans.win.submitTerm', { terms: tn.map(function (x) { return x.name; }).join(', ') }) %></button>
+      </form>
+    </div>
+  <% } else if (s.isTeacher && s.openTerms.length) { %>
+    <p class="small muted"><%= t('plans.win.termDone') %></p>
   <% } %>
   <% if (s.pending) { %>
     <p class="notice"><span aria-hidden="true">◷</span> <%= t('plans.lock.pending', { date: fmt.dateTime(s.pending.created_at) }) %></p>

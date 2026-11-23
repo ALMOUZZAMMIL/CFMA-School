@@ -1,54 +1,94 @@
 <%- include('../partials/head') %>
+<%
+  var s = lockState;
+  var anyEdit = s.canEdit || s.termIds.length > 0;
+  var durLabel = function (key) { return key ? t('plans.dur.' + key) : '—'; };
+  var examsIn = function (a, b) { if (!a || !b) return []; return exams.filter(function (e) { return e.pauses_lessons && e.start_date <= b && (e.end_date || e.start_date) >= a; }); };
+  var durSelect = function (cur) {
+    var h = '<select name="duration" aria-label="' + t('plans.duration') + '"><option value="">' + t('plans.durNone') + '</option>';
+    durations.forEach(function (k) { h += '<option value="' + k + '"' + (k === cur ? ' selected' : '') + '>' + t('plans.dur.' + k) + '</option>'; });
+    return h + '</select>';
+  };
+%>
 <div class="page-head"><h1><%= plan.title %></h1><a class="btn" href="/plans/<%= plan.id %>?print=1"><%= t('common.printable') %></a></div>
 <p class="muted"><%= ln(plan, 'section') %> · <%= plan.level %> · <%= ln(plan, 'subject') %></p>
 <%- include('lock-panel') %>
+<% if (anyEdit) { %>
+<section class="card schedule-card">
+  <h2><%= t('plans.sched.title') %></h2>
+  <p class="help"><%= t('plans.sched.help') %></p>
+  <form method="post" action="/plans/<%= plan.id %>/schedule" class="inline">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <button class="btn btn-primary"><%= t('plans.sched.button') %></button>
+  </form>
+</section>
+<% } %>
+<% var pausing = exams.filter(function (e) { return e.pauses_lessons; }); if (pausing.length) { %>
+<details class="card exam-card">
+  <summary><strong><%= t('plans.examsTitle', { n: pausing.length }) %></strong> <span class="small muted"><%= t('plans.examsHelp') %></span></summary>
+  <ul class="exam-list"><% pausing.forEach(function (e) { %><li><span class="badge badge-planned">‖ <%= fmt.date(e.start_date) %><%= e.end_date && e.end_date !== e.start_date ? ' – ' + fmt.date(e.end_date) : '' %></span> <%= ln(e, 'title') %></li><% }) %></ul>
+</details>
+<% } %>
 <% if (!chapters.length) { %><div class="empty"><p><%= t('plans.noChapters') %></p></div><% } %>
-<% chapters.forEach(function (ch) { %>
+<% chapters.forEach(function (ch) {
+  var chEdit = s.canEditTerm(ch.term_id);
+  var first = ch.lessons.find(function (l) { return l.start_date || l.planned_date; });
+  var last = ch.lessons.slice().reverse().find(function (l) { return l.planned_date; });
+%>
 <section class="card" id="ch-<%= ch.id %>">
-  <div class="card-head"><h2><%= ch.ordinal %>. <%= ch.title %></h2><span class="small muted"><%= ch.term_name || '' %></span></div>
+  <div class="card-head"><h2><%= ch.ordinal %>. <%= ch.title %></h2><span class="small muted"><%= ch.term_name || '' %><% if (first && last) { %> · <%= t('plans.chapterSpan', { from: fmt.date(first.start_date || first.planned_date), to: fmt.date(last.planned_date) }) %><% } %><% if (!s.canEdit && chEdit) { %> · <span class="badge badge-in_progress">✎ <%= t('plans.win.openBadge') %></span><% } %></span></div>
   <% if (!ch.lessons.length) { %><p class="muted"><%= t('plans.noLessons') %></p><% } else { %>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th><%= t('fields.lesson_id') %></th><th><%= t('plans.plannedDate') %></th><th><%= t('plans.hours') %></th><% if (lockState.canEdit) { %><th></th><% } %></tr></thead>
-    <tbody><% ch.lessons.forEach(function (l) { %>
+    <thead><tr><th>#</th><th><%= t('fields.lesson_id') %></th><th><%= t('plans.duration') %></th><th><%= t('plans.timeFrame') %></th><th><%= t('plans.hours') %></th><% if (chEdit) { %><th></th><% } %></tr></thead>
+    <tbody><% ch.lessons.forEach(function (l) { var dk = durationKey(l.duration_days, l.duration_max_days); var ex = examsIn(l.start_date || l.planned_date, l.planned_date); var rowEdit = chEdit && (s.canEdit || !l.used); %>
       <tr>
-      <% if (lockState.canEdit) { %>
+      <% if (rowEdit) { %>
         <td><%= ch.ordinal %>.<%= l.ordinal %></td>
-        <td colspan="3">
+        <td colspan="4">
           <form method="post" action="/plans/lessons/<%= l.id %>" class="row-form">
             <input type="hidden" name="_csrf" value="<%= csrf %>">
             <input name="title" value="<%= l.title %>" aria-label="<%= t('fields.lesson_id') %>" required maxlength="200">
+            <%- durSelect(dk) %>
             <input type="date" name="planned_date" value="<%= l.planned_date || '' %>" aria-label="<%= t('plans.plannedDate') %>">
             <input type="number" name="planned_hours" value="<%= l.planned_hours === null ? '' : l.planned_hours %>" step="0.5" min="0" class="w-num" aria-label="<%= t('plans.hours') %>">
             <button class="btn btn-small"><%= t('common.save') %></button>
           </form>
+          <% if (l.start_date) { %><span class="small muted"><%= t('plans.fromTo', { from: fmt.date(l.start_date), to: fmt.date(l.planned_date) }) %></span><% } %>
+          <% if (ex.length) { %><span class="small exam-note">‖ <%= t('plans.examInside', { n: ex.length }) %></span><% } %>
         </td>
         <td><% if (!l.used) { %><form method="post" action="/plans/lessons/<%= l.id %>/delete" data-confirm="<%= t('plans.confirmDeleteLesson') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('common.delete') %></button></form><% } else { %><span class="small muted"><%= t('plans.inUse') %></span><% } %></td>
       <% } else { %>
-        <td><%= ch.ordinal %>.<%= l.ordinal %></td><td><%= l.title %></td><td><%= l.planned_date ? fmt.date(l.planned_date) : '—' %></td><td><%= l.planned_hours === null ? '—' : fmt.number(l.planned_hours) %></td>
+        <td><%= ch.ordinal %>.<%= l.ordinal %></td><td><%= l.title %></td>
+        <td><%= durLabel(dk) %></td>
+        <td><% if (l.start_date) { %><%= t('plans.fromTo', { from: fmt.date(l.start_date), to: fmt.date(l.planned_date) }) %><% } else { %><%= l.planned_date ? fmt.date(l.planned_date) : '—' %><% } %><% if (ex.length) { %><br><span class="small exam-note">‖ <%= t('plans.examInside', { n: ex.length }) %></span><% } %></td>
+        <td><%= l.planned_hours === null ? '—' : fmt.number(l.planned_hours) %></td>
+        <% if (chEdit) { %><td><span class="small muted"><%= t('plans.inUse') %></span></td><% } %>
       <% } %>
       </tr>
     <% }) %></tbody>
   </table></div>
   <% } %>
-  <% if (lockState.canEdit) { %>
+  <% if (chEdit) { %>
   <form method="post" action="/plans/chapters/<%= ch.id %>/lessons" class="row-form add-row">
     <input type="hidden" name="_csrf" value="<%= csrf %>">
     <input name="title" placeholder="<%= t('plans.newLesson') %>" aria-label="<%= t('plans.newLesson') %>" required maxlength="200">
+    <%- durSelect('') %>
     <input type="date" name="planned_date" aria-label="<%= t('plans.plannedDate') %>">
     <input type="number" name="planned_hours" step="0.5" min="0" class="w-num" placeholder="h" aria-label="<%= t('plans.hours') %>">
     <button class="btn btn-small"><%= t('plans.addLesson') %></button>
   </form>
+  <p class="help small"><%= t('plans.addLessonHelp') %></p>
   <form method="post" action="/plans/chapters/<%= ch.id %>/delete" data-confirm="<%= t('plans.confirmDeleteChapter') %>" class="right"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('plans.deleteChapter') %></button></form>
   <% } %>
 </section>
 <% }) %>
-<% if (lockState.canEdit) { %>
+<% if (anyEdit) { var termChoices = s.canEdit ? terms : terms.filter(function (tm) { return s.termIds.indexOf(tm.id) >= 0; }); %>
 <section class="card">
   <h2><%= t('plans.addChapter') %></h2>
   <form method="post" action="/plans/<%= plan.id %>/chapters" class="row-form">
     <input type="hidden" name="_csrf" value="<%= csrf %>">
     <input name="title" placeholder="<%= t('plans.chapterTitle') %>" aria-label="<%= t('plans.chapterTitle') %>" required maxlength="200">
-    <select name="term_id" aria-label="<%= t('common.term') %>"><option value=""><%= t('common.term') %>…</option><% terms.forEach(function (tm) { %><option value="<%= tm.id %>"><%= tm.name %></option><% }) %></select>
+    <select name="term_id" aria-label="<%= t('common.term') %>"<%= s.canEdit ? '' : ' required' %>><% if (s.canEdit) { %><option value=""><%= t('common.term') %>…</option><% } %><% termChoices.forEach(function (tm) { %><option value="<%= tm.id %>"><%= tm.name %></option><% }) %></select>
     <button class="btn btn-small"><%= t('plans.addChapter') %></button>
   </form>
 </section>

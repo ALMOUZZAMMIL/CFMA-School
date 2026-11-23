@@ -32,20 +32,38 @@ function windowOpen(plan, now = nowUtc()) {
   return !!(plan.edit_until && plan.edit_until > now);
 }
 
+// Terms whose upload window is open on `today` (YYYY-MM-DD, school time zone).
+function openTerms(yearId, today) {
+  return db.get().prepare(`SELECT * FROM terms WHERE year_id = ? AND plan_window_start IS NOT NULL AND plan_window_end IS NOT NULL
+    AND plan_window_start <= ? AND plan_window_end >= ? ORDER BY ordinal`).all(yearId, today, today);
+}
+
+function windowsDefined(yearId) {
+  return !!db.get().prepare('SELECT 1 FROM terms WHERE year_id = ? AND plan_window_start IS NOT NULL LIMIT 1').get(yearId);
+}
+
 /**
  * What this user can do with this plan right now.
- * canEdit: add, change or delete lessons and chapters, import.
+ * canEdit: add, change or delete anything (draft, or an approved edit window).
+ * termIds: terms whose chapters this teacher may still add or change on a locked sheet, because
+ *   that term's upload window is open and they have not locked that term yet.
  * canSubmit: lock the sheet (first submission, or closing an edit window).
+ * canSubmitTerms: lock the part of a locked sheet for the open terms.
  * canRequest: ask the administration to open a locked sheet.
+ * If the administration has set upload windows, teachers can only write a draft while one is open.
  */
-function state(user, plan, now = nowUtc()) {
+function state(user, plan, now = nowUtc(), today = now.slice(0, 10)) {
   const isAdmin = user.role === 'admin';
   const isTeacher = user.role === 'teacher' && teaches(user.id, plan);
   const open = windowOpen(plan, now);
   const mine = open && plan.edit_user_id === user.id;
+  const terms = openTerms(plan.year_id, today);
+  const limited = windowsDefined(plan.year_id);
   let canEdit = false;
-  if (plan.status === 'draft') canEdit = isAdmin || isTeacher;
+  if (plan.status === 'draft') canEdit = isAdmin || (isTeacher && (!limited || terms.length > 0));
   else canEdit = mine && (isAdmin || isTeacher);
+  const submitted = new Set(db.get().prepare('SELECT term_id FROM plan_term_submissions WHERE plan_id = ?').all(plan.id).map((r) => r.term_id));
+  const termIds = isTeacher && plan.status === 'locked' && !canEdit ? terms.filter((t) => !submitted.has(t.id)).map((t) => t.id) : [];
   const pending = isTeacher
     ? db.get().prepare("SELECT * FROM plan_change_requests WHERE plan_id = ? AND requested_by = ? AND status = 'pending' ORDER BY id DESC LIMIT 1").get(plan.id, user.id)
     : null;
@@ -56,9 +74,16 @@ function state(user, plan, now = nowUtc()) {
     windowOpen: open,
     windowMine: mine,
     canEdit,
+    openTerms: terms,
+    windowsLimited: limited,
+    submittedTerms: submitted,
+    termIds,
     canSubmit: canEdit,
+    canSubmitTerms: termIds.length > 0,
     canRequest: isTeacher && plan.status === 'locked' && !mine && !pending,
     pending,
+    // May this user change a chapter (or add one) belonging to this term?
+    canEditTerm: (termId) => canEdit || (termId != null && termIds.includes(termId)),
   };
 }
 
@@ -77,4 +102,4 @@ function pendingCount() {
   return db.get().prepare("SELECT COUNT(*) n FROM plan_change_requests WHERE status = 'pending'").get().n;
 }
 
-module.exports = { nowUtc, addHours, teaches, windowOpen, state, log, history, pendingCount };
+module.exports = { nowUtc, addHours, teaches, windowOpen, openTerms, windowsDefined, state, log, history, pendingCount };

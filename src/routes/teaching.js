@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const db = require('../db');
 const access = require('../access');
 const timetableGrid = require('../timetable-grid');
+const reports = require('../reports');
 const auth = require('../auth');
 const { Validator, int, str, isDate, weekday, minutesBetween } = require('../util');
 
@@ -75,8 +76,25 @@ r.get('/timetable', (req, res) => {
   }
   let bell = null;
   try { bell = JSON.parse((db.get().prepare("SELECT value FROM settings WHERE key = 'bell_schedule'").get() || {}).value || 'null'); } catch (e) { bell = null; }
+  // Staff see, in each lesson, where the class is in its progression sheet today.
+  if (req.user.role === 'admin' || req.user.role === 'teacher') {
+    const settings = db.getSettings();
+    const cache = new Map();
+    for (const sl of slots) {
+      if (!cache.has(sl.assignment_id)) {
+        const a = access.assignment(sl.assignment_id);
+        const p = reports.progressFor(a, today);
+        cache.set(sl.assignment_id, { p, status: reports.curriculumStatus(p, settings) });
+      }
+      Object.assign(sl, { track: cache.get(sl.assignment_id) });
+    }
+  }
+  // Exam periods of the term shown, so everyone sees them next to the lessons.
+  const term = terms.find((t) => t.id === termId);
+  const exams = term ? db.get().prepare(`SELECT * FROM school_events WHERE year_id = ? AND category = 'evaluation'
+    AND start_date <= ? AND COALESCE(end_date, start_date) >= ? ORDER BY start_date`).all(year.id, term.end_date, term.start_date) : [];
   const grid = timetableGrid.build(slots, bell);
-  res.render('timetable', { title: req.t('nav.timetable'), slots, grid, terms, termId, query: req.query, ...extra });
+  res.render('timetable', { title: req.t('nav.timetable'), slots, grid, terms, termId, query: req.query, exams, today, ...extra });
 });
 
 function sessionForm(req, res, { session, errors = [], status = 200 }) {

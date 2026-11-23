@@ -59,7 +59,7 @@ r.get('/progress', auth.requireRole('admin', 'teacher'), (req, res) => {
   const teachers = db.get().prepare("SELECT id, full_name FROM users WHERE role = 'teacher' ORDER BY full_name").all();
   res.render('progress/list', {
     title: req.t('progress.title'), rows, counts, state, byTeacher, asOf, classes, teachers, q: req.query, total: all.length,
-    grace: Number(settings.progress_grace_days) || 7, alertDays: Number(settings.progress_alert_days) || 21,
+    grace: Number(settings.progress_grace_days) || 5, alertDays: Number(settings.progress_alert_days) || 15,
   });
 });
 
@@ -80,6 +80,8 @@ r.get('/progress/now', auth.requireRole('admin'), (req, res) => {
   const time = isTime(req.query.time) ? req.query.time : (date === today ? nowTime(db.getSettings().timezone) : null);
   const settings = db.getSettings();
   const closed = reports.closedDates(year.id).has(date);
+  const exams = db.get().prepare(`SELECT * FROM school_events WHERE year_id = ? AND category = 'evaluation'
+    AND start_date <= ? AND COALESCE(end_date, start_date) >= ?`).all(year.id, date, date);
   const slots = closed ? [] : db.get().prepare(`SELECT ts.*, ta.teacher_id, ta.class_id, ta.subject_id, c.name AS class_name, c.level, c.section_id, c.year_id,
       s.name_en AS subject_en, s.name_fr AS subject_fr, u.full_name AS teacher_name,
       cs.status AS session_status
@@ -101,7 +103,7 @@ r.get('/progress/now', auth.requireRole('admin'), (req, res) => {
   const monday = addDays(date, 1 - weekday(date));
   for (let i = 0; i < 6; i++) days.push(addDays(monday, i));
   res.render('progress/now', {
-    title: req.t('progress.nowTitle'), rows, date, time, today, closed, days,
+    title: req.t('progress.nowTitle'), rows, date, time, today, closed, days, exams,
     prev: addDays(date, -1), next: addDays(date, 1), current: rows.filter((x) => x.now),
   });
 });

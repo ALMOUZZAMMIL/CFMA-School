@@ -8,4 +8,5 @@ module.exports = [
   require('./004-device-tokens'),
   require('./005-school-calendar'),
   require('./006-plan-locking'),
+  require('./007-plan-schedule'),
 ];
