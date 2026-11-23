@@ -76,12 +76,13 @@
       </ul>
     </section>
     <section class="card">
-      <div class="card-head"><h2><%= t('dashboard.behindTitle') %></h2><a href="/progress"><%= t('common.seeAll') %></a></div>
+      <div class="card-head"><h2><%= t('dashboard.behindTitle') %></h2><a href="/progress?state=late"><%= t('dashboard.behindSeeAll', { n: behindCount }) %></a></div>
       <% if (!behind.length) { %><p class="muted"><%= t('dashboard.behindNone') %></p><% } else { %>
       <ul class="prog-list">
         <% behind.forEach(function (x) { %>
         <li>
-          <div class="prog-head"><a href="/progress/<%= x.a.id %>"><strong><%= ln(x.a, 'subject') %></strong> · <%= x.a.class_name %></a><span class="badge <%= x.p.gap < 0 ? 'badge-late' : 'badge-held' %>"><%= x.p.gap < 0 ? t('dashboard.lessonsBehind', { n: -x.p.gap }) : x.p.gap > 0 ? t('dashboard.ahead', { n: x.p.gap }) : t('dashboard.onTrack') %></span></div>
+          <div class="prog-head"><a href="/progress/<%= x.a.id %>"><strong><%= ln(x.a, 'subject') %></strong> · <%= x.a.class_name %></a><%- include('partials/curriculum-status', { status: x.status, p: x.p }) %></div>
+          <% if (x.p.shouldBeOn) { %><div class="small muted"><%= x.a.teacher_name %> · <%= t('progress.shouldBeOn') %> : <%= x.p.shouldBeOn.title %></div><% } %>
           <div class="prog-bar"><%- include('partials/progress-bar', { p: x.p }) %><span class="prog-pct"><%= x.p.pct %> %</span></div>
           <div class="small muted"><%= x.a.teacher_name %> · <%= x.p.completed %>/<%= x.p.total %></div>
         </li>
@@ -164,7 +165,7 @@
       <ul class="prog-list">
         <% myProgress.forEach(function (x) { %>
         <li>
-          <div class="prog-head"><a href="/progress/<%= x.a.id %>"><strong><%= ln(x.a, 'subject') %></strong> · <%= x.a.class_name %></a></div>
+          <div class="prog-head"><a href="/progress/<%= x.a.id %>"><strong><%= ln(x.a, 'subject') %></strong> · <%= x.a.class_name %></a><%- include('partials/curriculum-status', { status: x.status, p: x.p }) %></div>
           <div class="prog-bar"><%- include('partials/progress-bar', { p: x.p }) %><span class="prog-pct"><%= x.p.pct %> %</span></div>
           <div class="small <%= x.p.gap < 0 ? 'text-warn' : 'muted' %>"><%= x.p.gap < 0 ? t('dashboard.lessonsBehind', { n: -x.p.gap }) : x.p.gap > 0 ? t('dashboard.ahead', { n: x.p.gap }) : t('dashboard.onTrack') %></div>
         </li>

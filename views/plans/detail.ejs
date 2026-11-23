@@ -1,16 +1,17 @@
 <%- include('../partials/head') %>
 <div class="page-head"><h1><%= plan.title %></h1><a class="btn" href="/plans/<%= plan.id %>?print=1"><%= t('common.printable') %></a></div>
 <p class="muted"><%= ln(plan, 'section') %> · <%= plan.level %> · <%= ln(plan, 'subject') %></p>
+<%- include('lock-panel') %>
 <% if (!chapters.length) { %><div class="empty"><p><%= t('plans.noChapters') %></p></div><% } %>
 <% chapters.forEach(function (ch) { %>
 <section class="card" id="ch-<%= ch.id %>">
   <div class="card-head"><h2><%= ch.ordinal %>. <%= ch.title %></h2><span class="small muted"><%= ch.term_name || '' %></span></div>
   <% if (!ch.lessons.length) { %><p class="muted"><%= t('plans.noLessons') %></p><% } else { %>
   <div class="table-wrap"><table>
-    <thead><tr><th>#</th><th><%= t('fields.lesson_id') %></th><th><%= t('plans.plannedDate') %></th><th><%= t('plans.hours') %></th><% if (user.role === 'admin') { %><th></th><% } %></tr></thead>
+    <thead><tr><th>#</th><th><%= t('fields.lesson_id') %></th><th><%= t('plans.plannedDate') %></th><th><%= t('plans.hours') %></th><% if (lockState.canEdit) { %><th></th><% } %></tr></thead>
     <tbody><% ch.lessons.forEach(function (l) { %>
       <tr>
-      <% if (user.role === 'admin') { %>
+      <% if (lockState.canEdit) { %>
         <td><%= ch.ordinal %>.<%= l.ordinal %></td>
         <td colspan="3">
           <form method="post" action="/plans/lessons/<%= l.id %>" class="row-form">
@@ -29,7 +30,7 @@
     <% }) %></tbody>
   </table></div>
   <% } %>
-  <% if (user.role === 'admin') { %>
+  <% if (lockState.canEdit) { %>
   <form method="post" action="/plans/chapters/<%= ch.id %>/lessons" class="row-form add-row">
     <input type="hidden" name="_csrf" value="<%= csrf %>">
     <input name="title" placeholder="<%= t('plans.newLesson') %>" aria-label="<%= t('plans.newLesson') %>" required maxlength="200">
@@ -41,7 +42,7 @@
   <% } %>
 </section>
 <% }) %>
-<% if (user.role === 'admin') { %>
+<% if (lockState.canEdit) { %>
 <section class="card">
   <h2><%= t('plans.addChapter') %></h2>
   <form method="post" action="/plans/<%= plan.id %>/chapters" class="row-form">
@@ -65,4 +66,5 @@ Chapitre 1 : Les nombres,Leçon 1 : Ensembles de nombres,15/09/2026,2,Trimestre 
   </form>
 </section>
 <% } %>
+<%- include('history') %>
 <%- include('../partials/foot') %>

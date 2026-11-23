@@ -1,0 +1,47 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('plans.requestsTitle') %></h1><a class="btn" href="/plans"><%= t('plans.title') %></a></div>
+<p class="help"><%= t('plans.req.help', { hours: windowHours }) %></p>
+<section class="card">
+  <div class="card-head"><h2><%= t('plans.req.pending') %></h2></div>
+  <% if (!pending.length) { %><p class="muted"><%= t('plans.req.none') %></p><% } else { %>
+  <ul class="plan-req-list">
+  <% pending.forEach(function (r) { %>
+    <li class="plan-req">
+      <div><a href="/plans/<%= r.plan_id %>#history"><strong><%= r.plan_title %></strong></a></div>
+      <div class="small muted"><%= r.requester %> · <%= fmt.dateTime(r.created_at) %></div>
+      <p>“<%= r.reason %>”</p>
+      <div class="req-actions">
+        <form method="post" action="/plans/requests/<%= r.id %>/approve" class="row-form">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <label><%= t('plans.req.openFor') %>
+            <select name="hours"><% [24, 48, 72, 168].forEach(function (h) { %><option value="<%= h %>" <%= h === windowHours ? 'selected' : '' %>><%= t('plans.req.hoursN', { n: h }) %></option><% }) %></select></label>
+          <input name="note" maxlength="1000" placeholder="<%= t('plans.req.notePlaceholder') %>" aria-label="<%= t('plans.req.note') %>">
+          <button class="btn btn-primary btn-small"><%= t('plans.req.approve') %></button>
+        </form>
+        <form method="post" action="/plans/requests/<%= r.id %>/reject" class="row-form">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input name="note" required maxlength="1000" placeholder="<%= t('plans.req.rejectPlaceholder') %>" aria-label="<%= t('plans.req.note') %>">
+          <button class="btn btn-small"><%= t('plans.req.reject') %></button>
+        </form>
+      </div>
+    </li>
+  <% }) %>
+  </ul>
+  <% } %>
+</section>
+<section class="card">
+  <div class="card-head"><h2><%= t('plans.req.recent') %></h2></div>
+  <% if (!recent.length) { %><p class="muted"><%= t('plans.req.none') %></p><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.date') %></th><th><%= t('plans.req.sheet') %></th><th><%= t('common.teacher') %></th><th><%= t('plans.lock.reason') %></th><th><%= t('plans.req.decision') %></th></tr></thead>
+    <tbody><% recent.forEach(function (r) { var open = r.status === 'approved' && r.edit_until && r.edit_until > now && r.edit_user_id === r.requested_by; %>
+      <tr><td><%= fmt.dateTime(r.created_at) %></td><td><a href="/plans/<%= r.plan_id %>#history"><%= r.plan_title %></a></td><td><%= r.requester %></td><td><%= r.reason %></td>
+        <td><span class="badge badge-<%= r.status === 'rejected' ? 'missed' : 'completed' %>"><%= t('plans.req.st.' + r.status) %></span>
+          <% if (open) { %><br><span class="small"><%= t('plans.hist.until', { until: fmt.dateTime(r.edit_until) }) %></span><% } %>
+          <span class="small muted"> <%= r.decider || '' %></span>
+          <% if (r.decision_note) { %><br><span class="small"><%= r.decision_note %></span><% } %></td></tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+</section>
+<%- include('../partials/foot') %>

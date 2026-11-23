@@ -114,6 +114,7 @@ function createApp() {
     if (req.user && !req.user.must_change_password) {
       const counts = { unread: res.locals.unread };
       if (req.user.role === 'admin') counts.requests = db.get().prepare("SELECT COUNT(*) n FROM access_requests WHERE status = 'pending'").get().n;
+      if (req.user.role === 'admin') counts.planRequests = db.get().prepare("SELECT COUNT(*) n FROM plan_change_requests WHERE status = 'pending'").get().n;
       res.locals.nav = nav.build(req.user.role, req.path, counts);
     }
     req.t = t;

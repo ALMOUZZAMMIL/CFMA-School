@@ -26,7 +26,10 @@ const GET_ALLOWED = {
 };
 // POST actions each non-admin role may use.
 const POST_ALLOWED = {
-  teacher: ['/account/password', '/notifications/read', '/sessions', '/sessions/:id', '/progress/:aid', '/attendance/:classId', '/session/keepalive'],
+  teacher: ['/account/password', '/notifications/read', '/sessions', '/sessions/:id', '/progress/:aid', '/attendance/:classId', '/session/keepalive',
+    // Progression sheets: allowed at route level; each one checks the sheet's lock state (see plan-lock.test.js).
+    '/plans', '/plans/:id/submit', '/plans/:id/requests', '/plans/:id/chapters', '/plans/chapters/:cid/lessons', '/plans/lessons/:lid',
+    '/plans/lessons/:lid/delete', '/plans/chapters/:cid/delete', '/plans/:id/import'],
   parent: ['/account/password', '/notifications/read', '/session/keepalive'],
   student: ['/account/password', '/notifications/read', '/session/keepalive'],
   bursar: ['/account/password', '/notifications/read', '/session/keepalive'],

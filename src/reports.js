@@ -115,6 +115,9 @@ function progressFor(a, asOf) {
     if (l.progress && l.progress.status === 'completed') completed++;
   });
   const plannedToDate = plannedIndex + 1;
+  // The oldest lesson that was due by asOf and is not finished: how long the class has waited for it.
+  const oldestLate = lessons.find((l) => l.isLate) || null;
+  const daysBehind = oldestLate ? Math.round((Date.parse(`${asOf}T00:00:00Z`) - Date.parse(`${oldestLate.planned_date}T00:00:00Z`)) / 86400000) : 0;
   return {
     plan,
     chapters,
@@ -125,10 +128,37 @@ function progressFor(a, asOf) {
     plannedLesson: plannedIndex >= 0 ? lessons[plannedIndex] : null,
     actualLesson: actualIndex >= 0 ? lessons[actualIndex] : null,
     gap: completed - plannedToDate, // negative = behind the plan
+    lateCount: lessons.filter((l) => l.isLate).length,
+    oldestLate,
+    daysBehind,
+    // The lesson the class should be on now: the first unfinished lesson (late or next due).
+    shouldBeOn: oldestLate || lessons.find((l) => !l.progress || l.progress.status !== 'completed') || null,
     pct: lessons.length ? Math.round((completed / lessons.length) * 100) : 0,
     plannedPct: lessons.length ? Math.round((plannedToDate / lessons.length) * 100) : 0,
   };
 }
+
+/**
+ * Curriculum status of one progress result, from the school's settings:
+ *   no_plan     no progression sheet for this class and subject
+ *   not_submitted  the sheet is still a draft (not locked), so it cannot be tracked yet
+ *   on_track    nothing overdue by more than progress_grace_days
+ *   behind      the oldest unfinished lesson was due more than progress_grace_days ago
+ *   far_behind  ... more than progress_alert_days ago
+ *   ahead       more lessons completed than planned so far
+ */
+function curriculumStatus(p, settings) {
+  if (!p.plan || !p.total) return 'no_plan';
+  if (p.plan.status === 'draft') return 'not_submitted';
+  const grace = Number(settings.progress_grace_days) || 7;
+  const alert = Math.max(Number(settings.progress_alert_days) || 21, grace);
+  if (p.daysBehind > alert) return 'far_behind';
+  if (p.daysBehind > grace) return 'behind';
+  if (p.gap > 0) return 'ahead';
+  return 'on_track';
+}
+
+const STATUS_ORDER = { far_behind: 0, behind: 1, on_track: 2, ahead: 3, not_submitted: 4, no_plan: 5 };
 
 // Students with repeated absences or lateness in the last `days` days.
 function repeatedAbsences({ yearId, threshold, days, asOf, classId }) {
@@ -144,4 +174,4 @@ function repeatedAbsences({ yearId, threshold, days, asOf, classId }) {
     .all({ yearId, from, asOf, threshold, classId });
 }
 
-module.exports = { hoursSummary, progressFor, repeatedAbsences, slotOccurrences, closedDates };
+module.exports = { hoursSummary, progressFor, curriculumStatus, STATUS_ORDER, repeatedAbsences, slotOccurrences, closedDates };

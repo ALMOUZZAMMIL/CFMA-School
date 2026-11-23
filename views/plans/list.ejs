@@ -1,6 +1,31 @@
 <%- include('../partials/head') %>
 <div class="page-head"><h1><%= t('plans.title') %></h1></div>
 <p class="help"><%= t('plans.intro') %></p>
+<% if (user.role === 'admin' && pendingRequests) { %>
+<p class="notice"><span aria-hidden="true">◷</span> <%= t('plans.req.waiting', { n: pendingRequests }) %> <a class="btn btn-primary btn-small" href="/plans/requests"><%= t('plans.req.review') %></a></p>
+<% } else if (user.role === 'admin') { %><p><a href="/plans/requests"><%= t('plans.requestsTitle') %></a></p><% } %>
+<% if (user.role === 'teacher') { %>
+<section class="card" id="mine">
+  <div class="card-head"><h2><%= t('plans.mine.title') %></h2></div>
+  <p class="help"><%= t('plans.mine.help') %></p>
+  <%- include('../partials/errors', { errors }) %>
+  <% if (!mine.length) { %><p class="muted"><%= t('plans.mine.none') %></p><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('fields.level') %></th><th><%= t('common.subject') %></th><th><%= t('plans.lessons') %></th><th><%= t('progress.status') %></th><th></th></tr></thead>
+    <tbody><% mine.forEach(function (m) { %>
+      <tr><td><%= m.level %> <span class="small muted"><%= ln(m, 'section') %></span></td><td><%= ln(m, 'subject') %></td><td><%= m.plan_id ? m.lessons : '—' %></td>
+        <td><%- include('sheet-status', { status: m.plan_id ? m.status : null, windowOpen: m.windowOpen, pending: m.pending }) %></td>
+        <td><% if (m.plan_id) { %><a href="/plans/<%= m.plan_id %>"><%= t('common.open') %></a><% } else { %>
+          <form method="post" action="/plans" class="inline">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <input type="hidden" name="section_id" value="<%= m.section_id %>"><input type="hidden" name="level" value="<%= m.level %>"><input type="hidden" name="subject_id" value="<%= m.subject_id %>">
+            <button class="btn btn-primary btn-small"><%= t('plans.mine.start') %></button>
+          </form><% } %></td></tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+</section>
+<% } %>
 <form method="get" class="filters"><label><%= t('fields.section_id') %><select name="section"><option value=""><%= t('common.all') %></option><% sections.forEach(function (s) { %><option value="<%= s.id %>" <%= s.id === sectionId ? 'selected' : '' %>><%= ln(s) %></option><% }) %></select></label><button class="btn"><%= t('common.show') %></button></form>
 <% if (!rows.length) { %><div class="empty"><p><%= t('plans.empty') %></p></div><% } else { %>
 <% groups.forEach(function (g) { %>
@@ -13,8 +38,8 @@
     <details class="plan-class">
       <summary><strong><%= k.level %></strong> <span class="help-inline"><%= t('plans.subjectCount', { n: k.items.length }) %></span></summary>
       <div class="table-wrap"><table>
-        <thead><tr><th><%= t('common.subject') %></th><th><%= t('plans.chapters') %></th><th><%= t('plans.lessons') %></th><th></th></tr></thead>
-        <tbody><% k.items.forEach(function (p) { %><tr><td><%= ln(p, 'subject') %></td><td><%= p.chapters %></td><td><%= p.lessons %></td><td><a href="/plans/<%= p.id %>"><%= t('common.open') %></a></td></tr><% }) %></tbody>
+        <thead><tr><th><%= t('common.subject') %></th><th><%= t('plans.chapters') %></th><th><%= t('plans.lessons') %></th><th><%= t('progress.status') %></th><th></th></tr></thead>
+        <tbody><% k.items.forEach(function (p) { %><tr><td><%= ln(p, 'subject') %></td><td><%= p.chapters %></td><td><%= p.lessons %></td><td><%- include('sheet-status', { status: p.status, windowOpen: p.edit_until && p.edit_until > lockNow, pending: 0 }) %></td><td><a href="/plans/<%= p.id %>"><%= t('common.open') %></a></td></tr><% }) %></tbody>
       </table></div>
     </details>
   <% }) %>

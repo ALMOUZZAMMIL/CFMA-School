@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('progress.nowTitle') %></h1><div class="actions no-print"><a class="btn" href="/progress"><%= t('progress.title') %></a><button class="btn" data-print><%= t('common.print') %></button></div></div>
+<p class="help"><%= t('progress.nowHelp') %></p>
+<nav class="chips no-print" aria-label="<%= t('progress.pickDay') %>">
+  <a class="chip" href="/progress/now?date=<%= prev %>&amp;step=1" aria-label="<%= t('progress.prevDay') %>">‹</a>
+  <% days.forEach(function (d) { %><a class="chip<%= d === date ? ' on' : '' %>" href="/progress/now?date=<%= d %>"><%= fmt.date(d) %><%= d === today ? ' · ' + t('progress.todayWord') : '' %></a><% }) %>
+  <a class="chip" href="/progress/now?date=<%= next %>&amp;step=1" aria-label="<%= t('progress.nextDay') %>">›</a>
+</nav>
+<form method="get" class="filters no-print">
+  <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>"></label>
+  <label><%= t('progress.atTime') %> <input type="time" name="time" value="<%= time || '' %>"></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<h2 class="h-sub"><%= fmt.longDate(date) %><%= time ? ' · ' + time : '' %></h2>
+<% if (closed) { %><div class="empty"><p><%= t('progress.nowClosed') %></p></div>
+<% } else if (!rows.length) { %><div class="empty"><p><%= t('progress.nowNone') %></p></div>
+<% } else { %>
+<% if (time) { %>
+<section class="card now-card">
+  <div class="card-head"><h2><%= t('progress.nowInClass', { time: time }) %></h2></div>
+  <% if (!current.length) { %><p class="muted"><%= t('progress.nowNoneAtTime') %></p><% } else { %>
+  <ul class="now-list">
+    <% current.forEach(function (x) { %>
+    <li>
+      <div class="now-head"><strong><%= x.sl.class_name %></strong> · <%= ln(x.sl, 'subject') %> · <%= x.sl.teacher_name %><%= x.sl.room ? ' · ' + x.sl.room : '' %> <span class="muted"><%= x.sl.start_time %>–<%= x.sl.end_time %></span></div>
+      <div><%= t('progress.shouldTeach') %> <strong><%= x.p.shouldBeOn ? x.p.shouldBeOn.title : '—' %></strong></div>
+      <div class="small"><%= t('progress.reached') %> : <%= x.p.actualLesson ? x.p.actualLesson.title : '—' %> <%- include('../partials/curriculum-status', { status: x.status, p: x.p }) %></div>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %>
+</section>
+<% } %>
+<div class="table-wrap"><table class="tracker">
+  <thead><tr><th><%= t('progress.hour') %></th><th><%= t('common.class') %></th><th><%= t('common.subject') %></th><th><%= t('common.teacher') %></th><th><%= t('progress.shouldBeOn') %></th><th><%= t('progress.reached') %></th><th><%= t('progress.status') %></th><th><%= t('progress.recorded') %></th><th class="no-print"></th></tr></thead>
+  <tbody>
+  <% rows.forEach(function (x) { %>
+    <tr class="<%= x.now ? 'is-now' : '' %> st-<%= x.status %>">
+      <td><%= x.sl.start_time %>–<%= x.sl.end_time %><% if (x.now) { %> <span class="badge badge-in_progress"><%= t('progress.nowBadge') %></span><% } %></td>
+      <td><%= x.sl.class_name %><%= x.sl.room ? ' · ' + x.sl.room : '' %></td>
+      <td><%= ln(x.sl, 'subject') %></td>
+      <td><%= x.sl.teacher_name %></td>
+      <td class="small"><%= x.p.shouldBeOn ? x.p.shouldBeOn.title : (x.p.plan ? t('progress.allDone') : '—') %></td>
+      <td class="small"><%= x.p.actualLesson ? x.p.actualLesson.title : '—' %></td>
+      <td><%- include('../partials/curriculum-status', { status: x.status, p: x.p }) %></td>
+      <td><% if (x.sl.session_status) { %><%- include('../partials/badge', { kind: 'session', value: x.sl.session_status }) %><% } else if (x.past || date < today) { %><span class="badge badge-none"><%= t('progress.notRecorded') %></span><% } else { %><span class="small muted">—</span><% } %></td>
+      <td class="no-print"><a href="/progress/<%= x.sl.assignment_id %>"><%= t('common.open') %></a></td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

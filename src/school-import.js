@@ -182,7 +182,9 @@ function importProgramme(d, p, yearId, stats, log) {
   const subjectId = upsertSubject(d, { code: p.subject, name_fr: p.subject_fr || p.subject, name_en: p.subject_en || p.subject }, stats);
   const terms = d.prepare('SELECT id, ordinal FROM terms WHERE year_id = ?').all(yearId);
   const termId = (n) => (terms.find((t) => t.ordinal === n) || {}).id || null;
-  let plan = d.prepare('SELECT id FROM plans WHERE year_id = ? AND section_id = ? AND level = ? AND subject_id = ?').get(yearId, sectionId, p.level, subjectId);
+  let plan = d.prepare('SELECT id, submitted_by FROM plans WHERE year_id = ? AND section_id = ? AND level = ? AND subject_id = ?').get(yearId, sectionId, p.level, subjectId);
+  // A sheet a teacher wrote and locked is never overwritten by an import.
+  if (plan && plan.submitted_by) { stats.plansSkipped++; log(`Skipped ${p.file}: a teacher submitted and locked this sheet.`); return; }
   if (plan) {
     // Never rewrite a programme teachers have already recorded progress against.
     const used = d.prepare(`SELECT 1 FROM progress_entries pe JOIN plan_lessons l ON l.id = pe.lesson_id JOIN plan_chapters c ON c.id = l.chapter_id

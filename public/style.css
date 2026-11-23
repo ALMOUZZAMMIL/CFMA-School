@@ -924,3 +924,40 @@ body.public-split { background: var(--bg); }
 .bento-cta a:not(.btn) { color: #fff; font-weight: 700; }
 .bento-role { align-content: start; }
 @media (min-width: 1250px) { .bento-steps { grid-template-columns: repeat(3, 1fr); } }
+
+/* ---------- Progression sheets (lock) and curriculum tracker ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1rem; }
+.chips .chip { display: inline-block; padding: .3rem .75rem; border-radius: 999px; background: var(--surface); border: 1px solid var(--line-strong); color: var(--text-2); font-size: .82rem; text-decoration: none; }
+.chips .chip:hover { border-color: var(--primary); color: var(--primary); }
+.chips .chip.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+.stat.on { border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-soft); }
+.stat-bad .stat-num { color: var(--bad); }
+.stat-warn .stat-num { color: var(--warn); }
+.stat-ok .stat-num { color: var(--ok); }
+.tracker tr.st-far_behind td:first-child { box-shadow: inset 4px 0 0 var(--bad); }
+.tracker tr.st-behind td:first-child { box-shadow: inset 4px 0 0 var(--warn); }
+.tracker tr.is-now { background: var(--primary-tint); }
+.lock-panel { border-left: 4px solid var(--ok); }
+.lock-panel.lock-draft { border-left-color: var(--primary); }
+.lock-panel.lock-open { border-left-color: var(--warn); }
+.lock-panel h2 { margin-top: 0; }
+.lock-panel form.inline, .lock-panel .lock-form { display: inline-block; margin: .25rem .5rem .25rem 0; vertical-align: top; }
+.lock-panel .lock-form[open] { display: block; }
+.lock-panel .lock-form summary { list-style: none; cursor: pointer; }
+.lock-panel .lock-form summary::-webkit-details-marker { display: none; }
+.lock-panel .lock-form .form { margin-top: .75rem; max-width: 40rem; }
+.hist-list { list-style: none; padding: 0; margin: 0; }
+.hist-list li { padding: .55rem 0; border-bottom: 1px solid var(--line); }
+.hist-list li:last-child { border-bottom: 0; }
+.plan-req-list { list-style: none; padding: 0; margin: 0; }
+.plan-req-list .plan-req { padding: .75rem 0; border-bottom: 1px solid var(--line); }
+.plan-req-list .plan-req p { margin: .35rem 0 .5rem; }
+.req-actions { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+.now-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
+.now-list li { padding: .6rem .75rem; border-radius: var(--radius); background: var(--subtle); }
+.now-head { margin-bottom: .2rem; }
+form.inline { display: inline; }
+.notice { background: var(--warn-soft); border: 1px solid var(--warn-line); color: var(--text); padding: .6rem .8rem; border-radius: var(--radius); }
+.h-sub { font-size: 1.05rem; margin: .5rem 0 .75rem; }
+.page-head .actions { margin-top: 0; }
+.tracker td:first-child { white-space: nowrap; }

@@ -1,0 +1,60 @@
+<%# Lock state of a progression sheet and the actions that go with it (see src/plan-lock.js). %>
+<% var s = lockState; %>
+<section class="card lock-panel <%= plan.status === 'draft' ? 'lock-draft' : (s.windowOpen ? 'lock-open' : 'lock-locked') %>" id="lock">
+<% if (plan.status === 'draft') { %>
+  <h2><span aria-hidden="true">✎</span> <%= t('plans.lock.draftTitle') %></h2>
+  <p><%= t('plans.lock.draftHelp') %></p>
+  <% if (s.canSubmit) { %>
+  <form method="post" action="/plans/<%= plan.id %>/submit" data-confirm="<%= t('plans.lock.confirmSubmit') %>">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <button class="btn btn-primary"><%= t('plans.lock.submit') %></button>
+  </form>
+  <% } %>
+<% } else { %>
+  <h2><span aria-hidden="true">🔒</span> <%= t('plans.lock.lockedTitle') %></h2>
+  <p><%= plan.submitted_at ? t('plans.lock.lockedBy', { name: plan.submitted_name || '—', date: fmt.dateTime(plan.submitted_at) }) : t('plans.lock.lockedOfficial') %></p>
+  <% if (s.windowOpen) { %>
+    <p class="lock-window"><strong><%= t('plans.lock.windowOpen', { name: plan.edit_user_name || '—', until: fmt.dateTime(plan.edit_until) }) %></strong></p>
+    <% if (s.windowMine) { %>
+    <p><%= t('plans.lock.windowMineHelp') %></p>
+    <form method="post" action="/plans/<%= plan.id %>/submit" data-confirm="<%= t('plans.lock.confirmSubmit') %>" class="inline">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <button class="btn btn-primary"><%= t('plans.lock.submitAgain') %></button>
+    </form>
+    <% } %>
+    <% if (s.isAdmin && !s.windowMine) { %>
+    <form method="post" action="/plans/<%= plan.id %>/close-window" class="inline">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <button class="btn"><%= t('plans.lock.closeWindow') %></button>
+    </form>
+    <% } %>
+  <% } else { %>
+    <p><%= s.isAdmin ? t('plans.lock.lockedHelpAdmin') : t('plans.lock.lockedHelp') %></p>
+  <% } %>
+  <% if (s.pending) { %>
+    <p class="notice"><span aria-hidden="true">◷</span> <%= t('plans.lock.pending', { date: fmt.dateTime(s.pending.created_at) }) %></p>
+  <% } %>
+  <% if (s.canRequest) { %>
+  <details id="request" class="lock-form"><summary class="btn"><%= t('plans.lock.askChange') %></summary>
+    <form method="post" action="/plans/<%= plan.id %>/requests" class="form">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label for="reason"><%= t('plans.lock.reason') %></label>
+      <textarea id="reason" name="reason" rows="3" required minlength="5" maxlength="1000" placeholder="<%= t('plans.lock.reasonPlaceholder') %>"></textarea>
+      <button class="btn btn-primary"><%= t('plans.lock.sendRequest') %></button>
+    </form>
+  </details>
+  <% } %>
+  <% if (s.isAdmin && !s.windowOpen) { %>
+    <% var pend = requests.filter(function (r) { return r.status === 'pending'; }); %>
+    <% if (pend.length) { %><p><a class="btn btn-primary" href="/plans/requests"><%= t('plans.lock.seeRequests', { n: pend.length }) %></a></p><% } %>
+  <details id="reopen" class="lock-form"><summary class="btn"><%= t('plans.lock.reopen') %></summary>
+    <form method="post" action="/plans/<%= plan.id %>/reopen" class="form">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <label for="reopen-reason"><%= t('plans.lock.reason') %></label>
+      <textarea id="reopen-reason" name="reason" rows="2" required minlength="5" maxlength="1000"></textarea>
+      <button class="btn"><%= t('plans.lock.reopenButton') %></button>
+    </form>
+  </details>
+  <% } %>
+<% } %>
+</section>

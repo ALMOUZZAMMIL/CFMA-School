@@ -7,4 +7,5 @@ module.exports = [
   require('./003-session-activity'),
   require('./004-device-tokens'),
   require('./005-school-calendar'),
+  require('./006-plan-locking'),
 ];

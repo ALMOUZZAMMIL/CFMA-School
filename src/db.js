@@ -34,6 +34,12 @@ const DEFAULT_SETTINGS = {
   show_progress_to_students: '1',
   repeat_absence_threshold: '3',
   repeat_absence_window_days: '30',
+  // Curriculum tracking: a class is "behind" when its oldest unfinished lesson was due more than
+  // progress_grace_days ago, and "far behind" after progress_alert_days.
+  progress_grace_days: '7',
+  progress_alert_days: '21',
+  // How long an approved change request keeps a locked progression sheet open.
+  plan_edit_window_hours: '48',
 };
 
 let db;

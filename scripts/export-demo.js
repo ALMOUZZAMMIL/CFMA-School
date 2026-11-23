@@ -19,7 +19,7 @@ const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'dist');
 const PORT = 3900 + Math.floor(Math.random() * 90);
 const BASE = `http://127.0.0.1:${PORT}`;
-const LIMIT = 200; // pages per role and language
+const LIMIT = 800; // pages per role and language
 const LANGS = ['fr', 'en'];
 const ROLES = [
   { dir: 'admin', user: 'demo.admin' },
@@ -36,7 +36,8 @@ const LABELS = {
     banner: 'Demo preview (fictional data). Links work; forms do not save anything.', view: 'View as:',
     missing: 'This page is not included in the preview.', back: 'Back to home', saved: 'Preview only: nothing was saved.' },
 };
-const SKIP = /^\/(logout|lang|session\/status|healthz|brand\.css|static\/)|\.(csv|pdf|zip)(\?|$)|[?&](format|download)=/;
+const PRIORITY = /^\/(plans|progress\/now)/;
+const SKIP = /^\/(logout|lang|session\/status|healthz|brand\.css|static\/)|\.(csv|pdf|zip)(\?|$)|[?&](format|download|step)=/;
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'csma-demo-'));
 const env = { ...process.env, NODE_ENV: 'development', DATABASE_FILE: path.join(tmp, 'demo.db'), PORT: String(PORT) };
@@ -83,7 +84,9 @@ async function crawl(b, start) {
     pages.set(key, html);
     for (const m of html.matchAll(/<a\b[^>]*?\shref="(\/[^"#]*)/g)) {
       const k = m[1].replace(/&amp;/g, '&');
-      if (!SKIP.test(k) && !pages.has(k) && !queue.includes(k)) queue.push(k);
+      if (SKIP.test(k) || pages.has(k) || queue.includes(k)) continue;
+      // Progression sheets and the "classes right now" days first, so the page limit never cuts them.
+      if (PRIORITY.test(k)) queue.unshift(k); else queue.push(k);
     }
   }
   return pages;
@@ -172,6 +175,8 @@ async function main() {
   execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'seed.js')], { env, stdio: 'ignore' });
   // The school's own calendar, timetable and programmes (teachers by code only, never names).
   execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'import-school-data.js')], { env, stdio: 'ignore' });
+  // Fictional progress for those imported classes, so the curriculum tracker has something to show.
+  execFileSync(process.execPath, [path.join(__dirname, 'export-demo', 'demo-progress.js')], { env, stdio: 'ignore' });
   const server = spawn(process.execPath, [path.join(ROOT, 'server.js')], { env, stdio: 'ignore' });
   try {
     for (let i = 0; i < 50; i++) {

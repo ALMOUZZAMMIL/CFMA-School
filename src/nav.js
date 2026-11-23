@@ -9,7 +9,7 @@ const ITEMS = {
   teaching: { href: '/teaching', key: 'nav.teaching', icon: 'clock', match: ['/teaching', '/sessions'] },
   attendance: { href: '/attendance', key: 'nav.attendance', icon: 'attendance', match: ['/attendance'] },
   progress: { href: '/progress', key: 'nav.progress', icon: 'progress', match: ['/progress'] },
-  plans: { href: '/plans', key: 'nav.plans', icon: 'book', match: ['/plans'] },
+  plans: { href: '/plans', key: 'nav.plans', icon: 'book', match: ['/plans'], count: 'planRequests' },
   timetable: { href: '/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/timetable'] },
   calendar: { href: '/calendar', key: 'nav.calendar', icon: 'flag', match: ['/calendar'] },
   adminTimetable: { href: '/admin/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/admin/timetable'] },
