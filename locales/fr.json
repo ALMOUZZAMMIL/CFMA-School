@@ -277,7 +277,12 @@
     "onTrack": "Dans les temps",
     "planned": "Prévu à ce jour",
     "myProgress": "Ma progression du programme",
-    "attendanceRateChild": "Taux de présence"
+    "attendanceRateChild": "Taux de présence",
+    "agenda": "Agenda du jour",
+    "agendaEmpty": "Aucun cours à l'emploi du temps aujourd'hui.",
+    "thisWeek": "Cette semaine",
+    "lastDays": "{n} derniers jours de classe",
+    "noMark": "Pas d'appel ce jour"
   },
   "teaching": {
     "dayTitle": "Cours par jour",
@@ -779,7 +784,9 @@
     "signinPanel": "Connectez-vous pour voir votre emploi du temps, vos classes ou la scolarité de vos enfants.",
     "signinPrivacy": "Vos informations ne sont visibles que par les personnes concernées.",
     "noAccount": "Pas encore de compte ?",
-    "haveAccount": "Vous avez déjà un compte ?"
+    "haveAccount": "Vous avez déjà un compte ?",
+    "welcomeBack": "Bon retour parmi nous.",
+    "signinShort": "Connectez-vous pour accéder à votre espace."
   },
   "access": {
     "requestTitle": "Demander un compte",
