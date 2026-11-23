@@ -2,5 +2,18 @@
   "framework": null,
   "installCommand": "npm ci",
   "buildCommand": "npm run export-demo",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/", "destination": "/fr/visiteur/index.html", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/assets/v/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(.*).html",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=600, stale-while-revalidate=604800" }]
+    }
+  ]
 }
