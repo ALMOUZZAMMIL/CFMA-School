@@ -13,7 +13,7 @@ const ITEMS = {
   timetable: { href: '/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/timetable'] },
   calendar: { href: '/calendar', key: 'nav.calendar', icon: 'flag', match: ['/calendar'] },
   adminTimetable: { href: '/admin/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/admin/timetable'] },
-  scanner: { href: '/admin/scanner/board', key: 'nav.scanner', icon: 'fingerprint', match: ['/admin/scanner'] },
+  scanner: { href: '/admin/scanner/calendar', key: 'nav.scanner', icon: 'fingerprint', match: ['/admin/scanner'] },
   myScans: { href: '/my-scans', key: 'nav.myScans', icon: 'fingerprint', match: ['/my-scans'] },
   reports: { href: '/reports/hours', key: 'nav.reports', icon: 'chart', match: ['/reports'] },
   myRecord: { href: '/me', key: 'nav.myRecord', icon: 'file', match: ['/me', '/students'] },

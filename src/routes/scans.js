@@ -19,9 +19,16 @@ r.get('/my-scans', auth.requireRole('teacher'), (req, res) => {
   const date = isDate(req.query.date) && req.query.date >= from && req.query.date <= today ? req.query.date : today;
   scanner.recompute(req.user.id, date);
   const d = db.get();
+  const lessons = scanner.lessonsFor({ userId: req.user.id, date });
+  // Where the teacher should be now (or next), so a scan always leads to the right class.
+  let current = null; let next = null;
+  if (date === today) {
+    const now = scanner.nowIn(res.locals.settings.timezone).time.slice(0, 5);
+    current = lessons.find((l) => l.start_time <= now && now < l.end_time) || null;
+    next = lessons.find((l) => l.start_time > now) || null;
+  }
   res.render('scans/mine', {
-    title: req.t('scanner.myTitle'), date, from,
-    lessons: scanner.lessonsFor({ userId: req.user.id, date }),
+    title: req.t('scanner.myTitle'), date, from, lessons, current, next,
     pin: d.prepare('SELECT scanner_pin FROM users WHERE id = ?').get(req.user.id).scanner_pin,
     scans: d.prepare(`SELECT sc.scanned_at, sc.source, dv.name AS device_name FROM scans sc LEFT JOIN scan_devices dv ON dv.id = sc.device_id
       WHERE sc.user_id = ? AND sc.scanned_at >= ? ORDER BY sc.scanned_at DESC LIMIT 200`).all(req.user.id, `${from} 00:00:00`),

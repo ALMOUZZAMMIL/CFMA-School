@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= classId && columns[0] ? t('scanner.calendarOf', { class: columns[0].name }) : t('scanner.calendarTitle') %></h1></div>
+<%- include('../partials/scanner-tabs') %>
+<p class="help"><%= t('scanner.calendarHelp') %></p>
+<form method="get" class="filters">
+  <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>"></label>
+  <label><%= t('common.class') %>
+    <select name="class"><option value=""><%= t('scanner.allClasses') %></option>
+    <% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<div class="day-nav">
+  <a class="btn btn-small" href="/admin/scanner/calendar?date=<%= prevDate %><%= classId ? '&class=' + classId : '' %>" rel="prev">‹ <%= fmt.date(prevDate) %></a>
+  <strong><%= fmt.longDate(date) %><% if (nowRow) { %> · <%= t('scanner.nowAt', { time: nowLabel }) %><% } %></strong>
+  <a class="btn btn-small" href="/admin/scanner/calendar?date=<%= nextDate %><%= classId ? '&class=' + classId : '' %>" rel="next"><%= fmt.date(nextDate) %> ›</a>
+</div>
+
+<ul class="tg-legend" aria-label="<%= t('scanner.legend') %>">
+  <% ['waiting','in_class','done','unconfirmed','no_scan'].forEach(function (st) { %><li><span class="tg-swatch tg-st-<%= st %>" aria-hidden="true"></span><%= t('scanner.st.' + st) %></li><% }) %>
+</ul>
+
+<% if (!columns.length || !columns.some(function (c) { return c.lessons.length; })) { %>
+  <div class="empty"><p><%= t('teaching.noSlots') %></p></div>
+<% } else { %>
+<div class="tg-scroll" tabindex="0" role="region" aria-label="<%= t('scanner.calendarTitle') %>">
+  <div class="tg <%= classId ? 'tg-single' : '' %>">
+    <div class="tg-col tg-axis" aria-hidden="true">
+      <div class="tg-head"></div>
+      <% hours.forEach(function (h) { %><div class="tg-hourlabel gs-<%= h.row %> gl-12"><%= h.label %></div><% }) %>
+      <div class="tg-end gs-<%= endRow %>"></div>
+    </div>
+    <% columns.forEach(function (c) { %>
+    <section class="tg-col" aria-label="<%= c.name %>">
+      <div class="tg-head"><% if (classId) { %><%= c.name %><% } else { %><a href="/admin/scanner/calendar?class=<%= c.id %><%= date !== today ? '&date=' + date : '' %>"><%= c.name %></a><% } %></div>
+      <% hours.forEach(function (h) { %><div class="tg-line gs-<%= h.row %>" aria-hidden="true"></div><% }) %>
+      <% if (nowRow) { %><div class="tg-now gs-<%= nowRow %>" aria-hidden="true"></div><% } %>
+      <% c.lessons.forEach(function (l) { var lz = l.lesson; %>
+      <article class="tg-lesson tg-st-<%= l.state %> gs-<%= Math.min(l.row, 170) %> gl-<%= Math.min(l.span, 168) %>">
+        <p class="tg-time"><%= l.start_time %>–<%= l.end_time %><% if (l.room) { %> · <%= l.room %><% } %></p>
+        <p class="tg-subject"><%= ln(l, 'subject') %></p>
+        <p class="tg-teacher"><%= l.teacher_name %><% if (!l.has_pin) { %> <span class="muted">(<%= t('scanner.noPin') %>)</span><% } %></p>
+        <p class="tg-state"><%- include('../partials/scan-state', { state: l.state, late: l.late, lateMin: lz ? lz.late_min : 0, early: l.early, earlyMin: lz ? lz.early_min : 0 }) %></p>
+        <% if (lz && (lz.in_time || lz.out_time)) { %><p class="tg-scans"><%= t('scanner.scanIn') %> <%= lz.in_time ? lz.in_time.slice(11, 16) : '—' %> · <%= t('scanner.scanOut') %> <%= lz.out_time ? lz.out_time.slice(11, 16) : '—' %></p><% } %>
+        <% if (l.session) { %><a class="tg-link" href="/sessions/<%= l.session.id %>"><span class="sr-only"><%= t('common.view') %> <%= l.start_time %> <%= ln(l, 'subject') %></span></a><% } %>
+      </article>
+      <% }) %>
+      <div class="tg-end gs-<%= endRow %>" aria-hidden="true"></div>
+    </section>
+    <% }) %>
+  </div>
+</div>
+<% } %>
+<%- include('../partials/foot') %>

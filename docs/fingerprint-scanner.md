@@ -51,7 +51,9 @@ All of these can be changed in *Scanner set-up → Matching rules*.
 | First scan 15 to 30 min late | Finished, flagged **late** |
 | First scan more than 30 min late | **Very late**: waits for an admin decision before it counts |
 | Second scan more than 10 min before the end | Finished, flagged **left early** |
-| Two lessons with 10 min or less between them | One scan out and one scan back cover both |
+| Two lessons with 10 min or less between them | One scan out and one scan back cover both; a scan at the change of lesson ends the first and starts the second |
+| A scan less than 15 min before the next lesson | Starts the next lesson (it is not counted as a very late arrival in the lesson before) |
+| The same teacher timetabled in two classes at the same time | One pair of scans covers both |
 | No second scan 30 min after the end | **No scan back**: goes to the review list |
 | Two scans within 2 min | Counted as one |
 | A scan outside every lesson, or an unknown staff number | Listed under **Scans with no lesson** for the admin |
@@ -66,7 +68,11 @@ that arrives late (scanner offline, USB upload) is matched using the time it was
   their correction requests. They cannot edit a scanned lesson, and while a scanner is in use
   they cannot type timetabled lessons in by hand ("Teachers cannot type in timetabled lessons"
   rule, on by default). If something is wrong they send a **correction request** with a reason.
-- **Administrators** see *Scanner: today's lessons*: every lesson with its scans, the review list
+- **Administrators** open the **class calendar** (menu *Scanner*): the school day hour by hour,
+  one column per class, each lesson with its teacher and subject and what the scans say: not
+  started, **in class** (after the first scan), **finished** (after the scan back), no scan back,
+  or no scan. A red line shows the time now. Pick one class to see only that class, or another day.
+- **Administrators** also see *Lessons and review* (*Scanner: today's lessons*): every lesson with its scans, the review list
   and the correction requests. Every decision ("Count as taught" / "Mark missed") needs a reason
   and is kept in the history.
 - **Nobody** can change or delete a scan.
@@ -80,6 +86,11 @@ On a test or demo site, *Scanner set-up → Try it without a scanner* adds a sca
 had used the device. This section does not appear on a real school site (`NODE_ENV=production`
 without demo data).
 
+On the online demo, `scripts/demo-scans.js` adds a simulated week of scans (fictional
+teachers: most on time, a few late, forgetting the scan back or never scanning) and the demo
+clock is frozen at 10:40 on the most recent school day (`DEMO_CLOCK`, ignored in production).
+The script refuses to run on anything but a demo database.
+
 ## Technical notes
 
 - Device endpoints (ZKTeco "push"/ADMS protocol): `GET/POST /iclock/cdata`, `GET /iclock/getrequest`,
@@ -90,4 +101,4 @@ without demo data).
 - Tables: `scan_devices`, `scans` (read-only by trigger), `scan_lessons`, `scan_corrections`,
   `scan_dismissals`; `users.scanner_pin`; `class_sessions.source` (`manual`, `scanner`, `correction`).
 - Code: `src/scanner.js` (matching, `matchDay` is a pure function), `src/routes/iclock.js`,
-  `src/routes/admin/scanner.js`, `src/routes/scans.js`. Tests: `test/scanner.test.js`.
+  `src/routes/admin/scanner.js` (set-up, lessons and review, class calendar), `src/routes/scans.js`. Tests: `test/scanner.test.js`.

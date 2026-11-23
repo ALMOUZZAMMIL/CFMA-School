@@ -1027,7 +1027,17 @@
     "noRequests": "No requests.",
     "myScans": "My scans (last 14 days)",
     "noScans": "No scans yet.",
-    "readOnlyNote": "Scans cannot be changed or deleted by anyone."
+    "readOnlyNote": "Scans cannot be changed or deleted by anyone.",
+    "calendarTitle": "Class calendar",
+    "calendarOf": "Class calendar: {class}",
+    "calendarHelp": "The school day hour by hour, one column per class. Each lesson shows its teacher and what the scans say: not started, in class after the first scan, finished after the scan back. Click a class to see it alone.",
+    "allClasses": "All classes",
+    "nowAt": "now {time}",
+    "legend": "Colour key",
+    "boardTab": "Lessons and review",
+    "noLogin": "no portal login",
+    "nowLesson": "Your lesson now",
+    "nextLesson": "Your next lesson"
   },
   "calendar": {
     "title": "School calendar",

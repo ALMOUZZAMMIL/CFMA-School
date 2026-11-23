@@ -3,6 +3,13 @@
 <p class="help"><%= t('scanner.myIntro') %></p>
 <% if (!pin) { %><div class="alert alert-info" role="note"><span class="alert-icon" aria-hidden="true">i</span> <%= t('scanner.myNoPin') %></div>
 <% } else { %><p class="small muted"><%= t('scanner.myPin') %>: <code><%= pin %></code></p><% } %>
+<% [['nowLesson', current], ['nextLesson', next]].forEach(function (x) { var l = x[1]; if (!l) return; %>
+<section class="card now-card">
+  <p class="small muted"><%= t('scanner.' + x[0]) %></p>
+  <p class="now-main"><strong><%= l.start_time %>–<%= l.end_time %></strong> · <%= l.class_name %><% if (l.room) { %> · <%= l.room %><% } %> · <%= ln(l, 'subject') %></p>
+  <%- include('../partials/scan-state', { state: l.state }) %>
+</section>
+<% }) %>
 <form method="get" class="filters">
   <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" min="<%= from %>" max="<%= today %>"></label>
   <button class="btn"><%= t('common.show') %></button>

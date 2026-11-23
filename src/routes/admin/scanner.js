@@ -27,9 +27,10 @@ function setupData() {
   const d = db.get();
   return {
     devices: d.prepare('SELECT * FROM scan_devices ORDER BY status = \'pending\' DESC, name').all(),
-    teachers: d.prepare(`SELECT u.id, u.full_name, u.scanner_pin,
+    // Every teacher, including those without a portal login: scanning does not need one.
+    teachers: d.prepare(`SELECT u.id, u.full_name, u.scanner_pin, u.active,
         (SELECT MAX(scanned_at) FROM scans WHERE user_id = u.id) AS last_scan
-      FROM users u WHERE u.role = 'teacher' AND u.active = 1 ORDER BY u.full_name`).all(),
+      FROM users u WHERE u.role = 'teacher' ORDER BY u.full_name`).all(),
     unknownPins: d.prepare('SELECT pin, COUNT(*) n, MAX(scanned_at) last FROM scans WHERE user_id IS NULL GROUP BY pin ORDER BY last DESC LIMIT 20').all(),
     testAllowed: testScansAllowed(),
   };
@@ -65,7 +66,7 @@ r.post('/admin/scanner/devices/:id', (req, res) => {
 // Staff numbers: one field per teacher, "pin_<user id>".
 r.post('/admin/scanner/pins', (req, res) => {
   const d = db.get();
-  const teachers = d.prepare("SELECT id, full_name, scanner_pin FROM users WHERE role = 'teacher' AND active = 1").all();
+  const teachers = d.prepare("SELECT id, full_name, scanner_pin FROM users WHERE role = 'teacher'").all();
   const wanted = new Map();
   for (const tch of teachers) {
     const v = str(req.body[`pin_${tch.id}`], 9).replace(/^0+(?=\d)/, '');
@@ -74,7 +75,7 @@ r.post('/admin/scanner/pins', (req, res) => {
     wanted.set(tch.id, v || null);
   }
   for (const [id, pin] of wanted) {
-    if (pin && d.prepare("SELECT 1 FROM users WHERE scanner_pin = ? AND id != ? AND (role != 'teacher' OR active = 0)").get(pin, id)) {
+    if (pin && d.prepare("SELECT 1 FROM users WHERE scanner_pin = ? AND id != ? AND role != 'teacher'").get(pin, id)) {
       return back(res, '/admin/scanner#pins', 'error', 'scanner.pinDuplicate');
     }
   }
@@ -155,6 +156,45 @@ r.get('/admin/scanner/board', (req, res) => {
   res.render('admin/scan-board', {
     title: req.t('scanner.boardTitle'), date, rows, counts, corrections, review, unmatched: scanner.unmatched(date), devices,
     rules: scanner.rules(),
+  });
+});
+
+/* ---------- Class day calendar ---------- */
+
+// The school day as a calendar: one column per class, lessons placed at their hours, each
+// showing its teacher and what the scans say (not started, in class, finished...).
+// Positions use 5-minute rows and CSS classes (the security policy forbids inline styles).
+r.get('/admin/scanner/calendar', (req, res) => {
+  const date = isDate(req.query.date) ? req.query.date : res.locals.today;
+  if (date <= res.locals.today) scanner.recomputeDate(date);
+  const year = res.locals.year;
+  const classes = year ? db.get().prepare('SELECT id, name FROM classes WHERE year_id = ? ORDER BY name').all(year.id) : [];
+  const classId = int(req.query.class);
+  const all = scanner.board(date);
+  const rows = classId ? all.filter((x) => x.class_id === classId) : all;
+  const toMin = scanner.toMin;
+  const starts = rows.map((x) => toMin(x.start_time));
+  const ends = rows.map((x) => toMin(x.end_time));
+  const dayStart = rows.length ? Math.floor(Math.min(...starts) / 30) * 30 : 7 * 60;
+  const dayEnd = rows.length ? Math.ceil(Math.max(...ends) / 60) * 60 : 16 * 60;
+  const ROW = 5;
+  const rowOf = (min) => Math.max(2, Math.round((min - dayStart) / ROW) + 2);
+  const columns = [];
+  for (const c of classes) {
+    const lessons = rows.filter((x) => x.class_id === c.id);
+    if (classId ? c.id === classId : lessons.length) {
+      columns.push({ ...c, lessons: lessons.map((x) => ({ ...x, row: rowOf(toMin(x.start_time)), span: Math.max(1, rowOf(toMin(x.end_time)) - rowOf(toMin(x.start_time))) })) });
+    }
+  }
+  const hours = [];
+  for (let h = Math.ceil(dayStart / 60) * 60; h < dayEnd; h += 60) hours.push({ label: `${String(h / 60).padStart(2, '0')}:00`, row: rowOf(h) });
+  const now = scanner.nowIn(db.getSettings().timezone);
+  const nowMin = toMin(now.time);
+  const { addDays } = require('../../util');
+  res.render('admin/scan-calendar', {
+    title: req.t('scanner.calendarTitle'), date, classes, classId, columns, hours, endRow: rowOf(dayEnd),
+    nowRow: date === now.date && nowMin >= dayStart && nowMin <= dayEnd ? rowOf(nowMin) : null, nowLabel: now.time.slice(0, 5),
+    prevDate: addDays(date, -1), nextDate: addDays(date, 1),
   });
 });
 

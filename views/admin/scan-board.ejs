@@ -1,5 +1,6 @@
 <%- include('../partials/head') %>
-<div class="page-head"><h1><%= t('scanner.boardTitle') %></h1><a class="btn" href="/admin/scanner"><%= t('scanner.setupTitle') %></a></div>
+<div class="page-head"><h1><%= t('scanner.boardTitle') %></h1></div>
+<%- include('../partials/scanner-tabs') %>
 <form method="get" class="filters">
   <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" max="<%= today %>"></label>
   <button class="btn"><%= t('common.show') %></button>
@@ -24,7 +25,7 @@
     <tbody><% rows.forEach(function (r) { var l = r.lesson; %>
       <tr><td><strong><%= r.start_time %>–<%= r.end_time %></strong></td>
         <td><%= r.teacher_name %><% if (!r.has_pin) { %> <span class="small muted">(<%= t('scanner.noPin') %>)</span><% } %></td>
-        <td><%= r.class_name %> · <%= ln(r, 'subject') %></td>
+        <td><a href="/admin/scanner/calendar?class=<%= r.class_id %><%= date !== today ? '&date=' + date : '' %>"><%= r.class_name %></a> · <%= ln(r, 'subject') %></td>
         <td><%= l && l.in_time ? l.in_time.slice(11, 16) : '—' %></td>
         <td><%= l && l.out_time ? l.out_time.slice(11, 16) : '—' %></td>
         <td><%- include('../partials/scan-state', { state: r.state, late: r.late, lateMin: l ? l.late_min : 0, early: r.early, earlyMin: l ? l.early_min : 0 }) %>

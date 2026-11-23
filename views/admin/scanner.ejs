@@ -1,5 +1,6 @@
 <%- include('../partials/head') %>
-<div class="page-head"><h1><%= t('scanner.setupTitle') %></h1><a class="btn btn-primary" href="/admin/scanner/board"><%= t('scanner.boardTitle') %></a></div>
+<div class="page-head"><h1><%= t('scanner.setupTitle') %></h1></div>
+<%- include('../partials/scanner-tabs') %>
 <p class="help"><%= t('scanner.setupIntro') %></p>
 <%- include('../partials/errors', { errors }) %>
 <% if (uploadResult) { %><div class="alert alert-ok" role="status"><span class="alert-icon" aria-hidden="true">✓</span> <%= t('scanner.uploadDone', { added: uploadResult.added, duplicates: uploadResult.duplicates, skipped: uploadResult.skipped }) %></div><% } %>
@@ -48,7 +49,7 @@
     <div class="table-wrap"><table>
       <thead><tr><th><%= t('common.teacher') %></th><th><%= t('scanner.pin') %></th><th><%= t('scanner.lastScan') %></th></tr></thead>
       <tbody><% teachers.forEach(function (tc) { %>
-        <tr><td><label for="pin_<%= tc.id %>"><%= tc.full_name %></label></td>
+        <tr><td><label for="pin_<%= tc.id %>"><%= tc.full_name %></label><% if (!tc.active) { %> <span class="small muted">(<%= t('scanner.noLogin') %>)</span><% } %></td>
           <td><input id="pin_<%= tc.id %>" name="pin_<%= tc.id %>" value="<%= tc.scanner_pin || '' %>" inputmode="numeric" pattern="[0-9]{1,9}" maxlength="9" class="w-code"></td>
           <td class="small"><%= tc.last_scan ? fmt.dateTime(tc.last_scan) : '—' %></td></tr>
       <% }) %></tbody>

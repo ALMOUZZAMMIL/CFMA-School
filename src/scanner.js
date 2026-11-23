@@ -7,7 +7,7 @@
 // so the existing hours report counts them. The matching itself (matchDay) is a pure function,
 // tested on its own. See docs/fingerprint-scanner.md for the rules in plain words.
 const db = require('./db');
-const { weekday, isDate } = require('./util');
+const { weekday, isDate, demoClock } = require('./util');
 
 const RULE_KEYS = {
   grace: 'scanner_grace_min',
@@ -32,8 +32,11 @@ function toMin(s) {
 }
 const hhmm = (s) => (s ? (s.length > 8 ? s.slice(11, 16) : s.slice(0, 5)) : null);
 
-// Current date and time in the school's time zone.
+// Current date and time in the school's time zone. The static demo export freezes the clock
+// at a school-day morning (DEMO_CLOCK='YYYY-MM-DD HH:MM'), never on a production server.
 function nowIn(timezone) {
+  const demo = demoClock();
+  if (demo) return { date: demo.slice(0, 10), time: `${demo.slice(11, 16)}:00` };
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
     timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23',
   }).formatToParts(new Date()).map((p) => [p.type, p.value]));
@@ -49,6 +52,20 @@ function nowIn(timezone) {
  * state: waiting | in_class | done | unconfirmed | review | no_scan
  */
 function matchDay({ slots, scans, nowMin, rules: r }) {
+  // Lessons at the same time (a teacher timetabled with several classes at once) are one period.
+  const periods = new Map();
+  for (const sl of slots) {
+    const k = `${sl.start_time}|${sl.end_time}`;
+    if (!periods.has(k)) periods.set(k, { ...sl, members: [] });
+    periods.get(k).members.push(sl);
+  }
+  const res = matchPeriods({ slots: [...periods.values()], scans, nowMin, rules: r });
+  const lessons = [];
+  for (const l of res.lessons) for (const sl of l.slot.members) lessons.push({ ...l, slotId: sl.id, slot: sl });
+  return { lessons, usedScanIds: res.usedScanIds };
+}
+
+function matchPeriods({ slots, scans, nowMin, rules: r }) {
   const ordered = [...slots].sort((a, b) => a.start_time.localeCompare(b.start_time));
   // Two scans close together (a double tap) count as one.
   const points = [];
@@ -93,7 +110,9 @@ function matchDay({ slots, scans, nowMin, rules: r }) {
       lesson.inScan = chainIn.scan;
     } else {
       closeChain(null);
-      const k = points.findIndex((p, idx) => idx >= cursor && p.min >= st - r.grace && p.min < en);
+      // A scan close to the next lesson's start belongs to that lesson, not to a very late arrival here.
+      const inEnd = next ? Math.min(en, toMin(next.start_time) - r.grace) : en;
+      const k = points.findIndex((p, idx) => idx >= cursor && p.min >= st - r.grace && p.min < inEnd);
       if (k === -1) {
         lesson.state = nowMin < st + r.lateLimit ? 'waiting' : 'no_scan';
         return;
@@ -114,8 +133,8 @@ function matchDay({ slots, scans, nowMin, rules: r }) {
     if (k !== -1) {
       const outPoint = points[k];
       outPoint.ids.forEach((id) => used.add(id));
-      // A scan at the change of lesson ends this one and may also start the next one.
-      cursor = k;
+      // A scan at the change of lesson ends this one and may also start a back-to-back next one.
+      cursor = nextIsB2B ? k : k + 1;
       closeChain(outPoint);
     } else if (!nextIsB2B) {
       closeChain(null);
@@ -129,7 +148,7 @@ function matchDay({ slots, scans, nowMin, rules: r }) {
 
 function slotsFor(teacherId, date) {
   if (db.get().prepare('SELECT 1 FROM closures WHERE ? BETWEEN start_date AND end_date').get(date)) return [];
-  return db.get().prepare(`SELECT ts.id, ts.start_time, ts.end_time, ts.assignment_id, ta.teacher_id, c.name AS class_name,
+  return db.get().prepare(`SELECT ts.id, ts.start_time, ts.end_time, ts.assignment_id, ts.room, ta.teacher_id, ta.class_id, c.name AS class_name,
       s.name_en AS subject_en, s.name_fr AS subject_fr
     FROM timetable_slots ts JOIN terms t ON t.id = ts.term_id JOIN teaching_assignments ta ON ta.id = ts.assignment_id
     JOIN classes c ON c.id = ta.class_id JOIN subjects s ON s.id = ta.subject_id
@@ -245,7 +264,7 @@ function board(date, teacherId) {
   const settings = db.getSettings();
   const nowMin = nowMinFor(date, settings);
   const r = rules(settings);
-  const teachers = d.prepare(`SELECT id, full_name, scanner_pin FROM users WHERE role = 'teacher' AND active = 1 ${teacherId ? 'AND id = ?' : ''} ORDER BY full_name`)
+  const teachers = d.prepare(`SELECT id, full_name, scanner_pin FROM users WHERE role = 'teacher' ${teacherId ? 'AND id = ?' : ''} ORDER BY full_name`)
     .all(...(teacherId ? [teacherId] : []));
   const lessonStmt = d.prepare('SELECT * FROM scan_lessons WHERE slot_id = ? AND date = ?');
   const sessStmt = d.prepare('SELECT id, status, source FROM class_sessions WHERE slot_id = ? AND date = ?');

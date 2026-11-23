@@ -1027,7 +1027,17 @@
     "noRequests": "Aucune demande.",
     "myScans": "Mes pointages (14 derniers jours)",
     "noScans": "Aucun pointage pour l'instant.",
-    "readOnlyNote": "Personne ne peut modifier ni supprimer un pointage."
+    "readOnlyNote": "Personne ne peut modifier ni supprimer un pointage.",
+    "calendarTitle": "Calendrier des classes",
+    "calendarOf": "Calendrier de la classe : {class}",
+    "calendarHelp": "La journée heure par heure, une colonne par classe. Chaque cours indique son enseignant et ce que disent les pointages : pas commencé, en classe après le premier pointage, terminé après le pointage de retour. Cliquez sur une classe pour la voir seule.",
+    "allClasses": "Toutes les classes",
+    "nowAt": "maintenant {time}",
+    "legend": "Légende des couleurs",
+    "boardTab": "Cours et vérifications",
+    "noLogin": "pas de compte portail",
+    "nowLesson": "Votre cours maintenant",
+    "nextLesson": "Votre prochain cours"
   },
   "calendar": {
     "title": "Calendrier scolaire",

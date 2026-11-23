@@ -81,6 +81,25 @@ test('lessons later in the day stay separate', () => {
   assert.strictEqual(res.lessons[1].inScan.scanned_at, '2026-11-23 10:31:00');
 });
 
+test('the scan back of a lesson is not reused as the first scan of a later, separate lesson', () => {
+  const res = match([slot(1, '09:30', '10:15'), slot(2, '10:30', '11:25')], ['09:28', '10:16', '10:26', '11:26']);
+  assert.deepStrictEqual(states(res), ['done', 'done']);
+  assert.strictEqual(res.lessons[0].outScan.scanned_at, '2026-11-23 10:16:00');
+  assert.strictEqual(res.lessons[1].inScan.scanned_at, '2026-11-23 10:26:00');
+  assert.strictEqual(res.lessons[1].earlyMin, 0);
+});
+
+test('a scan just before the next lesson starts it, rather than counting as very late for this one', () => {
+  const res = match([slot(1, '07:30', '09:20'), slot(2, '09:30', '10:25')], ['09:16', '10:26'], 11 * 60);
+  assert.deepStrictEqual(states(res), ['no_scan', 'done']);
+  assert.strictEqual(res.lessons[1].inScan.scanned_at, '2026-11-23 09:16:00');
+});
+
+test('one teacher with two classes at the same time: one pair of scans covers both', () => {
+  const res = match([slot(1, '07:30', '08:25'), slot(2, '07:30', '08:25')], ['07:28', '08:27']);
+  assert.deepStrictEqual(states(res), ['done', 'done']);
+});
+
 test('USB attendance files and device lines are read the same way', () => {
   const { scans, skipped } = scanner.parseLog('    12\t2026-11-23 07:28:04\t0\t1\t0\t0\n7,2026/11/23 08:30\nnot a scan\n');
   assert.deepStrictEqual(scans, [{ pin: '12', scanned_at: '2026-11-23 07:28:04' }, { pin: '7', scanned_at: '2026-11-23 08:30:00' }]);
@@ -214,7 +233,18 @@ test('an uploaded USB file adds scans once', async () => {
 
 test('a teacher cannot open the scanner administration', async () => {
   const tch = await new Client(ctx.base).login('demo.prof.maths');
-  for (const p of ['/admin/scanner', '/admin/scanner/board']) assert.notStrictEqual((await tch.get(p)).status, 200);
+  for (const p of ['/admin/scanner', '/admin/scanner/board', '/admin/scanner/calendar']) assert.notStrictEqual((await tch.get(p)).status, 200);
   const parent = await new Client(ctx.base).login('demo.parent');
   assert.notStrictEqual((await parent.get('/my-scans')).status, 200);
+});
+
+test('the class day calendar shows every class, or one class, for a chosen day', async () => {
+  const admin = await new Client(ctx.base).login('demo.admin');
+  const all = await admin.get('/admin/scanner/calendar?date=2026-11-23');
+  assert.strictEqual(all.status, 200);
+  assert.match(all.text, /tg-col/);
+  const cls = q('SELECT id FROM classes ORDER BY id LIMIT 1');
+  const one = await admin.get(`/admin/scanner/calendar?date=2026-11-23&class=${cls.id}`);
+  assert.strictEqual(one.status, 200);
+  assert.strictEqual((await admin.get('/admin/scanner/calendar?date=nonsense')).status, 200);
 });
