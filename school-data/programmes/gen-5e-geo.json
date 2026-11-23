@@ -1,0 +1,99 @@
+{
+ "section": "GEN",
+ "level": "5e",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Géographie – 5e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Protéger l'environnement",
+   "lessons": [
+    {
+     "title": "L1 : La croissance rapide de la population mondiale",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "TP1 : Calcul des indicateurs démographiques du Cameroun",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L2 : L'inégale répartition de la population mondiale",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "TP2 : Les densités de population au Cameroun",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L3 : L'homme en milieu équatorial",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "D1 : La déforestation au Cameroun",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L4 : L'homme en milieu tropical",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "D2 : La crise du bois de chauffage",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "D3 : Les produits de la cueillette et du ramassage au Cameroun",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "TP3 : Les ressources bioclimatiques du Cameroun",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L5 : L'homme en milieu désertique",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "D4 : Les problèmes de l'eau",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Gérer les migrations",
+   "lessons": [
+    {
+     "title": "L6 : Les campagnes d'Afrique",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L7 : Les villes en Afrique",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "D5 : Les petits métiers dans les villes d'Afrique",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "TP : Localisation des principales villes du Cameroun",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "D6 : Les nuisances urbaines au Cameroun",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L8 : Les relations villes-campagnes",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "D7 : L'exode rural au Cameroun",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

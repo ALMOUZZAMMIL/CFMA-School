@@ -1,0 +1,265 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "BIO",
+ "subject_fr": "Biologie",
+ "subject_en": "Biology",
+ "title": "Biology – Form 1",
+ "source": "Fiche de progression harmonisée 2026-27 (MINESEC), 66 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Understanding biology",
+   "lessons": [
+    {
+     "title": "Lesson 1: Notion of biology",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Characteristics of living things",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Living and non-living things; plants and animals",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Studying living things: the scientific approach",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 5: Studying living things in the laboratory and in their natural environment",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 6: Experiment 1: The laboratory: safety rules, equipment, uses and care",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 7: Equipment used to study living things (five senses, hand lens, microscope)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 8: Experiment 2: Using the hand lens and compound light microscope",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 9: The cell: notion, discovery, types",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 13: Observing cells: structure, functions, plant and animal cells compared",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 14: Experiment 3: Observing plant and animal cells",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Environment and habitats",
+   "lessons": [
+    {
+     "title": "Lesson 15: Environmental factors (climatic and edaphic)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 16: Effects of day and night; seasons",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 17: Interactions between living organisms (feeding, reproduction)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 18: Experiment 4: Collecting biological specimens",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Understanding soil",
+   "lessons": [
+    {
+     "title": "Lesson 19: Soil: formation, composition, types",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 20: Qualities of good soils; improving soil quality",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 21: Responsible farming practices",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Soil erosion",
+   "lessons": [
+    {
+     "title": "Lesson 25: Planting techniques",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 26: Soil erosion: notion, types and causes",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 27: Effects and prevention",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Hunting, fishing and gardening",
+   "lessons": [
+    {
+     "title": "Lesson 28: Hunting: tools, reasons, methods, effects",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 29: Fishing: tools, reasons, methods, effects",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 30: Gardening: reasons, methods, effects",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 31: Conservation status of plant and animal species in Cameroon",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The role of medicinal plants",
+   "lessons": [
+    {
+     "title": "Lesson 32: Medicinal plants: types and uses",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 33: Preparation, application and conservation of medicinal plants",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Reproductive health",
+   "lessons": [
+    {
+     "title": "Lesson 37: Puberty: primary and secondary sexual characteristics",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 38: Menstruation, fertilisation and pregnancy",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Early pregnancy",
+   "lessons": [
+    {
+     "title": "Lesson 39: Early pregnancy: causes, effects, prevention",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "STIs and HIV/AIDS",
+   "lessons": [
+    {
+     "title": "Lesson 40: Gonorrhoea, syphilis, chlamydia, trichomoniasis, hepatitis B (agent, spread, signs, prevention)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 41: HIV/AIDS and methods of preventing STIs",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Quality nutrition",
+   "lessons": [
+    {
+     "title": "Lesson 42: Classes of food: sources and functions",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 43: Nutritional diseases (night blindness, scurvy, obesity)",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 44: Balanced diet and healthy eating habits",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 45: Food labelling",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Water management",
+   "lessons": [
+    {
+     "title": "Lesson 49: Natural sources of water; uses of water at home",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 50: Water pollution: pollutants, sources and effects",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 51: Small-scale water purification (filtration, sedimentation, boiling)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 52: Experiment 5: Making and using water filters",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Air and land pollution",
+   "lessons": [
+    {
+     "title": "Lesson 53: Air pollution: causes, effects, prevention",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 54: Land pollution: causes, effects, prevention",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Biodiversity and its conservation",
+   "lessons": [
+    {
+     "title": "Lesson 55: Interdependence between organisms",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 56: National legislation on poaching, fishing and forest exploitation",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}

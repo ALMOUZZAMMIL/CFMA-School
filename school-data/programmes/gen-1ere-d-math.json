@@ -1,0 +1,231 @@
+{
+ "section": "GEN",
+ "level": "1ère D",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 1ère D",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027, 14 chapitres, 4 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Équations, inéquations polynomiales et irrationnelles",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Équations et inéquations du second degré dans ℝ",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Systèmes d'équations à deux inconnues se ramenant à une équation du second degré dans ℝ",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Polynômes de degré 3 ; zéro ou racine d'un polynôme ; factorisation, divisibilité par x − α",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 4 : Signe d'un polynôme de degré 3",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Équations irrationnelles",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 6 : Inéquations irrationnelles",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Systèmes d'équations à deux ou trois inconnues",
+   "lessons": [
+    {
+     "title": "Leçon 7 : Systèmes d'équations linéaires à deux inconnues",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 8 : Systèmes d'équations linéaires à trois inconnues",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Trigonométrie",
+   "lessons": [
+    {
+     "title": "Leçon 9 : Formules de transformation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Leçon 10 : Équations et inéquations trigonométriques",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Dénombrement",
+   "lessons": [
+    {
+     "title": "Leçon 11 : Premiers outils de dénombrement",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 12 : Les p-listes, p-arrangements et p-combinaisons",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Barycentres",
+   "lessons": [
+    {
+     "title": "Leçon 13 : Barycentre",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 14 : Ligne de niveau",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Généralités sur les fonctions numériques",
+   "lessons": [
+    {
+     "title": "Leçon 15 : Notion de fonctions et d'applications",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 16 : Symétries et translations dans la construction des courbes",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Continuité et limites d'une fonction",
+   "lessons": [
+    {
+     "title": "Leçon 17 : Limites",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 18 : Continuité",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "8. Dérivation",
+   "lessons": [
+    {
+     "title": "Leçon 19 : Nombre dérivé et fonction dérivée",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 20 : Utilisation de la fonction dérivée",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Transformations affines du plan",
+   "lessons": [
+    {
+     "title": "Leçon 21 : Composée de deux symétries orthogonales",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 22 : Composée de deux rotations de même centre",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 23 : Composée de deux homothéties de même centre ; d'une homothétie et d'une translation",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Représentation graphique d'une fonction numérique",
+   "lessons": [
+    {
+     "title": "Leçon 24 : Représentation des fonctions polynômes",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 25 : Représentation des fonctions rationnelles",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Suites numériques",
+   "lessons": [
+    {
+     "title": "Leçon 26 : Généralités sur les suites numériques",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 27 : Suites arithmétiques et suites géométriques",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Séries statistiques regroupées en classes",
+   "lessons": [
+    {
+     "title": "Leçon 28 : Caractéristiques de position et de dispersion",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 29 : Regroupement en classes : représentation graphique",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "13. Orthogonalité dans l'espace",
+   "lessons": [
+    {
+     "title": "Leçon 30 : Droites orthogonales",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 31 : Plans orthogonaux",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 32 : Droites et plans orthogonaux",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "14. Introduction à la théorie des graphes",
+   "lessons": [
+    {
+     "title": "Leçon 33 : Présentation du concept de graphe",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 34 : Nombre d'arêtes et somme des degrés d'un graphe",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 'use strict';
-// Migration 5: fingerprint scanner attendance for teachers.
+// Migration 6: fingerprint scanner attendance for teachers.
 //
 // Privacy by design: fingerprints never reach the portal. They stay inside the scanner, which
 // only sends "staff number + time". The portal stores those scans, matches them against the
@@ -9,7 +9,7 @@
 // The only allowed change is filling in the teacher once, when an unknown staff number is
 // linked to a teacher after the scan arrived.
 module.exports = {
-  version: 5,
+  version: 6,
   name: 'fingerprint_scanner',
   up(d) {
     d.exec(`

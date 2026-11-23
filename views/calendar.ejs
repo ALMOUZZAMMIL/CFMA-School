@@ -1,0 +1,44 @@
+<%- include('partials/head') %>
+<% var loc = lang === 'en' ? 'en-GB' : 'fr-FR';
+   function md(s, o) { return new Date(s + 'T00:00:00Z').toLocaleDateString(loc, Object.assign({ timeZone: 'UTC' }, o)); }
+   function pick(e, k) { return lang === 'en' ? (e[k + '_en'] || e[k + '_fr']) : (e[k + '_fr'] || e[k + '_en']); } %>
+<div class="page-head"><h1><%= t('calendar.title') %></h1><button class="btn" data-print><%= t('common.print') %></button></div>
+<% if (!months.length && !filter) { %>
+  <div class="empty"><p><%= t('calendar.empty') %></p></div>
+<% } else { %>
+  <% if (next) { %>
+  <section class="card cal-next">
+    <div class="cal-badge cal-<%= next.category %>"><span><%= md(next.start_date, { day: 'numeric' }) %></span><%= md(next.start_date, { month: 'short' }) %></div>
+    <div>
+      <div class="small muted"><%= t(next.state === 'now' ? 'calendar.now' : 'calendar.next') %></div>
+      <h2><%= pick(next, 'title') %></h2>
+      <div class="small muted"><%= fmt.longDate(next.start_date) %><% if (next.end_date !== next.start_date) { %> → <%= fmt.longDate(next.end_date) %><% } %></div>
+    </div>
+  </section>
+  <% } %>
+  <nav class="cal-filters no-print" aria-label="<%= t('calendar.filter') %>">
+    <a href="/calendar" class="chip<%= !filter ? ' on' : '' %>"><%= t('calendar.all') %></a>
+    <% cats.forEach(function (c) { %><a href="/calendar?show=<%= c %>" class="chip cal-chip-<%= c %><%= filter === c ? ' on' : '' %>"><%= t('calendar.cat.' + c) %></a><% }) %>
+  </nav>
+  <% if (!months.length) { %><div class="empty"><p><%= t('calendar.noneOfType') %></p></div><% } %>
+  <% months.forEach(function (m) { %>
+  <section class="card cal-month">
+    <h2><%= md(m.key + '-01', { month: 'long', year: 'numeric' }) %></h2>
+    <ol class="cal-list">
+      <% m.events.forEach(function (e) { %>
+      <li class="cal-item is-<%= e.state %>">
+        <div class="cal-badge cal-<%= e.category %>"><span><%= md(e.start_date, { day: 'numeric' }) %></span><%= md(e.start_date, { weekday: 'short' }) %></div>
+        <div class="cal-body">
+          <div class="cal-title"><%= pick(e, 'title') %></div>
+          <% var bits = []; if (e.end_date !== e.start_date) bits.push(t('calendar.until', { date: fmt.date(e.end_date) })); if (pick(e, 'audience')) bits.push(pick(e, 'audience')); if (e.venue) bits.push(e.venue); %>
+          <% if (bits.length) { %><div class="small muted"><%= bits.join(' · ') %></div><% } %>
+          <% if (e.note && user.role === 'admin') { %><div class="small cal-check"><%= t('calendar.toConfirm') %> <%= e.note %></div><% } %>
+        </div>
+        <span class="tag cal-tag-<%= e.category %>"><%= t('calendar.cat.' + e.category) %></span>
+      </li>
+      <% }) %>
+    </ol>
+  </section>
+  <% }) %>
+<% } %>
+<%- include('partials/foot') %>

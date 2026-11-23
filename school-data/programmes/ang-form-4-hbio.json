@@ -1,0 +1,173 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "HBIO",
+ "subject_fr": "Biologie humaine",
+ "subject_en": "Human Biology",
+ "title": "Human Biology – Form 4",
+ "source": "Form 4 scheme of work, 3 h/week; dates approximate, worked out from the sequence and week numbers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Supply of man's needs in animal and plant resources",
+   "lessons": [
+    {
+     "title": "1. Introduction to Human Biology: characteristics of man as a mammal; man as a unique mammal; structure and function of man",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "2.1–2.4 Nutrition in plants: nutritional requirements, photosynthesis and its significance",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "2.5–2.7 The green leaf as an organ of photosynthesis; factors affecting the rate; experiments",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "2.8 Fate of translocated food (use, excretion, storage of food reserves)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "2.9 Fungi: nutrition, growth, reproduction and useful fungi (mushroom cultivation)",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 1: The living world – nutrition in man",
+   "lessons": [
+    {
+     "title": "3.1–3.3 Classes of food and their sources; deficiency effects; chemical composition of carbohydrates, proteins and lipids",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "3.3 Food tests (practical)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "3.4–3.6 Balanced diet; enzymes and their characteristics; role of enzymes in digestion",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "3.7–3.8 The alimentary canal: structure and adaptive functions; fate of the products of digestion",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "4. Digestive disorders (obesity, constipation, indigestion, diarrhoea, heartburn, hernia); hygiene of the mouth and teeth",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Health education – invasion of the environment by pathogenic micro-organisms",
+   "lessons": [
+    {
+     "title": "5. Viruses and emerging diseases: structure and replication; HIV/AIDS; Ebola",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "6. Prevention of infections: terminology; behavioural, physical and chemical barriers; serum and vaccine therapy; other viral diseases",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "7. Bacteria: characteristics, structure and reproduction; bacterial diseases (cholera, typhoid, diphtheria, tetanus, tuberculosis)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "8. The immune responses: specific and non-specific; natural and artificial, active and passive immunity; the lymphatic system",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 2: Health education – physical, social and community health",
+   "lessons": [
+    {
+     "title": "9. Physical and social health: exercise, rest and sleep; effects of alcohol, smoking and drugs",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "10.1–10.3 Community health: health centres and clinics; types of hospitals; roles of hospital units and medical officers",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "10.4–10.6 Geriatric homes; playgrounds and gymnasia; charitable and social organisations",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "10.7–10.8 Personal hygiene: care of head and hair, mouth and teeth, eyes and ears, hands and feet, skin and genitals",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 2: Health education – body systems",
+   "lessons": [
+    {
+     "title": "11.1–11.5 The circulatory system: heart and blood vessels, blood cells, tissue fluid and lymph, heart beat and blood pressure",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "11.6–11.12 Pulmonary and systemic circulation; capillary exchange; blood tests; hygiene, accidents and diseases of the cardiovascular system",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "12. Gaseous exchange and respiration: lungs, breathing, internal respiration; hygiene and respiratory infections",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "13.1–13.5 The urinary system: organs, urine formation, water-salt balance, diseases, prevention and treatment",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "13.6–13.11 The skin and its hygiene and diseases; the liver and its disorders",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "14.1–14.4 The skeletal and muscular systems: functions, bones, joints and movement",
+     "date": "2027-04-05"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 2: Health education – skeleton and muscles (continued)",
+   "lessons": [
+    {
+     "title": "14.5–14.8 Postures and deformities; fractures and sprains; feeding and exercise for bones",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "14.9–14.12 Muscles: types and functions, cramp and oxygen debt, spasms and injuries, muscle diseases",
+     "date": "2027-04-26"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 3: Environmental education – managing nutritional relationships in ecosystems",
+   "lessons": [
+    {
+     "title": "15. Saprotrophic nutrition: role of saprotrophs; bread mould; nitrogen fixation; decomposition of sewage and refuse",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "16. Parasitism: types; life cycles of roundworms, flatworms and protozoa; parasitic food chains",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "17.1–17.2 Conservation of biodiversity: interdependence of living organisms",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "17.3–17.8 Legislation on poaching, fishing and forestry; man and the environment; greenhouse effect and climate change; the ozone layer; natural disasters in Cameroon",
+     "date": "2027-05-17"
+    }
+   ]
+  }
+ ]
+}

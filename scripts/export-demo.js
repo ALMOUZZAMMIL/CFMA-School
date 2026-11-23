@@ -170,6 +170,8 @@ function save(pages, lang, dir) {
 async function main() {
   fs.rmSync(OUT, { recursive: true, force: true });
   execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'seed.js')], { env, stdio: 'ignore' });
+  // The school's own calendar, timetable and programmes (teachers by code only, never names).
+  execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'import-school-data.js')], { env, stdio: 'ignore' });
   const server = spawn(process.execPath, [path.join(ROOT, 'server.js')], { env, stdio: 'ignore' });
   try {
     for (let i = 0; i < 50; i++) {

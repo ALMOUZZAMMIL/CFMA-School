@@ -1,0 +1,137 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "ANGL",
+ "subject_fr": "Anglais",
+ "subject_en": "English Language",
+ "title": "English Language – Form 3",
+ "source": "Syllabus scheme by module and week (no dates given; weeks placed in order through the year), 3 h/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Family and social life",
+   "lessons": [
+    {
+     "title": "Discipline at school and at home: talk, read and write school/class/home rules; modals of obligation and advice; sounds /tʃ/ and /dʒ/",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dealing with teenage problems: listen, give opinions, write a magazine article; connectives of addition and purpose",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Taking care of the family; meal times and table manners: adverbial phrases, collocations",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Developing study skills: share study skills, letter on preparing for an exam, personal study timetable; adverbs of frequency",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Club activities: talk, read and describe a school club; sounds /ʃ/ and /ʒ/; stress on compound words",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: The world of business",
+   "lessons": [
+    {
+     "title": "Trades and professions: merits and demerits; comparative and superlative adjectives and adverbs",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Growing and marketing cash crops in Cameroon: connectives of sequence; words related to agriculture",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Effective time management: schedule of after-school activities; the simple future; idioms of time",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Numbers and amounts; at the bank: telling the time, sums in figures and words, banking, job application, money order; active and passive voice",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Means of transport: merits and demerits; prepositions of movement and direction",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3: Environment, health and wellbeing",
+   "lessons": [
+    {
+     "title": "Living a healthy life style; sex education and preventing STIs: health tips, HIV/AIDS leaflets and slogans; imperatives; sounds /e/ and /ɜː/; abbreviations and acronyms",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Urban and rural lifestyle, hobbies and interests: argumentative essay; review of sentence structures (SVO, SVC)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Waste management: strategies and posters; synonyms and antonyms",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Natural disasters: narrative essay; first and second conditionals",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Tourism in Cameroon: advertisement for a touristic site; third conditional",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4: Citizenship",
+   "lessons": [
+    {
+     "title": "Volunteering and humanitarian activities; child trafficking: report writing; linking words of contrast; sounds /ʌ/ and /ɔː/",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Tribal customs and cultural practices: the gerund and present participle; syllabification; word formation",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Major historical events and personalities: describe a personality you admire; interjections; descriptive adjectives",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Festivals and ceremonies: describe a festival you attended; modals for speculation; affixation",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Arts and crafts: common artefacts and their uses; homophones; consonant clusters /kr/ and /br/",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5: Science and technology",
+   "lessons": [
+    {
+     "title": "Using the telephone, computer and internet for study: expository essay; direct and reported questions; punctuation; sound /ə/",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Using and managing the media for information and communication: argumentative essay; review of sentence types",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Common professions related to science and technology: report or \"dream job\" writing; quantifiers",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Scientific discoveries: article on a recent discovery or invention; indefinite pronouns",
+     "date": "2027-04-05"
+    }
+   ]
+  }
+ ]
+}

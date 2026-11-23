@@ -1,0 +1,389 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "BIO",
+ "subject_fr": "Biologie",
+ "subject_en": "Biology",
+ "title": "Biology – Form 5",
+ "source": "Harmonised annual progression sheet 2026-27 (LESEEHB department), 3 h/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Nuclear and cell division",
+   "lessons": [
+    {
+     "title": "1. Chromosomes, genes, DNA, haploid and diploid cells; transmission of genetic information",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "2. Mitosis",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "3. Meiosis",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "4. Comparing mitosis and meiosis, haploid and diploid cells",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Reproduction in plants",
+   "lessons": [
+    {
+     "title": "5. Notion, types and examples of reproduction",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "6. Advantages and disadvantages of sexual and asexual reproduction",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "7. Structure of a flower and functions of its parts",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "8. Pollination: types, agents and importance",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "9. Insect- and wind-pollinated flowers",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "10. Fertilisation; seed and fruit formation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "11. Seed structure; seed and fruit dispersal",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "12. Seed germination: types and necessary factors",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "13. Experiment 1: Stages and types of germination",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "14. Experiment 2: Conditions necessary for germination",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Coordination in plants",
+   "lessons": [
+    {
+     "title": "18. Plant movements: notion and types",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "19. Phototropism and geotropism",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "20. Effects of auxins and other growth hormones",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "21. Horticulture and its importance",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Irritability in humans",
+   "lessons": [
+    {
+     "title": "22. Irritability; types of neurones; structure of a motor neurone",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "23. Impulse transmission along a neurone and across a synapse",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "24. The CNS: the brain and spinal cord",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "25. The ANS; voluntary and involuntary actions; reflex arc; conditioned reflexes",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "26. Sense organs; structure of the eye",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "27. Functions of the eye: image formation and control of light intensity",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "28. Accommodation",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "29. Eye defects: long and short sight",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "30. Eye defects: presbyopia, conjunctivitis, glaucoma, cataract, astigmatism",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The endocrine system",
+   "lessons": [
+    {
+     "title": "31. Endocrine and exocrine systems; hormones",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "35. Position of the main endocrine glands, their hormones and effects",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "36. Hormonal control of blood glucose level",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "37. Hormonal imbalance and common disorders",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Reproduction in humans and family planning",
+   "lessons": [
+    {
+     "title": "38. Need for reproduction; male and female reproductive systems",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "39. Puberty",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "40. Menstrual cycle and hormonal control",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "41. Copulation, fertilisation, implantation, gestation",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "42. Birth and parental care",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "43. The placenta; signs of pregnancy; early pregnancy and its consequences",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "44. Family planning and birth control methods",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Genetics, mutation and variation",
+   "lessons": [
+    {
+     "title": "45. Notion of genetics and basic terms",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "46. The human karyotype; monohybrid crosses with complete dominance",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "47. Test cross and back cross",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "48. Incomplete dominance and codominance",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "52. Sex determination and sex linkage",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "53. Mutation, variation and genetic counselling",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Modern biotechnology",
+   "lessons": [
+    {
+     "title": "54. Basic terms in biotechnology",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "55. Production of human insulin",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "56. Use of yeast in beer and wine production, baking; yoghurt production",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "57. DNA fingerprinting",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Environmental biology",
+   "lessons": [
+    {
+     "title": "58. Environmental biology and ecological concepts",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "59. Ecological factors: light and temperature",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "60. Adaptation of plants to dry and aquatic habitats",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "61. Energy flow and recycling of matter (water cycle)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "62. Carbon and nitrogen cycles",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "63. Biotic interactions",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "64. Feeding relationships: food chains and webs",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "65. Bioaccumulation and biomagnification",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "69. Ecological pyramids",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "70. Ecosystems: examples and components",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "71. Role of biotic components in an ecosystem",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "72. Energy flow in an ecosystem",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "73. Human impact on the ecosystem and its conservation",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Review of Form 3 work",
+   "lessons": [
+    {
+     "title": "74. Review: cells and water relations",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "75. Review: cellular exchanges in different conditions",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "76–78. Review: variety of life",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "79. Review: cultivation and rearing of animals",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "80. Review: plant nutrients",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "81–82. Review: classes of food",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Review of Form 4 work",
+   "lessons": [
+    {
+     "title": "86. Review: transport in plants",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "87. Review: nutrition in plants",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "88. Review: enzymes",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "89. Review: digestion in man",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "90. Review: digestion in herbivores",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "91. Review: the circulatory system",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "92–93. Review: the respiratory system",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "94–95. Review: the excretory system",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "96. Review: the skeletal system",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "97–99. Review: human impacts on the ecosystem",
+     "date": "2027-05-17"
+    },
+    {
+     "title": "Revision for the GCE",
+     "date": "2027-05-17"
+    }
+   ]
+  }
+ ]
+}

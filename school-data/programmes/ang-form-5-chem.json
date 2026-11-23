@@ -1,0 +1,299 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "CHEM",
+ "subject_fr": "Chimie",
+ "subject_en": "Chemistry",
+ "title": "Chemistry – Form 5",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 60 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Energetics",
+   "lessons": [
+    {
+     "title": "Lesson 1: Terms related to thermochemistry",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Endothermic and exothermic reactions; simple energy diagrams",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Heat of reaction and standard conditions",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Experimental determination of enthalpy of combustion",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 5: Experimental determination of enthalpy of neutralisation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 6: Experimental determination of enthalpy of solution",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 7: Experimental determination of enthalpy of precipitation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 8: Hess's law and energy diagrams",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Electrochemistry",
+   "lessons": [
+    {
+     "title": "Lesson 9: Formation of ions and definition of terms",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 10: The electrolytic cell; mechanism of electrolysis",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 11: Migration of ions to the electrodes; selective discharge",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 12: Redox reactions at the electrodes: half and overall cell reactions",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 13: Electrolysis of molten electrolytes (NaCl, PbBr₂)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 14: Electrolysis of aqueous electrolytes (CuSO₄, acidified water)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 15: Faraday's laws of electrolysis",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 16: Calculations using Faraday's laws",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 17: Mass deposited using Faraday's laws",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 18: Volume of gas evolved using Faraday's laws",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 19: Uses and applications of electrolysis",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 20: Integration activities on electrolysis",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 21: The electrochemical (activity) series",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 22: Simple electrochemical cells",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 23: Redox reactions in terms of oxygen, hydrogen and electrons",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Rates of reactions",
+   "lessons": [
+    {
+     "title": "Lesson 24: Definition and importance of rates of reactions",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Lesson 25: Factors affecting rates of reactions",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Lesson 26: Experiments: effects of surface area and concentration",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Lesson 27: Experiments: effects of temperature and catalysts",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Lesson 28: Graphical presentation of results",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Lesson 29: Calculations on rates of reaction",
+     "date": "2026-11-06"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Reversible reactions",
+   "lessons": [
+    {
+     "title": "Lesson 30: Reversible reactions and equilibrium",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 31: Factors affecting equilibrium: Le Chatelier's principle",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 32: Le Chatelier's principle in the industrial production of ammonia",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 33: Le Chatelier's principle in the industrial production of sulphuric acid",
+     "date": "2026-11-20"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Solutions and acid-base titrations",
+   "lessons": [
+    {
+     "title": "Lesson 34: Terms and calculations on solutions",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 35: Preparation of standard solutions",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 36: Acid-base titrations",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 37: Calculating concentration from titrations",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 38: Calculating volume or mass from titrations",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Alcohols and carboxylic acids",
+   "lessons": [
+    {
+     "title": "Lesson 39: Structure and nomenclature of alcohols (C1–C4)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 40: Preparation and manufacture of alcohols",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 41: Properties and uses of alcohols",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 42: Structure and nomenclature of carboxylic acids (C1–C4)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 43: Preparation, properties and uses of carboxylic acids",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 44: Esters and saponification",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 45: Properties and uses of soaps and detergents",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Extraction of metals",
+   "lessons": [
+    {
+     "title": "Lesson 46: Occurrence and methods of extraction of metals",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 47: The electrochemical series and principles of extraction",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 48: Extraction of aluminium; properties and uses",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 49: Extraction of iron; properties and uses",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 50: Extraction of copper; properties and uses",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 51: Extraction of titanium; properties and uses",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Heavy chemical industries",
+   "lessons": [
+    {
+     "title": "Lesson 52: Raw materials and energy sources for heavy chemical industry",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 53: Industrial manufacture of ammonia and its uses",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 54: Industrial manufacture of nitric acid; uses and environmental effects",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 55: Industrial manufacture of sulphuric acid and its uses",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 56: Manufacture of NaOH and its uses",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 57: Fertilisers: definition, composition and types",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 58: Calculating fertiliser components; environmental effects",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 59: Polymerisation: definitions, types, addition polymerisation",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 60: Condensation polymerisation; natural polymers and uses",
+     "date": "2027-02-08"
+    }
+   ]
+  }
+ ]
+}

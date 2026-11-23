@@ -135,6 +135,7 @@ function createApp() {
   app.use(require('./routes/announcements'));
   app.use(require('./routes/family'));
   app.use(require('./routes/plans'));
+  app.use(require('./routes/calendar'));
   app.use(require('./routes/reports'));
   app.use(require('./routes/scans'));
   app.use(require('./routes/admin'));

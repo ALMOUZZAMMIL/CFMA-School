@@ -37,14 +37,14 @@ for (const [role, username] of Object.entries(USERS)) {
   });
 }
 
-test('only admins see administration links; bursar sees home only', async () => {
+test('only admins see administration links; bursar sees home and the calendar only', async () => {
   for (const role of ['teacher', 'parent', 'student', 'bursar']) {
     const c = await new Client(ctx.base).login(USERS[role]);
     const html = (await c.get('/')).text;
     assert.doesNotMatch(block(html, '<nav id="menu"', '</nav>'), /href="\/admin/, `${role} sees no admin link`);
   }
   const b = await new Client(ctx.base).login(USERS.bursar);
-  assert.deepStrictEqual(hrefs(block((await b.get('/')).text, '<nav id="menu"', '</nav>')).filter((h) => h !== '#' && h !== '/'), []);
+  assert.deepStrictEqual(hrefs(block((await b.get('/')).text, '<nav id="menu"', '</nav>')).filter((h) => h !== '#' && h !== '/'), ['/calendar']);
 });
 
 test('the menu keeps every destination the previous menu offered', () => {

@@ -1,0 +1,171 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "ANGL",
+ "subject_fr": "Anglais",
+ "subject_en": "English Language",
+ "title": "English Language – Form 1",
+ "source": "School scheme of work by week (30 lessons)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Satisfying basic daily needs",
+   "lessons": [
+    {
+     "title": "Making new acquaintances: reading and speaking; simple present tense; sounds /æ/ and /aː/",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Communicating at school and in the classroom: speaking and reading; sounds /p/ and /b/; present continuous tense",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "At the market: reading a text about the market place; countable and uncountable nouns; vocabulary",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Using different means of transport: speaking and listening; sounds /iː/ and /ɪ/; present perfect tense",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Preparing meals: writing about preparing meals; adverbs of frequency",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Family life and relationships",
+   "lessons": [
+    {
+     "title": "Describing family relations, roles and behaviour of family members: writing short letters; adjectives",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Describing household appliances and their positions: speaking, reading a text about a gas cooker; articles",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Performing household chores: speaking, reading on household chores; regular and irregular verbs",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Celebrating special days and events: reading, the silent /e/, vocabulary",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Planning a holiday or leisure trip with family: writing about trips, vocabulary",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3: Living a healthy life style",
+   "lessons": [
+    {
+     "title": "Taking a healthy diet: reading a text on a balanced diet, vocabulary; affirmatives",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Preventing diseases and injuries: reading; the imperative; vocabulary",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Doing sports to maintain good health: writing letters; nouns and types of nouns; sounds /r/ and /s/",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Consulting and meeting a health professional: reading on good health, vocabulary; sounds /z/ and /ʒ/",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Getting involved in environmental health issues: reading about the environment; question tags",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4: Work and leisure",
+   "lessons": [
+    {
+     "title": "Preferred work and leisure activities for young people: speaking, reading, vocabulary; pronouns",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Movie world: speaking; sound /aɪ/; grammar and vocabulary",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Youth activities: games and leisure activities: speaking, reading on sports; sounds /ʊ/ and /uː/; vocabulary",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Planning a leisure trip to a museum or party: reading on the national museum and traditional museums; grammar and vocabulary",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Visiting the library: speaking; conjunctions",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5: People and things around us",
+   "lessons": [
+    {
+     "title": "Socialising with friends: reading about celebrating the new year; vocabulary; writing",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Obtaining information about climate change and global warming: reading, vocabulary, writing short stories",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Taking care of the environment: speaking, reading about the environment; auxiliary verbs; vocabulary",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6: Discovering multicultural issues and practices",
+   "lessons": [
+    {
+     "title": "Festivals and cultural activities: speaking, reading on festivals, vocabulary",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Discovering multicultural issues and practices: writing; gerunds",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Culture and traditional activities",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "When culture breaks bounds: reading and writing",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "When culture breaks bounds: speaking and grammar",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Tribal customs and cultural practices: reading and speaking",
+     "date": "2027-05-17"
+    },
+    {
+     "title": "Tribal customs and cultural practices: reading, speaking and grammar",
+     "date": "2027-05-24"
+    },
+    {
+     "title": "Tribal customs: reading and grammar review (revision)",
+     "date": "2027-05-31"
+    }
+   ]
+  }
+ ]
+}

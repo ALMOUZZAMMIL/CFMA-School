@@ -87,7 +87,8 @@
     "breadcrumb": "Breadcrumb",
     "quickAdd": "Add",
     "scanner": "Fingerprint scanner",
-    "myScans": "My scans"
+    "myScans": "My scans",
+    "calendar": "School calendar"
   },
   "roles": {
     "admin": "Administrator",
@@ -426,7 +427,10 @@
     "importRowMissing": "Row {row}: the chapter and lesson are required.",
     "importRowDate": "Row {row}: the date is not valid (use DD/MM/YYYY).",
     "importRowHours": "Row {row}: the number of hours is not valid.",
-    "importRowTerm": "Row {row}: no term is called '{term}'."
+    "importRowTerm": "Row {row}: no term is called '{term}'.",
+    "cycle1": "First cycle",
+    "cycle2": "Second cycle",
+    "subjectCount": "Subjects: {n}"
   },
   "attendance": {
     "title": "Attendance",
@@ -553,7 +557,11 @@
     "marksLater": "Marks and report cards will be added in a later phase."
   },
   "timetable": {
-    "empty": "No timetable to show. Choose a term, class or teacher."
+    "empty": "No timetable to show. Choose a term, class or teacher.",
+    "summary": "{lessons} lessons a week, {hours} hours in total.",
+    "shortBreak": "Short break ({minutes} min)",
+    "longBreak": "Long break ({minutes} min)",
+    "clash": "Same time: option groups or a clash?"
   },
   "admin": {
     "title": "Administration",
@@ -646,7 +654,9 @@
     "slotClash": "This time overlaps another lesson of the same teacher or class.",
     "slotInUse": "This time slot already has recorded lessons, so it cannot be deleted.",
     "emailHelp": "Optional. The person can sign in with it instead of the username.",
-    "emailTaken": "this email address is already used by another account."
+    "emailTaken": "this email address is already used by another account.",
+    "pickClass": "Choose a class to see and edit its courses and weekly slots.",
+    "courseCount": "Courses: {n}"
   },
   "settings": {
     "school": "School",
@@ -1018,5 +1028,28 @@
     "myScans": "My scans (last 14 days)",
     "noScans": "No scans yet.",
     "readOnlyNote": "Scans cannot be changed or deleted by anyone."
+  },
+  "calendar": {
+    "title": "School calendar",
+    "empty": "The calendar of activities has not been loaded yet.",
+    "next": "Coming up",
+    "now": "Happening now",
+    "filter": "Show",
+    "all": "Everything",
+    "noneOfType": "Nothing of this type this year.",
+    "until": "until {date}",
+    "toConfirm": "To confirm:",
+    "cat": {
+      "term": "Term",
+      "evaluation": "Evaluation",
+      "deadline": "Deadline",
+      "meeting": "Meeting",
+      "week": "Special week",
+      "celebration": "Event",
+      "tutorial": "Tutorials",
+      "admin": "Staff",
+      "holiday": "Holiday",
+      "other": "Other"
+    }
   }
 }

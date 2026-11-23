@@ -1,0 +1,393 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathematics – Form 2",
+ "source": "National harmonised progression sheet: 4 modules, 19 topics, 66 lessons, 4 periods a week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. The set Z of integers",
+   "lessons": [
+    {
+     "title": "Lesson 0: Diagnostic assessment",
+     "date": "2026-09-11"
+    },
+    {
+     "title": "Lesson 1: Operations in the set of integers Z (+, −, ×, ÷)",
+     "date": "2026-09-11"
+    },
+    {
+     "title": "Lesson 2: Whole-number powers",
+     "date": "2026-09-11"
+    },
+    {
+     "title": "Lesson 3: Laws of indices",
+     "date": "2026-09-11"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Number patterns",
+   "lessons": [
+    {
+     "title": "Lesson 4: Prime numbers and prime factorisation",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Lesson 5: HCF (HCD) and LCM",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Lesson 6: Square roots and cube roots",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Lesson 7: Elementary sequences",
+     "date": "2026-09-18"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Distances",
+   "lessons": [
+    {
+     "title": "Lesson 8: Triangle inequality",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Lesson 9: Characteristics of a line segment by distances (if M ∈ [AB] then MA + MB = AB, and conversely)",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Lesson 10: The perpendicular bisector of a line segment",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Lesson 11: Characteristics of the perpendicular bisector of a line segment by distances",
+     "date": "2026-09-25"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Coordinate plane",
+   "lessons": [
+    {
+     "title": "Lesson 12: Vocabulary: ordered pair, abscissa, ordinate, origin, x-axis, y-axis",
+     "date": "2026-10-16"
+    },
+    {
+     "title": "Lesson 13: Coordinates of points (integers)",
+     "date": "2026-10-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Algebraic expressions",
+   "lessons": [
+    {
+     "title": "Lesson 14: Symbolic expressions",
+     "date": "2026-10-23"
+    },
+    {
+     "title": "Lesson 15: Vocabulary: variables, terms, constants, coefficients",
+     "date": "2026-10-23"
+    },
+    {
+     "title": "Lesson 16: Like and unlike terms",
+     "date": "2026-10-23"
+    },
+    {
+     "title": "Lesson 17: Simplification of expressions",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Lesson 18: Simplification by substitution",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Lesson 19: Expansion of algebraic expressions: a(b + c)",
+     "date": "2026-10-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Equations and inequalities",
+   "lessons": [
+    {
+     "title": "Lesson 20: Solutions to simple linear equations",
+     "date": "2026-11-13"
+    },
+    {
+     "title": "Lesson 21: Inequalities",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 22: Solutions to linear inequalities",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 23: Inequalities on the number line",
+     "date": "2026-11-27"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Angles",
+   "lessons": [
+    {
+     "title": "Lesson 24: Angles on intersecting lines",
+     "date": "2026-11-27"
+    },
+    {
+     "title": "Lesson 25: Complementary and supplementary angles",
+     "date": "2026-11-27"
+    },
+    {
+     "title": "Lesson 26: Angles formed by a transversal to two parallel lines",
+     "date": "2026-12-04"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "8. Triangles",
+   "lessons": [
+    {
+     "title": "Lesson 27: Sum of the angles of a triangle",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Lesson 28: Special lines in a triangle: height, perpendicular bisector, median and angle bisector",
+     "date": "2026-12-18"
+    },
+    {
+     "title": "Lesson 29: Particular triangles by sides: right-angled, isosceles and equilateral",
+     "date": "2026-12-18"
+    },
+    {
+     "title": "Lesson 30: Right-angled triangles, Pythagoras' theorem and its converse (integral Pythagorean triples)",
+     "date": "2026-12-18"
+    },
+    {
+     "title": "Lesson 31: Area of a triangle",
+     "date": "2026-12-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Fractions and decimals",
+   "lessons": [
+    {
+     "title": "Lesson 32: Operations with fractions (+, −, ×, ÷)",
+     "date": "2027-01-09"
+    },
+    {
+     "title": "Lesson 33: Estimations and approximations",
+     "date": "2027-01-09"
+    },
+    {
+     "title": "Lesson 34: Significant figures",
+     "date": "2027-01-09"
+    },
+    {
+     "title": "Lesson 35: Operations with decimals",
+     "date": "2027-01-09"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Real numbers",
+   "lessons": [
+    {
+     "title": "Lesson 36: Radical numbers, rational and irrational numbers",
+     "date": "2027-01-16"
+    },
+    {
+     "title": "Lesson 37: The set R of real numbers and the real number line",
+     "date": "2027-01-16"
+    },
+    {
+     "title": "Lesson 38: Interval notation: finite and infinite, closed, open and half-open intervals",
+     "date": "2027-01-16"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Arithmetic processes",
+   "lessons": [
+    {
+     "title": "Lesson 39: Direct proportions",
+     "date": "2027-01-23"
+    },
+    {
+     "title": "Lesson 40: Inverse proportions",
+     "date": "2027-01-23"
+    },
+    {
+     "title": "Lesson 41: Profit and loss; percentage gain or loss",
+     "date": "2027-01-23"
+    },
+    {
+     "title": "Lesson 42: Discount or reduction; percentage",
+     "date": "2027-01-23"
+    },
+    {
+     "title": "Lesson 43: Simple interest",
+     "date": "2027-01-30"
+    },
+    {
+     "title": "Lesson 44: Compound interest (not more than two years)",
+     "date": "2027-01-30"
+    },
+    {
+     "title": "Lesson 45: Amount",
+     "date": "2027-01-30"
+    },
+    {
+     "title": "Lesson 46: Currency exchange",
+     "date": "2027-01-30"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Polygons",
+   "lessons": [
+    {
+     "title": "Lesson 47: Polygons: trapeziums, pentagons, regular hexagon, regular octagon, parallelograms",
+     "date": "2027-02-13"
+    },
+    {
+     "title": "Lesson 48: Properties of regular polygons and parallelograms",
+     "date": "2027-02-13"
+    },
+    {
+     "title": "Lesson 49: Area of a parallelogram and of a trapezium",
+     "date": "2027-02-13"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "13. Symmetry",
+   "lessons": [
+    {
+     "title": "Lesson 50: Point and line symmetry",
+     "date": "2027-02-20"
+    },
+    {
+     "title": "Lesson 51: Properties of conservation: distances, angles, shapes, parallelism, orthogonality and points on a line",
+     "date": "2027-02-20"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "14. Circles",
+   "lessons": [
+    {
+     "title": "Lesson 52: Circumscribed circle of a triangle and of a right-angled triangle",
+     "date": "2027-02-27"
+    },
+    {
+     "title": "Lesson 53: Relative positions of two circles",
+     "date": "2027-02-27"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "15. Right prisms",
+   "lessons": [
+    {
+     "title": "Lesson 54: Vocabulary (shape, faces, bases, vertices); properties: number of lateral faces, number of edges",
+     "date": "2027-03-20"
+    },
+    {
+     "title": "Lesson 55: Area of lateral faces, total surface area, volume",
+     "date": "2027-03-20"
+    },
+    {
+     "title": "Lesson 56: Net of a right prism",
+     "date": "2027-03-20"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "16. Representation of discrete data",
+   "lessons": [
+    {
+     "title": "Lesson 57: Qualitative and quantitative data",
+     "date": "2027-03-27"
+    },
+    {
+     "title": "Lesson 58: Data representation: pictogram (ideograph), bar chart, pie chart, line graphs",
+     "date": "2027-03-27"
+    },
+    {
+     "title": "Lesson 59: Frequency distribution table",
+     "date": "2027-03-27"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "17. Measures of central tendency",
+   "lessons": [
+    {
+     "title": "Lesson 60: Mode, mean and median of simple raw data",
+     "date": "2027-04-03"
+    },
+    {
+     "title": "Lesson 61: Mode and mean of a distribution using a frequency table (ungrouped data)",
+     "date": "2027-04-03"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "18. Regular pyramids",
+   "lessons": [
+    {
+     "title": "Lesson 62: Vocabulary (shape, base, faces, edges, apex, altitude, slant height, vertices)",
+     "date": "2027-05-01"
+    },
+    {
+     "title": "Lesson 63: The regular tetrahedron as a special pyramid",
+     "date": "2027-05-01"
+    },
+    {
+     "title": "Lesson 64: Net of a pyramid",
+     "date": "2027-05-01"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "19. Spheres",
+   "lessons": [
+    {
+     "title": "Lesson 65: Sphere and ball: shape, centre, radius, diameter",
+     "date": "2027-05-08"
+    },
+    {
+     "title": "Lesson 66: Surface area of a sphere, volume of a spherical solid",
+     "date": "2027-05-08"
+    }
+   ]
+  }
+ ]
+}

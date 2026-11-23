@@ -3,10 +3,25 @@
 <p class="help"><%= t('plans.intro') %></p>
 <form method="get" class="filters"><label><%= t('fields.section_id') %><select name="section"><option value=""><%= t('common.all') %></option><% sections.forEach(function (s) { %><option value="<%= s.id %>" <%= s.id === sectionId ? 'selected' : '' %>><%= ln(s) %></option><% }) %></select></label><button class="btn"><%= t('common.show') %></button></form>
 <% if (!rows.length) { %><div class="empty"><p><%= t('plans.empty') %></p></div><% } else { %>
-<div class="table-wrap"><table>
-  <thead><tr><th><%= t('fields.section_id') %></th><th><%= t('fields.level') %></th><th><%= t('common.subject') %></th><th><%= t('plans.chapters') %></th><th><%= t('plans.lessons') %></th><th></th></tr></thead>
-  <tbody><% rows.forEach(function (p) { %><tr><td><%= ln(p, 'section') %></td><td><%= p.level %></td><td><%= ln(p, 'subject') %></td><td><%= p.chapters %></td><td><%= p.lessons %></td><td><a href="/plans/<%= p.id %>"><%= t('common.open') %></a></td></tr><% }) %></tbody>
-</table></div>
+<% groups.forEach(function (g) { %>
+<section class="card plan-section">
+  <h2><%= ln(g, 'section') %></h2>
+  <% g.cycles.forEach(function (c) { %>
+  <h3 class="plan-cycle"><%= t(c.cycle === 1 ? 'plans.cycle1' : 'plans.cycle2') %></h3>
+  <div class="plan-classes">
+  <% c.classes.forEach(function (k) { %>
+    <details class="plan-class">
+      <summary><strong><%= k.level %></strong> <span class="help-inline"><%= t('plans.subjectCount', { n: k.items.length }) %></span></summary>
+      <div class="table-wrap"><table>
+        <thead><tr><th><%= t('common.subject') %></th><th><%= t('plans.chapters') %></th><th><%= t('plans.lessons') %></th><th></th></tr></thead>
+        <tbody><% k.items.forEach(function (p) { %><tr><td><%= ln(p, 'subject') %></td><td><%= p.chapters %></td><td><%= p.lessons %></td><td><a href="/plans/<%= p.id %>"><%= t('common.open') %></a></td></tr><% }) %></tbody>
+      </table></div>
+    </details>
+  <% }) %>
+  </div>
+  <% }) %>
+</section>
+<% }) %>
 <% } %>
 <% if (user.role === 'admin') { %>
 <section class="card" id="new">

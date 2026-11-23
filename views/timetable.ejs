@@ -16,7 +16,40 @@
 </form>
 <% if (!slots.length) { %>
   <div class="empty"><p><%= t('timetable.empty') %></p></div>
-<% } else { %>
+<% } else {
+  var showClass = !(typeof query !== 'undefined' && query.class) && user.role !== 'student' && user.role !== 'parent';
+  var showTeacher = user.role !== 'teacher' && !(typeof query !== 'undefined' && query.teacher);
+  var hours = slots.reduce(function (n, s) { var a = s.start_time.split(':'), b = s.end_time.split(':'); return n + ((+b[0] * 60 + +b[1]) - (+a[0] * 60 + +a[1])); }, 0) / 60;
+%>
+  <p class="muted small tt-summary"><%= t('timetable.summary', { lessons: slots.length, hours: fmt.number(hours) }) %></p>
+  <% if (grid) { %>
+  <section class="card tt-grid-card">
+    <div class="table-wrap"><table class="tt-grid">
+      <thead><tr><th class="tt-time"><%= t('common.time') %></th><% grid.days.forEach(function (d) { %><th><%= t('days.' + d) %></th><% }) %></tr></thead>
+      <tbody>
+      <% grid.rows.forEach(function (r) { if (r.type === 'break') { %>
+        <tr class="tt-break"><td class="tt-time"><%= r.start %>–<%= r.end %></td><td colspan="<%= grid.days.length %>"><%= t(r.minutes >= 30 ? 'timetable.longBreak' : 'timetable.shortBreak', { minutes: r.minutes }) %></td></tr>
+      <% } else { %>
+        <tr><td class="tt-time"><%= r.start %><span>–<%= r.end %></span></td>
+        <% grid.days.forEach(function (d) { var c = r.cells[d]; if (!c || c.covered) return; %>
+          <% var clash = user.role === 'admin' && c.slots.some(function (s) { return s.subject_id !== c.slots[0].subject_id; }); %>
+          <td<% if (c.span > 1) { %> rowspan="<%= c.span %>"<% } %> class="<%= c.slots.length ? 'tt-lesson tt-c' + (c.slots[0].subject_id % 8) : 'tt-free' %><%= clash ? ' tt-clash' : '' %>"<% if (clash) { %> title="<%= t('timetable.clash') %>"<% } %>>
+            <% if (clash) { %><span class="tt-clash-note"><%= t('timetable.clash') %></span><% } %>
+            <% c.slots.forEach(function (s, i) { if (i && c.slots[i - 1].subject_id === s.subject_id && c.slots[i - 1].teacher_name === s.teacher_name) { %><span class="tt-extra"><%= s.class_name %></span><% return; } %>
+              <strong><%= ln(s, 'subject') %></strong>
+              <% if (showClass) { %><span><%= s.class_name %></span><% } %>
+              <% if (showTeacher) { %><span class="tt-who"><%= s.teacher_name %></span><% } %>
+              <% if (s.room) { %><span class="tt-who"><%= s.room %></span><% } %>
+            <% }) %>
+          </td>
+        <% }) %>
+        </tr>
+      <% } }) %>
+      </tbody>
+    </table></div>
+  </section>
+  <% } %>
+  <div class="tt-list<%= grid ? ' tt-list-phone' : '' %>">
   <% [1,2,3,4,5,6,7].forEach(function (d) { var day = slots.filter(function (s) { return s.day_of_week === d; }); if (!day.length) return; %>
   <section class="card day">
     <h2><%= t('days.' + d) %></h2>
@@ -26,5 +59,6 @@
     </table></div>
   </section>
   <% }) %>
+  </div>
 <% } %>
 <%- include('partials/foot') %>

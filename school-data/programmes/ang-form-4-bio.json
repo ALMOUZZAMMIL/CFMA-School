@@ -1,0 +1,367 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "BIO",
+ "subject_fr": "Biologie",
+ "subject_en": "Biology",
+ "title": "Biology – Form 4",
+ "source": "Harmonised annual progression sheet 2026-27 (LESEEHB department), 3 h/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Transport in plants",
+   "lessons": [
+    {
+     "title": "1. The need for a transport system in multicellular organisms",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "2. Internal structure of stems and roots",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "3. Experiment 1: Observing the cross-section of stems and roots",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "4. Absorption and transport of water and mineral salts; experiment showing that the xylem transports them",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "5. Translocation of organic food in the phloem; experiment",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "6. Transpiration (types, factors, importance) and wilting",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "7. Experiment 2: Transpiration takes place in the leaves",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "8. Experiment: Measuring the rate of water uptake (potometer)",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Nutrition in plants",
+   "lessons": [
+    {
+     "title": "9. Notion, types and importance of nutrition",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "10. Nutritional requirements of plants",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "11. Internal structure of the leaf and its adaptations",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "12. Photosynthesis: equation, site, how plants obtain raw materials",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "13. Importance of photosynthesis; fate of translocated food",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "14. Factors affecting the rate of photosynthesis",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "18. Experiment 3: Starch is produced during photosynthesis",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "19. Experiment: Oxygen is released during photosynthesis",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "20. Experiment: Chlorophyll is necessary for photosynthesis",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "21. Experiment: Light is necessary for photosynthesis",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "22. Experiment: CO₂ is necessary for photosynthesis",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Nutrition in animals: enzymes",
+   "lessons": [
+    {
+     "title": "23. Notion and characteristics of enzymes and their importance",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "24. Factors affecting enzyme activity (enzyme and substrate concentration, temperature, pH)",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Digestion",
+   "lessons": [
+    {
+     "title": "25. Holozoic nutrition: stages; functions of each tooth; dental formulae of humans, herbivores and carnivores",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "26. Structure and functions of incisor and molar teeth",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "27. Structure of the human alimentary canal and its associated organs",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "28. Digestion of carbohydrates, proteins and lipids",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "29. Absorption and assimilation of digested food",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "30. Structure and adaptation of the ileum (including the villus)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "31. Ruminants and non-ruminants; cellulose digestion in herbivores",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "35. Adaptation of herbivores and carnivores to their diet",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "36. Experiment 4: Dissection of a mammal to show the alimentary canal",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "37. Other forms of animal nutrition (saprotrophism, parasitism, predation)",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The circulatory system and its hygiene",
+   "lessons": [
+    {
+     "title": "38. Transport in mammals: movement of substances in and out of cells; the circulatory system",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "39. Composition of blood; red and white blood cells",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "40. Platelets and blood clotting",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "41–42. Blood vessels",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "43. Structure of the heart",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "44. Cardiac cycle and heartbeat; blood pressure; maintenance of blood flow",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "45. Pulmonary and systemic circulation; ABO blood groups and transfusion",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "46. Other body fluids: tissue fluid formation",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "47. The lymphatic system; tissue fluid and lymph",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "48. Diseases of the circulatory system: high blood pressure, arteriosclerosis, anaemia, coronary thrombosis",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The respiratory system and its hygiene",
+   "lessons": [
+    {
+     "title": "52. The need for respiration; structure of the respiratory system",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "53. Mechanism of breathing: inspiration and expiration",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "54. Composition of inspired and expired air; gaseous exchange in the alveolus",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "55. Internal respiration: aerobic respiration",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "56. Anaerobic respiration: alcoholic fermentation and lactic acid formation",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "57. Experiments: heat and CO₂ are given off during respiration",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "58. Experiment: CO₂ is produced during respiration in animals",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "59. Diseases, disorders and care of the respiratory system",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The excretory system",
+   "lessons": [
+    {
+     "title": "60. Excretion, secretion and defaecation",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "61. Excretory organs and products in animals",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "62. Excretory products in plants",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "63. The urinary system and its parts",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "64. Structure of the kidney and nephron",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "65. Functions of the kidney in osmoregulation",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "69. Functions of the kidney in excretion (urine composition)",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "70. Structure of the mammalian skin",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "71. Functions of the skin (protection, temperature regulation, excretion)",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "72. Structure and functions of the human liver",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "73. Disorders and diseases of the excretory system",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "74. Experiment 5: Mammal dissection to show the respiratory, circulatory and excretory systems",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The skeletal system",
+   "lessons": [
+    {
+     "title": "75. Notion, types, structure and functions of the skeletal system",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "76. Joints: types and structure",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "77. Movement of the elbow joint",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "78. Posture and deformities (scoliosis, kyphosis, lordosis)",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Human impacts on the ecosystem",
+   "lessons": [
+    {
+     "title": "79. Harmful effects: deforestation, overhunting, grazing, chemical fishing",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "80. Harmful effects: inorganic fertilisers and bush burning",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "81. Harmful effects: ozone depletion, global warming, nuclear accidents",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "82. Pollution: water pollution",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "86. Pollution: land and air pollution",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "87. Beneficial effects: conservation of natural resources and waste management",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "88. Beneficial effects: good farming methods",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Pest control",
+   "lessons": [
+    {
+     "title": "89. Notion and types of pest control (biological, chemical, integrated)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "90. Advantages and disadvantages of biological and chemical control",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

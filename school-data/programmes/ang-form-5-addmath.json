@@ -1,0 +1,353 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "ADDMATH",
+ "subject_fr": "Mathématiques complémentaires",
+ "subject_en": "Additional Mathematics",
+ "title": "Additional Mathematics – Form 5",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 66 rows",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Permutation and combination",
+   "lessons": [
+    {
+     "title": "Contact with the students and diagnostic evaluation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Factorial notation; permutations of different objects in a line",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Permutations of objects from objects; permutations with identical objects",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Permutations with restrictions",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Selecting objects from n objects; combinations with restrictions",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The binomial theorem",
+   "lessons": [
+    {
+     "title": "Pascal's triangle and the general binomial expansion",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "The term independent of x",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Expansions with negative or fractional index; validity; approximations",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Circular measure (trigonometry)",
+   "lessons": [
+    {
+     "title": "Radian measure",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Arc length, area of a sector and area of a segment",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Trigonometric ratios",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Trigonometric ratios of special angles",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Graphs of sin, cos and tan",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Trigonometric inequalities graphically",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Properties of the trigonometric ratios",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Graphs of composite trigonometric functions",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Relations between trigonometric ratios",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Compound angle identities",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Double angle identities",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Solution of triangles",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Differentiation",
+   "lessons": [
+    {
+     "title": "Limiting value of functions",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Differentiation from first principles",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "General formula for differentiation; differentiating a sum of functions",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Differentiation of composite functions (chain rule)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Differentiation of products",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Differentiation of quotients",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Differentiation of trigonometric functions",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Differentiation of the reciprocal trigonometric functions",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Application of differentiation",
+   "lessons": [
+    {
+     "title": "Gradient, tangent and normal",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Stationary points",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Elementary curve sketching",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Rates of change",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Integration",
+   "lessons": [
+    {
+     "title": "Integration as the reverse of differentiation",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Integration of powers of x (except −1)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Integration of sin(ax) and cos(ax)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Indefinite and definite integrals",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Applications of integration",
+   "lessons": [
+    {
+     "title": "Area under a curve and between two curves",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Solids of revolution",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Centroid",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Forces",
+   "lessons": [
+    {
+     "title": "Resultant of two coplanar forces",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Resolution of forces into components",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Triangle law of forces",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Moment of a force",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Equilibrium of particles",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Friction",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Descriptive statistics",
+   "lessons": [
+    {
+     "title": "Data collection and representation",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Mode, median and mean for ungrouped data",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Mode, median and mean for grouped data",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Weighted mean",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Cumulative frequency distributions and curves",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Properties of graphs (quartiles, percentiles, range)",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Variance and standard deviation",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Change of variable for a linear relationship",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Dynamics",
+   "lessons": [
+    {
+     "title": "Kinematics of a moving particle",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Speed, velocity and acceleration",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Displacement, velocity and acceleration as vectors",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Relative velocity",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Newton's laws of motion",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Probability",
+   "lessons": [
+    {
+     "title": "Definition of probability",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Compound events (complementary, mutually exclusive, independent, exhaustive)",
+     "date": "2027-04-26"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Elementary notions of discrete probability",
+   "lessons": [
+    {
+     "title": "Conditional probability",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Probability tree diagrams",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Discrete probability distributions",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "The binomial distribution",
+     "date": "2027-05-03"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Work, energy, power",
+   "lessons": [
+    {
+     "title": "The impulse–momentum principle",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Work, energy and power",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

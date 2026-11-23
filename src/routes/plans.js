@@ -2,6 +2,7 @@
 // Yearly plans (programmes) by section, level and subject: chapters and lessons.
 // Nothing about the national curriculum is hard-coded: the school enters or imports it.
 const express = require('express');
+const { groupPlans } = require('../class-groups');
 const db = require('../db');
 const auth = require('../auth');
 const { Validator, int, str, isDate, parseCsv } = require('../util');
@@ -24,12 +25,12 @@ r.get('/plans', auth.requireRole('admin', 'teacher'), (req, res) => {
   const year = res.locals.year;
   if (!year) return res.redirect('/');
   const sectionId = int(req.query.section);
-  const rows = db.get().prepare(`SELECT p.*, se.name_en AS section_en, se.name_fr AS section_fr, s.name_en AS subject_en, s.name_fr AS subject_fr,
+  const rows = db.get().prepare(`SELECT p.*, se.code AS section_code, se.name_en AS section_en, se.name_fr AS section_fr, s.name_en AS subject_en, s.name_fr AS subject_fr,
       (SELECT COUNT(*) FROM plan_chapters ch WHERE ch.plan_id = p.id) AS chapters,
       (SELECT COUNT(*) FROM plan_lessons l JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE ch.plan_id = p.id) AS lessons
     FROM plans p JOIN sections se ON se.id = p.section_id JOIN subjects s ON s.id = p.subject_id
-    WHERE p.year_id = ? AND (? IS NULL OR p.section_id = ?) ORDER BY se.id, p.level, s.name_en`).all(year.id, sectionId, sectionId);
-  res.render('plans/list', { title: req.t('plans.title'), rows, sectionId, ...lists(year.id), errors: [], values: {} });
+    WHERE p.year_id = ? AND (? IS NULL OR p.section_id = ?) ORDER BY CASE se.code WHEN 'ANG' THEN 1 WHEN 'GEN' THEN 2 WHEN 'TECH' THEN 3 ELSE 4 END, se.id, p.level, s.name_fr`).all(year.id, sectionId, sectionId);
+  res.render('plans/list', { title: req.t('plans.title'), rows, groups: groupPlans(rows), sectionId, ...lists(year.id), errors: [], values: {} });
 });
 
 r.post('/plans', auth.requireRole('admin'), (req, res) => {
@@ -42,7 +43,7 @@ r.post('/plans', auth.requireRole('admin'), (req, res) => {
   if (!v.ok) {
     res.status(400);
     const rows = [];
-    return res.render('plans/list', { title: req.t('plans.title'), rows, sectionId: null, ...lists(year.id), errors: v.errors, values });
+    return res.render('plans/list', { title: req.t('plans.title'), rows, groups: [], sectionId: null, ...lists(year.id), errors: v.errors, values });
   }
   const subj = db.get().prepare('SELECT * FROM subjects WHERE id = ?').get(values.subject_id);
   const info = db.get().prepare('INSERT INTO plans (year_id, section_id, level, subject_id, title, created_by) VALUES (?, ?, ?, ?, ?, ?)')

@@ -1,0 +1,267 @@
+{
+ "section": "GEN",
+ "level": "Tle A",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – Tle A",
+ "source": "Projet pédagogique 2026/2027, Terminale littéraire, 6 séquences de 30 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Le plan détaillé de dissertation",
+   "lessons": [
+    {
+     "title": "Le Vieux nègre et la médaille : étude des paratextes et texte ouvroir",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Le référent et ses substituts",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dissertation (sujets analytique et dialectique) : analyse du sujet et problématique",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les énoncés constatifs et performatifs",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "La valeur des modes et des temps : l'impératif",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Les éléments de phraséologie",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Dissertation : recherche des idées",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Les actes illocutoire et perlocutoire",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L'hyperonymie et l'hyponymie",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le texte descriptif : caractéristiques et fonctions",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Dissertation : élaboration d'un plan détaillé",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : contrôle de lecture, compte rendu et négociation du projet d'étude",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – La rédaction de la dissertation",
+   "lessons": [
+    {
+     "title": "La synonymie et l'antonymie",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction de l'introduction (production et amélioration)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Le texte argumentatif : stratégies",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Dissertation : rédaction du paragraphe (idée, argument, exemple, citations, transitions)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : inscription dans son contexte et évaluation de l'étude",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Les emprunts",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Dissertation : rédaction de la conclusion (production et amélioration)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Groupement de textes : présentation et bilan",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Le plan de commentaire composé",
+   "lessons": [
+    {
+     "title": "Stances et poèmes : étude des paratextes et texte ouvroir",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Le texte poétique : éléments de métrique",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Commentaire composé : analyse du sujet et lecture méthodique du texte",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Les variétés du français : variations phoniques, syntaxiques et lexicales",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Commentaire composé : idée générale, centres d'intérêt, combinaison du fond et de la forme",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "La valeur des modes et des temps : le subjonctif",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "La néologie de sens",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Le texte poétique : formes poétiques",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Commentaire composé : élaboration d'un plan détaillé",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Stances et poèmes : contrôle de lecture, compte rendu et négociation du projet d'étude",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 4 – L'exposé et le commentaire composé",
+   "lessons": [
+    {
+     "title": "Les actes de parole : contenus manifestes et contenus latents",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Les liaisons dans la phrase : conjonctions de subordination, pronoms relatifs",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Exposé : préparation et présentation",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Commentaire composé : rédaction de l'introduction",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Stances et poèmes : inscription dans son contexte et évaluation de l'étude",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Le texte narratif : caractéristiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Commentaire composé : rédaction du paragraphe (allier le fond et la forme)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Commentaire composé : rédaction de la conclusion",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Groupement de textes : présentation et bilan",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Le texte narratif : les types de focalisation",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 5 – Le résumé de texte",
+   "lessons": [
+    {
+     "title": "Ngum a Jemea : étude des paratextes et texte ouvroir",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Le texte théâtral : monologue, tirade",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative et techniques de réduction",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les liaisons dans la phrase : adverbes de liaison, locutions",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Les abréviations : troncation, contraction",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Les tonalités : dramatique, tragique, polémique, épique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Contraction de texte : techniques de rédaction et rédaction du résumé",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Ngum a Jemea : contrôle de lecture, compte rendu et négociation du projet d'étude",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Les tonalités : pathétique, ironique",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Le texte explicatif : caractéristiques et visées",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 6 – L'analyse de texte",
+   "lessons": [
+    {
+     "title": "Les abréviations : siglaison, apocope, aphérèse",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative et logique, techniques de réduction",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Ngum a Jemea : exposés",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Contraction de texte : techniques de rédaction et rédaction de l'analyse",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Ngum a Jemea : inscription dans son contexte et évaluation de l'étude",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

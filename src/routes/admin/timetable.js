@@ -2,6 +2,7 @@
 // Administration: Teaching assignments and timetable.
 // Moved unchanged from the former src/routes/admin.js. Admin role is required (see index.js).
 const express = require('express');
+const { groupByClassLevel } = require('../../class-groups');
 const db = require('../../db');
 const auth = require('../../auth');
 const { int, str, isTime, minutesBetween } = require('../../util');
@@ -16,15 +17,19 @@ r.get('/admin/timetable', (req, res) => {
   if (!year) return back(res, '/admin/structure', 'info', 'admin.createYearFirst');
   const d = db.get();
   const classId = int(req.query.class);
-  const classes = d.prepare('SELECT id, name FROM classes WHERE year_id = ? ORDER BY name').all(year.id);
+  const classes = d.prepare(`SELECT c.id, c.name, c.level, c.section_id, se.code AS section_code, se.name_en AS section_en, se.name_fr AS section_fr,
+      (SELECT COUNT(*) FROM teaching_assignments ta WHERE ta.class_id = c.id) AS assignments
+    FROM classes c JOIN sections se ON se.id = c.section_id WHERE c.year_id = ?
+    ORDER BY CASE se.code WHEN 'ANG' THEN 1 WHEN 'GEN' THEN 2 WHEN 'TECH' THEN 3 ELSE 4 END, c.name`).all(year.id);
+  const groups = groupByClassLevel(classes);
   const terms = d.prepare('SELECT * FROM terms WHERE year_id = ? ORDER BY ordinal').all(year.id);
   const assignments = d.prepare(`SELECT ta.*, c.name AS class_name, s.name_en AS subject_en, s.name_fr AS subject_fr, u.full_name AS teacher_name
     FROM teaching_assignments ta JOIN classes c ON c.id = ta.class_id JOIN subjects s ON s.id = ta.subject_id JOIN users u ON u.id = ta.teacher_id
-    WHERE c.year_id = ? AND (? IS NULL OR c.id = ?) ORDER BY c.name, s.name_en`).all(year.id, classId, classId);
+    WHERE c.year_id = ? AND c.id = ? ORDER BY s.name_fr`).all(year.id, classId || 0);
   const slotStmt = d.prepare('SELECT ts.*, t.name AS term_name FROM timetable_slots ts JOIN terms t ON t.id = ts.term_id WHERE ts.assignment_id = ? ORDER BY t.ordinal, ts.day_of_week, ts.start_time');
   assignments.forEach((a) => { a.slots = slotStmt.all(a.id); });
   res.render('admin/timetable', {
-    title: req.t('admin.timetable'), classes, classId, terms, assignments,
+    title: req.t('admin.timetable'), classes, groups, classId, terms, assignments,
     teachers: d.prepare("SELECT id, full_name FROM users WHERE role = 'teacher' AND active = 1 ORDER BY full_name").all(),
     subjects: d.prepare('SELECT * FROM subjects WHERE active = 1 ORDER BY name_en').all(),
   });

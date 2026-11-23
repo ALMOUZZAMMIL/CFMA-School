@@ -1,0 +1,87 @@
+{
+ "section": "GEN",
+ "level": "5e",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Éducation à la citoyenneté et à la morale – 5e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Promouvoir l'intégration nationale",
+   "lessons": [
+    {
+     "title": "L1 : Manifestations de l'intégration nationale au Cameroun",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "TD1 : À la découverte des tribus du Cameroun",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L2 : Les entraves à l'intégration nationale",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L3 : La protection des minorités",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "TD2 : Les Pygmées ou les Bororos",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L4 : Le village",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "TD3 : Le patrimoine du village",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L5 : La commune",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "TD4 : Les manifestations et les entraves à l'intégration dans la localité de l'établissement",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "TD5 : Le patrimoine communal",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L6 : La région",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L7 : Les unités administratives",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Rechercher la bonne information et faire bon usage des TIC",
+   "lessons": [
+    {
+     "title": "L8 : Les sources de l'information",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "D1 : L'importance des mass médias sur les plans économique, culturel et sociopolitique",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "TD6 : Les techniques traditionnelles de l'information",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "L9 : Les dérives des mass médias",
+     "date": "2027-03-08"
+    }
+   ]
+  }
+ ]
+}

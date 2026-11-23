@@ -1,0 +1,339 @@
+{
+ "section": "GEN",
+ "level": "1ère D",
+ "subject": "SVT",
+ "subject_fr": "SVTEEHB",
+ "subject_en": "Life and Earth Sciences (SVTEEHB)",
+ "title": "SVTEEHB – 1ère D",
+ "source": "Fiche de progression harmonisée nationale annuelle 2026/2027, 6 h/semaine, 79 séances",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Identité biologique des organismes",
+   "lessons": [
+    {
+     "title": "Séance 1 : Cellules animale et végétale vues au microscope optique (TP 1)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Séance 2 : Ultrastructures et rôles des organites cellulaires (TP 2 virtuel)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Séance 3 : Structure et composition chimique d'un chromosome",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Séance 4 : L'ADN, support de l'information génétique (TP 3 : maquette de l'ADN)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Séance 5 : Division cellulaire (TP 4 virtuel)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Séance 6 : Cycle cellulaire et rôles de la mitose",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – Le renouvellement moléculaire et le code génétique",
+   "lessons": [
+    {
+     "title": "Séance 8 : Le renouvellement permanent des molécules des cellules (TP 5)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Séance 9 : Biosynthèse des protéines, la transcription (TP 6)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Séance 10 : Biosynthèse des protéines, la traduction (TP 7)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Séance 11 : Biosynthèse des protéines, le devenir des protéines synthétisées",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Séance 13 : Génie génétique, caractéristiques des plantes transgéniques",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Séance 14 : Génie génétique, technique d'obtention des plantes transgéniques (TP 8 virtuel)",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – La catalyse enzymatique",
+   "lessons": [
+    {
+     "title": "Séance 16 : Relation entre l'équipement enzymatique d'une cellule et ses réactions",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 17 : Caractéristiques de l'activité enzymatique (TP 9)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 18 : Relation entre structure et fonction de la protéine (TP 10)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 19 : Applications de la catalyse enzymatique dans l'agroalimentaire (TP 11 et 12 : fromage, sirops)",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 4 – L'énergétique biologique",
+   "lessons": [
+    {
+     "title": "Séance 21 : Évaluation de la dépense énergétique d'un animal (TP 13)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Séance 22 : Facteurs de variation de la dépense énergétique",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 23 : Le métabolisme de base",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 24 : Les apports énergétiques",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 25 : Dépenses énergétiques produites par la respiration",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 26 : Le mécanisme de la respiration et sa localisation cellulaire (TP 14)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Séance 27 : Dépenses énergétiques produites par la fermentation (TP 15)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Séance 28 : Le mécanisme de la fermentation alcoolique et sa localisation cellulaire",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Séance 29 : Rendement énergétique de la respiration et de la fermentation",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 5 – La conversion de l'énergie lumineuse en énergie chimique",
+   "lessons": [
+    {
+     "title": "Séance 31 : Le captage de l'énergie lumineuse par les végétaux verts (TP 14 et 15 : chlorophylle, spectres)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 32 : Mécanisme de la photosynthèse, la phase photochimique",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 33 : Mécanisme de la photosynthèse, la phase chimique",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 34 : Importance de la photosynthèse ; réactions et programme génétique",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 6 – Le flux d'énergie et les cycles du carbone et de l'azote dans les écosystèmes",
+   "lessons": [
+    {
+     "title": "Séance 36 : Organisation d'un écosystème",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Séance 37 : Le flux et la dissipation de l'énergie dans un écosystème",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Séance 38 : Le cycle biogéochimique du carbone, réservoirs et cycle naturel",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Séance 39 : Le cycle du carbone, modifications par les activités humaines",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Séance 40 : Le cycle biogéochimique de l'azote",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquences 7 et 8 – Le soi et le non-soi ; le VIH/sida",
+   "lessons": [
+    {
+     "title": "Séance 42 : Le soi",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Séance 43 : Le non-soi",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Séance 44 : Les principales cellules immunitaires",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Séance 45 : Le virus et son mode d'action",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Séance 46 : La multiplication du virus dans l'organisme, conséquences et moyens de lutte contre le VIH/sida",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 9 – Quelques problèmes liés à la santé reproductive des adolescents",
+   "lessons": [
+    {
+     "title": "Séance 48 : La sexualité précoce et ses conséquences",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Séance 49 : Les mutilations génitales et leurs conséquences sur la santé",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Séance 50 : La prise des stupéfiants et ses conséquences sur la santé reproductive",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 10 – Éducation nutritionnelle",
+   "lessons": [
+    {
+     "title": "Séance 52 : L'alimentation équilibrée, définition et répartition de l'apport alimentaire",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Séance 53 : Un menu équilibré (TP 16)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Séance 54 : Les conséquences de la mauvaise alimentation et de l'inactivité physique",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 11 – Le rayonnement solaire et ses influences à la surface de la Terre",
+   "lessons": [
+    {
+     "title": "Séance 56 : L'origine de l'énergie reçue par la planète Terre",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Séance 57 : Le devenir du rayonnement solaire, notion d'albédo",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Séance 58 : La constante solaire et le bilan radiatif",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Séance 59 : L'effet de serre",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Séance 61 : Les causes de l'inégale répartition de l'énergie solaire",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Séance 62 : Les mouvements atmosphériques",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Séance 63 : Les mouvements océaniques",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 12 – Le phénomène d'altération des roches et ses conséquences",
+   "lessons": [
+    {
+     "title": "Séance 65 : L'altération des roches",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Séance 66 : Le devenir des produits d'altération",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 67 : Sédimentation",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 68 : Diagenèse et roches sédimentaires",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 69 : Séries et cycles sédimentaires",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Séance 70 : La chronologie relative et ses principes",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Séance 71 : La reconstitution des milieux sédimentaires",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 13 – La structure et l'énergie internes de la Terre",
+   "lessons": [
+    {
+     "title": "Séance 73 : Éléments de sismologie, origine et types d'ondes sismiques (TP 17 virtuel)",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Séance 74 : Comportement des ondes sismiques à l'intérieur du globe",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Séance 75 : Structure interne, discontinuités et enveloppes (maquette virtuelle)",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Séance 76 : Composition chimique des enveloppes internes et densité",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Séance 77 : L'énergie interne de la Terre (TP 18 virtuel : radioactivité naturelle)",
+     "date": "2027-04-19"
+    }
+   ]
+  }
+ ]
+}

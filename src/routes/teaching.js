@@ -4,6 +4,7 @@ const express = require('express');
 const crypto = require('crypto');
 const db = require('../db');
 const access = require('../access');
+const timetableGrid = require('../timetable-grid');
 const auth = require('../auth');
 const { Validator, int, str, isDate, weekday, minutesBetween } = require('../util');
 const scanner = require('../scanner');
@@ -51,7 +52,7 @@ r.get('/teaching', auth.requireRole('admin', 'teacher'), (req, res) => {
 // Weekly timetable for the logged-in teacher.
 r.get('/timetable', (req, res) => {
   const year = res.locals.year;
-  if (!year) return res.render('timetable', { title: req.t('nav.timetable'), slots: [], terms: [], termId: null, heading: '' });
+  if (!year) return res.render('timetable', { title: req.t('nav.timetable'), slots: [], grid: null, terms: [], termId: null, heading: '' });
   const terms = db.get().prepare('SELECT * FROM terms WHERE year_id = ? ORDER BY ordinal').all(year.id);
   const today = res.locals.today;
   const current = terms.find((t) => today >= t.start_date && today <= t.end_date) || terms[0];
@@ -71,7 +72,7 @@ r.get('/timetable', (req, res) => {
     const tid = int(req.query.teacher);
     if (cid) { where = 'ta.class_id = ?'; params = [cid]; } else if (tid) { where = 'ta.teacher_id = ?'; params = [tid]; } else { where = '1=0'; params = []; }
   } else return auth.forbidden(req, res);
-  const slots = db.get().prepare(`SELECT ts.*, c.name AS class_name, s.name_en AS subject_en, s.name_fr AS subject_fr, u.full_name AS teacher_name
+  const slots = db.get().prepare(`SELECT ts.*, ta.subject_id, c.name AS class_name, s.name_en AS subject_en, s.name_fr AS subject_fr, u.full_name AS teacher_name
     FROM timetable_slots ts JOIN teaching_assignments ta ON ta.id = ts.assignment_id JOIN classes c ON c.id = ta.class_id
     JOIN subjects s ON s.id = ta.subject_id JOIN users u ON u.id = ta.teacher_id
     WHERE ts.term_id = ? AND ${where} ORDER BY ts.day_of_week, ts.start_time`).all(termId, ...params);
@@ -83,7 +84,10 @@ r.get('/timetable', (req, res) => {
   if (req.user.role === 'parent') {
     extra.children = access.visibleStudentIds(req.user).map((id) => db.get().prepare('SELECT id, full_name FROM students WHERE id = ?').get(id));
   }
-  res.render('timetable', { title: req.t('nav.timetable'), slots, terms, termId, query: req.query, ...extra });
+  let bell = null;
+  try { bell = JSON.parse((db.get().prepare("SELECT value FROM settings WHERE key = 'bell_schedule'").get() || {}).value || 'null'); } catch (e) { bell = null; }
+  const grid = timetableGrid.build(slots, bell);
+  res.render('timetable', { title: req.t('nav.timetable'), slots, grid, terms, termId, query: req.query, ...extra });
 });
 
 function sessionForm(req, res, { session, errors = [], status = 200 }) {

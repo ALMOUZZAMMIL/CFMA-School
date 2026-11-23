@@ -1,0 +1,3685 @@
+{
+ "source": "Individual teacher timetables (anglophone section, 19 sheets) and Emploi du temps enseignement général (24 sheets), 2026/2027. Teacher names are replaced by codes; the names stay in a private file that is never committed.",
+ "periods": [
+  {
+   "n": 0,
+   "start": "06:35",
+   "end": "07:30"
+  },
+  {
+   "n": 1,
+   "start": "07:30",
+   "end": "08:25"
+  },
+  {
+   "n": 2,
+   "start": "08:25",
+   "end": "09:20"
+  },
+  {
+   "n": 3,
+   "start": "09:20",
+   "end": "10:15"
+  },
+  {
+   "n": 4,
+   "start": "10:30",
+   "end": "11:25"
+  },
+  {
+   "n": 5,
+   "start": "11:25",
+   "end": "12:20"
+  },
+  {
+   "n": 6,
+   "start": "12:20",
+   "end": "13:15"
+  },
+  {
+   "n": 7,
+   "start": "13:45",
+   "end": "14:40"
+  },
+  {
+   "n": 8,
+   "start": "14:40",
+   "end": "15:35"
+  },
+  {
+   "n": 9,
+   "start": "15:35",
+   "end": "16:30"
+  }
+ ],
+ "sections": [
+  {
+   "code": "ANG",
+   "name_fr": "Sous-système anglophone",
+   "name_en": "Anglophone section"
+  },
+  {
+   "code": "GEN",
+   "name_fr": "Enseignement général (francophone)",
+   "name_en": "General education (francophone)"
+  },
+  {
+   "code": "TECH",
+   "name_fr": "Enseignement technique",
+   "name_en": "Technical education"
+  }
+ ],
+ "subjects": [
+  {
+   "code": "MATH",
+   "name_fr": "Mathématiques",
+   "name_en": "Mathematics"
+  },
+  {
+   "code": "ADDMATH",
+   "name_fr": "Mathématiques complémentaires",
+   "name_en": "Additional Mathematics"
+  },
+  {
+   "code": "PHYS",
+   "name_fr": "Physique",
+   "name_en": "Physics"
+  },
+  {
+   "code": "CHEM",
+   "name_fr": "Chimie",
+   "name_en": "Chemistry"
+  },
+  {
+   "code": "PCT",
+   "name_fr": "Physique-Chimie-Technologie",
+   "name_en": "Physics, Chemistry and Technology"
+  },
+  {
+   "code": "BIO",
+   "name_fr": "Biologie",
+   "name_en": "Biology"
+  },
+  {
+   "code": "HBIO",
+   "name_fr": "Biologie humaine",
+   "name_en": "Human Biology"
+  },
+  {
+   "code": "SVT",
+   "name_fr": "SVTEEHB",
+   "name_en": "Life and Earth Sciences (SVTEEHB)"
+  },
+  {
+   "code": "FRAN",
+   "name_fr": "Français",
+   "name_en": "French"
+  },
+  {
+   "code": "ANGL",
+   "name_fr": "Anglais",
+   "name_en": "English Language"
+  },
+  {
+   "code": "LIT",
+   "name_fr": "Littérature anglaise",
+   "name_en": "Literature in English"
+  },
+  {
+   "code": "HIST",
+   "name_fr": "Histoire",
+   "name_en": "History"
+  },
+  {
+   "code": "GEO",
+   "name_fr": "Géographie",
+   "name_en": "Geography"
+  },
+  {
+   "code": "ECM",
+   "name_fr": "Éducation à la citoyenneté (ECM)",
+   "name_en": "Citizenship Education"
+  },
+  {
+   "code": "CAMHIST",
+   "name_fr": "Histoire du Cameroun",
+   "name_en": "Cameroon History"
+  },
+  {
+   "code": "RS",
+   "name_fr": "Études religieuses",
+   "name_en": "Religious Studies"
+  },
+  {
+   "code": "ECON",
+   "name_fr": "Économie",
+   "name_en": "Economics"
+  },
+  {
+   "code": "COMM",
+   "name_fr": "Commerce",
+   "name_en": "Commerce"
+  },
+  {
+   "code": "INFO",
+   "name_fr": "Informatique",
+   "name_en": "Computer Science"
+  },
+  {
+   "code": "EPS",
+   "name_fr": "Éducation physique et sportive",
+   "name_en": "Physical Education"
+  },
+  {
+   "code": "ALL",
+   "name_fr": "Allemand",
+   "name_en": "German"
+  },
+  {
+   "code": "ESP",
+   "name_fr": "Espagnol",
+   "name_en": "Spanish"
+  },
+  {
+   "code": "ARA",
+   "name_fr": "Arabe",
+   "name_en": "Arabic"
+  },
+  {
+   "code": "PHILO",
+   "name_fr": "Philosophie",
+   "name_en": "Philosophy"
+  },
+  {
+   "code": "LEGIS",
+   "name_fr": "Législation",
+   "name_en": "Legislation"
+  },
+  {
+   "code": "VIESOC",
+   "name_fr": "Vie sociale",
+   "name_en": "Social Life"
+  },
+  {
+   "code": "TBC",
+   "name_fr": "Matière à préciser",
+   "name_en": "Subject to confirm"
+  }
+ ],
+ "classes": [
+  {
+   "name": "Form 1",
+   "section": "ANG",
+   "level": "Form 1"
+  },
+  {
+   "name": "Form 2",
+   "section": "ANG",
+   "level": "Form 2"
+  },
+  {
+   "name": "Form 3",
+   "section": "ANG",
+   "level": "Form 3"
+  },
+  {
+   "name": "Form 4",
+   "section": "ANG",
+   "level": "Form 4"
+  },
+  {
+   "name": "Form 5",
+   "section": "ANG",
+   "level": "Form 5"
+  },
+  {
+   "name": "1ère A",
+   "section": "GEN",
+   "level": "1ère A"
+  },
+  {
+   "name": "1ère D",
+   "section": "GEN",
+   "level": "1ère D"
+  },
+  {
+   "name": "2nde",
+   "section": "GEN",
+   "level": "2nde"
+  },
+  {
+   "name": "2nde A",
+   "section": "GEN",
+   "level": "2nde A"
+  },
+  {
+   "name": "2nde C",
+   "section": "GEN",
+   "level": "2nde C"
+  },
+  {
+   "name": "3e",
+   "section": "GEN",
+   "level": "3e"
+  },
+  {
+   "name": "4e",
+   "section": "GEN",
+   "level": "4e"
+  },
+  {
+   "name": "5e",
+   "section": "GEN",
+   "level": "5e"
+  },
+  {
+   "name": "6e",
+   "section": "GEN",
+   "level": "6e"
+  },
+  {
+   "name": "Tle A",
+   "section": "GEN",
+   "level": "Tle A"
+  },
+  {
+   "name": "Tle D",
+   "section": "GEN",
+   "level": "Tle D"
+  },
+  {
+   "name": "2nde F",
+   "section": "TECH",
+   "level": "2nde F"
+  },
+  {
+   "name": "2nde F3",
+   "section": "TECH",
+   "level": "2nde F3"
+  },
+  {
+   "name": "2nde F4",
+   "section": "TECH",
+   "level": "2nde F4"
+  },
+  {
+   "name": "2nde Technique",
+   "section": "TECH",
+   "level": "2nde"
+  },
+  {
+   "name": "A1",
+   "section": "TECH",
+   "level": "Année 1"
+  },
+  {
+   "name": "A2",
+   "section": "TECH",
+   "level": "Année 2"
+  },
+  {
+   "name": "A3",
+   "section": "TECH",
+   "level": "Année 3"
+  },
+  {
+   "name": "A4",
+   "section": "TECH",
+   "level": "Année 4"
+  },
+  {
+   "name": "PA",
+   "section": "TECH",
+   "level": "PA"
+  },
+  {
+   "name": "PD",
+   "section": "TECH",
+   "level": "PD"
+  }
+ ],
+ "teachers": [
+  {
+   "code": "T01"
+  },
+  {
+   "code": "T02"
+  },
+  {
+   "code": "T03"
+  },
+  {
+   "code": "T04"
+  },
+  {
+   "code": "T05"
+  },
+  {
+   "code": "T06"
+  },
+  {
+   "code": "T07"
+  },
+  {
+   "code": "T08"
+  },
+  {
+   "code": "T09"
+  },
+  {
+   "code": "T10"
+  },
+  {
+   "code": "T11"
+  },
+  {
+   "code": "T12"
+  },
+  {
+   "code": "T13"
+  },
+  {
+   "code": "T14"
+  },
+  {
+   "code": "T15"
+  },
+  {
+   "code": "T16"
+  },
+  {
+   "code": "T17"
+  },
+  {
+   "code": "T18"
+  },
+  {
+   "code": "T19"
+  },
+  {
+   "code": "T20"
+  },
+  {
+   "code": "T21"
+  },
+  {
+   "code": "T22"
+  },
+  {
+   "code": "T23"
+  },
+  {
+   "code": "T24"
+  },
+  {
+   "code": "T25"
+  },
+  {
+   "code": "T26"
+  },
+  {
+   "code": "T27"
+  },
+  {
+   "code": "T28"
+  },
+  {
+   "code": "T29"
+  },
+  {
+   "code": "T30"
+  },
+  {
+   "code": "T31"
+  },
+  {
+   "code": "T32"
+  },
+  {
+   "code": "T33"
+  },
+  {
+   "code": "T34"
+  },
+  {
+   "code": "T35"
+  },
+  {
+   "code": "T36"
+  },
+  {
+   "code": "T37"
+  },
+  {
+   "code": "T38"
+  },
+  {
+   "code": "T39"
+  },
+  {
+   "code": "T40"
+  },
+  {
+   "code": "T41"
+  }
+ ],
+ "entries": [
+  {
+   "teacher": "T01",
+   "subject": "COMM",
+   "day": 1,
+   "periods": [
+    0,
+    5,
+    6
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "slot 0 = early period handwritten before 7h30",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T01",
+   "subject": "ECON",
+   "day": 1,
+   "periods": [
+    1,
+    2,
+    9
+   ],
+   "classes": [
+    "Form 4"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T01",
+   "subject": "COMM",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 3"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T01",
+   "subject": "ECON",
+   "day": 1,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T01",
+   "subject": "ECON",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 3"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T01",
+   "subject": "ECON",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T01",
+   "subject": "COMM",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 4"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T02",
+   "subject": "BIO",
+   "day": 4,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T03",
+   "subject": "HIST",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T03",
+   "subject": "HIST",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T03",
+   "subject": "ECM",
+   "day": 2,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T03",
+   "subject": "HIST",
+   "day": 5,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "written \"Lit./Ad. Hist F5\"",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T04",
+   "subject": "GEO",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T04",
+   "subject": "GEO",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T04",
+   "subject": "GEO",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T04",
+   "subject": "GEO",
+   "day": 4,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T05",
+   "subject": "RS",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T05",
+   "subject": "RS",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T05",
+   "subject": "CAMHIST",
+   "day": 5,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T05",
+   "subject": "ECM",
+   "day": 5,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T05",
+   "subject": "ECM",
+   "day": 1,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T05",
+   "subject": "RS",
+   "day": 1,
+   "periods": [
+    9
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T06",
+   "subject": "HIST",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T06",
+   "subject": "HIST",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T06",
+   "subject": "ECM",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T06",
+   "subject": "ECM",
+   "day": 3,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T06",
+   "subject": "CAMHIST",
+   "day": 6,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T06",
+   "subject": "HIST",
+   "day": 6,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "written \"A. Hist F5\"",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T07",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "PHYS",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "PHYS",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "PHYS",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "PHYS",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "PHYS",
+   "day": 2,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T07",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T08",
+   "subject": "CHEM",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T08",
+   "subject": "CHEM",
+   "day": 3,
+   "periods": [
+    3
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "class unclear",
+   "confidence": "low"
+  },
+  {
+   "teacher": "T08",
+   "subject": "CHEM",
+   "day": 3,
+   "periods": [
+    4
+   ],
+   "classes": [
+    "Form 3"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T08",
+   "subject": "CHEM",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 4"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T08",
+   "subject": "PHYS",
+   "day": 3,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 3"
+   ],
+   "check": "class unclear",
+   "confidence": "low"
+  },
+  {
+   "teacher": "T09",
+   "subject": "GEO",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T09",
+   "subject": "GEO",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T09",
+   "subject": "GEO",
+   "day": 5,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T09",
+   "subject": "GEO",
+   "day": 5,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T10",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "LIT",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "LIT",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "ANGL",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T11",
+   "subject": "ANGL",
+   "day": 2,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "A3"
+   ]
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "A2",
+    "5e"
+   ],
+   "check": "combined classes"
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "A4"
+   ]
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "PD",
+    "PA"
+   ],
+   "check": "combined classes",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T12",
+   "subject": "EPS",
+   "day": 4,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "A1",
+    "6e",
+    "Form 3"
+   ],
+   "check": "combined classes"
+  },
+  {
+   "teacher": "T13",
+   "subject": "CHEM",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T13",
+   "subject": "CHEM",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T13",
+   "subject": "CHEM",
+   "day": 5,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T13",
+   "subject": "CHEM",
+   "day": 5,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 3,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T14",
+   "subject": "INFO",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T15",
+   "subject": "HBIO",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T15",
+   "subject": "BIO",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T15",
+   "subject": "HBIO",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T15",
+   "subject": "BIO",
+   "day": 3,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T15",
+   "subject": "BIO",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 3,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T17",
+   "subject": "BIO",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 1"
+   ],
+   "check": "surname spelling unclear",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T17",
+   "subject": "BIO",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 2"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T17",
+   "subject": "BIO",
+   "day": 6,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 5"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T17",
+   "subject": "BIO",
+   "day": 6,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 4"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T18",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T18",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    3,
+    4,
+    5,
+    6
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T18",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T18",
+   "subject": "ADDMATH",
+   "day": 2,
+   "periods": [
+    9
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 1,
+   "periods": [
+    2
+   ],
+   "classes": [
+    "A4"
+   ],
+   "check": "subject not written on the sheet",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "2nde F3",
+    "2nde F4"
+   ],
+   "check": "subject not written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "A2"
+   ],
+   "check": "subject not written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "4e",
+    "A3"
+   ],
+   "check": "subject not written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "A4"
+   ],
+   "check": "subject not written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "A2"
+   ],
+   "check": "subject not written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T19",
+   "subject": "TBC",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "4e",
+    "A3"
+   ],
+   "check": "subject not written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T20",
+   "subject": "GEO",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T20",
+   "subject": "ECM",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "6e",
+    "A1"
+   ]
+  },
+  {
+   "teacher": "T20",
+   "subject": "HIST",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T20",
+   "subject": "ECM",
+   "day": 2,
+   "periods": [
+    1
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T20",
+   "subject": "ECM",
+   "day": 2,
+   "periods": [
+    2,
+    3
+   ],
+   "classes": [
+    "3e"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T20",
+   "subject": "HIST",
+   "day": 2,
+   "periods": [
+    4,
+    5
+   ],
+   "classes": [
+    "6e"
+   ]
+  },
+  {
+   "teacher": "T20",
+   "subject": "ECM",
+   "day": 2,
+   "periods": [
+    6
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T20",
+   "subject": "GEO",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "6e"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 3,
+   "periods": [
+    5
+   ],
+   "classes": [
+    "2nde"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 3,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "4e"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "2nde"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 4,
+   "periods": [
+    5,
+    6,
+    7
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T16",
+   "subject": "ANGL",
+   "day": 4,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "5e"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T21",
+   "subject": "PHYS",
+   "day": 3,
+   "periods": [
+    2,
+    3,
+    4
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T21",
+   "subject": "PHYS",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T21",
+   "subject": "PCT",
+   "day": 3,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T21",
+   "subject": "PCT",
+   "day": 3,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "2nde F"
+   ]
+  },
+  {
+   "teacher": "T21",
+   "subject": "PCT",
+   "day": 1,
+   "periods": [
+    6,
+    7
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T21",
+   "subject": "PHYS",
+   "day": 1,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T21",
+   "subject": "PCT",
+   "day": 5,
+   "periods": [
+    7,
+    8,
+    9
+   ],
+   "classes": [
+    "A4"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "PHYS",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "A3"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "CHEM",
+   "day": 1,
+   "periods": [
+    5
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "CHEM",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "PHYS",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "PHYS",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "CHEM",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T22",
+   "subject": "CHEM",
+   "day": 5,
+   "periods": [
+    5,
+    6,
+    7
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "GEO",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "5e",
+    "A2"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "HIST",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "2nde"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "ECM",
+   "day": 1,
+   "periods": [
+    5
+   ],
+   "classes": [
+    "5e",
+    "A2"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "LEGIS",
+   "day": 1,
+   "periods": [
+    6,
+    7
+   ],
+   "classes": [
+    "A2"
+   ],
+   "check": "corrections on the sheet",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T23",
+   "subject": "GEO",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "4e",
+    "A3"
+   ],
+   "check": "\"Hist\" crossed out, \"Géo\" written",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T23",
+   "subject": "HIST",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "5e",
+    "A2"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "GEO",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "3e",
+    "A4"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "VIESOC",
+   "day": 2,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "2nde"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T23",
+   "subject": "GEO",
+   "day": 3,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "2nde"
+   ],
+   "check": "Reading: medium",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T23",
+   "subject": "ECM",
+   "day": 4,
+   "periods": [
+    3
+   ],
+   "classes": [
+    "A3"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "LEGIS",
+   "day": 4,
+   "periods": [
+    4
+   ],
+   "classes": [
+    "A3"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "ECM",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "2nde A",
+    "2nde F",
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T23",
+   "subject": "GEO",
+   "day": 5,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "2nde Technique"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "6e",
+    "A1"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    6,
+    7
+   ],
+   "classes": [
+    "6e",
+    "A1"
+   ]
+  },
+  {
+   "teacher": "T24",
+   "subject": "MATH",
+   "day": 2,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T25",
+   "subject": "MATH",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T25",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "A4"
+   ]
+  },
+  {
+   "teacher": "T25",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "A3"
+   ]
+  },
+  {
+   "teacher": "T25",
+   "subject": "MATH",
+   "day": 5,
+   "periods": [
+    5,
+    6,
+    7
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T26",
+   "subject": "ALL",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T26",
+   "subject": "ALL",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T26",
+   "subject": "ALL",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T26",
+   "subject": "ALL",
+   "day": 3,
+   "periods": [
+    5
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T27",
+   "subject": "PHYS",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "A1"
+   ]
+  },
+  {
+   "teacher": "T27",
+   "subject": "PHYS",
+   "day": 5,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "A2"
+   ]
+  },
+  {
+   "teacher": "T27",
+   "subject": "PCT",
+   "day": 5,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T28",
+   "subject": "INFO",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T28",
+   "subject": "INFO",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "6e"
+   ]
+  },
+  {
+   "teacher": "T28",
+   "subject": "INFO",
+   "day": 4,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 2,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 2,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 4,
+   "periods": [
+    8
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 4,
+   "periods": [
+    9
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 5,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 5,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T29",
+   "subject": "INFO",
+   "day": 5,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "5e"
+   ]
+  },
+  {
+   "teacher": "T30",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T30",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    7,
+    8,
+    9
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T30",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T30",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T31",
+   "subject": "ECM",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "1ère A",
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T31",
+   "subject": "HIST",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T31",
+   "subject": "GEO",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T31",
+   "subject": "ECM",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle A",
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T31",
+   "subject": "GEO",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Tle A",
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T31",
+   "subject": "HIST",
+   "day": 4,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "1ère A",
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "5e"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "5e"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 5,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "5e"
+   ]
+  },
+  {
+   "teacher": "T32",
+   "subject": "FRAN",
+   "day": 5,
+   "periods": [
+    3,
+    4,
+    5,
+    6
+   ],
+   "classes": [
+    "1ère A"
+   ],
+   "check": "last cell corrected on the sheet",
+   "confidence": "medium"
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "1ère A",
+    "1ère D"
+   ],
+   "check": "this sheet replaces her anglophone-pack sheet"
+  },
+  {
+   "teacher": "T33",
+   "subject": "LIT",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Form 1"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "LIT",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 2"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "6e"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "A4"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Tle A",
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "LIT",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Form 4"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "A3"
+   ],
+   "check": "written \"A3 Ind\""
+  },
+  {
+   "teacher": "T33",
+   "subject": "LIT",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 5"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "1ère A",
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "ANGL",
+   "day": 4,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Tle A",
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T33",
+   "subject": "LIT",
+   "day": 4,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "Form 3"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "6e"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 2,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "6e"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    6,
+    7
+   ],
+   "classes": [
+    "2nde C"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 3,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "6e"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 4,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T34",
+   "subject": "FRAN",
+   "day": 5,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T35",
+   "subject": "SVT",
+   "day": 5,
+   "periods": [
+    1,
+    2,
+    3
+   ],
+   "classes": [
+    "Tle D"
+   ],
+   "check": "written vertically across cells",
+   "confidence": "low"
+  },
+  {
+   "teacher": "T35",
+   "subject": "SVT",
+   "day": 3,
+   "periods": [
+    4,
+    5,
+    6
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T35",
+   "subject": "SVT",
+   "day": 3,
+   "periods": [
+    7,
+    8,
+    9
+   ],
+   "classes": [
+    "Tle D"
+   ],
+   "check": "written vertically across cells",
+   "confidence": "low"
+  },
+  {
+   "teacher": "T36",
+   "subject": "ESP",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T36",
+   "subject": "ESP",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T36",
+   "subject": "ESP",
+   "day": 3,
+   "periods": [
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T36",
+   "subject": "ESP",
+   "day": 3,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "5e",
+    "A2"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 1,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "5e",
+    "A2"
+   ]
+  },
+  {
+   "teacher": "T37",
+   "subject": "MATH",
+   "day": 3,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T38",
+   "subject": "ESP",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T38",
+   "subject": "ESP",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T38",
+   "subject": "ESP",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T38",
+   "subject": "ESP",
+   "day": 3,
+   "periods": [
+    5
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 2,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 2,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "1ère D"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 2,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 2,
+   "periods": [
+    7,
+    8
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "Tle D"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 3,
+   "periods": [
+    6,
+    7
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T39",
+   "subject": "PHILO",
+   "day": 3,
+   "periods": [
+    8,
+    9
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T40",
+   "subject": "ALL",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T40",
+   "subject": "ALL",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T40",
+   "subject": "ALL",
+   "day": 3,
+   "periods": [
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T40",
+   "subject": "ALL",
+   "day": 3,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 1,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 1,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 1,
+   "periods": [
+    5,
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 3,
+   "periods": [
+    1,
+    2
+   ],
+   "classes": [
+    "3e"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 3,
+   "periods": [
+    3,
+    4
+   ],
+   "classes": [
+    "4e"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 3,
+   "periods": [
+    5
+   ],
+   "classes": [
+    "Tle A"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 3,
+   "periods": [
+    6
+   ],
+   "classes": [
+    "2nde A"
+   ]
+  },
+  {
+   "teacher": "T41",
+   "subject": "ARA",
+   "day": 3,
+   "periods": [
+    7
+   ],
+   "classes": [
+    "1ère A"
+   ]
+  }
+ ],
+ "unresolved": [
+  {
+   "teacher": "T23",
+   "subject": "LEGIS",
+   "day": 2,
+   "periods": [
+    8
+   ],
+   "classes": [
+    "A?"
+   ],
+   "check": "class unclear",
+   "confidence": "low"
+  },
+  {
+   "teacher": "T35",
+   "subject": "SVT",
+   "day": 5,
+   "periods": [
+    4,
+    5,
+    6
+   ],
+   "classes": [
+    "?"
+   ],
+   "check": "written vertically, class unreadable",
+   "confidence": "low"
+  }
+ ]
+}

@@ -1,0 +1,125 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "LIT",
+ "subject_fr": "Littérature anglaise",
+ "subject_en": "Literature in English",
+ "title": "Literature in English – Form 3",
+ "source": "Annual progression sheet (2024-25 dates moved to 2026-27 by week), 2 periods/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Family and social life",
+   "lessons": [
+    {
+     "title": "Lesson 1: Background and function of literature; forms of literature; types of oral literature and stylistic devices",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 2: Genres and elements of literature; introduction to dramatic elements",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 3: Inclusive Education: The Way to Go: background of the text and the playwright (Douglas Achingale); Act 1 scenes 1–3",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Economic life and occupations",
+   "lessons": [
+    {
+     "title": "Lesson 5: Inclusive Education: The Way to Go: Act 1 scenes 4 and 5",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 6: Act 2 scenes 1, 2 and 3",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 7: Act 2 scenes 4, 5 and 6",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 8: Act 2 scenes 7 and 8",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 9: Act 2 scenes 9 and 10",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3: Health education, environment and safety",
+   "lessons": [
+    {
+     "title": "Lesson 10: Inclusive Education: The Way to Go: Act 3 scenes 1, 2 and 3",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 11: Act 3 scenes 4 and 5",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "A Pen Kills: background of the text and the author (Lucas Ntang Tasi); introduction to prose elements",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "A Pen Kills: textual analysis of chapters 1 and 2",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 12: A Pen Kills: chapters 3 and 4",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4: Citizenship, human rights, duties and gender issues",
+   "lessons": [
+    {
+     "title": "Lesson 13: A Pen Kills: chapters 5 and 6",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 14: A Pen Kills: chapters 7 and 8",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 15: A Pen Kills: chapters 9 and 10",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 16: A Pen Kills: chapters 11 and 12",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5: Arts and culture",
+   "lessons": [
+    {
+     "title": "Lesson 17: A Pen Kills: chapters 13 and 14",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 18: A Pen Kills: chapters 15, 16 and 17; general summary of the text",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 19: An Introduction to Poetry, Book Three: elements of poetry; types of poems; analysis and summary of poems",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "An Introduction to Poetry, Book Three: textual analysis and summary of poems",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}

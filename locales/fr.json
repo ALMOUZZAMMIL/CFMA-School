@@ -87,7 +87,8 @@
     "breadcrumb": "Fil d'Ariane",
     "quickAdd": "Ajouter",
     "scanner": "Pointeuse",
-    "myScans": "Mes pointages"
+    "myScans": "Mes pointages",
+    "calendar": "Calendrier scolaire"
   },
   "roles": {
     "admin": "Administrateur",
@@ -426,7 +427,10 @@
     "importRowMissing": "Ligne {row} : le chapitre et la leçon sont obligatoires.",
     "importRowDate": "Ligne {row} : la date n’est pas valide (utilisez JJ/MM/AAAA).",
     "importRowHours": "Ligne {row} : le nombre d’heures n’est pas valide.",
-    "importRowTerm": "Ligne {row} : aucun trimestre ne s’appelle « {term} »."
+    "importRowTerm": "Ligne {row} : aucun trimestre ne s’appelle « {term} ».",
+    "cycle1": "Premier cycle",
+    "cycle2": "Second cycle",
+    "subjectCount": "Matières : {n}"
   },
   "attendance": {
     "title": "Appel",
@@ -553,7 +557,11 @@
     "marksLater": "Les notes et les bulletins seront ajoutés dans une phase ultérieure."
   },
   "timetable": {
-    "empty": "Aucun emploi du temps à afficher. Choisissez un trimestre, une classe ou un enseignant."
+    "empty": "Aucun emploi du temps à afficher. Choisissez un trimestre, une classe ou un enseignant.",
+    "summary": "{lessons} cours par semaine, {hours} heures au total.",
+    "shortBreak": "Petite pause ({minutes} min)",
+    "longBreak": "Grande pause ({minutes} min)",
+    "clash": "Même horaire : options ou conflit ?"
   },
   "admin": {
     "title": "Administration",
@@ -646,7 +654,9 @@
     "slotClash": "Ce créneau chevauche un autre cours du même enseignant ou de la même classe.",
     "slotInUse": "Ce créneau a déjà des cours enregistrés : il ne peut pas être supprimé.",
     "emailHelp": "Facultatif. La personne peut l'utiliser pour se connecter à la place de l'identifiant.",
-    "emailTaken": "cette adresse e-mail est déjà utilisée par un autre compte."
+    "emailTaken": "cette adresse e-mail est déjà utilisée par un autre compte.",
+    "pickClass": "Choisissez une classe pour voir et modifier ses cours et ses créneaux.",
+    "courseCount": "Cours : {n}"
   },
   "settings": {
     "school": "Établissement",
@@ -1018,5 +1028,28 @@
     "myScans": "Mes pointages (14 derniers jours)",
     "noScans": "Aucun pointage pour l'instant.",
     "readOnlyNote": "Personne ne peut modifier ni supprimer un pointage."
+  },
+  "calendar": {
+    "title": "Calendrier scolaire",
+    "empty": "Le calendrier des activités n’a pas encore été chargé.",
+    "next": "À venir",
+    "now": "En cours",
+    "filter": "Afficher",
+    "all": "Tout",
+    "noneOfType": "Rien de ce type cette année.",
+    "until": "jusqu’au {date}",
+    "toConfirm": "À confirmer :",
+    "cat": {
+      "term": "Trimestre",
+      "evaluation": "Évaluation",
+      "deadline": "Date limite",
+      "meeting": "Réunion",
+      "week": "Semaine spéciale",
+      "celebration": "Événement",
+      "tutorial": "Soutien",
+      "admin": "Personnel",
+      "holiday": "Congé",
+      "other": "Autre"
+    }
   }
 }
