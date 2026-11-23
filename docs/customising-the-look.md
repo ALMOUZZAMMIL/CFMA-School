@@ -19,10 +19,11 @@ value, save the file and reload the page (Ctrl+F5 to skip the cache).
 | What you want | Setting | Example |
 |---|---|---|
 | Lighter or darker page background | `--bg` | `#ffffff` for plain white |
-| Colour of the side menu | `--sidebar-bg` | `#1d3b2a` for dark green |
-| Colour of the selected menu item | `--sidebar-active` | `var(--accent)` for green |
+| Colour of the side menu | `--sidebar-bg` | `#ffffff` (light, default) |
+| Dark side menu instead of light | `--sidebar-*` lines | each line's comment gives the "Dark look" value |
+| Colour of the selected menu item | `--sidebar-active`, `--sidebar-active-text` | `var(--accent-soft)` and `var(--accent)` for green |
 | Wider or narrower side menu | `--sidebar-w` | `240px` |
-| Colours of the four figure tiles on the home page | `--tile-1` to `--tile-4` | any colour, e.g. `#0e7490` |
+| Colours of the four figure tiles on the home page | `--tile-1` to `--tile-4` (icon) and `--tile-1-bg` to `--tile-4-bg` (soft background) | e.g. `#0e7490` and `#d9f0f5` |
 | Square or rounder cards | `--radius` | `0` for square, `16px` for round |
 | Visible border around cards | `--card-border` | `#e5e7eb` |
 | Stronger or softer card shadow | `--shadow-card` | `none` to remove it |
@@ -56,9 +57,9 @@ language but not the other.
 
 ## Credits
 
-The dashboard layout (dark side menu, figure tiles with round icons,
-cards with a title strip) takes its inspiration from the free
-[Kiaalap](https://github.com/puikinsh/kiaalap) admin template by Colorlib,
-released under the MIT licence. No code, images or other files from
-Kiaalap are used in this portal; the styles were written from scratch for
+The layout takes ideas from two admin dashboard designs: the free
+[Kiaalap](https://github.com/puikinsh/kiaalap) template by Colorlib (MIT
+licence) and screenshots of a light "school admin" dashboard design
+(pastel figure tiles, agenda, weekly attendance marks). No code, images or
+other files from either are used; the styles were written from scratch for
 the school's colours and needs.

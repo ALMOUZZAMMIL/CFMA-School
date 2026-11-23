@@ -276,7 +276,12 @@
     "onTrack": "On track",
     "planned": "Planned by today",
     "myProgress": "My programme progress",
-    "attendanceRateChild": "Attendance rate"
+    "attendanceRateChild": "Attendance rate",
+    "agenda": "Today's agenda",
+    "agendaEmpty": "No lessons on the timetable today.",
+    "thisWeek": "This week",
+    "lastDays": "Last {n} school days",
+    "noMark": "No register taken"
   },
   "teaching": {
     "dayTitle": "Classes by day",

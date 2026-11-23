@@ -1,0 +1,19 @@
+<%# Week strip (Mon–Sat, today highlighted) and today's lessons as coloured time blocks. Items come from the timetable. %>
+<ol class="week-strip" aria-label="<%= t('dashboard.thisWeek') %>">
+  <% week.forEach(function (d) { %>
+  <li class="<%= d.today ? 'is-today' : '' %>"<% if (d.today) { %> aria-current="date"<% } %>><span><%= t('days.short.' + d.dow) %></span><strong><%= Number(d.date.slice(8, 10)) %></strong></li>
+  <% }) %>
+</ol>
+<% if (typeof stripOnly !== 'undefined' && stripOnly) { %><% } else if (!items.length) { %>
+  <p class="muted"><%= t('dashboard.agendaEmpty') %></p>
+<% } else { %>
+<ul class="agenda">
+  <% items.forEach(function (it, i) { %>
+  <li class="agenda-item agenda-tone-<%= (i % 3) + 1 %>">
+    <span class="agenda-time"><%= it.start_time %><small><%= it.end_time %></small></span>
+    <span class="agenda-main"><small><%= it.class_name %><% if (it.teacher_name) { %> · <%= it.teacher_name %><% } %></small><strong><%= ln(it, 'subject') %></strong></span>
+    <% if (it.session_status) { %><%- include('badge', { kind: 'session', value: it.session_status }) %><% } %>
+  </li>
+  <% }) %>
+</ul>
+<% } %>
