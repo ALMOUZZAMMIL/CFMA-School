@@ -1,0 +1,101 @@
+{
+ "section": "GEN",
+ "level": "2nde A",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Éducation à la citoyenneté et à la morale – 2nde A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Secondes), 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Promouvoir les activités génératrices de revenus",
+   "lessons": [
+    {
+     "title": "L1 : La production",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : La distribution",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : La consommation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "TD1 : L'appréciation de la qualité d'un produit de consommation",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L4 : La monnaie",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "D1 : Le franc CFA",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L5 : Les banques",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "D2 : Le compte bancaire",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L6 : Le crédit",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L7 : Les marchés",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L8 : L'inflation",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L9 : Le budget",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "D3 : Le budget de l'État, recettes et dépenses, exécution et contrôle",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Rechercher l'emploi, promouvoir l'auto-emploi et la sécurité sociale",
+   "lessons": [
+    {
+     "title": "L10 : Les structures de promotion de l'emploi et de l'auto-emploi",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L11 : La sécurité sociale, affiliation, cotisations et prestations",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Gérer durablement les ressources et protéger l'environnement",
+   "lessons": [
+    {
+     "title": "L12 : Les menaces sur l'environnement",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L13 : Les mesures de protection de l'environnement",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "TD2 : Étude d'une forme d'atteinte à l'environnement dans votre localité",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

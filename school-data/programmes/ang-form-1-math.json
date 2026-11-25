@@ -1,0 +1,397 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathematics – Form 1",
+ "source": "Harmonised syllabus coverage progression sheet 2026-27 (MINESEC), 68 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Numbers and numerals",
+   "lessons": [
+    {
+     "title": "Lesson 1: The history and evolution of numbers",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Egyptian and Roman numerals",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Hindu-Arabic numerals and place value",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Numbers in words and in figures",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The set of natural numbers and number bases",
+   "lessons": [
+    {
+     "title": "Lesson 5: Elements of N and of N*",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 6: Cardinal, ordinal and nominal numbers",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 7: Whole number powers and operations in the set N",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 8: Number bases: converting numbers from base 10 to other bases and from one base to another",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 9: Number bases: addition and subtraction in other bases",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 10: Number bases: multiplication in other bases",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Plane figures: points and lines",
+   "lessons": [
+    {
+     "title": "Lesson 11: Points and notation of lines, half lines and line segments",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 12: Collinear points",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 13: Units of measuring length and distance; converting from one unit to another",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Distance and line segment",
+   "lessons": [
+    {
+     "title": "Lesson 14: Line segment: midpoint property of a line segment and its converse",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 15: Constructing the perpendicular bisector of a line segment",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 16: Parallel, perpendicular and orthogonal lines: notation and properties",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Circles",
+   "lessons": [
+    {
+     "title": "Lesson 17: Parts of a circle and vocabulary associated with circles",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 18: Circumference of a circle",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 19: Area of a circle",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The set Z of integers",
+   "lessons": [
+    {
+     "title": "Lesson 20: The set of integers",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 21: The integral number line",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 22: Addition and subtraction in the set Z of integers",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 23: Multiplication and division in the set Z",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Time and temperature",
+   "lessons": [
+    {
+     "title": "Lesson 24: Historical time",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 25: 12- and 24-hour systems (analogue and digital time)",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 26: Time zones in the world",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 27: Temperature",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Angles",
+   "lessons": [
+    {
+     "title": "Lesson 28: Angle notation and measurement",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Lesson 29: Types of angles",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Triangles",
+   "lessons": [
+    {
+     "title": "Lesson 30: Triangles",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Lesson 31: Angle properties of a triangle",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Lesson 32: Construction of triangles",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 33: The height of a triangle",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 34: The median and the orthocentre of a triangle",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 35: The perimeter and area of a triangle",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Number patterns",
+   "lessons": [
+    {
+     "title": "Lesson 36: Dot representation of numbers (triangular, rectangular and square numbers)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 37: Factors and multiples; prime and composite numbers",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 38: Prime factorisation of numbers",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 39: LCM and HCF using prime factorisation",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 40: Square roots and cube roots of numbers using prime factorisation",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 41: Even and odd numbers; tests for divisibility",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The set Q of rational numbers",
+   "lessons": [
+    {
+     "title": "Lesson 42: Rational numbers: simplifying and converting fractions",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 43: Equivalent fractions; addition and subtraction of fractions",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 44: Multiplication and division of fractions",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Quadrilaterals",
+   "lessons": [
+    {
+     "title": "Lesson 45: Quadrilaterals and their properties (parallelogram, rectangle, square, rhombus, trapezium, kite)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 46: Perimeter and area of quadrilaterals",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 47: Constructing some quadrilaterals",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Symmetry",
+   "lessons": [
+    {
+     "title": "Lesson 48: Point (central) symmetry and its properties; image of an object by point symmetry",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 49: Line of symmetry and its properties",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 50: Image of an object by line symmetry",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 51: Objects with point symmetry, line symmetry or both",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Cartesian coordinate plane",
+   "lessons": [
+    {
+     "title": "Lesson 52: The Cartesian plane: axes and scale; plotting and reading points in the plane",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Statistics",
+   "lessons": [
+    {
+     "title": "Lesson 53: Collecting simple data: types of data",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Decimals",
+   "lessons": [
+    {
+     "title": "Lesson 54: Decimals, place value and fractions",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 55: Approximating decimals; operations with decimals",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Arithmetic processes",
+   "lessons": [
+    {
+     "title": "Lesson 56: Ratios: simplifying and comparing ratios",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 57: Applying ratios to real-life situations",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 58: Simple proportions",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 59: Percentages",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Cubes and cuboids",
+   "lessons": [
+    {
+     "title": "Lesson 60: Properties of cubes and cuboids; vocabulary",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 61: Nets of cubes and cuboids",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 62: Surface area of cubes and cuboids",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 63: Units of measuring volume and capacity in real life",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 64: Volume of cubes and cuboids",
+     "date": "2027-04-12"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Right circular cylinders and cones",
+   "lessons": [
+    {
+     "title": "Lesson 65: Right circular cylinders: properties and vocabulary",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 66: The net, surface area and volume of a cylinder",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 67: Cones: properties and vocabulary",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 68: The net, surface area and volume of a cone",
+     "date": "2027-04-19"
+    }
+   ]
+  }
+ ]
+}

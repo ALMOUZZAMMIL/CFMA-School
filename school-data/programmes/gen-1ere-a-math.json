@@ -1,0 +1,161 @@
+{
+ "section": "GEN",
+ "level": "1ère A",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 1ère A",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027 (1ère A-ABI), 7 chapitres, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Équations, inéquations et systèmes",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Équations et inéquations associées aux fonctions homographiques",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Tableau des signes d'un quotient",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Équations du second degré dans ℝ",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 4 : Signe d'un polynôme ax² + bx + c",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Inéquations du second degré dans ℝ",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 6 : Systèmes d'équations du premier degré dans ℝ²",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Dénombrement",
+   "lessons": [
+    {
+     "title": "Leçon 7 : Compléments sur les ensembles finis : réunion et intersection, complémentaire d'un sous-ensemble, produit cartésien",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 8 : p-listes d'éléments d'un ensemble (p-uplets)",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 9 : Arrangements",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 10 : Permutations",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 11 : Combinaisons",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Fonctions : généralités",
+   "lessons": [
+    {
+     "title": "Leçon 12 : Parité d'une fonction",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 13 : Éléments de symétrie de la courbe d'une fonction sur un domaine borné",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Fonctions : limites et continuité",
+   "lessons": [
+    {
+     "title": "Leçon 14 : Approche intuitive de la notion de limite",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 15 : Continuité",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 16 : Caractères statistiques discrets",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 17 : Caractères statistiques regroupés en classes d'égales amplitudes",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 18 : Caractéristiques de position : moyenne, médiane",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 19 : Caractéristiques de dispersion : variance et écart type",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 20 : Tableaux des effectifs cumulés croissants et décroissants",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 21 : Tableaux des fréquences cumulées croissantes et décroissantes",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 22 : Représentations graphiques : histogramme ; polygones des effectifs (ou fréquences) cumulés",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "6. Fonctions dérivées",
+   "lessons": [
+    {
+     "title": "Leçon 23 : Dérivation en un réel x : nombre dérivé ; équation de la tangente",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Leçon 24 : Fonctions dérivées : définition ; dérivées des fonctions élémentaires",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Leçon 25 : Dérivées et opérations sur les fonctions",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "7. Fonctions associées et étude des fonctions",
+   "lessons": [
+    {
+     "title": "Leçon 26 : Étude de fonctions polynômes et homographiques définies sur un intervalle borné",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 27 : Fonctions et transformations usuelles",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "LIT",
+ "subject_fr": "Littérature anglaise",
+ "subject_en": "Literature in English",
+ "title": "Literature in English – Form 1",
+ "source": "Annual progression sheet (titled 2026-27, weeks dated 2024-25), 2 h/week; dates moved to 2026-27 by week number",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Exploring oral African prose forms for entertainment and education",
+   "lessons": [
+    {
+     "title": "Presentation and class rules; the concept of literature, literary terms, classification of oral literature",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Prose forms of oral literature: folktales, myths, legends",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Elements and characteristics of prose: theme, style, character and characterisation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Reading and analysis of a prose text",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Exploring oral African drama forms for entertainment and education",
+   "lessons": [
+    {
+     "title": "Dramatic forms of oral literature: rituals, incantations, invocations",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Characteristics and elements of drama; forms of drama (comedy, tragedy, tragi-comedy)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Reading and analysis of a drama text",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3: Exploring oral African poetic forms for entertainment",
+   "lessons": [
+    {
+     "title": "Poetic forms of oral literature: riddles, songs, proverbs",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Characteristics and elements of poetry; types and forms of written poetry",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Reading and analysis of poems",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4: Literary creativity – producing literary works",
+   "lessons": [
+    {
+     "title": "Literary creativity: composing and singing songs from poems; writing poems",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Literary creativity: miming, clowning, street pop, comedy",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Literary creativity and general revision",
+     "date": "2027-04-05"
+    }
+   ]
+  }
+ ]
+}

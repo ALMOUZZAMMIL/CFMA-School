@@ -1,30 +1,68 @@
 <%- include('../partials/head') %>
-<div class="page-head"><h1><%= t('progress.title') %></h1><button class="btn no-print" data-print><%= t('common.print') %></button></div>
+<div class="page-head"><h1><%= t('progress.title') %></h1>
+  <div class="actions no-print">
+    <% if (user.role === 'admin') { %><a class="btn btn-primary" href="/progress/now"><%= t('progress.nowLink') %></a><% } %>
+    <button class="btn" data-print><%= t('common.print') %></button>
+  </div>
+</div>
 <form method="get" class="filters no-print">
   <label><%= t('progress.asOf') %> <input type="date" name="date" value="<%= asOf %>"></label>
   <% if (user.role === 'admin') { %>
   <label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= String(c.id) === q.class ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
   <label><%= t('common.teacher') %><select name="teacher"><option value=""><%= t('common.allTeachers') %></option><% teachers.forEach(function (x) { %><option value="<%= x.id %>" <%= String(x.id) === q.teacher ? 'selected' : '' %>><%= x.full_name %></option><% }) %></select></label>
   <% } %>
+  <% if (state) { %><input type="hidden" name="state" value="<%= state %>"><% } %>
   <button class="btn"><%= t('common.show') %></button>
 </form>
-<p class="help"><%= t('progress.explain') %></p>
-<% if (!rows.length) { %><div class="empty"><p><%= t('progress.noAssignments') %></p></div><% } else { %>
-<div class="table-wrap"><table>
-  <thead><tr><th><%= t('common.class') %></th><th><%= t('common.subject') %></th><% if (user.role === 'admin') { %><th><%= t('common.teacher') %></th><% } %><th><%= t('progress.planned') %></th><th><%= t('progress.actual') %></th><th><%= t('progress.gap') %></th><th><%= t('progress.current') %></th><th class="no-print"></th></tr></thead>
+<p class="help"><%= t('progress.explainStatus', { grace: grace, alert: alertDays }) %></p>
+
+<%
+  var keep = (q.class ? '&class=' + encodeURIComponent(q.class) : '') + (q.teacher ? '&teacher=' + encodeURIComponent(q.teacher) : '') + (q.date ? '&date=' + encodeURIComponent(q.date) : '');
+  var link = function (s) { var qs = (s ? 'state=' + s : '') + keep; return '/progress' + (qs ? '?' + qs.replace(/^&/, '') : ''); };
+%>
+<div class="stats tracker-stats">
+  <a class="stat stat-bad<%= state === 'far_behind' ? ' on' : '' %>" href="<%= link('far_behind') %>"><span class="stat-num"><%= counts.far_behind %></span><span class="stat-label"><%= t('progress.cnt.far_behind', { days: alertDays }) %></span></a>
+  <a class="stat stat-warn<%= state === 'behind' ? ' on' : '' %>" href="<%= link('behind') %>"><span class="stat-num"><%= counts.behind %></span><span class="stat-label"><%= t('progress.cnt.behind', { days: grace }) %></span></a>
+  <a class="stat stat-ok<%= state === 'on_track' ? ' on' : '' %>" href="<%= link('on_track') %>"><span class="stat-num"><%= counts.on_track + counts.ahead %></span><span class="stat-label"><%= t('progress.cnt.on_track') %></span></a>
+  <a class="stat<%= state === 'not_submitted' ? ' on' : '' %>" href="<%= link('not_submitted') %>"><span class="stat-num"><%= counts.not_submitted + counts.no_plan %></span><span class="stat-label"><%= t('progress.cnt.no_sheet') %></span></a>
+</div>
+<nav class="chips no-print" aria-label="<%= t('progress.filterStatus') %>">
+  <a class="chip<%= !state ? ' on' : '' %>" href="<%= link(null) %>"><%= t('common.all') %> (<%= total %>)</a>
+  <a class="chip<%= state === 'late' ? ' on' : '' %>" href="<%= link('late') %>"><%= t('progress.onlyLate') %> (<%= counts.behind + counts.far_behind %>)</a>
+  <% ['far_behind', 'behind', 'on_track', 'ahead', 'not_submitted', 'no_plan'].forEach(function (s) { if (!counts[s]) return; %>
+  <a class="chip<%= state === s ? ' on' : '' %>" href="<%= link(s) %>"><%= t('progress.chip.' + s) %> (<%= counts[s] %>)</a>
+  <% }) %>
+</nav>
+
+<% if (byTeacher.length && !state) { %>
+<section class="card">
+  <div class="card-head"><h2><%= t('progress.byTeacherTitle') %></h2></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.teacher') %></th><th><%= t('progress.classesBehind') %></th><th><%= t('progress.farBehindCol') %></th><th><%= t('progress.worstDelay') %></th><th class="no-print"></th></tr></thead>
+    <tbody><% byTeacher.forEach(function (x) { %>
+      <tr><td><%= x.name %></td><td><%= x.late %> / <%= x.total %></td><td><%= x.far %></td><td><%= t('progress.days', { n: x.worst }) %></td>
+        <td class="no-print"><a href="/progress?teacher=<%= x.id %>&state=late"><%= t('common.open') %></a></td></tr>
+    <% }) %></tbody>
+  </table></div>
+</section>
+<% } %>
+
+<% if (!rows.length) { %><div class="empty"><p><%= total ? t('progress.noneInState') : t('progress.noAssignments') %></p></div><% } else { %>
+<div class="table-wrap"><table class="tracker">
+  <thead><tr><th><%= t('common.class') %></th><th><%= t('common.subject') %></th><% if (user.role === 'admin') { %><th><%= t('common.teacher') %></th><% } %><th><%= t('progress.status') %></th><th><%= t('progress.shouldBeOn') %></th><th><%= t('progress.reached') %></th><th><%= t('progress.actual') %></th><th class="no-print"></th></tr></thead>
   <tbody>
   <% rows.forEach(function (r) { var p = r.p; %>
-    <tr>
+    <tr class="st-<%= r.status %>">
       <td><%= r.a.class_name %></td><td><%= ln(r.a, 'subject') %></td><% if (user.role === 'admin') { %><td><%= r.a.teacher_name %></td><% } %>
-      <% if (!p.plan) { %>
-        <td colspan="4"><span class="badge badge-none"><span aria-hidden="true">–</span> <%= t('progress.noPlan') %></span></td>
+      <td><%- include('../partials/curriculum-status', { status: r.status, p: p }) %></td>
+      <% if (!p.plan || !p.total) { %>
+        <td colspan="3" class="small muted"><%= t('progress.noPlanHelp') %></td>
       <% } else { %>
-        <td><%= p.plannedToDate %>/<%= p.total %> (<%= p.plannedPct %>%)</td>
+        <td class="small"><% if (p.shouldBeOn) { %><%= p.shouldBeOn.title %><br><span class="muted"><%= p.shouldBeOn.chapter_title %><%= p.shouldBeOn.planned_date ? ' · ' + t('progress.dueOn', { date: fmt.date(p.shouldBeOn.planned_date) }) : '' %></span><% } else { %><%= t('progress.allDone') %><% } %></td>
+        <td class="small"><%= p.actualLesson ? p.actualLesson.title : '—' %><% if (p.actualLesson && p.actualLesson.progress) { %><br><span class="muted"><%= fmt.date(p.actualLesson.progress.date) %></span><% } %></td>
         <td><%- include('../partials/meter', { value: p.pct, label: p.completed + '/' + p.total }) %></td>
-        <td><%- include('../partials/gap', { gap: p.gap }) %></td>
-        <td class="small"><%= p.actualLesson ? p.actualLesson.chapter_title + ' › ' + p.actualLesson.title : '—' %></td>
       <% } %>
-      <td class="no-print"><a href="/progress/<%= r.a.id %>?date=<%= asOf %>"><%= t('common.open') %></a></td>
+      <td class="no-print"><a href="/progress/<%= r.a.id %><%= q.date ? '?date=' + asOf : '' %>"><%= t('common.open') %></a></td>
     </tr>
   <% }) %>
   </tbody>

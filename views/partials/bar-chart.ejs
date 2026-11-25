@@ -1,0 +1,18 @@
+<%# Weekly attendance rate as vertical bars, 0–100 %. Every bar is a real week of attendance records. %>
+<% var W = 560, H = 230, L = 40, R = 10, T = 22, B = 196, step = (W - L - R) / Math.max(weeks.length, 1), bw = Math.min(46, step * 0.58);
+   var y = function (v) { return B - (v / 100) * (B - T); }; %>
+<svg class="chart" viewBox="0 0 <%= W %> <%= H %>" role="img" aria-label="<%= t('dashboard.trendTitle') %>: <%= weeks.map(function (w) { return t('dashboard.weekOf', { date: w.weekStart.slice(8, 10) + '/' + w.weekStart.slice(5, 7) }) + ' ' + (w.rate === null ? '—' : fmt.number(w.rate) + ' %'); }).join(', ') %>">
+  <% [0, 25, 50, 75, 100].forEach(function (g) { %>
+  <line class="chart-grid" x1="<%= L %>" x2="<%= W - R %>" y1="<%= y(g) %>" y2="<%= y(g) %>"></line>
+  <text class="chart-axis" x="<%= L - 8 %>" y="<%= y(g) + 4 %>" text-anchor="end"><%= g %> %</text>
+  <% }) %>
+  <% weeks.forEach(function (w, i) { var x = L + i * step + (step - bw) / 2; %>
+    <% if (w.rate !== null) { %>
+    <rect class="chart-bar<%= i === weeks.length - 1 ? ' chart-bar-now' : '' %>" x="<%= x.toFixed(1) %>" y="<%= y(w.rate).toFixed(1) %>" width="<%= bw.toFixed(1) %>" height="<%= (B - y(w.rate)).toFixed(1) %>" rx="4"></rect>
+    <text class="chart-value" x="<%= (x + bw / 2).toFixed(1) %>" y="<%= (y(w.rate) - 6).toFixed(1) %>" text-anchor="middle"><%= Math.round(w.rate) %></text>
+    <% } else { %>
+    <text class="chart-axis" x="<%= (x + bw / 2).toFixed(1) %>" y="<%= B - 6 %>" text-anchor="middle">—</text>
+    <% } %>
+    <text class="chart-axis" x="<%= (x + bw / 2).toFixed(1) %>" y="<%= B + 18 %>" text-anchor="middle"><%= w.weekStart.slice(8, 10) %>/<%= w.weekStart.slice(5, 7) %></text>
+  <% }) %>
+</svg>

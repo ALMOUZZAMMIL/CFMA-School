@@ -1,0 +1,105 @@
+{
+ "section": "GEN",
+ "level": "5e",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "Histoire – 5e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine, 14 leçons, 2 TD, 3 dossiers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Les peuples et les sociétés du Cameroun",
+   "lessons": [
+    {
+     "title": "L1 : Les Pygmées et les Sao",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : Les vagues de migrations au Cameroun",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "TD1 : Les peuples de la localité où est situé votre établissement",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L3 : Généralités sur les sociétés étatiques et égalitaires du Cameroun",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "D1 : Étude d'une société étatique et égalitaire du Cameroun",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La promotion de l'esprit de leadership et de bâtisseur",
+   "lessons": [
+    {
+     "title": "L4 : Le Ghana du IXe au XIe siècle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L5 : Le Mali",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L6 : Le Kanem-Bornou",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L7 : Le Congo",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L8 : Le Zimbabwe",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L9 : L'art africain",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "TD2 : L'art dans votre région",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "D2 : Les facteurs de déclin des empires africains",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Protéger et renforcer l'identité africaine",
+   "lessons": [
+    {
+     "title": "L10 : Les contacts de l'Afrique occidentale et soudanaise avec le monde arabe et l'Europe",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L11 : L'Afrique orientale et l'océan Indien",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L12 : Les premiers contacts du Cameroun avec les Européens",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L13 : L'Europe, du désordre à la Renaissance",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "D3 : Les voyages de découvertes",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L14 : L'Amérique, grandeur et décadence des royaumes inca, maya et aztèque",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

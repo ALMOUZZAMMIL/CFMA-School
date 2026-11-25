@@ -1,0 +1,105 @@
+{
+ "section": "GEN",
+ "level": "1ère A",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Éducation à la citoyenneté et à la morale – 1ère A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Premières), 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Promouvoir et protéger les droits de l'homme et l'intégrité morale",
+   "lessons": [
+    {
+     "title": "L1 : Les droits fondamentaux de l'homme",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : Les institutions de protection des droits, identification et rôle",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "D1 : Étude d'une structure locale de promotion des droits de l'homme",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L3 : Le concept d'intégrité morale",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L4 : Les institutions de promotion et de préservation de l'intégrité morale au Cameroun",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "TD2 : L'intégrité morale en milieu scolaire",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Rechercher la bonne information et faire bon usage des TIC",
+   "lessons": [
+    {
+     "title": "L5 : Les médias et leurs impacts sur l'opinion publique",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "D2 : Le recoupement de l'information",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L6 : La protection de l'opinion publique au Cameroun",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "TD3 : La publicité dans les médias",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Protéger les personnes et leurs biens",
+   "lessons": [
+    {
+     "title": "L7 : Les atteintes à l'intégrité physique, morale et au patrimoine",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L8 : L'extrémisme violent",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L9 : La notion de paix",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "TD4 : Les symboles de la paix au Cameroun",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L10 : Les stratégies de promotion de la paix",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "D3 : La lutte contre l'extrémisme et le terrorisme au Cameroun",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L11 : Le règlement pacifique des différends",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "TD5 : L'importance du vivre-ensemble au Cameroun",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "D4 : La Commission nationale pour la promotion du bilinguisme et du multiculturalisme",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}

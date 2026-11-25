@@ -1,0 +1,287 @@
+{
+ "section": "GEN",
+ "level": "3e",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 3e",
+ "source": "Séquences didactiques (fiches datées 2024/2025, reprises pour 2026/2027), 6 modules de 24 h, 4 h/semaine ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – La vie quotidienne (le texte narratif enrichi)",
+   "lessons": [
+    {
+     "title": "Grammaire : les types de phrases obligatoires",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Orthographe : les accords complexes (sujet inversé ou éloigné, groupe nominal ou pronom relatif enrichi d'un nom collectif)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Écrit : produire un texte narratif enrichi de séquences descriptives",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lecture suivie : Ville cruelle (Eza Boto)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Conjugaison : emploi des temps simples de l'indicatif, le présent et le futur simple",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Oral : le compte rendu oral (prendre des notes, organiser et présenter)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Écrit : produire un texte narratif enrichi de dialogues (ponctuation du dialogue)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Grammaire : le style direct et le style indirect",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Vocabulaire : les sentiments relatifs à la vie quotidienne",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Écrit : produire un texte narratif enrichi de séquences descriptives et de dialogues",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – La vie socioculturelle (le texte explicatif, l'exposé)",
+   "lessons": [
+    {
+     "title": "Grammaire : la ponctuation (le point-virgule, les deux points, les parenthèses)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Orthographe : les homophones lexicaux",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Écrit : le texte explicatif, présenter ses éléments constitutifs",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lecture suivie : Ville cruelle (Eza Boto)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Conjugaison : les valeurs du présent de l'indicatif",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Oral : l'exposé oral (analyser le thème, élaborer un plan, rédiger et présenter un exposé)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Écrit : le texte explicatif, organiser un texte explicatif",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Grammaire : les niveaux de langue ; les types de phrases facultatifs",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Vocabulaire : la vie socioculturelle ; synonymes et antonymes",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Écrit : produire un texte explicatif",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – Citoyenneté et environnement (le texte argumentatif, le débat)",
+   "lessons": [
+    {
+     "title": "Grammaire : la subordonnée relative",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Orthographe : l'accord du participe passé employé seul, avec être ou avec avoir",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Écrit : l'argumentation, analyser la structure d'un texte argumentatif",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lecture suivie : La Marmite de Koka-Mballa (Guy Menga)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Conjugaison : le mode subjonctif, formation et valeurs",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Oral : le débat, réfuter un point de vue (convaincre ou persuader)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Écrit : l'argumentation, organiser un texte argumentatif",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Grammaire : la subordonnée complétive",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Vocabulaire : la citoyenneté et l'environnement ; la dérivation",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Écrit : l'argumentation, produire un texte argumentatif",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 – La vie économique (le texte argumentatif, l'entretien d'embauche)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : La Marmite de Koka-Mballa (Guy Menga)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Grammaire : la structure de la phrase",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Orthographe : l'accord du participe passé des verbes pronominaux",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Écrit : le texte argumentatif, produire une introduction",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Conjugaison : le mode conditionnel, formation et valeurs d'emploi",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Oral : l'entretien d'embauche, écouter l'interlocuteur, répondre aux questions, gestuelle appropriée",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Écrit : le texte argumentatif, rédiger un paragraphe du développement",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Grammaire : les subordonnées circonstancielles de cause et de conséquence",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Vocabulaire : la vie économique ; dénotation et connotation",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Écrit : le texte argumentatif, rédiger une conclusion",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Bien-être et santé (le texte injonctif, le commentaire d'image)",
+   "lessons": [
+    {
+     "title": "Grammaire : la subordonnée de temps ; la subordonnée de condition et de but",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Orthographe : l'accord du participe passé suivi d'un infinitif",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Écrit : le texte injonctif, analyser sa structure",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lecture suivie : Petites gouttes de chant pour créer l'homme (René Philombe)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Conjugaison : le mode impératif, formation et valeurs",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Oral : le commentaire de l'image, décrire, analyser et interpréter l'image",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Écrit : le texte injonctif, organiser un texte injonctif",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Grammaire : les figures de style (la comparaison, la métaphore, l'hyperbole)",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Vocabulaire : le bien-être et la santé ; la formation des adverbes de manière",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Écrit : produire un texte injonctif",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 – Médias et communication (l'article de journal, le reportage)",
+   "lessons": [
+    {
+     "title": "Grammaire : les subordonnées infinitives et participiales",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Orthographe : le pluriel des adjectifs de couleur",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Écrit : l'article de journal, présenter ses éléments constitutifs",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lecture suivie : Petites gouttes de chant pour créer l'homme (René Philombe)",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Conjugaison : les modes impersonnels, l'infinitif et le participe (formation et valeurs)",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Oral : faire un reportage (circonstances, commenter ce qu'on voit, style approprié)",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Écrit : l'article de journal, organiser l'article",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Grammaire : les figures de style (la gradation et l'énumération)",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Vocabulaire : les médias et la communication ; sigles et acronymes",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Écrit : l'article de journal, rédiger l'article",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

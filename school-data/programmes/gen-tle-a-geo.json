@@ -1,0 +1,119 @@
+{
+ "section": "GEN",
+ "level": "Tle A",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Géographie – Tle A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Terminales), 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La promotion du développement intégré",
+   "lessons": [
+    {
+     "title": "L1 : La diversité physique du Cameroun",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "TP1 : Construction d'une carte physique du Cameroun",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L2 : Les grands groupes humains",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "TP2 : Construction et lecture de la carte de la répartition de la population du Cameroun",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L3 : Les villes du Cameroun",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L4 : L'agriculture traditionnelle, de grandes améliorations",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L5 : Les transformations de l'élevage et de la pêche traditionnels",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "D1 : Le rôle de l'État dans le développement des activités agropastorales et piscicoles au Cameroun",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L6 : L'évolution de l'artisanat",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L7 : L'agriculture des grandes plantations",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "D2 : La main-d'œuvre dans les grandes plantations",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L8 : L'industrie",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "TP3 : Construction d'un cercle",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La participation à la mondialisation",
+   "lessons": [
+    {
+     "title": "L9 : Les échanges interrégionaux au Cameroun",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "TP4 : Carte des flux interrégionaux au Cameroun",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L11 : Les facteurs de la mondialisation",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L12 : Le fonctionnement de la mondialisation",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "D3 : Le commerce équitable",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "D4 : Les problèmes liés à la mondialisation",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L13 : Les foyers moteurs de l'économie mondiale",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "L14 : Les foyers économiques en expansion",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L15 : Les pays au décollage économique difficile",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "TP5 : Les foyers de la mondialisation",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L16 : Les échanges du Cameroun avec l'extérieur",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

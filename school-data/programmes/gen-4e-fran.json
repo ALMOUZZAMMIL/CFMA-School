@@ -1,0 +1,149 @@
+{
+ "section": "GEN",
+ "level": "4e",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 4e",
+ "source": "Séquences didactiques 2026/2027, 6 modules de 24 h ; modules 1, 3 et 4 illisibles sur le scan (à renvoyer) ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 2 – La vie socioculturelle (le texte narratif)",
+   "lessons": [
+    {
+     "title": "Grammaire : le discours direct et le discours indirect",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Orthographe : l'accord du participe passé employé seul, avec être ou avoir",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Écrit : le texte narratif, produire une narration enrichie de dialogue",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lecture suivie : Cœur du Sahel (Djaïli Amadou Amal)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Conjugaison : les temps simples de l'indicatif, l'imparfait et le passé simple",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Oral : le compte rendu oral d'un texte lu (lire en prenant des notes, organiser, présenter)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Écrit : le texte narratif, produire un récit enrichi de description",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Grammaire : la phrase déclarative et la phrase interrogative",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Vocabulaire : la vie socioculturelle ; les adverbes de temps et de lieu",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Écrit : le texte narratif, écrire la suite d'un récit",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Bien-être et santé (le texte injonctif)",
+   "lessons": [
+    {
+     "title": "Grammaire : les subordonnées infinitives",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Orthographe : la formation des mots, dérivation et composition",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Écrit : le texte injonctif, produire un texte injonctif",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lecture suivie : L'Attachement au sol natal (Ernest Alima)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Conjugaison : l'emploi du mode impératif",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Oral : l'exposé oral, préparer l'exposé",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Écrit : le texte injonctif, produire une notice",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Grammaire : les subordonnées participiales",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Vocabulaire : le bien-être et la santé",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Écrit : le texte injonctif, produire un mode d'emploi",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 – Médias et communication (les textes informatifs)",
+   "lessons": [
+    {
+     "title": "Grammaire : la ponctuation (les parenthèses, les guillemets, les deux points…)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Orthographe : les homophones grammaticaux (c'est/ses, s'est/ces…)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Écrit : l'article de journal, écrire un article de journal",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lecture suivie : L'Attachement au sol natal (Ernest Alima)",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Conjugaison : l'emploi du mode conditionnel",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Oral : l'interview, préparer et réaliser une interview",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Écrit : le compte rendu, produire un compte rendu",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Grammaire : l'adjectif verbal",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Vocabulaire : les champs lexicaux des médias et de la communication",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Écrit : la lettre officielle, rédiger une demande d'emploi ou une lettre de motivation",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

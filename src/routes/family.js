@@ -8,6 +8,8 @@ const reports = require('../reports');
 const { int, isDate } = require('../util');
 
 const r = express.Router();
+// Router-level guard (defence in depth): every path below also checks its role itself.
+r.use('/me', auth.requireRole('student'));
 
 r.get('/me', auth.requireRole('student'), (req, res) => {
   const ids = access.visibleStudentIds(req.user);
@@ -28,11 +30,20 @@ r.get('/students/:id', (req, res) => {
   let attendance = null;
   let summary = null;
   if (showAttendance && year) {
-    const from = isDate(req.query.from) ? req.query.from : year.start_date;
+    let from = isDate(req.query.from) ? req.query.from : year.start_date;
+    // Teachers: only this school year, and only records taken in classes they teach this year,
+    // whatever "from" date is sent. Admins and the child's own family keep the full history.
+    let scope = '';
+    const params = { id, yearId: year.id, teacherId: req.user.id, start: year.start_date, end: year.end_date };
+    if (req.user.role === 'teacher') {
+      if (from < year.start_date) from = year.start_date;
+      scope = `AND ar.date BETWEEN @start AND @end AND ar.class_id IN (SELECT ta.class_id FROM teaching_assignments ta
+        JOIN classes tc ON tc.id = ta.class_id WHERE ta.teacher_id = @teacherId AND tc.year_id = @yearId)`;
+    }
     attendance = db.get().prepare(`SELECT ar.date, ar.status, ar.note, c.name AS class_name FROM attendance_records ar JOIN classes c ON c.id = ar.class_id
-      WHERE ar.student_id = ? AND ar.date >= ? AND ar.status != 'present' ORDER BY ar.date DESC LIMIT 60`).all(id, from);
+      WHERE ar.student_id = @id AND ar.date >= @from AND ar.status != 'present' ${scope} ORDER BY ar.date DESC LIMIT 60`).all({ ...params, from });
     summary = db.get().prepare(`SELECT COUNT(*) total, SUM(status='present') present, SUM(status='absent') absent, SUM(status='late') late, SUM(status='excused') excused
-      FROM attendance_records WHERE student_id = ? AND date BETWEEN ? AND ?`).get(id, year.start_date, year.end_date);
+      FROM attendance_records ar WHERE ar.student_id = @id AND ar.date BETWEEN @start AND @end ${scope}`).get(params);
   }
   let progress = [];
   if (showProgress && cls) {

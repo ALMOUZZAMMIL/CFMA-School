@@ -1,0 +1,167 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "History – Form 1",
+ "source": "Harmonised syllabus coverage progression sheet (MINESEC)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "The notion of history",
+   "lessons": [
+    {
+     "title": "Lesson 1: Introduction to the study of history",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Further study 1: Collection and classification of historical relics",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Group work 1: Enquiry on the system of periodisation",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Africa, cradle of humankind",
+   "lessons": [
+    {
+     "title": "Lesson 2: Early man, his area and settlements",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 2 (continued): Way of life of early man",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Group work 2: The myth of creation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 3: The Neolithic (New Stone Age civilisation)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Further study 2: Humanisation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Further study 3: Cameroon civilisation in the Neolithic",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Group work 3: The pygmies in Cameroon",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Ancient Egypt and her legacies",
+   "lessons": [
+    {
+     "title": "Lesson 4: Egypt, a structured society",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Further study 4: Daily life in Egypt",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Group work 4: Symbols of royal authority in your region",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 5: Scientific and technological progress in Ancient Egypt",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 6: The religion of Ancient Egypt",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Further study 5: The cult of the dead in Ancient Egypt",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The heritage of the Kingdom of the Upper Nile",
+   "lessons": [
+    {
+     "title": "Lesson 7: The Kush (Meroe) civilisations",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Further study 6: Metal works",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The civilisation of Europe",
+   "lessons": [
+    {
+     "title": "Lesson 8: Ancient Greece: contributions to sciences, arts and the Olympic games",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Further study 7: The construction of Ancient Rome (public works, law, military)",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Ancient Asian civilisation",
+   "lessons": [
+    {
+     "title": "Lesson 9: China",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Further study 8: Contributions of Ancient India",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Judeo-Christian civilisation",
+   "lessons": [
+    {
+     "title": "Lesson 10: Judaism and Christianity",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 11: The expansion of Christianity in Africa",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "The Muslim civilisation",
+   "lessons": [
+    {
+     "title": "Lesson 12: The foundation of Islam (origins)",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 13: The expansion of Islam in Africa",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Further study: Christian and Muslim pilgrimages",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,113 @@
+{
+ "section": "GEN",
+ "level": "6e",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "Histoire – 6e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine, 13 leçons, 4 TD, 4 dossiers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Utiliser les savoirs historiques",
+   "lessons": [
+    {
+     "title": "L1 : Introduction à l'étude de l'histoire",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "D1 : Les vestiges historiques",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "TD1 : Le comptage du temps dans notre région d'origine",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L2 : Les premiers hommes et leurs modes de vie",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "TD2 : Les mythes de la création",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L3 : La civilisation du Néolithique",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "TD3 : Les civilisations du Néolithique au Cameroun",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Découvrir les traits culturels des civilisations anciennes",
+   "lessons": [
+    {
+     "title": "L4 : L'Égypte, une société structurée",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "TD4 : Les symboles du pouvoir traditionnel dans votre région",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L5 : Les avancées scientifiques et techniques dans l'Égypte ancienne",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L6 : La religion de l'Égypte ancienne",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L7 : Méroé, Koush et Axoum",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "D2 : Le travail des métaux",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L8 : La Grèce antique, première expérience de la démocratie ; ses apports dans les arts",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "D3 : L'apport de Rome",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L9 : La Chine, l'essor des sciences et des techniques, la vie culturelle et religieuse",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "S'adapter à un environnement multireligieux",
+   "lessons": [
+    {
+     "title": "L10 : Le judaïsme et le christianisme",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L11 : L'expansion du christianisme en Afrique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L12 : L'islam",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L13 : L'expansion de l'islam en Afrique",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "D4 : Les pèlerinages dans les religions chrétienne et musulmane",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

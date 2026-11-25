@@ -1,0 +1,261 @@
+{
+ "section": "GEN",
+ "level": "Tle A",
+ "subject": "PHILO",
+ "subject_fr": "Philosophie",
+ "subject_en": "Philosophy",
+ "title": "Philosophie – Tle A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Terminale A4 allemand/espagnol/arabe), 4 h/semaine, 37 leçons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module I · Histoire de la philosophie : deux périodes",
+   "lessons": [
+    {
+     "title": "Leçon 1 : La période patristique et médiévale : Dieu, la foi, la raison",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : La période moderne : rationalisme, empirisme et existentialisme",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module II · La logique : l'argumentation",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Définition, structure et exemple d'argumentation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 2 : Les types d'arguments",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module II · La démonstration et la méthode",
+   "lessons": [
+    {
+     "title": "Leçon 1 : La démonstration",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Leçon 2 : La méthode cartésienne",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module II · Méthodologie des exercices philosophiques",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Travaux dirigés de consolidation de la dissertation philosophique",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 2 : Travaux dirigés de consolidation du commentaire philosophique de texte",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Étude d'œuvre : Essai sur la problématique philosophique dans l'Afrique actuelle (Marcien Towa)",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Éléments biobibliographiques de l'auteur",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 2 : Étude des thématiques et problématiques",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 3 : Exposés des élèves ; critique et valeur didactique de l'œuvre",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Étude d'œuvre : De la médiocrité à l'excellence (Ebénézer Njoh-Mouelle)",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Éléments biobibliographiques de l'auteur",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 2 : Étude des thématiques et problématiques",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 3 : Exposés des élèves ; critique et valeur didactique de l'œuvre",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Passion et raison",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Définition et manifestation des passions",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Leçon 2 : L'éducation des passions",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · La liberté et la responsabilité",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Définition des concepts de liberté et de responsabilité",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 2 : La liberté comme fondement de la responsabilité",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Nature et culture",
+   "lessons": [
+    {
+     "title": "Leçon 1 : La nature (définition, idée d'une nature humaine)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 2 : La culture (définition, dialogue interculturel ; l'homme, être naturel ou culturel)",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · L'art et le travail",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Définition des concepts d'art et de travail",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 2 : La raison d'être et la finalité de l'art et du travail",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · La science",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Définition, objet et méthode de la science",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Leçon 2 : La valeur de la science",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · Les types de sciences",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Les mathématiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 2 : Les sciences de la matière et les problèmes de la bioéthique",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Leçon 3 : Les sciences humaines",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · La vérité",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Définition et critère de la vérité",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 2 : Les théories philosophiques sur la vérité : relativisme, scepticisme, idéalisme, réalisme",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · L'espace et le temps",
+   "lessons": [
+    {
+     "title": "Leçon 1 : L'espace",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Leçon 2 : Le temps",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · L'existence et la mort",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Le sens de l'existence humaine",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 2 : La mort et la question de la vie future",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module III · Dieu et la religion",
+   "lessons": [
+    {
+     "title": "Leçon 1 : L'existence de Dieu : théisme, déisme et athéisme",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Leçon 3 : La valeur de la religion",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Conclusion générale : l'homme et l'histoire",
+   "lessons": [
+    {
+     "title": "Leçon 1 : La vision matérialiste de l'histoire",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 2 : La vision idéaliste de l'histoire",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

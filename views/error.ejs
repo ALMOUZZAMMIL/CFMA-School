@@ -2,6 +2,7 @@
 <section class="narrow card">
   <h1><%= title %></h1>
   <p><%= message %></p>
+  <% if (locals.requestId && locals.showRef) { %><p class="muted"><%= t('errors.reference') %> <code><%= requestId %></code></p><% } %>
   <p><a class="btn" href="/"><%= t('common.backHome') %></a></p>
 </section>
 <%- include('partials/foot') %>

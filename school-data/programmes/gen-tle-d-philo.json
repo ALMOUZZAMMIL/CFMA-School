@@ -1,0 +1,213 @@
+{
+ "section": "GEN",
+ "level": "Tle D",
+ "subject": "PHILO",
+ "subject_fr": "Philosophie",
+ "subject_en": "Philosophy",
+ "title": "Philosophie – Tle D",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Terminales C/D), 2 h/semaine, 31 leçons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La philosophie en Afrique",
+   "lessons": [
+    {
+     "title": "Histoire et tendances de la philosophie en Afrique",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Des nouvelles thématiques : le vivre-ensemble, la gouvernance",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Les méthodologies des exercices philosophiques",
+   "lessons": [
+    {
+     "title": "Rappels des principes et exigences de la dissertation philosophique",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "TP de consolidation",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Consolidation de la méthodologie de l'exercice sur texte",
+   "lessons": [
+    {
+     "title": "Rappels des principes et exigences méthodologiques de l'exercice sur texte",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "TP de consolidation",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La conscience et l'inconscient",
+   "lessons": [
+    {
+     "title": "La conscience",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L'inconscient",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Autrui et la morale",
+   "lessons": [
+    {
+     "title": "La connaissance d'autrui",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "La morale",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "La question des rapports avec autrui et la finalité de la morale",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Le droit et la justice",
+   "lessons": [
+    {
+     "title": "Définition des concepts de droit et de justice",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Fondements du droit (droit positif et justice)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Des différentes formes de justice à la justice comme valeur",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "L'État et le pouvoir",
+   "lessons": [
+    {
+     "title": "Définition et fondement de l'État",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Les formes de gouvernement",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Rôle et finalité de l'État",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La liberté et la responsabilité",
+   "lessons": [
+    {
+     "title": "Définition des concepts de liberté et de responsabilité",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "La liberté comme fondement de la responsabilité",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Panafricanisme et développement de l'Afrique",
+   "lessons": [
+    {
+     "title": "Définition des concepts : développement et sous-développement",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Historique, objectifs et difficultés du panafricanisme comme philosophie du développement de l'Afrique",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La science",
+   "lessons": [
+    {
+     "title": "Nature de la science et différents types de sciences",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Les obstacles épistémologiques et les conditions d'émergence de l'esprit scientifique",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "La valeur de la science",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "L'existence et la mort",
+   "lessons": [
+    {
+     "title": "Définition des concepts d'existence et de mort",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Le sens de l'existence humaine",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Dieu et la religion",
+   "lessons": [
+    {
+     "title": "L'origine du sentiment religieux et les différentes conceptions de Dieu",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "L'existence de Dieu et la valeur de la religion",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Logique, argumentation et démonstration",
+   "lessons": [
+    {
+     "title": "Les opérations logiques fondamentales",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "L'argumentation",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "La démonstration",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

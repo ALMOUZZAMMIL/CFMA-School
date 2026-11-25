@@ -2,6 +2,7 @@
 const express = require('express');
 const db = require('../db');
 const auth = require('../auth');
+const guard = require('../login-guard');
 const { LANGS } = require('../i18n');
 const { str } = require('../util');
 
@@ -11,6 +12,23 @@ function safeNext(n) {
   return typeof n === 'string' && n.startsWith('/') && !n.startsWith('//') && !n.startsWith('/\\') ? n : '/';
 }
 
+// Sign-in status for the page script that warns before an idle sign-out. Reading it does not
+// count as activity. Same-origin only (no CORS), never cached. The form token is included so
+// a page left open can be saved after the person signs in again in another tab.
+r.get('/session/status', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  if (!req.user) return res.json({ signedIn: false });
+  res.json({ signedIn: true, user: req.user.id, remainingSeconds: Math.max(0, Math.floor(req.sessionRemainingMs / 1000)), csrf: req.csrfToken });
+});
+
+// "Stay signed in": an explicit action, so it counts as activity. Needs the form token.
+r.post('/session/keepalive', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  if (!req.user) return res.status(401).json({ signedIn: false });
+  db.get().prepare('UPDATE sessions SET last_seen_at = ? WHERE token_hash = ?').run(auth.dbTime(), require('crypto').createHash('sha256').update(req.sessionToken).digest('hex'));
+  res.json({ signedIn: true, user: req.user.id, remainingSeconds: Math.floor(auth.idleLimitMs(req.user.role) / 1000), csrf: req.csrfToken });
+});
+
 r.get('/login', (req, res) => {
   if (req.user) return res.redirect('/');
   res.render('login', { title: res.locals.t('auth.loginTitle'), next: safeNext(req.query.next), error: null, username: '' });
@@ -19,22 +37,24 @@ r.get('/login', (req, res) => {
 r.post('/login', (req, res) => {
   const username = str(req.body.username, 200);
   const password = String(req.body.password || '').slice(0, 200);
-  const key = `${req.ip}|${username.toLowerCase()}`;
   const next = safeNext(req.body.next);
   const fail = (msgKey, status = 401) => res.status(status).render('login', {
     title: res.locals.t('auth.loginTitle'), next, error: res.locals.t(msgKey), username,
   });
-  if (auth.loginLimited(key)) return fail('auth.tooManyAttempts', 429);
   // Sign in with the username or, if one is on the account, the email address.
   const user = db.get().prepare('SELECT * FROM users WHERE username = ? OR (email IS NOT NULL AND email = ? COLLATE NOCASE) LIMIT 1').get(username, username);
+  const attempt = { ip: req.ip, account: guard.accountKey(user, username), device: guard.knownDevice(req.cookies[guard.DEVICE_COOKIE], user) };
+  if (guard.blocked(attempt)) return fail('auth.tooManyAttempts', 429);
   const ok = auth.verifyPassword(password, user ? user.password_hash : auth.DUMMY_HASH);
   if (!user || !ok || !user.active) {
-    auth.recordLoginFailure(key);
+    guard.recordFailure(attempt);
     return fail('auth.invalid');
   }
-  auth.clearLoginFailures(key);
+  guard.recordSuccess(attempt);
+  const devices = guard.rememberDevice(req.cookies[guard.DEVICE_COOKIE], user);
+  res.append('Set-Cookie', `${guard.DEVICE_COOKIE}=${devices}; ${auth.cookieOptions(guard.DEVICE_DAYS * 86400)}`);
   const s = auth.createSession(user.id);
-  auth.setSessionCookie(res, s.token);
+  auth.setSessionCookie(res, s.token, s.maxAgeSeconds);
   db.get().prepare("UPDATE users SET last_login_at = datetime('now') WHERE id = ?").run(user.id);
   res.redirect(user.must_change_password ? '/account/password' : next);
 });
@@ -73,6 +93,8 @@ r.post('/account/password', auth.requireLogin, (req, res) => {
   // Sign out other devices.
   db.get().prepare('DELETE FROM sessions WHERE user_id = ? AND token_hash != ?')
     .run(req.user.id, require('crypto').createHash('sha256').update(req.sessionToken).digest('hex'));
+  // Forget other known devices too; this browser stays known.
+  guard.revokeDevices(req.user.id, { keep: guard.knownDevice(req.cookies[guard.DEVICE_COOKIE], req.user) });
   db.audit({ entity: 'user', entityId: req.user.id, action: 'password_changed', userId: req.user.id });
   res.flash('ok', 'auth.passwordChanged');
   res.redirect('/');

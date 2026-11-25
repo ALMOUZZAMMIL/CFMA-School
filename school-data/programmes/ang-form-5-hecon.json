@@ -1,0 +1,139 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "HECON",
+ "subject_fr": "Économie familiale (Food and Nutrition)",
+ "subject_en": "Home Economics (Food and Nutrition)",
+ "title": "Food and Nutrition – Form 5",
+ "source": "National harmonised progression sheet 2026-27 (LESEEHB department)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Food spoilage",
+   "lessons": [
+    {
+     "title": "Lesson 1: Natural decay: food spoilage through moisture loss and the action of enzymes",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Food contamination: bacteria, mould, yeast, fungi; effects of contamination",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Food preservation",
+   "lessons": [
+    {
+     "title": "Lesson 3: Methods: heat (sterilisation, pasteurisation)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 4: Methods: removal of air, reduction of temperature, addition of chemicals, irradiation",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Leftover food (réchauffé cooking)",
+   "lessons": [
+    {
+     "title": "Lesson 7: Definition, uses and rules for preparing leftover food",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 8: Methods used in preparing leftovers",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Food poisoning",
+   "lessons": [
+    {
+     "title": "Lesson 9: Food contamination and food poisoning: differences",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 10: Bacteria that cause food poisoning (E. coli, Clostridium botulinum, staphylococci)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 13: Contamination from other sources: illnesses, incubation, symptoms and sources",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Meal planning",
+   "lessons": [
+    {
+     "title": "Lesson 14: Matching food provision to needs; terms used in meal planning",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 15: Meals in courses (two-course and three-course meals)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 16: Planning meals in courses for each meal time (breakfast, lunch, supper)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 19: Meals for babies, children, adolescents and the elderly",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 20: Meals for active and inactive people, pregnant and lactating women, vegetarians, invalids and convalescents",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 21: Meals for special occasions",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 22: Packed meals: types, occasions; preparing and cooking packed meals",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 25: Food portions for different individuals",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 26: Food security: costing and budgeting",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 27: Planning a budget using a shopping list",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Food preparation and presentation",
+   "lessons": [
+    {
+     "title": "Lesson 28: Practical test: methods of cooking and their merits; suitable foods",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 31: Practical task (draw-up test): plan menus, dishes, ingredients, time plan, shopping list",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 32: Menus for different meals with reasons of choice, time plan and shopping list",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 33: Plan, prepare and cook a variety of foods for different individuals",
+     "date": "2027-05-17"
+    }
+   ]
+  }
+ ]
+}

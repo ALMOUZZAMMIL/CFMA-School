@@ -1,0 +1,121 @@
+{
+ "section": "GEN",
+ "level": "4e",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Géographie – 4e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine (l'Afrique)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Gérer durablement l'environnement",
+   "lessons": [
+    {
+     "title": "L1 : Introduction générale à l'étude de l'Afrique",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : Le relief et les sols",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "TP1 : Carte du relief de l'Afrique",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : L'Afrique, un continent chaud",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "TP2 : Carte climatique de l'Afrique",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L4 : Des formations végétales et une faune menacées",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "D1 : Le braconnage",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L5 : Une hydrographie contrastée",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "TP3 : Diagrammes hydrologiques des fleuves africains",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L6 : Les grands groupes humains de l'Afrique",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L7 : Les mouvements de la population de l'Afrique",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "TD1 : Pyramides des âges",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "TP4 : L'évolution démographique de l'Afrique",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Participer aux activités de production",
+   "lessons": [
+    {
+     "title": "L8 : Une agriculture en mutation",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L9 : L'élevage moderne en Afrique",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L10 : La pêche moderne en Afrique",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L11 : Une industrie en développement",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L12 : Les transports en Afrique",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L13 : Les échanges en Afrique",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L14 : Le tourisme",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Promouvoir l'intégration de l'Afrique centrale",
+   "lessons": [
+    {
+     "title": "L15 : Les potentialités de la CEMAC",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L16 : Les échanges à l'intérieur de la CEMAC",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "D2 : Les projets intégrateurs dans la zone CEMAC",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,135 @@
+{
+ "section": "GEN",
+ "level": "3e",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Géographie – 3e",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027, 2 h/semaine (le Cameroun)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Préserver un environnement sain au Cameroun",
+   "lessons": [
+    {
+     "title": "L1 : Présentation générale du Cameroun",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2 : Le plateau sud-camerounais",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : Les hautes terres de l'Ouest",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L4 : Le plateau de l'Adamaoua",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L5 : Les basses terres du Nord et les monts Mandara",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L6 : La plaine côtière",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "D1 : La mangrove",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L7 : Le peuplement du Cameroun",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L8 : Population et migrations",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "TP1 : La pyramide des âges du Cameroun",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Maîtriser la gestion des ressources",
+   "lessons": [
+    {
+     "title": "L9 : L'agriculture camerounaise",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L10 : L'élevage",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "D2 : Les conflits agriculteurs-éleveurs",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L11 : La pêche",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L12 : L'artisanat au Cameroun",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L13 : L'industrie au Cameroun",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L14 : Les transports au Cameroun",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L15 : Les échanges",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "L16 : Le tourisme au Cameroun",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Lutter contre la pauvreté",
+   "lessons": [
+    {
+     "title": "L17 : Les facteurs du sous-développement",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L18 : Les manifestations du sous-développement",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "D3 : Les migrations clandestines et l'exode des cerveaux",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L19 : Les stratégies de lutte contre le sous-développement",
+     "date": "2027-04-26"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Participer à la mondialisation",
+   "lessons": [
+    {
+     "title": "L20 : La libéralisation des échanges mondiaux",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "L21 : L'Afrique dans la mondialisation",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

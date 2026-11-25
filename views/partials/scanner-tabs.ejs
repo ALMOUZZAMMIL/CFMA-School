@@ -1,0 +1,5 @@
+<nav class="tabs" aria-label="<%= t('nav.scanner') %>">
+  <% [['/admin/scanner/calendar', 'scanner.calendarTitle'], ['/admin/scanner/board', 'scanner.boardTab'], ['/admin/scanner', 'scanner.setupTitle']].forEach(function (x) { %>
+  <a href="<%= x[0] %>" class="<%= path === x[0] ? 'active' : '' %>" <%- path === x[0] ? 'aria-current="page"' : '' %>><%= t(x[1]) %></a>
+  <% }) %>
+</nav>

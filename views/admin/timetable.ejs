@@ -1,21 +1,32 @@
 <%- include('../partials/head') %>
 <h1><%= t('admin.timetable') %></h1>
 <p class="help"><%= t('admin.timetableIntro') %></p>
-<form method="get" class="filters"><label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label><button class="btn"><%= t('common.show') %></button>
+<form method="get" class="filters"><label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% groups.forEach(function (g) { %><optgroup label="<%= ln(g, 'section') %>"><% g.cycles.forEach(function (cy) { cy.classes.forEach(function (k) { k.items.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) }) }) %></optgroup><% }) %></select></label><button class="btn"><%= t('common.show') %></button>
 <% if (classId) { %><a class="btn" href="/timetable?class=<%= classId %>"><%= t('admin.viewWeek') %></a><% } %></form>
 
 <section class="card">
   <h2><%= t('admin.addAssignment') %></h2>
   <form method="post" action="/admin/assignments" class="row-form">
     <input type="hidden" name="_csrf" value="<%= csrf %>">
-    <label><%= t('common.class') %><select name="class_id" required><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+    <label><%= t('common.class') %><select name="class_id" required><% groups.forEach(function (g) { %><optgroup label="<%= ln(g, 'section') %>"><% g.cycles.forEach(function (cy) { cy.classes.forEach(function (k) { k.items.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) }) }) %></optgroup><% }) %></select></label>
     <label><%= t('common.subject') %><select name="subject_id" required><% subjects.forEach(function (s) { %><option value="<%= s.id %>"><%= ln(s) %></option><% }) %></select></label>
     <label><%= t('common.teacher') %><select name="teacher_id" required><% teachers.forEach(function (x) { %><option value="<%= x.id %>"><%= x.full_name %></option><% }) %></select></label>
     <button class="btn btn-small"><%= t('common.add') %></button>
   </form>
 </section>
 
-<% if (!assignments.length) { %><div class="empty"><p><%= t('admin.noAssignments') %></p></div><% } %>
+<% if (!classId) { %>
+<p class="help"><%= t('admin.pickClass') %></p>
+<% groups.forEach(function (g) { %>
+<section class="card plan-section">
+  <h2><%= ln(g, 'section') %></h2>
+  <% g.cycles.forEach(function (cy) { %>
+  <h3 class="plan-cycle"><%= t(cy.cycle === 1 ? 'plans.cycle1' : 'plans.cycle2') %></h3>
+  <div class="class-tiles"><% cy.classes.forEach(function (k) { k.items.forEach(function (c) { %><a class="class-tile" href="/admin/timetable?class=<%= c.id %>"><strong><%= c.name %></strong><span class="help-inline"><%= t('admin.courseCount', { n: c.assignments }) %></span></a><% }) }) %></div>
+  <% }) %>
+</section>
+<% }) %>
+<% } else if (!assignments.length) { %><div class="empty"><p><%= t('admin.noAssignments') %></p></div><% } %>
 <% assignments.forEach(function (a) { %>
 <section class="card" id="a-<%= a.id %>">
   <h3><%= a.class_name %> · <%= ln(a, 'subject') %> · <%= a.teacher_name %></h3>

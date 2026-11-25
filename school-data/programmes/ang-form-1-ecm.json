@@ -1,0 +1,117 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Citizenship Education – Form 1",
+ "source": "National harmonised syllabus coverage progression sheet 2026-27, 2 periods/week, 15 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Integrate into the family",
+   "lessons": [
+    {
+     "title": "Diagnostic evaluation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "L1: The notion of citizenship education",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L2: The family",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3: Marriage",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Guided work 1: A bride-price ceremony in Cameroon",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L4: Rights and duties of family members",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Further study 1: Civil status documents",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L5: Institutions and measures of family protection",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Further study 2: Family heritage",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Integrate into the school and the community",
+   "lessons": [
+    {
+     "title": "L6: The road",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L7: The highway code",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Further study 3: Irresponsible behaviour on the highway",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L8: The school",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Guided work 2: The school environment",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Promote, defend and protect human rights",
+   "lessons": [
+    {
+     "title": "L9: Divorce",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L10: The procedure of succession",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L11: Succession conflicts",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L12: Conflicts at school",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L13: Rights of the human being",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Further study 4: Instruments for the protection of human rights",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "L14: Forms of child exploitation and abuse",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "L15: Juvenile delinquency",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

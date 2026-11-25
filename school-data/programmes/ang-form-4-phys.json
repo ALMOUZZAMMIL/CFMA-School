@@ -1,0 +1,171 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "PHYS",
+ "subject_fr": "Physique",
+ "subject_en": "Physics",
+ "title": "Physics – Form 4",
+ "source": "Form 4 scheme of work 2026-27, 3 periods/week, 63 h a year; dates worked out from the week numbers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – Energy: heat",
+   "lessons": [
+    {
+     "title": "First contact and presentation of the scheme of work",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "1.1–1.2 Concept of heat and temperature; measurement of temperature",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "1.3–1.5 Thermometry: liquid-in-glass thermometer, calibration using fixed points",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "1.6 Clinical and laboratory thermometers",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "1.1–1.3 Calorimetry: heat capacity, specific heat capacity, calculations with Q = mcΔθ",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "1.4–1.5 Latent heat, specific latent heat, cooling effect",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "1.6 Heat transfer: conduction, convection and radiation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "1.7 Thermal expansion: the bimetallic strip; radiant energy converters",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – Waves",
+   "lessons": [
+    {
+     "title": "2.1–2.3 Properties of waves: classification, reflection, refraction, diffraction, interference; v = fλ",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "2.4–2.6 Stationary waves, harmonics and overtones; inter-node distance and wavelength",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "2.7–2.8 Sound: production, transmission and characteristics (amplitude, frequency, pitch, quality, audibility limits)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "2.9–2.10 Measuring the speed of sound (echo, gun firing); echo sounding of the sea bed",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "2.11 Vibrating strings: frequency against length, mass per unit length and tension",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Forced vibration and resonance; measuring the speed of sound by resonance",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "The electromagnetic spectrum: production, detection, properties, uses and health hazards",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – Electrical energy: electrostatics",
+   "lessons": [
+    {
+     "title": "3.1–3.6 Charges and their origins, basic law of electrostatics, Coulomb's law, electroscope, charging and discharging",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "3.7 Conductors and insulators; the coulomb",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "3.8 Force between charges; industrial uses of electrostatics (photocopying, painting)",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 – Electrical energy: current electricity",
+   "lessons": [
+    {
+     "title": "3.9–3.10 Electricity and charge movement; using meters in circuits",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "3.11 E.m.f. and p.d.; sources of e.m.f.",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "3.12 Energy consumption: W = QV and P = VI",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "3.13 Electric circuits: components of a circuit network",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "3.14–3.15 Ohm's law and resistance; series and parallel networks and calculations",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 – Electrical energy: power and house wiring",
+   "lessons": [
+    {
+     "title": "3.16–3.17 DC and AC, transmission of electric current, power dissipated",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "3.18 Power consumed at home (kWh)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "3.19 House wiring: ring and radial circuits",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "3.20 Fuses and their selection; safety precautions",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "3.21 The cathode ray oscilloscope",
+     "date": "2027-04-12"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 4 – Projects and elementary engineering",
+   "lessons": [
+    {
+     "title": "Technical drawing: realising a technical project; drawing and reading technical drawings",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Cross-section of an object; ways of viewing an object (top view, side view)",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Reading the plan of a construction sheet; drawing a building with its dimensions",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

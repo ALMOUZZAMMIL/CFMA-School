@@ -1,0 +1,129 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "ANGL",
+ "subject_fr": "Anglais",
+ "subject_en": "English Language",
+ "title": "English Language – Form 5",
+ "source": "Form 5 syllabus by week (3 h/week); dates worked out from the school calendar",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Family and social life (15 h)",
+   "lessons": [
+    {
+     "title": "Week 1: Developing study skills; structure of the GCE O/L English paper – simple present and present continuous (review)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Week 2: Taking part in associations; writing minutes – present perfect and past perfect; sounds /θ/ and /ð/",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Week 3: Settling disputes in the family; gender issues; argumentative essay – connectives of addition and contrast; thesis and topic sentences",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Week 4: Wholesome eating; debate on eating out – plural of compound words; sounds /ʃ/ and /ʒ/",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Week 5: Educational opportunities; formal letter of application – prepositions and prepositional phrases",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: The world of business (15 h)",
+   "lessons": [
+    {
+     "title": "Week 7: Combating unemployment; narrative essay – past tenses (simple, continuous, perfect); sounds /s/ and /z/",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Week 8: Generating income and managing money; one-word essay – collocations",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Week 9: Online shopping and business; expository essay and business letters – adverbs (review); stress on homographs",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Week 10: Managing natural, material, human and time resources – the conditional tense",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Week 11: Creating common initiative groups (CIGs); writing a report – conditionals (continued); abbreviations and acronyms",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3: Environment, health and wellbeing (15 h)",
+   "lessons": [
+    {
+     "title": "Week 13: Pollution and environmental protection – punctuation: the apostrophe",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Week 14: Self-medication and its ills; letter to the editor – active and passive voice (review); sounds /aʊ/ and /əʊ/",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Week 15: Managing mental health; picture essay – nouns in apposition; silent consonants",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Week 16: The weather, global warming and climatic conditions – quantifiers (either/or, neither/nor, each, every, any, none)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Week 17: Tourism; descriptive essay – phrasal verbs and articles",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4: Citizenship (15 h)",
+   "lessons": [
+    {
+     "title": "Week 19: Discipline at school and at home – reported speech (review)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Week 20: Rights and duties of a citizen; directed writing – subject-verb agreement",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Week 21: Virtues and vices in society – word formation (affixation)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Week 22: Cultural values and practices: widowhood rites, succession, enthronement – action and linking verbs; syllabification",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Week 23: Major historical events and personalities; descriptive essay – adjectives (review)",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5: Media, communication, science and technology",
+   "lessons": [
+    {
+     "title": "Week 25: Using the internet for study and employment; directed writing – revision",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Week 26: Accessing global issues in the media; internet security – idiomatic expressions",
+     "date": "2027-03-15"
+    }
+   ]
+  }
+ ]
+}

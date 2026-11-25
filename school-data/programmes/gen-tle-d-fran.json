@@ -1,0 +1,255 @@
+{
+ "section": "GEN",
+ "level": "Tle D",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – Tle D",
+ "source": "Projet pédagogique 2026/2027, Terminale scientifique, 6 séquences de 18 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Le plan détaillé de dissertation",
+   "lessons": [
+    {
+     "title": "Le Vieux nègre et la médaille : étude des paratextes et lecture du texte ouvroir",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Le référent et ses substituts",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dissertation : analyse du sujet et formulation de la problématique",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "La valeur des modes et des temps : le subjonctif",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Le texte narratif : caractéristiques et fonctions",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Dissertation : recherche des idées",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "La néologie de sens",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le texte narratif : les types de focalisation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Dissertation : élaboration d'un plan détaillé",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : contrôle de lecture et compte rendu",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : négociation du projet d'étude",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – La dissertation littéraire",
+   "lessons": [
+    {
+     "title": "Les contenus manifestes et les contenus latents",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction de l'introduction",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Les outils de liaison : conjonctions de coordination et de subordination, pronoms relatifs",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Dissertation : rédaction d'un paragraphe (idée directrice, argument, exemple)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Le texte argumentatif : stratégies",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Dissertation : rédaction de la conclusion",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Le résumé de texte",
+   "lessons": [
+    {
+     "title": "Les emprunts",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative du texte",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : exposé",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Les énoncés constatifs et performatifs",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Contraction de texte : techniques de réduction",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : inscription de l'œuvre dans son contexte",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Le texte descriptif : caractéristiques et fonctions",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Contraction de texte : rédaction du résumé",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Le Vieux nègre et la médaille : bilan de l'étude de l'œuvre",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Ngum a Jemea : étude des paratextes et lecture du texte ouvroir",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 4 – L'analyse de texte",
+   "lessons": [
+    {
+     "title": "Les actes locutoire, illocutoire, perlocutoire",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Les outils de liaison : adverbe, locution adverbiale, préposition",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative du texte",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Ngum a Jemea : contrôle de lecture et compte rendu",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L'hyperonymie et l'hyponymie",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Contraction de texte : techniques d'analyse",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Ngum a Jemea : négociation du projet d'étude",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Le texte théâtral : monologue, dialogue, tirade",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Contraction de texte : rédaction de l'analyse",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "La valeur des modes et des temps : l'impératif",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 5 – Le plan détaillé de la discussion",
+   "lessons": [
+    {
+     "title": "La synonymie et l'antonymie",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Discussion : analyse du sujet",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les tonalités : tragique, dramatique, satirique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Discussion : recherche des idées",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Les abréviations : troncation, contraction, siglaison",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Discussion : élaboration d'un plan détaillé",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Les tonalités : épique, polémique",
+     "date": "2027-04-05"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 6 – La discussion",
+   "lessons": [
+    {
+     "title": "Ngum a Jemea : exposé",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Les relations lexicales : paronymie, antonymie",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Discussion : rédaction de l'introduction",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Ngum a Jemea : inscription de l'œuvre dans son contexte",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Discussion : rédaction d'un paragraphe",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Ngum a Jemea : bilan de l'étude de l'œuvre",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Le texte explicatif : caractéristiques et visées",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Discussion : rédaction de la conclusion",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

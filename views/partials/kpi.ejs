@@ -1,0 +1,8 @@
+<%# Key-figure tile: round coloured icon, big number, label, small note. tone = 1..4 (colours set in style.css, EASY SETTINGS). Optional href makes the whole tile a link. %>
+<% var link = typeof href !== 'undefined' && href; %>
+<% if (link) { %><a class="kpi kpi-<%= tone %>" href="<%= href %>"><% } else { %><div class="kpi kpi-<%= tone %>"><% } %>
+  <span class="kpi-icon"><%- include('icon', { name: icon }) %></span>
+  <span class="kpi-value"><%= value %></span>
+  <span class="kpi-label"><%= label %></span>
+  <% if (typeof sub !== 'undefined' && sub) { %><span class="kpi-sub"><%= sub %></span><% } %>
+<% if (link) { %></a><% } else { %></div><% } %>

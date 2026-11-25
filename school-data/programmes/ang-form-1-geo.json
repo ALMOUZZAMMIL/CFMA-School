@@ -1,0 +1,113 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Geography – Form 1",
+ "source": "Harmonised syllabus coverage progression sheet 2026-27 (MINESEC), 2 h/week, 13 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: The earth in the universe",
+   "lessons": [
+    {
+     "title": "First contact, diagnostic evaluation and presentation of the programme",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 1: Geography: definition, branches and sub-branches",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 1 (continued): Methods and importance of geography",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 2: The earth, a planet moving in space: rotation and revolution",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 2 (continued): Local and standard time",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Practical work 1: Calculation of time",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 3: The earth, a blue planet: distribution of land masses (continents and major islands)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 3 (continued): Distribution and importance of oceans",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Practical work 2: Forms of representation of the earth on a map",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 4: Relief of the continents: mountains, plateaux, plains",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Practical work 3: The relief map of Cameroon",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 2: Protect the environment",
+   "lessons": [
+    {
+     "title": "Lesson 5: The notion of the environment: natural environment, components, ecosystems",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 6: Forms of degradation of the natural regions of Cameroon: causes and manifestations",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 6 (continued): Consequences and solutions",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Practical work 4: Degradation of the natural region around the school",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 3: Manage catastrophes",
+   "lessons": [
+    {
+     "title": "Lesson 7: Climate change: general causes",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 7 (continued): Manifestations and consequences",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 8: Tectonic movements: internal structure of the earth, plates, plate motions",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 9: Instability of the earth's crust: earthquakes",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 9 (continued): Volcanism",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Further study 1: What to do during an earthquake or volcanic eruption; adaptation and mitigation",
+     "date": "2027-05-17"
+    }
+   ]
+  }
+ ]
+}

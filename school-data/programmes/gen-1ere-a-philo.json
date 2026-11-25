@@ -1,0 +1,219 @@
+{
+ "section": "GEN",
+ "level": "1ère A",
+ "subject": "PHILO",
+ "subject_fr": "Philosophie",
+ "subject_en": "Philosophy",
+ "title": "Philosophie – 1ère A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Première A4 allemand/espagnol/arabe), 4 h/semaine, 34 leçons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La philosophie africaine",
+   "lessons": [
+    {
+     "title": "Thèses ethnocentristes occidentales",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les tendances de la philosophie africaine",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "La réorientation actuelle du débat philosophique africain",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Consolidation des acquis de la dissertation philosophique",
+   "lessons": [
+    {
+     "title": "Rappel des principes théoriques de la dissertation philosophique",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Travaux pratiques de consolidation de la dissertation philosophique",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Consolidation de la méthodologie du commentaire philosophique de texte",
+   "lessons": [
+    {
+     "title": "Éléments biobibliographiques de l'auteur",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Travaux pratiques de consolidation du commentaire philosophique de texte",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Consciencisme, panafricanisme et développement de l'Afrique",
+   "lessons": [
+    {
+     "title": "Fondements idéologiques et philosophiques du consciencisme",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Historique du panafricanisme",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Le panafricanisme comme philosophie du développement de l'Afrique",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La conscience et l'inconscient",
+   "lessons": [
+    {
+     "title": "La conscience (types, caractéristiques, valeur et limites)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L'inconscient (découverte, types, théorie de la psychanalyse freudienne et sa critique)",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Personnalité et personne",
+   "lessons": [
+    {
+     "title": "Définitions (personnalité, personne, personnage)",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Facteurs d'édification de la personnalité",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Valeur de la personne et perspectives philosophiques (Kant et Mounier)",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Autrui",
+   "lessons": [
+    {
+     "title": "Modes de connaissance d'autrui",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L'intersubjectivité ou la question du rapport à autrui",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La morale",
+   "lessons": [
+    {
+     "title": "Définition et fondements de la morale",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Morales de l'intérêt",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Morales du devoir",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Droit et justice",
+   "lessons": [
+    {
+     "title": "Définitions des concepts de droit et de justice",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Fondements du droit",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Droit et force",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Justice et égalité",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Des formes de justice à l'idée absolue de justice",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La violence",
+   "lessons": [
+    {
+     "title": "Définition et origines de la violence",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Types de violence",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Procès de la violence",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "L'État et le pouvoir",
+   "lessons": [
+    {
+     "title": "Définition et fondements de l'État",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Rôle de l'État",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Finalité de l'État",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La logique",
+   "lessons": [
+    {
+     "title": "Les types de raisonnement",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Un modèle de raisonnement",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Règles et erreurs de raisonnement",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

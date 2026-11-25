@@ -1,0 +1,119 @@
+{
+ "section": "GEN",
+ "level": "1ère A",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Géographie – 1ère A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Premières), 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La maîtrise de la croissance démographique",
+   "lessons": [
+    {
+     "title": "L1 : La croissance démographique",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "TP1 : La carte des inégalités de la répartition de la population",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L2 : Les problèmes démographiques dans le monde",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "D1 : Les politiques démographiques",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La limitation des migrations",
+   "lessons": [
+    {
+     "title": "L3 : Les migrations",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L4 : Problèmes et incidences socioéconomiques des migrations",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L5 : Les tentatives de règlement des problèmes migratoires",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L6 : La ville et l'expansion urbaine",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L7 : Les problèmes urbains",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "D2 : Les relations villes-campagnes",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "La recherche du capital",
+   "lessons": [
+    {
+     "title": "L8 : L'agriculture",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L9 : L'élevage",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L10 : La pêche",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "TD1 : Quelques problèmes agropastoraux et piscicoles",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "D3 : La question foncière dans la pratique des activités agropastorales et piscicoles",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "D4 : La commercialisation des produits agricoles et tropicaux",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "La formation professionnelle",
+   "lessons": [
+    {
+     "title": "L11 : L'artisanat",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "TD2 : Les solutions aux problèmes de l'artisanat",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L12 : L'industrie",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "TD3 : Les solutions aux problèmes de l'industrie",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "TP3 : La réalisation de la carte des principaux foyers industriels dans le monde",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}
