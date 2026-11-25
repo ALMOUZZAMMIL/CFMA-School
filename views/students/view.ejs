@@ -1,0 +1,42 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= st.full_name %></h1><div class="no-print"><button class="btn" data-print><%= t('common.print') %></button><% if (user.role === 'admin') { %> <a class="btn" href="/admin/students/<%= st.id %>"><%= t('common.edit') %></a><% } %></div></div>
+<p class="muted"><%= t('students.number') %>: <%= st.student_number %> · <%= cls ? cls.name : t('students.noClass') %><% if (st.is_demo) { %> · <span class="tag"><%= t('common.demoData') %></span><% } %></p>
+<% if (user.role !== 'teacher') { %><p class="no-print"><a class="btn" href="/timetable?student=<%= st.id %>"><%= t('nav.timetable') %></a></p><% } %>
+
+<section class="card">
+  <h2><%= t('attendance.title') %></h2>
+  <% if (!showAttendance) { %><p class="muted"><%= t('students.attendanceHidden') %></p>
+  <% } else if (!summary.total) { %><p class="muted"><%= t('students.noAttendance') %></p>
+  <% } else { %>
+    <section class="stats">
+      <div class="stat"><span class="stat-num"><%= summary.present %></span><span class="stat-label"><%= t('attendance.st.present') %></span></div>
+      <div class="stat"><span class="stat-num"><%= summary.absent %></span><span class="stat-label"><%= t('attendance.st.absent') %></span></div>
+      <div class="stat"><span class="stat-num"><%= summary.late %></span><span class="stat-label"><%= t('attendance.st.late') %></span></div>
+      <div class="stat"><span class="stat-num"><%= summary.excused %></span><span class="stat-label"><%= t('attendance.st.excused') %></span></div>
+    </section>
+    <% if (attendance.length) { %>
+    <h3><%= t('students.recentAbsences') %></h3>
+    <div class="table-wrap"><table><thead><tr><th><%= t('common.date') %></th><th><%= t('attendance.status') %></th><th><%= t('common.note') %></th></tr></thead>
+      <tbody><% attendance.forEach(function (r) { %><tr><td><%= fmt.date(r.date) %></td><td><%- include('../partials/badge', { kind: 'attendance', value: r.status }) %></td><td><%= r.note || '' %></td></tr><% }) %></tbody></table></div>
+    <% } %>
+  <% } %>
+</section>
+
+<% if (showProgress) { %>
+<section class="card">
+  <h2><%= t('students.whereClassIs') %></h2>
+  <% if (!progress.length) { %><p class="muted"><%= t('progress.noAssignments') %></p><% } else { %>
+  <div class="table-wrap"><table><thead><tr><th><%= t('common.subject') %></th><th><%= t('common.teacher') %></th><th><%= t('progress.current') %></th><th><%= t('progress.actual') %></th></tr></thead>
+    <tbody><% progress.forEach(function (r) { %><tr><td><%= ln(r.a, 'subject') %></td><td><%= r.a.teacher_name %></td>
+      <td class="small"><%= r.p.actualLesson ? r.p.actualLesson.chapter_title + ' › ' + r.p.actualLesson.title : '—' %></td>
+      <td><% if (r.p.plan) { %><%- include('../partials/meter', { value: r.p.pct, label: r.p.completed + '/' + r.p.total }) %><% } else { %>—<% } %></td></tr><% }) %></tbody></table></div>
+  <% } %>
+</section>
+<% } %>
+
+<% if (guardians.length) { %>
+<section class="card"><h2><%= t('students.guardians') %></h2>
+  <ul class="list"><% guardians.forEach(function (g) { %><li><%= g.full_name %><%= g.relationship ? ' (' + g.relationship + ')' : '' %><%= g.phone ? ' · ' + g.phone : '' %></li><% }) %></ul></section>
+<% } %>
+<section class="card muted small"><p><%= t('students.marksLater') %></p></section>
+<%- include('../partials/foot') %>

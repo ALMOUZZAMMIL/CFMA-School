@@ -1,0 +1,68 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= plan.title %></h1><a class="btn" href="/plans/<%= plan.id %>?print=1"><%= t('common.printable') %></a></div>
+<p class="muted"><%= ln(plan, 'section') %> · <%= plan.level %> · <%= ln(plan, 'subject') %></p>
+<% if (!chapters.length) { %><div class="empty"><p><%= t('plans.noChapters') %></p></div><% } %>
+<% chapters.forEach(function (ch) { %>
+<section class="card" id="ch-<%= ch.id %>">
+  <div class="card-head"><h2><%= ch.ordinal %>. <%= ch.title %></h2><span class="small muted"><%= ch.term_name || '' %></span></div>
+  <% if (!ch.lessons.length) { %><p class="muted"><%= t('plans.noLessons') %></p><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th><%= t('fields.lesson_id') %></th><th><%= t('plans.plannedDate') %></th><th><%= t('plans.hours') %></th><% if (user.role === 'admin') { %><th></th><% } %></tr></thead>
+    <tbody><% ch.lessons.forEach(function (l) { %>
+      <tr>
+      <% if (user.role === 'admin') { %>
+        <td><%= ch.ordinal %>.<%= l.ordinal %></td>
+        <td colspan="3">
+          <form method="post" action="/plans/lessons/<%= l.id %>" class="row-form">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <input name="title" value="<%= l.title %>" aria-label="<%= t('fields.lesson_id') %>" required maxlength="200">
+            <input type="date" name="planned_date" value="<%= l.planned_date || '' %>" aria-label="<%= t('plans.plannedDate') %>">
+            <input type="number" name="planned_hours" value="<%= l.planned_hours === null ? '' : l.planned_hours %>" step="0.5" min="0" class="w-num" aria-label="<%= t('plans.hours') %>">
+            <button class="btn btn-small"><%= t('common.save') %></button>
+          </form>
+        </td>
+        <td><% if (!l.used) { %><form method="post" action="/plans/lessons/<%= l.id %>/delete" data-confirm="<%= t('plans.confirmDeleteLesson') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('common.delete') %></button></form><% } else { %><span class="small muted"><%= t('plans.inUse') %></span><% } %></td>
+      <% } else { %>
+        <td><%= ch.ordinal %>.<%= l.ordinal %></td><td><%= l.title %></td><td><%= l.planned_date ? fmt.date(l.planned_date) : '—' %></td><td><%= l.planned_hours === null ? '—' : fmt.number(l.planned_hours) %></td>
+      <% } %>
+      </tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+  <% if (user.role === 'admin') { %>
+  <form method="post" action="/plans/chapters/<%= ch.id %>/lessons" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <input name="title" placeholder="<%= t('plans.newLesson') %>" aria-label="<%= t('plans.newLesson') %>" required maxlength="200">
+    <input type="date" name="planned_date" aria-label="<%= t('plans.plannedDate') %>">
+    <input type="number" name="planned_hours" step="0.5" min="0" class="w-num" placeholder="h" aria-label="<%= t('plans.hours') %>">
+    <button class="btn btn-small"><%= t('plans.addLesson') %></button>
+  </form>
+  <form method="post" action="/plans/chapters/<%= ch.id %>/delete" data-confirm="<%= t('plans.confirmDeleteChapter') %>" class="right"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('plans.deleteChapter') %></button></form>
+  <% } %>
+</section>
+<% }) %>
+<% if (user.role === 'admin') { %>
+<section class="card">
+  <h2><%= t('plans.addChapter') %></h2>
+  <form method="post" action="/plans/<%= plan.id %>/chapters" class="row-form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <input name="title" placeholder="<%= t('plans.chapterTitle') %>" aria-label="<%= t('plans.chapterTitle') %>" required maxlength="200">
+    <select name="term_id" aria-label="<%= t('common.term') %>"><option value=""><%= t('common.term') %>…</option><% terms.forEach(function (tm) { %><option value="<%= tm.id %>"><%= tm.name %></option><% }) %></select>
+    <button class="btn btn-small"><%= t('plans.addChapter') %></button>
+  </form>
+</section>
+<section class="card" id="import">
+  <h2><%= t('plans.importTitle') %></h2>
+  <p class="help"><%= t('plans.importHelp') %></p>
+  <pre class="example">Chapitre,Leçon,Date prévue,Heures,Trimestre
+Chapitre 1 : Les nombres,Leçon 1 : Ensembles de nombres,15/09/2026,2,Trimestre 1</pre>
+  <%- include('../partials/errors', { errors: importErrors }) %>
+  <form method="post" action="/plans/<%= plan.id %>/import" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label for="csv"><%= t('plans.pasteCsv') %></label>
+    <textarea id="csv" name="csv" rows="8"><%= csv %></textarea>
+    <button class="btn btn-primary"><%= t('plans.import') %></button>
+  </form>
+</section>
+<% } %>
+<%- include('../partials/foot') %>

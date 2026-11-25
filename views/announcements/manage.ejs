@@ -1,0 +1,22 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('announcements.manageTitle') %></h1><a class="btn btn-primary" href="/announcements/new"><%= t('announcements.new') %></a></div>
+<% if (!rows.length) { %><div class="empty"><p><%= t('announcements.emptyManage') %></p><a class="btn btn-primary" href="/announcements/new"><%= t('announcements.new') %></a></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('fields.title_en') %></th><th><%= t('fields.category') %></th><th><%= t('fields.audience') %></th><th><%= t('fields.publish_at') %></th><th><%= t('attendance.status') %></th><th></th></tr></thead>
+  <tbody><% rows.forEach(function (a) { %>
+  <tr><td><%= lang === 'en' ? (a.title_en || a.title_fr) : (a.title_fr || a.title_en) %><div class="small muted"><%= a.class_name || t('announcements.wholeSchool') %> · <%= a.title_en ? 'EN' : '' %> <%= a.title_fr ? 'FR' : '' %></div></td>
+    <td><%= t('announcements.cat.' + a.category) %></td>
+    <td class="small"><%= a.audience.split(',').map(function (r) { return t('roles.' + r + 's'); }).join(', ') %></td>
+    <td class="small"><%= fmt.dateTime(a.publish_at) %><% if (a.status === 'published' && a.publish_at > new Date().toISOString().replace('T', ' ').slice(0, 19)) { %><br><span class="badge badge-planned"><span aria-hidden="true">◷</span> <%= t('announcements.scheduled') %></span><% } %></td>
+    <td><%- include('../partials/badge', { kind: 'ann', value: a.status }) %></td>
+    <td class="actions-cell">
+      <a href="/announcements/<%= a.id %>/edit"><%= t('common.edit') %></a>
+      <% if (a.status === 'published' && a.audience.split(',').indexOf('parent') >= 0) { %>
+      <form method="post" action="/announcements/<%= a.id %>/prepare-sms" class="inline"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn"><%= t('outbox.prepareSms') %></button></form><% } %>
+      <% if (a.status !== 'archived') { %>
+      <form method="post" action="/announcements/<%= a.id %>/archive" class="inline" data-confirm="<%= t('announcements.confirmArchive') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('announcements.archive') %></button></form><% } %>
+    </td></tr>
+  <% }) %></tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

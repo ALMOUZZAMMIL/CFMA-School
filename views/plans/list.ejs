@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('plans.title') %></h1></div>
+<p class="help"><%= t('plans.intro') %></p>
+<form method="get" class="filters"><label><%= t('fields.section_id') %><select name="section"><option value=""><%= t('common.all') %></option><% sections.forEach(function (s) { %><option value="<%= s.id %>" <%= s.id === sectionId ? 'selected' : '' %>><%= ln(s) %></option><% }) %></select></label><button class="btn"><%= t('common.show') %></button></form>
+<% if (!rows.length) { %><div class="empty"><p><%= t('plans.empty') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('fields.section_id') %></th><th><%= t('fields.level') %></th><th><%= t('common.subject') %></th><th><%= t('plans.chapters') %></th><th><%= t('plans.lessons') %></th><th></th></tr></thead>
+  <tbody><% rows.forEach(function (p) { %><tr><td><%= ln(p, 'section') %></td><td><%= p.level %></td><td><%= ln(p, 'subject') %></td><td><%= p.chapters %></td><td><%= p.lessons %></td><td><a href="/plans/<%= p.id %>"><%= t('common.open') %></a></td></tr><% }) %></tbody>
+</table></div>
+<% } %>
+<% if (user.role === 'admin') { %>
+<section class="card" id="new">
+  <h2><%= t('plans.new') %></h2>
+  <%- include('../partials/errors', { errors }) %>
+  <form method="post" action="/plans" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="grid-3">
+      <div><label for="section_id"><%= t('fields.section_id') %></label><select id="section_id" name="section_id" required><% sections.forEach(function (s) { %><option value="<%= s.id %>" <%= values.section_id === s.id ? 'selected' : '' %>><%= ln(s) %></option><% }) %></select></div>
+      <div><label for="level"><%= t('fields.level') %></label><input id="level" name="level" list="levels" value="<%= values.level || '' %>" required><datalist id="levels"><% levels.forEach(function (l) { %><option value="<%= l.level %>"><% }) %></datalist></div>
+      <div><label for="subject_id"><%= t('common.subject') %></label><select id="subject_id" name="subject_id" required><% subjects.forEach(function (s) { %><option value="<%= s.id %>" <%= values.subject_id === s.id ? 'selected' : '' %>><%= ln(s) %></option><% }) %></select></div>
+    </div>
+    <p class="help"><%= t('plans.levelHelp') %></p>
+    <label for="title"><%= t('fields.title') %> <span class="help-inline">(<%= t('common.optional') %>)</span></label><input id="title" name="title" value="<%= values.title || '' %>" maxlength="200">
+    <button class="btn btn-primary"><%= t('plans.create') %></button>
+  </form>
+</section>
+<% } %>
+<%- include('../partials/foot') %>

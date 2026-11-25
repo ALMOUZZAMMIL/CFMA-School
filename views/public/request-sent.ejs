@@ -1,0 +1,18 @@
+<%- include('../partials/public-head') %>
+<section class="auth-wrap">
+  <div class="auth-card success-card" role="status">
+    <span class="success-icon" aria-hidden="true">✓</span>
+    <h1><%= kind === 'account' ? t('access.sentTitle') : t('access.resetSentTitle') %></h1>
+    <p><%= kind === 'account' ? t('access.sentText') : t('access.resetSentText') %></p>
+    <ol class="next-steps">
+      <% if (kind === 'account') { %>
+        <li><%= t('access.next1') %></li><li><%= t('access.next2') %></li><li><%= t('access.next3') %></li>
+      <% } else { %>
+        <li><%= t('access.resetNext1') %></li><li><%= t('access.resetNext2') %></li>
+      <% } %>
+    </ol>
+    <p class="small muted"><%= t('access.noFollowUp') %></p>
+    <a class="btn btn-primary" href="/"><%= t('access.backHome') %></a>
+  </div>
+</section>
+<%- include('../partials/public-foot') %>

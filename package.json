@@ -1,0 +1,24 @@
+{
+  "name": "csma-school",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bilingual (English/French) school management system: teacher hours, lesson progress, yearly plans, attendance and announcements.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "seed": "node scripts/seed.js",
+    "create-admin": "node scripts/create-admin.js",
+    "check-i18n": "node scripts/check-i18n.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "ejs": "^7.0.2",
+    "express": "^4.22.3"
+  }
+}

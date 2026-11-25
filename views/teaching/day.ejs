@@ -1,0 +1,34 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('teaching.dayTitle') %></h1><a class="btn" href="/sessions"><%= t('teaching.sessionsTitle') %></a></div>
+<form method="get" class="filters">
+  <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" max="<%= today %>"></label>
+  <% if (teachers.length) { %>
+  <label><%= t('common.teacher') %>
+    <select name="teacher"><option value=""><%= t('common.allTeachers') %></option>
+    <% teachers.forEach(function (x) { %><option value="<%= x.id %>" <%= x.id === teacherId ? 'selected' : '' %>><%= x.full_name %></option><% }) %></select></label>
+  <% } %>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<p class="muted"><%= fmt.longDate(date) %></p>
+<% if (closure) { %><div class="alert alert-info" role="status"><span class="alert-icon" aria-hidden="true">i</span> <%= t('teaching.closedDay', { reason: closure.reason }) %></div><% } %>
+<% if (!slots.length) { %>
+  <div class="empty"><p><%= t('teaching.noSlots') %></p></div>
+<% } else { %>
+<ul class="tasks">
+  <% slots.forEach(function (s) { %>
+  <li class="task">
+    <div class="task-main">
+      <strong><%= s.start_time %>–<%= s.end_time %></strong> · <%= s.class_name %> · <%= ln(s, 'subject') %><% if (!teacherId) { %> · <%= s.teacher_name %><% } %>
+      <div class="task-status"><% if (s.session_id) { %><%- include('../partials/badge', { kind: 'session', value: s.session_status }) %>
+        <% if (s.makeup_status === 'planned') { %><%- include('../partials/badge', { kind: 'makeup', value: 'planned' }) %><% } %>
+      <% } else { %><span class="badge badge-pending"><span aria-hidden="true">○</span> <%= t('teaching.notRecorded') %></span><% } %></div>
+    </div>
+    <div class="task-actions">
+      <% if (s.session_id) { %><a class="btn" href="/sessions/<%= s.session_id %>"><%= t('common.view') %></a>
+      <% } else if (date <= today && !closure) { %><a class="btn btn-primary" href="/sessions/new?slot=<%= s.id %>&date=<%= date %>"><%= t('teaching.recordSession') %></a><% } %>
+    </div>
+  </li>
+  <% }) %>
+</ul>
+<% } %>
+<%- include('../partials/foot') %>

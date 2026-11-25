@@ -1,0 +1,29 @@
+<%- include('../partials/head') %>
+<h1><%= t('admin.students') %></h1>
+<div class="alert alert-info" role="note"><span class="alert-icon" aria-hidden="true">i</span> <%= t('admin.privacyNote') %></div>
+<form method="get" class="filters">
+  <label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+  <label><%= t('common.search') %><input name="q" value="<%= q %>"></label><button class="btn"><%= t('common.show') %></button>
+</form>
+<% if (!rows.length) { %><div class="empty"><p><%= t('admin.noStudents') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('students.name') %></th><th><%= t('students.number') %></th><th><%= t('common.class') %></th><th><%= t('admin.login') %></th><th><%= t('students.guardians') %></th></tr></thead>
+  <tbody><% rows.forEach(function (s) { %><tr><td><a href="/admin/students/<%= s.id %>"><%= s.full_name %></a><% if (s.is_demo) { %> <span class="tag"><%= t('common.demo') %></span><% } %></td><td><%= s.student_number %></td><td><%= s.class_name || '—' %></td><td><%= s.username || '—' %></td><td><%= s.guardians %></td></tr><% }) %></tbody>
+</table></div>
+<% } %>
+<section class="card">
+  <h2><%= t('admin.addStudent') %></h2>
+  <%- include('../partials/errors', { errors }) %>
+  <form method="post" action="/admin/students" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="grid-3">
+      <div><label for="full_name"><%= t('fields.full_name') %></label><input id="full_name" name="full_name" value="<%= values.full_name || '' %>" required maxlength="120"></div>
+      <div><label for="student_number"><%= t('fields.student_number') %></label><input id="student_number" name="student_number" value="<%= values.student_number || '' %>" required maxlength="30"></div>
+      <div><label for="class_id"><%= t('fields.class_id') %></label><select id="class_id" name="class_id" required><option value=""><%= t('common.choose') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= values.class_id === c.id ? 'selected' : '' %>><%= c.name %></option><% }) %></select></div>
+    </div>
+    <label class="check"><input type="checkbox" name="create_login" value="1" <%= values.create_login ? 'checked' : '' %>> <%= t('admin.createStudentLogin') %></label>
+    <p class="help"><%= t('admin.minimalData') %></p>
+    <button class="btn btn-primary"><%= t('admin.addStudent') %></button>
+  </form>
+</section>
+<%- include('../partials/foot') %>

@@ -1,0 +1,2 @@
+<%# School logo exactly as supplied (never stretched: fixed height, auto width). Placeholder initials until the logo file is added. %>
+<% if (logoUrl) { %><img class="logo logo-<%= size %>" src="<%= logoUrl %>" alt="<%= t('site.logoAlt', { school: settings.school_name }) %>"><% } else { %><span class="logo-placeholder logo-<%= size %>" role="img" aria-label="<%= t('site.logoPlaceholder') %>" title="<%= t('site.logoPlaceholder') %>"><%= schoolInitials %></span><% } %>

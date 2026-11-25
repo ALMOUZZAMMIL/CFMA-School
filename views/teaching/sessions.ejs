@@ -1,0 +1,31 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('teaching.sessionsTitle') %></h1></div>
+<% if (assignments.length) { %>
+<details class="card no-print">
+  <summary><%= t('teaching.recordExtra') %></summary>
+  <p class="help"><%= t('teaching.recordExtraHelp') %></p>
+  <ul class="list"><% assignments.forEach(function (a) { %><li><a href="/sessions/new?assignment=<%= a.id %>"><%= a.class_name %> · <%= ln(a, 'subject') %></a></li><% }) %></ul>
+</details>
+<% } %>
+<form method="get" class="filters no-print">
+  <% if (teachers.length) { %><label><%= t('common.teacher') %><select name="teacher"><option value=""><%= t('common.allTeachers') %></option><% teachers.forEach(function (x) { %><option value="<%= x.id %>" <%= x.id === q.teacherId ? 'selected' : '' %>><%= x.full_name %></option><% }) %></select></label><% } %>
+  <label><%= t('attendance.status') %><select name="status"><option value=""><%= t('common.all') %></option><% ['held','missed','cancelled','makeup'].forEach(function (s) { %><option value="<%= s %>" <%= q.status === s ? 'selected' : '' %>><%= t('session.st.' + s) %></option><% }) %></select></label>
+  <label><%= t('common.from') %><input type="date" name="from" value="<%= q.from %>"></label>
+  <label><%= t('common.to') %><input type="date" name="to" value="<%= q.to %>"></label>
+  <label class="check"><input type="checkbox" name="pending" value="1" <%= q.pendingOnly ? 'checked' : '' %>> <%= t('hours.makeupPending') %></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<% if (!rows.length) { %><div class="empty"><p><%= t('teaching.noSessions') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('common.date') %></th><th><%= t('common.time') %></th><th><%= t('common.class') %></th><th><%= t('common.subject') %></th><% if (user.role === 'admin') { %><th><%= t('common.teacher') %></th><% } %><th><%= t('attendance.status') %></th><th><%= t('fields.makeup_status') %></th><th></th></tr></thead>
+  <tbody>
+  <% rows.forEach(function (s) { %>
+    <tr><td><%= fmt.date(s.date) %></td><td><%= s.start_time %>–<%= s.end_time %></td><td><%= s.class_name %></td><td><%= ln(s, 'subject') %></td><% if (user.role === 'admin') { %><td><%= s.teacher_name %></td><% } %>
+      <td><%- include('../partials/badge', { kind: 'session', value: s.status }) %></td>
+      <td><% if (s.status === 'missed' || s.status === 'cancelled') { %><%- include('../partials/badge', { kind: 'makeup', value: s.makeup_status }) %><% } %></td>
+      <td><a href="/sessions/<%= s.id %>"><%= t('common.view') %></a></td></tr>
+  <% }) %>
+  </tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

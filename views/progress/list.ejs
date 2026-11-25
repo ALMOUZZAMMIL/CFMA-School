@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('progress.title') %></h1><button class="btn no-print" data-print><%= t('common.print') %></button></div>
+<form method="get" class="filters no-print">
+  <label><%= t('progress.asOf') %> <input type="date" name="date" value="<%= asOf %>"></label>
+  <% if (user.role === 'admin') { %>
+  <label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= String(c.id) === q.class ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+  <label><%= t('common.teacher') %><select name="teacher"><option value=""><%= t('common.allTeachers') %></option><% teachers.forEach(function (x) { %><option value="<%= x.id %>" <%= String(x.id) === q.teacher ? 'selected' : '' %>><%= x.full_name %></option><% }) %></select></label>
+  <% } %>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<p class="help"><%= t('progress.explain') %></p>
+<% if (!rows.length) { %><div class="empty"><p><%= t('progress.noAssignments') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('common.class') %></th><th><%= t('common.subject') %></th><% if (user.role === 'admin') { %><th><%= t('common.teacher') %></th><% } %><th><%= t('progress.planned') %></th><th><%= t('progress.actual') %></th><th><%= t('progress.gap') %></th><th><%= t('progress.current') %></th><th class="no-print"></th></tr></thead>
+  <tbody>
+  <% rows.forEach(function (r) { var p = r.p; %>
+    <tr>
+      <td><%= r.a.class_name %></td><td><%= ln(r.a, 'subject') %></td><% if (user.role === 'admin') { %><td><%= r.a.teacher_name %></td><% } %>
+      <% if (!p.plan) { %>
+        <td colspan="4"><span class="badge badge-none"><span aria-hidden="true">–</span> <%= t('progress.noPlan') %></span></td>
+      <% } else { %>
+        <td><%= p.plannedToDate %>/<%= p.total %> (<%= p.plannedPct %>%)</td>
+        <td><%- include('../partials/meter', { value: p.pct, label: p.completed + '/' + p.total }) %></td>
+        <td><%- include('../partials/gap', { gap: p.gap }) %></td>
+        <td class="small"><%= p.actualLesson ? p.actualLesson.chapter_title + ' › ' + p.actualLesson.title : '—' %></td>
+      <% } %>
+      <td class="no-print"><a href="/progress/<%= r.a.id %>?date=<%= asOf %>"><%= t('common.open') %></a></td>
+    </tr>
+  <% }) %>
+  </tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

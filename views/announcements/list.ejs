@@ -1,0 +1,13 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('announcements.title') %></h1><% if (user.role === 'admin') { %><a class="btn btn-primary" href="/announcements/manage"><%= t('announcements.manageTitle') %></a><% } %></div>
+<% if (!rows.length) { %><div class="empty"><p><%= t('announcements.empty') %></p></div><% } else { %>
+<% rows.forEach(function (a) { var title = lang === 'en' ? (a.title_en || a.title_fr) : (a.title_fr || a.title_en); var body = lang === 'en' ? (a.body_en || a.body_fr) : (a.body_fr || a.body_en); %>
+<article class="card announcement">
+  <div class="small"><span class="tag"><%= t('announcements.cat.' + a.category) %></span> <%= fmt.dateTime(a.publish_at) %> · <%= a.class_name || t('announcements.wholeSchool') %></div>
+  <h2><a href="/announcements/<%= a.id %>"><%= title %></a></h2>
+  <p class="pre clamp"><%= body %></p>
+  <% if ((lang === 'en' && !a.title_en) || (lang === 'fr' && !a.title_fr)) { %><p class="small muted"><%= t('announcements.otherLanguageOnly') %></p><% } %>
+</article>
+<% }) %>
+<% } %>
+<%- include('../partials/foot') %>

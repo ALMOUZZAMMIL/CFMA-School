@@ -1,0 +1,10 @@
+<%- include('../partials/head') %>
+<h1><%= t('outbox.title') %></h1>
+<div class="alert alert-info" role="status"><span class="alert-icon" aria-hidden="true">i</span> <%= t('outbox.notConnected') %></div>
+<% if (!rows.length) { %><div class="empty"><p><%= t('outbox.empty') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr><th><%= t('common.when') %></th><th><%= t('outbox.recipient') %></th><th><%= t('fields.phone') %></th><th><%= t('outbox.message') %></th><th><%= t('attendance.status') %></th></tr></thead>
+  <tbody><% rows.forEach(function (m) { %><tr><td class="small"><%= fmt.dateTime(m.created_at) %></td><td><%= m.full_name %></td><td><%= m.phone || t('outbox.noPhone') %></td><td class="small"><%= m.body %></td><td><%- include('../partials/badge', { kind: 'outbox', value: m.status }) %></td></tr><% }) %></tbody>
+</table></div>
+<% } %>
+<%- include('../partials/foot') %>

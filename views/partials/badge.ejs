@@ -1,0 +1,3 @@
+<%# Status badge: always an icon + a word, never colour alone. kind: session | attendance | progress | makeup | ann %>
+<% var icons = { held: '✓', makeup: '↻', missed: '✗', cancelled: '⊘', present: '✓', absent: '✗', late: '◷', excused: '◇', completed: '✓', in_progress: '▶', delayed: '⚠', planned: '◷', none: '–', not_needed: '–', draft: '✎', published: '●', archived: '▢', not_sent: '◌', notstarted: '○', late_plan: '⚠' }; %>
+<span class="badge badge-<%= value %>"><span aria-hidden="true"><%= icons[value] || '•' %></span> <%= t(kind + '.st.' + value) %></span>

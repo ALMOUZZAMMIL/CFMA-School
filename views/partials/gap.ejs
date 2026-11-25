@@ -1,0 +1,3 @@
+<% if (gap < 0) { %><span class="badge badge-delayed"><span aria-hidden="true">⚠</span> <%= t('progress.behind', { n: -gap }) %></span>
+<% } else if (gap > 0) { %><span class="badge badge-completed"><span aria-hidden="true">▲</span> <%= t('progress.ahead', { n: gap }) %></span>
+<% } else { %><span class="badge badge-held"><span aria-hidden="true">✓</span> <%= t('progress.onTrack') %></span><% } %>

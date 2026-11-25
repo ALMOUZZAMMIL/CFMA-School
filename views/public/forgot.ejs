@@ -1,0 +1,20 @@
+<%- include('../partials/public-head') %>
+<section class="auth-wrap">
+  <div class="auth-card">
+    <h1><%= t('access.forgotTitle') %></h1>
+    <p class="muted"><%= t('access.forgotIntro') %></p>
+    <%- include('../partials/errors', { errors }) %>
+    <form method="post" action="/forgot-password" class="form" data-once data-loading>
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+      <label for="identifier"><%= t('fields.identifier') %></label>
+      <input id="identifier" name="identifier" value="<%= values.identifier || '' %>" required maxlength="120" autocapitalize="none" autofocus>
+      <label for="phone"><%= t('access.contactPhone') %> <span class="help-inline">(<%= t('common.optional') %>)</span></label>
+      <input id="phone" name="phone" type="tel" value="<%= values.phone || '' %>" placeholder="+237 6XX XX XX XX">
+      <p class="help"><%= t('access.forgotHelp') %></p>
+      <button class="btn btn-primary btn-block btn-lg" data-loading-text="<%= t('access.sending') %>"><%= t('access.sendReset') %></button>
+    </form>
+    <p class="auth-alt"><a href="/login">← <%= t('access.backToSignIn') %></a></p>
+  </div>
+</section>
+<%- include('../partials/public-foot') %>

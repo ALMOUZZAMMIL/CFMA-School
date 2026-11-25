@@ -1,0 +1,33 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('attendance.title') %> · <%= cls.name %></h1>
+  <div class="no-print"><a class="btn" href="/attendance/<%= cls.id %>/history?date=<%= date %>"><%= t('common.history') %><% if (corrections) { %> (<%= corrections %>)<% } %></a>
+  <a class="btn" href="/attendance/<%= cls.id %>/export.csv"><%= t('common.exportCsv') %></a></div></div>
+<form method="get" class="filters no-print"><label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" max="<%= today %>"></label><button class="btn"><%= t('common.show') %></button></form>
+<p class="muted"><%= fmt.longDate(date) %></p>
+<% if (closure) { %><div class="alert alert-info" role="status"><span class="alert-icon" aria-hidden="true">i</span> <%= t('teaching.closedDay', { reason: closure.reason }) %></div><% } %>
+<% if (!students.length) { %><div class="empty"><p><%= t('attendance.noStudents') %></p></div><% } else { %>
+<% var taken = existing.size > 0; %>
+<% if (!taken) { %><p class="help"><%= t('attendance.helpDefault') %></p><% } else { %><div class="alert alert-info" role="status"><span class="alert-icon" aria-hidden="true">i</span> <%= t('attendance.alreadyTaken') %></div><% } %>
+<form method="post" action="/attendance/<%= cls.id %>" class="attendance-form" data-once>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <input type="hidden" name="date" value="<%= date %>">
+  <div class="att-tools no-print"><button type="button" class="btn" data-all-present><%= t('attendance.allPresent') %></button>
+    <span class="att-summary" aria-live="polite" data-att-summary></span></div>
+  <ol class="att-list">
+  <% students.forEach(function (st, i) { var rec = existing.get(st.id); var cur = rec ? rec.status : 'present'; %>
+    <li class="att-row">
+      <div class="att-name"><span class="att-num"><%= i + 1 %>.</span> <%= st.full_name %>
+        <% if (rec && rec.updated_by_name) { %><div class="small muted"><%= t('attendance.correctedBy', { name: rec.updated_by_name, when: fmt.dateTime(rec.updated_at) }) %></div><% } %></div>
+      <fieldset class="att-choices"><legend class="sr"><%= t('attendance.statusFor', { name: st.full_name }) %></legend>
+        <% statuses.forEach(function (s) { %>
+          <label class="att-opt att-<%= s %>"><input type="radio" name="s_<%= st.id %>" value="<%= s %>" <%= cur === s ? 'checked' : '' %>><span><span aria-hidden="true"><%= { present: '✓', absent: '✗', late: '◷', excused: '◇' }[s] %></span> <%= t('attendance.st.' + s) %></span></label>
+        <% }) %>
+      </fieldset>
+      <input class="att-note" name="n_<%= st.id %>" value="<%= rec && rec.note || '' %>" maxlength="300" placeholder="<%= t('attendance.notePlaceholder') %>" aria-label="<%= t('common.note') %> — <%= st.full_name %>">
+    </li>
+  <% }) %>
+  </ol>
+  <div class="sticky-actions"><button class="btn btn-primary btn-block"><%= taken ? t('attendance.saveChanges') : t('attendance.save') %></button></div>
+</form>
+<% } %>
+<%- include('../partials/foot') %>

@@ -1,0 +1,127 @@
+<%- include('partials/head') %>
+<h1><%= t('dashboard.hello', { name: user.full_name }) %></h1>
+<p class="muted"><%= fmt.longDate(today) %><% if (year) { %> · <%= t('common.year') %> <%= year.name %><% } %></p>
+
+<% if (typeof setupNeeded !== 'undefined' && setupNeeded) { %>
+  <div class="empty card">
+    <h2><%= t('dashboard.setupTitle') %></h2>
+    <p><%= t('dashboard.setupText') %></p>
+    <ol class="steps">
+      <li><a href="/admin/structure"><%= t('dashboard.setup1') %></a></li>
+      <li><a href="/admin/users"><%= t('dashboard.setup2') %></a></li>
+      <li><a href="/admin/students"><%= t('dashboard.setup3') %></a></li>
+      <li><a href="/admin/timetable"><%= t('dashboard.setup4') %></a></li>
+      <li><a href="/plans"><%= t('dashboard.setup5') %></a></li>
+    </ol>
+  </div>
+<% } %>
+
+<% if (user.role === 'teacher') { %>
+  <section class="card">
+    <div class="card-head"><h2><%= t('dashboard.todayClasses') %></h2><a href="/teaching"><%= t('common.seeAll') %></a></div>
+    <% if (!slots || !slots.length) { %>
+      <div class="empty"><p><%= t('dashboard.noClassesToday') %></p><a class="btn" href="/timetable"><%= t('dashboard.viewTimetable') %></a></div>
+    <% } else { %>
+      <ul class="tasks">
+      <% slots.forEach(function (s) { %>
+        <li class="task">
+          <div class="task-main">
+            <strong><%= s.start_time %>–<%= s.end_time %></strong> · <%= s.class_name %> · <%= ln(s, 'subject') %>
+            <div class="task-status">
+              <% if (s.session_id) { %><%- include('partials/badge', { kind: 'session', value: s.session_status }) %><% } else { %><span class="badge badge-pending"><span aria-hidden="true">○</span> <%= t('teaching.notRecorded') %></span><% } %>
+              <% if (s.attendance_count) { %><span class="badge badge-present"><span aria-hidden="true">✓</span> <%= t('attendance.taken') %></span><% } else { %><span class="badge badge-pending"><span aria-hidden="true">○</span> <%= t('attendance.notTaken') %></span><% } %>
+            </div>
+          </div>
+          <div class="task-actions">
+            <% if (!s.session_id) { %><a class="btn btn-primary" href="/sessions/new?slot=<%= s.id %>&date=<%= today %>"><%= t('teaching.recordSession') %></a><% } else { %><a class="btn" href="/sessions/<%= s.session_id %>"><%= t('common.view') %></a><% } %>
+            <a class="btn" href="/attendance/<%= s.class_id %>?date=<%= today %>"><%= t('attendance.take') %></a>
+            <a class="btn" href="/progress/<%= s.assignment_id %>"><%= t('progress.update') %></a>
+          </div>
+        </li>
+      <% }) %>
+      </ul>
+    <% } %>
+  </section>
+  <% if (hours) { %>
+  <section class="stats" aria-label="<%= t('dashboard.myHours') %>">
+    <div class="stat"><span class="stat-num"><%= fmt.number(hours.scheduled) %> h</span><span class="stat-label"><%= t('hours.scheduled') %></span></div>
+    <div class="stat"><span class="stat-num"><%= fmt.number(hours.delivered) %> h</span><span class="stat-label"><%= t('hours.delivered') %></span></div>
+    <div class="stat"><span class="stat-num"><%= fmt.number(hours.missed) %> h</span><span class="stat-label"><%= t('hours.missedCancelled') %></span></div>
+    <a class="stat" href="/teaching"><span class="stat-num"><%= hours.notRecorded %></span><span class="stat-label"><%= t('hours.notRecorded') %></span></a>
+    <a class="stat" href="/sessions?pending=1"><span class="stat-num"><%= pendingMakeups %></span><span class="stat-label"><%= t('hours.makeupPending') %></span></a>
+  </section>
+  <% } %>
+<% } %>
+
+<% if (user.role === 'admin' && typeof stats !== 'undefined') { %>
+  <% if (pendingRequests) { %><div class="alert alert-pending" role="status"><span class="alert-icon" aria-hidden="true">!</span> <a href="/admin/requests"><strong><%= t('requests.pendingCount') %>: <%= pendingRequests %></strong></a></div><% } %>
+  <section class="stats" aria-label="<%= t('dashboard.today') %>">
+    <a class="stat" href="/admin/users?role=teacher"><span class="stat-num"><%= stats.teachers %></span><span class="stat-label"><%= t('dashboard.teachers') %></span></a>
+    <a class="stat" href="/admin/students"><span class="stat-num"><%= stats.students %></span><span class="stat-label"><%= t('dashboard.students') %></span></a>
+    <a class="stat" href="/attendance"><span class="stat-num"><%= stats.attendanceClassesToday %>/<%= stats.classes %></span><span class="stat-label"><%= t('dashboard.attendanceToday') %></span></a>
+    <a class="stat" href="/attendance"><span class="stat-num"><%= stats.absentToday %></span><span class="stat-label"><%= t('dashboard.absentToday') %></span></a>
+    <a class="stat" href="/teaching"><span class="stat-num"><%= stats.sessionsToday %></span><span class="stat-label"><%= t('dashboard.sessionsToday') %></span></a>
+    <a class="stat" href="/sessions?status=missed"><span class="stat-num"><%= stats.missedToday %></span><span class="stat-label"><%= t('dashboard.missedToday') %></span></a>
+    <a class="stat" href="/sessions?pending=1"><span class="stat-num"><%= stats.pendingMakeups %></span><span class="stat-label"><%= t('hours.makeupPending') %></span></a>
+  </section>
+  <section class="card">
+    <div class="card-head"><h2><%= t('absences.title') %></h2><a href="/reports/absences"><%= t('common.seeAll') %></a></div>
+    <% if (!repeated.length) { %><p class="muted"><%= t('absences.none') %></p><% } else { %>
+    <div class="table-wrap"><table>
+      <thead><tr><th><%= t('students.name') %></th><th><%= t('common.class') %></th><th><%= t('attendance.st.absent') %></th><th><%= t('attendance.st.late') %></th></tr></thead>
+      <tbody><% repeated.forEach(function (r) { %><tr><td><a href="/students/<%= r.id %>"><%= r.full_name %></a></td><td><%= r.class_name %></td><td><%= r.absent %></td><td><%= r.late %></td></tr><% }) %></tbody>
+    </table></div>
+    <% } %>
+  </section>
+  <section class="quick">
+    <h2><%= t('dashboard.quickLinks') %></h2>
+    <div class="quick-grid">
+      <a class="btn" href="/announcements/new"><%= t('announcements.new') %></a>
+      <a class="btn" href="/reports/hours"><%= t('hours.title') %></a>
+      <a class="btn" href="/progress"><%= t('progress.title') %></a>
+      <a class="btn" href="/admin/timetable"><%= t('admin.timetable') %></a>
+    </div>
+  </section>
+<% } %>
+
+<% if ((user.role === 'parent' || user.role === 'student') && typeof children !== 'undefined') { %>
+  <section class="card">
+    <h2><%= user.role === 'parent' ? t('dashboard.myChildren') : t('dashboard.mySummary') %></h2>
+    <% if (!children.length) { %>
+      <div class="empty"><p><%= user.role === 'parent' ? t('dashboard.noChildren') : t('students.noRecord') %></p></div>
+    <% } else { %>
+      <ul class="tasks">
+      <% children.forEach(function (c) { %>
+        <li class="task">
+          <div class="task-main"><strong><%= c.full_name %></strong> · <%= c.class_name || t('students.noClass') %>
+            <% if (settings[user.role === 'parent' ? 'show_attendance_to_parents' : 'show_attendance_to_students'] === '1') { %>
+            <div class="small"><%= t('dashboard.attendanceLine', { absent: c.att.absent || 0, late: c.att.late || 0, excused: c.att.excused || 0 }) %></div>
+            <% } %>
+          </div>
+          <div class="task-actions"><a class="btn btn-primary" href="/students/<%= c.id %>"><%= t('common.open') %></a>
+            <a class="btn" href="/timetable?student=<%= c.id %>"><%= t('nav.timetable') %></a></div>
+        </li>
+      <% }) %>
+      </ul>
+    <% } %>
+  </section>
+<% } %>
+
+<% if (user.role === 'bursar') { %>
+  <div class="empty card"><p><%= t('dashboard.financeLater') %></p></div>
+<% } %>
+
+<% if (user.role !== 'bursar') { %>
+<section class="card">
+  <div class="card-head"><h2><%= t('announcements.latest') %></h2><a href="/announcements"><%= t('common.seeAll') %></a></div>
+  <% if (!announcements.length) { %><p class="muted"><%= t('announcements.empty') %></p><% } else { %>
+  <ul class="list">
+    <% announcements.forEach(function (a) { %>
+    <li><span class="tag"><%= t('announcements.cat.' + a.category) %></span> <a href="/announcements/<%= a.id %>"><%= (lang === 'en' ? (a.title_en || a.title_fr) : (a.title_fr || a.title_en)) %></a>
+      <span class="small muted">· <%= fmt.dateTime(a.publish_at) %></span></li>
+    <% }) %>
+  </ul>
+  <% } %>
+</section>
+<% } %>
+<%- include('partials/foot') %>

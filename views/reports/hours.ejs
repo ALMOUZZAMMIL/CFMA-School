@@ -1,0 +1,39 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('hours.title') %></h1>
+  <div class="no-print"><button class="btn" data-print><%= t('common.print') %></button>
+  <a class="btn" href="<%= originalUrl + (originalUrl.indexOf('?') >= 0 ? '&' : '?') %>format=csv"><%= t('common.exportCsv') %></a></div></div>
+<form method="get" class="filters no-print">
+  <label><%= t('common.term') %><select name="term"><option value=""><%= t('hours.wholeYear') %></option><% terms.forEach(function (tm) { %><option value="<%= tm.id %>" <%= tm.id === f.termId ? 'selected' : '' %>><%= tm.name %></option><% }) %></select></label>
+  <% if (teachers.length) { %><label><%= t('common.teacher') %><select name="teacher"><option value=""><%= t('common.allTeachers') %></option><% teachers.forEach(function (x) { %><option value="<%= x.id %>" <%= x.id === f.teacherId ? 'selected' : '' %>><%= x.full_name %></option><% }) %></select></label><% } %>
+  <label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === f.classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+  <label><%= t('common.subject') %><select name="subject"><option value=""><%= t('common.all') %></option><% subjects.forEach(function (s) { %><option value="<%= s.id %>" <%= s.id === f.subjectId ? 'selected' : '' %>><%= ln(s) %></option><% }) %></select></label>
+  <label><%= t('hours.groupBy') %><select name="by"><% ['assignment','teacher','class','subject'].forEach(function (b) { %><option value="<%= b %>" <%= by === b ? 'selected' : '' %>><%= t('hours.by.' + b) %></option><% }) %></select></label>
+  <label><%= t('progress.asOf') %><input type="date" name="date" value="<%= f.asOf %>"></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<p class="muted"><%= t('hours.period', { from: fmt.date(from), to: fmt.date(to) }) %></p>
+<details class="help no-print"><summary><%= t('hours.howTitle') %></summary><p><%= t('hours.how') %></p></details>
+<% if (!rows.length) { %><div class="empty"><p><%= t('hours.empty') %></p></div><% } else { %>
+<div class="table-wrap"><table>
+  <thead><tr>
+    <% if (by === 'assignment' || by === 'teacher') { %><th><%= t('common.teacher') %></th><% } %>
+    <% if (by === 'assignment' || by === 'class') { %><th><%= t('common.class') %></th><% } %>
+    <% if (by === 'assignment' || by === 'subject') { %><th><%= t('common.subject') %></th><% } %>
+    <th class="num"><%= t('hours.scheduled') %></th><th class="num"><%= t('hours.held') %></th><th class="num"><%= t('hours.makeup') %></th><th class="num"><%= t('hours.missed') %></th><th class="num"><%= t('hours.cancelled') %></th><th class="num"><%= t('hours.rate') %></th><th class="num"><%= t('hours.notRecorded') %></th><th class="num"><%= t('hours.makeupPending') %></th>
+  </tr></thead>
+  <tbody><% var tot = { scheduled: 0, held: 0, makeup: 0, missed: 0, cancelled: 0, notRecorded: 0, makeupPending: 0 }; rows.forEach(function (r) { Object.keys(tot).forEach(function (k) { tot[k] += r[k]; }); %>
+    <tr>
+      <% if (by === 'assignment' || by === 'teacher') { %><td><%= r.teacher_name %></td><% } %>
+      <% if (by === 'assignment' || by === 'class') { %><td><%= r.class_name %></td><% } %>
+      <% if (by === 'assignment' || by === 'subject') { %><td><%= ln(r, 'subject') %></td><% } %>
+      <td class="num"><%= fmt.number(r.scheduled) %></td><td class="num"><%= fmt.number(r.held) %></td><td class="num"><%= fmt.number(r.makeup) %></td><td class="num"><%= fmt.number(r.missed) %></td><td class="num"><%= fmt.number(r.cancelled) %></td>
+      <td class="num"><%= r.rate === null ? '—' : r.rate + '%' %></td><td class="num"><%= r.notRecorded %></td><td class="num"><%= r.makeupPending %></td>
+    </tr>
+  <% }) %></tbody>
+  <tfoot><tr><th colspan="<%= by === 'assignment' ? 3 : 1 %>"><%= t('common.total') %></th>
+    <td class="num"><%= fmt.number(tot.scheduled) %></td><td class="num"><%= fmt.number(tot.held) %></td><td class="num"><%= fmt.number(tot.makeup) %></td><td class="num"><%= fmt.number(tot.missed) %></td><td class="num"><%= fmt.number(tot.cancelled) %></td>
+    <td class="num"><%= tot.scheduled ? Math.round((tot.held + tot.makeup) / tot.scheduled * 100) + '%' : '—' %></td><td class="num"><%= tot.notRecorded %></td><td class="num"><%= tot.makeupPending %></td></tr></tfoot>
+</table></div>
+<p class="small muted"><%= t('hours.unit') %></p>
+<% } %>
+<%- include('../partials/foot') %>

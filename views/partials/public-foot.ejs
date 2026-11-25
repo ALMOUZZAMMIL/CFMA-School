@@ -1,0 +1,28 @@
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="foot-col">
+      <div class="foot-brand"><%- include('mark', { size: 'sm' }) %> <strong><%= settings.school_name %></strong></div>
+      <p class="small"><%= t('site.footerAbout') %></p>
+    </div>
+    <div class="foot-col">
+      <h2 class="foot-title"><%= t('site.contact') %></h2>
+      <ul class="foot-list small">
+        <li><span class="foot-label"><%= t('site.address') %>:</span> <% if (settings.school_address) { %><%= settings.school_address %><% } else { %><span class="placeholder"><%= t('site.toBeProvided') %></span><% } %></li>
+        <li><span class="foot-label"><%= t('site.phone') %>:</span> <% if (settings.school_phone) { %><a href="tel:<%= settings.school_phone.replace(/[^+\d]/g, '') %>"><%= settings.school_phone %></a><% } else { %><span class="placeholder"><%= t('site.toBeProvided') %></span><% } %></li>
+        <li><span class="foot-label"><%= t('site.email') %>:</span> <% if (settings.school_email) { %><a href="mailto:<%= settings.school_email %>"><%= settings.school_email %></a><% } else { %><span class="placeholder"><%= t('site.toBeProvided') %></span><% } %></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h2 class="foot-title"><%= t('site.access') %></h2>
+      <ul class="foot-list small">
+        <li><a href="/login"><%= t('auth.login') %></a></li>
+        <% if (settings.allow_account_requests === '1') { %><li><a href="/register"><%= t('access.requestTitle') %></a></li><% } %>
+        <li><a href="/forgot-password"><%= t('access.forgotLink') %></a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="foot-privacy small"><%= t('common.footerPrivacy') %></p>
+</footer>
+</body>
+</html>

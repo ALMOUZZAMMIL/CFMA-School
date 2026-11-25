@@ -1,0 +1,67 @@
+<%- include('../partials/head') %>
+<% var editing = !!session.id; %>
+<h1><%= editing ? t('teaching.correctTitle') : t('teaching.recordTitle') %></h1>
+<p class="lead"><strong><%= a.class_name %></strong> · <%= ln(a, 'subject') %> · <%= a.teacher_name %></p>
+<%- include('../partials/errors', { errors }) %>
+<form method="post" action="<%= editing ? '/sessions/' + session.id : '/sessions' %>" class="form card" data-once>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <input type="hidden" name="assignment_id" value="<%= a.id %>">
+  <input type="hidden" name="client_uuid" value="<%= session.client_uuid || '' %>">
+  <% if (session.slot_id) { %><input type="hidden" name="slot_id" value="<%= session.slot_id %>"><% } %>
+
+  <fieldset>
+    <legend><%= t('teaching.whatHappened') %></legend>
+    <div class="choice-row">
+    <% (session.slot_id ? ['held','missed','cancelled'] : (editing ? ['held','missed','cancelled','makeup'] : ['makeup','held'])).forEach(function (st) { %>
+      <label class="choice"><input type="radio" name="status" value="<%= st %>" <%= session.status === st ? 'checked' : '' %> required>
+        <span><%- include('../partials/badge', { kind: 'session', value: st }) %><br><small><%= t('teaching.help.' + st) %></small></span></label>
+    <% }) %>
+    </div>
+  </fieldset>
+
+  <div class="grid-3">
+    <div><label for="date"><%= t('common.date') %></label>
+      <input id="date" type="date" name="date" value="<%= session.date %>" max="<%= today %>" <%= session.slot_id ? 'readonly' : '' %> required></div>
+    <div><label for="start_time"><%= t('fields.start_time') %></label><input id="start_time" type="time" name="start_time" value="<%= session.start_time %>" required></div>
+    <div><label for="end_time"><%= t('fields.end_time') %></label><input id="end_time" type="time" name="end_time" value="<%= session.end_time %>" required></div>
+  </div>
+
+  <div data-show-when="status=missed,cancelled">
+    <label for="reason"><%= t('fields.reason') %> <span class="req">*</span></label>
+    <input id="reason" name="reason" value="<%= session.reason || '' %>" maxlength="500" placeholder="<%= t('teaching.reasonPlaceholder') %>">
+    <fieldset>
+      <legend><%= t('fields.makeup_status') %></legend>
+      <div class="choice-row">
+      <% ['planned','none','not_needed'].concat(editing ? ['completed'] : []).forEach(function (m) { %>
+        <label class="choice"><input type="radio" name="makeup_status" value="<%= m %>" <%= (session.makeup_status || 'none') === m ? 'checked' : '' %>> <span><%= t('makeup.st.' + m) %></span></label>
+      <% }) %>
+      </div>
+    </fieldset>
+    <label for="makeup_planned_date"><%= t('fields.makeup_planned_date') %></label>
+    <input id="makeup_planned_date" type="date" name="makeup_planned_date" value="<%= session.makeup_planned_date || '' %>">
+  </div>
+
+  <% if (!session.slot_id && !editing && missedSessions.length) { %>
+  <div data-show-when="status=makeup">
+    <label for="makeup_for_session_id"><%= t('fields.makeup_for_session_id') %></label>
+    <select id="makeup_for_session_id" name="makeup_for_session_id">
+      <option value=""><%= t('teaching.extraLesson') %></option>
+      <% missedSessions.forEach(function (m) { %><option value="<%= m.id %>" <%= session.makeup_for_session_id === m.id ? 'selected' : '' %>><%= fmt.date(m.date) %> <%= m.start_time %> · <%= t('session.st.' + m.status) %> · <%= m.reason %></option><% }) %>
+    </select>
+  </div>
+  <% } %>
+
+  <label for="notes"><%= t('common.notes') %></label>
+  <textarea id="notes" name="notes" rows="3" maxlength="2000"><%= session.notes || '' %></textarea>
+
+  <% if (editing) { %>
+    <label for="change_reason"><%= t('fields.change_reason') %> <span class="req">*</span></label>
+    <input id="change_reason" name="change_reason" value="<%= session.change_reason || '' %>" required maxlength="500">
+    <p class="help"><%= t('teaching.historyKept') %></p>
+  <% } %>
+  <div class="actions">
+    <button class="btn btn-primary"><%= t('common.save') %></button>
+    <a class="btn" href="<%= editing ? '/sessions/' + session.id : '/teaching?date=' + session.date %>"><%= t('common.cancel') %></a>
+  </div>
+</form>
+<%- include('../partials/foot') %>

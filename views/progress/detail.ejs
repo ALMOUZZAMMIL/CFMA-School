@@ -1,0 +1,75 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= a.class_name %> · <%= ln(a, 'subject') %></h1><button class="btn no-print" data-print><%= t('common.print') %></button></div>
+<p class="muted"><%= a.teacher_name %></p>
+<% if (!p.plan) { %>
+  <div class="empty card"><p><%= t('progress.noPlanLong') %></p><% if (user.role === 'admin') { %><a class="btn btn-primary" href="/plans"><%= t('plans.title') %></a><% } %></div>
+<% } else { %>
+<section class="stats">
+  <div class="stat"><span class="stat-num"><%= p.completed %>/<%= p.total %></span><span class="stat-label"><%= t('progress.lessonsDone') %></span></div>
+  <div class="stat"><span class="stat-num"><%= p.plannedToDate %></span><span class="stat-label"><%= t('progress.plannedByDate', { date: fmt.date(asOf) }) %></span></div>
+  <div class="stat"><span class="stat-num"><%- include('../partials/gap', { gap: p.gap }) %></span><span class="stat-label"><%= t('progress.gap') %></span></div>
+</section>
+<section class="card">
+  <dl class="dl">
+    <dt><%= t('progress.current') %></dt><dd><%= p.actualLesson ? p.actualLesson.chapter_title + ' › ' + p.actualLesson.title : t('progress.notStarted') %></dd>
+    <dt><%= t('progress.expected') %></dt><dd><%= p.plannedLesson ? p.plannedLesson.chapter_title + ' › ' + p.plannedLesson.title : '—' %></dd>
+  </dl>
+  <form method="get" class="filters no-print"><label><%= t('progress.asOf') %> <input type="date" name="date" value="<%= asOf %>"></label><button class="btn"><%= t('common.show') %></button></form>
+</section>
+
+<section class="card no-print" id="record">
+  <h2><%= t('progress.record') %></h2>
+  <%- include('../partials/errors', { errors }) %>
+  <form method="post" action="/progress/<%= a.id %>" class="form" data-once>
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <input type="hidden" name="client_uuid" value="<%= values.client_uuid %>">
+    <label for="lesson_id"><%= t('fields.lesson_id') %></label>
+    <select id="lesson_id" name="lesson_id" required>
+      <% p.chapters.forEach(function (ch) { %>
+      <optgroup label="<%= ch.ordinal %>. <%= ch.title %>">
+        <% p.lessons.filter(function (l) { return l.chapter_id === ch.id; }).forEach(function (l) { %>
+        <option value="<%= l.id %>" <%= String(values.lesson_id) === String(l.id) ? 'selected' : '' %>><%= ch.ordinal %>.<%= l.ordinal %> <%= l.title %><%= l.progress ? ' — ' + t('progress.st.' + l.progress.status) : '' %></option>
+        <% }) %>
+      </optgroup>
+      <% }) %>
+    </select>
+    <div class="grid-2">
+      <div><label for="date"><%= t('common.date') %></label><input id="date" type="date" name="date" value="<%= values.date %>" max="<%= today %>" required></div>
+      <div><fieldset><legend><%= t('attendance.status') %></legend><div class="choice-row">
+        <% ['completed','in_progress','delayed'].forEach(function (st) { %><label class="choice"><input type="radio" name="status" value="<%= st %>" <%= values.status === st ? 'checked' : '' %> required> <%- include('../partials/badge', { kind: 'progress', value: st }) %></label><% }) %>
+      </div></fieldset></div>
+    </div>
+    <label for="notes"><%= t('common.notes') %> <span class="help-inline">(<%= t('progress.notesHelp') %>)</span></label>
+    <textarea id="notes" name="notes" rows="2" maxlength="2000"><%= values.notes || '' %></textarea>
+    <button class="btn btn-primary"><%= t('common.save') %></button>
+  </form>
+</section>
+
+<section class="card">
+  <h2><%= t('progress.planVsActual') %></h2>
+  <% p.chapters.forEach(function (ch) { %>
+    <h3><%= ch.ordinal %>. <%= ch.title %></h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>#</th><th><%= t('fields.lesson_id') %></th><th><%= t('plans.plannedDate') %></th><th><%= t('attendance.status') %></th><th><%= t('common.date') %></th></tr></thead>
+      <tbody>
+      <% p.lessons.filter(function (l) { return l.chapter_id === ch.id; }).forEach(function (l) { %>
+        <tr class="<%= l.isLate ? 'row-late' : '' %>"><td><%= ch.ordinal %>.<%= l.ordinal %></td><td><%= l.title %></td><td><%= l.planned_date ? fmt.date(l.planned_date) : '—' %></td>
+          <td><% if (l.progress) { %><%- include('../partials/badge', { kind: 'progress', value: l.progress.status }) %><% } else { %><span class="badge badge-none"><span aria-hidden="true">○</span> <%= t('progress.st.notstarted') %></span><% } %>
+            <% if (l.isLate) { %><span class="badge badge-delayed"><span aria-hidden="true">⚠</span> <%= t('progress.lateVsPlan') %></span><% } %></td>
+          <td><%= l.progress ? fmt.date(l.progress.date) : '' %></td></tr>
+      <% }) %>
+      </tbody>
+    </table></div>
+  <% }) %>
+</section>
+
+<section class="card">
+  <h2><%= t('progress.entries') %></h2>
+  <% if (!history.length) { %><p class="muted"><%= t('progress.noEntries') %></p><% } else { %>
+  <ul class="list">
+    <% history.forEach(function (h) { %><li><%= fmt.date(h.date) %> · <%= h.lesson_title %> · <%- include('../partials/badge', { kind: 'progress', value: h.status }) %> <span class="small muted">— <%= h.full_name %></span><% if (h.notes) { %><div class="small"><%= h.notes %></div><% } %></li><% }) %>
+  </ul>
+  <% } %>
+</section>
+<% } %>
+<%- include('../partials/foot') %>

@@ -1,0 +1,39 @@
+<%- include('../partials/head') %>
+<h1><%= t('admin.timetable') %></h1>
+<p class="help"><%= t('admin.timetableIntro') %></p>
+<form method="get" class="filters"><label><%= t('common.class') %><select name="class"><option value=""><%= t('common.all') %></option><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label><button class="btn"><%= t('common.show') %></button>
+<% if (classId) { %><a class="btn" href="/timetable?class=<%= classId %>"><%= t('admin.viewWeek') %></a><% } %></form>
+
+<section class="card">
+  <h2><%= t('admin.addAssignment') %></h2>
+  <form method="post" action="/admin/assignments" class="row-form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label><%= t('common.class') %><select name="class_id" required><% classes.forEach(function (c) { %><option value="<%= c.id %>" <%= c.id === classId ? 'selected' : '' %>><%= c.name %></option><% }) %></select></label>
+    <label><%= t('common.subject') %><select name="subject_id" required><% subjects.forEach(function (s) { %><option value="<%= s.id %>"><%= ln(s) %></option><% }) %></select></label>
+    <label><%= t('common.teacher') %><select name="teacher_id" required><% teachers.forEach(function (x) { %><option value="<%= x.id %>"><%= x.full_name %></option><% }) %></select></label>
+    <button class="btn btn-small"><%= t('common.add') %></button>
+  </form>
+</section>
+
+<% if (!assignments.length) { %><div class="empty"><p><%= t('admin.noAssignments') %></p></div><% } %>
+<% assignments.forEach(function (a) { %>
+<section class="card" id="a-<%= a.id %>">
+  <h3><%= a.class_name %> · <%= ln(a, 'subject') %> · <%= a.teacher_name %></h3>
+  <% if (!a.slots.length) { %><p class="muted"><%= t('admin.noSlots') %></p><% } else { %>
+  <ul class="list"><% a.slots.forEach(function (s) { %><li><%= s.term_name %> · <%= t('days.' + s.day_of_week) %> <%= s.start_time %>–<%= s.end_time %><%= s.room ? ' · ' + s.room : '' %>
+    <form method="post" action="/admin/slots/<%= s.id %>/delete" class="inline" data-confirm="<%= t('common.confirmDelete') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('common.delete') %></button></form></li><% }) %></ul>
+  <% } %>
+  <% if (terms.length) { %>
+  <form method="post" action="/admin/slots" class="row-form add-row">
+    <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="assignment_id" value="<%= a.id %>">
+    <select name="term_id" aria-label="<%= t('common.term') %>"><% terms.forEach(function (tm) { %><option value="<%= tm.id %>"><%= tm.name %></option><% }) %></select>
+    <select name="day_of_week" aria-label="<%= t('common.day') %>"><% [1,2,3,4,5,6].forEach(function (d) { %><option value="<%= d %>"><%= t('days.' + d) %></option><% }) %></select>
+    <input type="time" name="start_time" required aria-label="<%= t('fields.start_time') %>">
+    <input type="time" name="end_time" required aria-label="<%= t('fields.end_time') %>">
+    <input name="room" placeholder="<%= t('common.room') %>" maxlength="40" class="w-code" aria-label="<%= t('common.room') %>">
+    <button class="btn btn-small"><%= t('admin.addSlot') %></button>
+  </form>
+  <% } else { %><p class="help"><%= t('admin.needTerms') %></p><% } %>
+</section>
+<% }) %>
+<%- include('../partials/foot') %>

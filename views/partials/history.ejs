@@ -1,0 +1,17 @@
+<% if (!history.length) { %><p class="muted"><%= t('common.noHistory') %></p><% } else { %>
+<ol class="history">
+  <% history.forEach(function (h) { %>
+  <li>
+    <div><strong><%= t('audit.action.' + h.action) %></strong> · <%= h.full_name || '—' %> · <span class="muted"><%= fmt.dateTime(h.at) %></span></div>
+    <% if (h.reason) { %><div class="small"><%= t('fields.change_reason') %>: <%= h.reason %></div><% } %>
+    <% if (h.action === 'update' && h.before && h.after) { %>
+      <ul class="small changes">
+      <% Object.keys(h.after).forEach(function (k) { %>
+        <li><%= t('fields.' + k) %>: <del><%= h.before[k] === null || h.before[k] === undefined || h.before[k] === '' ? '—' : h.before[k] %></del> → <ins><%= h.after[k] === null || h.after[k] === undefined || h.after[k] === '' ? '—' : h.after[k] %></ins></li>
+      <% }) %>
+      </ul>
+    <% } %>
+  </li>
+  <% }) %>
+</ol>
+<% } %>
