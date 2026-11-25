@@ -428,8 +428,8 @@
       "not_submitted": "Sheet not submitted",
       "no_plan": "No sheet"
     },
-    "nowLink": "Who is teaching what now?",
-    "nowTitle": "Classes right now",
+    "nowLink": "Where is each teacher now?",
+    "nowTitle": "Where each teacher is now",
     "nowHelp": "Every class on the timetable for the chosen day, with the lesson that should be taught according to the progression sheet, the lesson actually reached, and whether the class was recorded as held.",
     "pickDay": "Choose a day",
     "prevDay": "Previous day",
@@ -446,7 +446,9 @@
     "notRecorded": "Not recorded",
     "nowBadge": "now",
     "examPaused": "exam period, lessons stop.",
-    "examContinues": "exam period, lessons go on."
+    "examContinues": "exam period, lessons go on.",
+    "presence": "Present (scanner)",
+    "nowHelpScanner": "\"Present\" comes from the fingerprint scanner: it shows whether the teacher scanned in for that lesson."
   },
   "plans": {
     "title": "Progression sheets",

@@ -1,5 +1,5 @@
 <%- include('../partials/head') %>
-<div class="page-head"><h1><%= classId && columns[0] ? t('scanner.calendarOf', { class: columns[0].name }) : t('scanner.calendarTitle') %></h1></div>
+<div class="page-head"><h1><%= classId && columns[0] ? t('scanner.calendarOf', { class: columns[0].name }) : t('scanner.calendarTitle') %></h1><div class="actions no-print"><a class="btn btn-primary" href="/progress/now<%= date ? '?date=' + date : '' %>"><%= t('progress.nowLink') %></a></div></div>
 <%- include('../partials/scanner-tabs') %>
 <p class="help"><%= t('scanner.calendarHelp') %></p>
 <form method="get" class="filters">

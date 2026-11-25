@@ -428,8 +428,8 @@
       "not_submitted": "Fiche non soumise",
       "no_plan": "Pas de fiche"
     },
-    "nowLink": "Qui enseigne quoi maintenant ?",
-    "nowTitle": "Les cours en ce moment",
+    "nowLink": "Où est chaque enseignant maintenant ?",
+    "nowTitle": "Où est chaque enseignant maintenant",
     "nowHelp": "Tous les cours de l'emploi du temps du jour choisi, avec la leçon qui devrait être enseignée selon la fiche de progression, la leçon réellement atteinte, et si le cours a été enregistré comme fait.",
     "pickDay": "Choisir un jour",
     "prevDay": "Jour précédent",
@@ -446,7 +446,9 @@
     "notRecorded": "Non enregistré",
     "nowBadge": "maintenant",
     "examPaused": "période d'examen, les cours s'arrêtent.",
-    "examContinues": "période d'examen, les cours continuent."
+    "examContinues": "période d'examen, les cours continuent.",
+    "presence": "Présent (scanner)",
+    "nowHelpScanner": "« Présent » vient du scanner d’empreintes : il indique si l’enseignant a pointé pour ce cours."
   },
   "plans": {
     "title": "Fiches de progression",

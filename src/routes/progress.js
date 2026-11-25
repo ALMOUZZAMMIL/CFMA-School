@@ -6,6 +6,7 @@ const db = require('../db');
 const access = require('../access');
 const auth = require('../auth');
 const reports = require('../reports');
+const scanner = require('../scanner');
 const { Validator, int, str, isDate, isTime, weekday, addDays } = require('../util');
 
 const r = express.Router();
@@ -64,9 +65,9 @@ r.get('/progress', auth.requireRole('admin', 'teacher'), (req, res) => {
 });
 
 // Current time (HH:MM) in the school's time zone.
+// (scanner.nowIn also follows the frozen demo clock, so both halves of the page agree.)
 function nowTime(timezone) {
-  const parts = new Intl.DateTimeFormat('en-GB', { timeZone: timezone, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
-  return `${parts.find((x) => x.type === 'hour').value}:${parts.find((x) => x.type === 'minute').value}`;
+  return scanner.nowIn(timezone).time.slice(0, 5);
 }
 
 // "Who should be teaching what, right now?" Every timetable slot of one day with the lesson
@@ -90,6 +91,10 @@ r.get('/progress/now', auth.requireRole('admin'), (req, res) => {
     LEFT JOIN class_sessions cs ON cs.slot_id = ts.id AND cs.date = @date
     WHERE c.year_id = @year AND t.start_date <= @date AND t.end_date >= @date AND ts.day_of_week = @dow
     ORDER BY ts.start_time, c.name`).all({ year: year.id, date, dow: weekday(date) });
+  // Did the teacher scan in for this lesson? (fingerprint scanner; nothing shown before it is in use)
+  if (!closed && date <= today) scanner.recomputeDate(date);
+  const scans = new Map(closed ? [] : scanner.board(date).map((b) => [b.id, b]));
+  const scannerOn = !!settings.scanner_start_date && settings.scanner_start_date <= date;
   const cache = new Map();
   const rows = slots.map((sl) => {
     if (!cache.has(sl.assignment_id)) {
@@ -97,14 +102,15 @@ r.get('/progress/now', auth.requireRole('admin'), (req, res) => {
       cache.set(sl.assignment_id, { p, status: reports.curriculumStatus(p, settings) });
     }
     const x = cache.get(sl.assignment_id);
-    return { sl, p: x.p, status: x.status, now: !!time && sl.start_time <= time && time < sl.end_time, past: !!time && sl.end_time <= time };
+    const sc = scans.get(sl.id);
+    return { sl, p: x.p, status: x.status, scan: scannerOn && sc ? { state: sc.state, late: sc.late, early: sc.early, lateMin: sc.lesson ? sc.lesson.late_min : 0, earlyMin: sc.lesson ? sc.lesson.early_min : 0 } : null, now: !!time && sl.start_time <= time && time < sl.end_time, past: !!time && sl.end_time <= time };
   });
   const days = [];
   const monday = addDays(date, 1 - weekday(date));
   for (let i = 0; i < 6; i++) days.push(addDays(monday, i));
   res.render('progress/now', {
     title: req.t('progress.nowTitle'), rows, date, time, today, closed, days, exams,
-    prev: addDays(date, -1), next: addDays(date, 1), current: rows.filter((x) => x.now),
+    prev: addDays(date, -1), next: addDays(date, 1), current: rows.filter((x) => x.now), scannerOn,
   });
 });
 

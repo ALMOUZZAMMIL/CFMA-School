@@ -170,6 +170,11 @@ test('scanner flow: device approval, staff numbers, lessons recorded, teachers c
   assert.strictEqual(session.status, 'held');
   assert.strictEqual(session.source, 'scanner');
   assert.strictEqual(q('SELECT state FROM scan_lessons WHERE slot_id = ? AND date = ?', first.id, date).state, 'done');
+  // The "where is each teacher now" page shows the scan next to the progression sheet.
+  const nowPage = await admin.get(`/progress/now?date=${date}`);
+  assert.strictEqual(nowPage.status, 200);
+  assert.match(nowPage.text, /Présent \(scanner\)|Present \(scanner\)/);
+  assert.match(nowPage.text, /Terminé|Finished/);
 
   // 4. Scans can never be changed or deleted, even directly in the database.
   assert.throws(() => d.prepare("UPDATE scans SET scanned_at = '2000-01-01 00:00:00' WHERE pin = '41'").run(), /cannot be changed/);
