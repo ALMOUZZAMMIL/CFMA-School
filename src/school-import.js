@@ -74,11 +74,17 @@ function importCalendar(d, cal, stats) {
   }
   // The calendar file is the source of truth for the year's events: replace them as a whole.
   if (cal.events) {
-    d.prepare('DELETE FROM school_events WHERE year_id = ?').run(year.id);
-    const ins = d.prepare(`INSERT INTO school_events (year_id, start_date, end_date, category, title_fr, title_en, audience_fr, audience_en, venue, note)
-      VALUES (@year_id, @start_date, @end_date, @category, @title_fr, @title_en, @audience_fr, @audience_en, @venue, @note)`);
+    // Events added in the app (source 'admin', e.g. exam periods) are kept, and so is the
+    // administration's choice of whether lessons pause during an imported exam period.
+    const pauses = new Map(d.prepare("SELECT start_date, end_date, title_fr, pauses_lessons FROM school_events WHERE year_id = ? AND source = 'import'").all(year.id)
+      .map((e) => [`${e.start_date}|${e.end_date}|${e.title_fr}`, e.pauses_lessons]));
+    d.prepare("DELETE FROM school_events WHERE year_id = ? AND source = 'import'").run(year.id);
+    const ins = d.prepare(`INSERT INTO school_events (year_id, start_date, end_date, category, title_fr, title_en, audience_fr, audience_en, venue, note, pauses_lessons)
+      VALUES (@year_id, @start_date, @end_date, @category, @title_fr, @title_en, @audience_fr, @audience_en, @venue, @note, @pauses)`);
     for (const e of cal.events) {
-      ins.run({ year_id: year.id, start_date: e.start_date, end_date: e.end_date || e.start_date, category: e.category || 'other', title_fr: e.title_fr, title_en: e.title_en, audience_fr: e.audience_fr || null, audience_en: e.audience_en || null, venue: e.venue || null, note: e.check || null });
+      const end = e.end_date || e.start_date;
+      const kept = pauses.get(`${e.start_date}|${end}|${e.title_fr}`);
+      ins.run({ year_id: year.id, start_date: e.start_date, end_date: end, category: e.category || 'other', title_fr: e.title_fr, title_en: e.title_en, audience_fr: e.audience_fr || null, audience_en: e.audience_en || null, venue: e.venue || null, note: e.check || null, pauses: kept === undefined ? 1 : kept });
       stats.events++;
     }
   }
@@ -182,7 +188,9 @@ function importProgramme(d, p, yearId, stats, log) {
   const subjectId = upsertSubject(d, { code: p.subject, name_fr: p.subject_fr || p.subject, name_en: p.subject_en || p.subject }, stats);
   const terms = d.prepare('SELECT id, ordinal FROM terms WHERE year_id = ?').all(yearId);
   const termId = (n) => (terms.find((t) => t.ordinal === n) || {}).id || null;
-  let plan = d.prepare('SELECT id FROM plans WHERE year_id = ? AND section_id = ? AND level = ? AND subject_id = ?').get(yearId, sectionId, p.level, subjectId);
+  let plan = d.prepare('SELECT id, submitted_by FROM plans WHERE year_id = ? AND section_id = ? AND level = ? AND subject_id = ?').get(yearId, sectionId, p.level, subjectId);
+  // A sheet a teacher wrote and locked is never overwritten by an import.
+  if (plan && plan.submitted_by) { stats.plansSkipped++; log(`Skipped ${p.file}: a teacher submitted and locked this sheet.`); return; }
   if (plan) {
     // Never rewrite a programme teachers have already recorded progress against.
     const used = d.prepare(`SELECT 1 FROM progress_entries pe JOIN plan_lessons l ON l.id = pe.lesson_id JOIN plan_chapters c ON c.id = l.chapter_id

@@ -2,6 +2,18 @@
 // Calculations for teaching hours and lesson progress. Kept separate from routes so they
 // can be tested and reused by printable views and CSV exports.
 const db = require('./db');
+const schoolDays = require('./school-days');
+
+// The school calendar changes rarely; keep it for a few seconds so a page listing hundreds of
+// classes does not rebuild it for each one.
+const calCache = new Map();
+function schoolCalendar(yearId) {
+  const hit = calCache.get(yearId);
+  if (hit && Date.now() - hit.at < 5000) return hit.cal;
+  const cal = schoolDays.calendar(yearId);
+  calCache.set(yearId, { at: Date.now(), cal });
+  return cal;
+}
 const { minutesBetween, weekday, eachDate } = require('./util');
 
 function closedDates(yearId) {
@@ -65,8 +77,11 @@ function hoursSummary({ yearId, termId, teacherId, classId, subjectId, asOf }) {
     const m = { held: 0, missed: 0, cancelled: 0, makeup: 0 };
     let recordedScheduled = 0;
     let makeupPending = 0;
+    let scannedMin = 0;
     for (const s of sessions) {
       m[s.status] += minutesBetween(s.start_time, s.end_time);
+      // Held lessons backed by a fingerprint scan (or a correction an admin approved).
+      if (s.status === 'held' && s.source && s.source !== 'manual') scannedMin += minutesBetween(s.start_time, s.end_time);
       if (s.slot_id && scheduledKeys.has(`${s.slot_id}|${s.date}`)) recordedScheduled++;
       if ((s.status === 'missed' || s.status === 'cancelled') && s.makeup_status === 'planned') makeupPending++;
     }
@@ -75,6 +90,7 @@ function hoursSummary({ yearId, termId, teacherId, classId, subjectId, asOf }) {
       ...a,
       scheduled: h(scheduledMin),
       held: h(m.held),
+      scanned: h(scannedMin),
       missed: h(m.missed),
       cancelled: h(m.cancelled),
       makeup: h(m.makeup),
@@ -115,6 +131,10 @@ function progressFor(a, asOf) {
     if (l.progress && l.progress.status === 'completed') completed++;
   });
   const plannedToDate = plannedIndex + 1;
+  // The oldest lesson that was due by asOf and is not finished: how long the class has waited for it.
+  const oldestLate = lessons.find((l) => l.isLate) || null;
+  // Counted in school days: weekends, holidays and exam periods do not make a class later.
+  const daysBehind = oldestLate ? schoolCalendar(a.year_id).between(oldestLate.planned_date, asOf) : 0;
   return {
     plan,
     chapters,
@@ -125,10 +145,37 @@ function progressFor(a, asOf) {
     plannedLesson: plannedIndex >= 0 ? lessons[plannedIndex] : null,
     actualLesson: actualIndex >= 0 ? lessons[actualIndex] : null,
     gap: completed - plannedToDate, // negative = behind the plan
+    lateCount: lessons.filter((l) => l.isLate).length,
+    oldestLate,
+    daysBehind,
+    // The lesson the class should be on now: the first unfinished lesson (late or next due).
+    shouldBeOn: oldestLate || lessons.find((l) => !l.progress || l.progress.status !== 'completed') || null,
     pct: lessons.length ? Math.round((completed / lessons.length) * 100) : 0,
     plannedPct: lessons.length ? Math.round((plannedToDate / lessons.length) * 100) : 0,
   };
 }
+
+/**
+ * Curriculum status of one progress result, from the school's settings:
+ *   no_plan     no progression sheet for this class and subject
+ *   not_submitted  the sheet is still a draft (not locked), so it cannot be tracked yet
+ *   on_track    nothing overdue by more than progress_grace_days (school days)
+ *   behind      the oldest unfinished lesson was due more than progress_grace_days ago
+ *   far_behind  ... more than progress_alert_days ago
+ *   ahead       more lessons completed than planned so far
+ */
+function curriculumStatus(p, settings) {
+  if (!p.plan || !p.total) return 'no_plan';
+  if (p.plan.status === 'draft') return 'not_submitted';
+  const grace = Number(settings.progress_grace_days) || 5;
+  const alert = Math.max(Number(settings.progress_alert_days) || 15, grace);
+  if (p.daysBehind > alert) return 'far_behind';
+  if (p.daysBehind > grace) return 'behind';
+  if (p.gap > 0) return 'ahead';
+  return 'on_track';
+}
+
+const STATUS_ORDER = { far_behind: 0, behind: 1, on_track: 2, ahead: 3, not_submitted: 4, no_plan: 5 };
 
 // Students with repeated absences or lateness in the last `days` days.
 function repeatedAbsences({ yearId, threshold, days, asOf, classId }) {
@@ -144,4 +191,4 @@ function repeatedAbsences({ yearId, threshold, days, asOf, classId }) {
     .all({ yearId, from, asOf, threshold, classId });
 }
 
-module.exports = { hoursSummary, progressFor, repeatedAbsences, slotOccurrences, closedDates };
+module.exports = { hoursSummary, progressFor, curriculumStatus, STATUS_ORDER, repeatedAbsences, slotOccurrences, closedDates };

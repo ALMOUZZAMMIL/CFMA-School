@@ -5,8 +5,10 @@ const crypto = require('crypto');
 const db = require('../db');
 const access = require('../access');
 const timetableGrid = require('../timetable-grid');
+const reports = require('../reports');
 const auth = require('../auth');
 const { Validator, int, str, isDate, weekday, minutesBetween } = require('../util');
+const scanner = require('../scanner');
 
 const r = express.Router();
 // Router-level guard (defence in depth): every path below also checks its role itself.
@@ -24,6 +26,15 @@ function slotsForDay(teacherId, date) {
     ORDER BY ts.start_time, u.full_name`).all({ tid: teacherId, date, dow: weekday(date) });
 }
 
+// Once the fingerprint scanner is in use, teachers no longer type in timetabled lessons:
+// the scans record them, and anything wrong goes through a correction request.
+function scannerLocked(user, date) {
+  if (!user || user.role !== 'teacher') return false;
+  const settings = db.getSettings();
+  if (settings.scanner_lock_manual !== '1') return false;
+  return scanner.scannerInUse(db.get().prepare('SELECT scanner_pin FROM users WHERE id = ?').get(user.id), date, settings);
+}
+
 function closureOn(date) {
   return db.get().prepare('SELECT * FROM closures WHERE ? BETWEEN start_date AND end_date LIMIT 1').get(date);
 }
@@ -35,6 +46,7 @@ r.get('/teaching', auth.requireRole('admin', 'teacher'), (req, res) => {
   const teachers = req.user.role === 'admin' ? db.get().prepare("SELECT id, full_name FROM users WHERE role = 'teacher' AND active = 1 ORDER BY full_name").all() : [];
   res.render('teaching/day', {
     title: req.t('teaching.dayTitle'), date, teacherId, teachers, slots: slotsForDay(teacherId, date), closure: closureOn(date),
+    scannerLocked: scannerLocked(req.user, date),
   });
 });
 
@@ -75,8 +87,25 @@ r.get('/timetable', (req, res) => {
   }
   let bell = null;
   try { bell = JSON.parse((db.get().prepare("SELECT value FROM settings WHERE key = 'bell_schedule'").get() || {}).value || 'null'); } catch (e) { bell = null; }
+  // Staff see, in each lesson, where the class is in its progression sheet today.
+  if (req.user.role === 'admin' || req.user.role === 'teacher') {
+    const settings = db.getSettings();
+    const cache = new Map();
+    for (const sl of slots) {
+      if (!cache.has(sl.assignment_id)) {
+        const a = access.assignment(sl.assignment_id);
+        const p = reports.progressFor(a, today);
+        cache.set(sl.assignment_id, { p, status: reports.curriculumStatus(p, settings) });
+      }
+      Object.assign(sl, { track: cache.get(sl.assignment_id) });
+    }
+  }
+  // Exam periods of the term shown, so everyone sees them next to the lessons.
+  const term = terms.find((t) => t.id === termId);
+  const exams = term ? db.get().prepare(`SELECT * FROM school_events WHERE year_id = ? AND category = 'evaluation'
+    AND start_date <= ? AND COALESCE(end_date, start_date) >= ? ORDER BY start_date`).all(year.id, term.end_date, term.start_date) : [];
   const grid = timetableGrid.build(slots, bell);
-  res.render('timetable', { title: req.t('nav.timetable'), slots, grid, terms, termId, query: req.query, ...extra });
+  res.render('timetable', { title: req.t('nav.timetable'), slots, grid, terms, termId, query: req.query, exams, today, ...extra });
 });
 
 function sessionForm(req, res, { session, errors = [], status = 200 }) {
@@ -95,6 +124,7 @@ r.get('/sessions/new', auth.requireRole('admin', 'teacher'), (req, res) => {
     if (!slot) return auth.notFound(req, res);
     const existing = db.get().prepare('SELECT id FROM class_sessions WHERE slot_id = ? AND date = ?').get(slotId, date);
     if (existing) return res.redirect(`/sessions/${existing.id}`);
+    if (scannerLocked(req.user, date)) { res.flash('info', 'scanner.manualLocked'); return res.redirect(`/my-scans?date=${date}`); }
     session = { assignment_id: slot.assignment_id, slot_id: slot.id, date, start_time: slot.start_time, end_time: slot.end_time, status: 'held', makeup_status: 'none' };
   } else {
     const aid = int(req.query.assignment);
@@ -162,6 +192,10 @@ r.post('/sessions', auth.requireRole('admin', 'teacher'), (req, res) => {
     const dup = db.get().prepare('SELECT id FROM class_sessions WHERE client_uuid = ?').get(values.client_uuid);
     if (dup) return res.redirect(`/sessions/${dup.id}`);
   }
+  if (values.slot_id && isDate(values.date) && scannerLocked(req.user, values.date)) {
+    res.flash('info', 'scanner.manualLocked');
+    return res.redirect(`/my-scans?date=${values.date}`);
+  }
   if (values.slot_id && db.get().prepare('SELECT 1 FROM class_sessions WHERE slot_id = ? AND date = ?').get(values.slot_id, values.date)) {
     v.errors.push({ field: 'date', key: 'teaching.alreadyRecorded' });
   }
@@ -203,9 +237,13 @@ r.get('/sessions/:id', auth.requireRole('admin', 'teacher'), (req, res) => {
   res.render('teaching/session-view', { title: req.t('teaching.sessionTitle'), s: found.s, a: found.a, history, makeups, original });
 });
 
+// Lessons recorded by the scanner (or an approved correction) can only be changed by an admin.
+const teacherBlocked = (req, s) => req.user.role === 'teacher' && s.source !== 'manual';
+
 r.get('/sessions/:id/edit', auth.requireRole('admin', 'teacher'), (req, res) => {
   const found = loadSession(req);
   if (!found) return auth.notFound(req, res);
+  if (teacherBlocked(req, found.s)) { res.flash('info', 'scanner.sessionLocked'); return res.redirect(`/sessions/${found.s.id}`); }
   sessionForm(req, res, { session: found.s });
 });
 
@@ -213,6 +251,7 @@ r.get('/sessions/:id/edit', auth.requireRole('admin', 'teacher'), (req, res) => 
 r.post('/sessions/:id', auth.requireRole('admin', 'teacher'), (req, res) => {
   const found = loadSession(req);
   if (!found) return auth.notFound(req, res);
+  if (teacherBlocked(req, found.s)) return auth.forbidden(req, res);
   const { values, v } = readSessionForm({ ...req.body, slot_id: found.s.slot_id, makeup_for_session_id: found.s.makeup_for_session_id, client_uuid: found.s.client_uuid }, found.a);
   if (found.s.slot_id) values.date = found.s.date; // a scheduled session stays on its date
   const changeReason = str(req.body.change_reason, 500);

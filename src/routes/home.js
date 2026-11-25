@@ -124,7 +124,7 @@ r.get('/', (req, res) => {
     data.hours = sumHours(summary.rows);
     ['scheduled', 'delivered', 'missed'].forEach((k) => { data.hours[k] = round1(data.hours[k]); });
     data.myProgress = access.teacherAssignments(u.id, year.id)
-      .map((a) => ({ a, p: reports.progressFor({ ...a, year_id: year.id }, today) }))
+      .map((a) => { const p = reports.progressFor({ ...a, year_id: year.id }, today); return { a, p, status: reports.curriculumStatus(p, db.getSettings()) }; })
       .filter((x) => x.p.plan);
   }
   if (u.role === 'admin' && year) {
@@ -150,10 +150,10 @@ r.get('/', (req, res) => {
     data.behind = d.prepare(`SELECT ta.*, c.name AS class_name, c.level, c.section_id, c.year_id, s.name_en AS subject_en, s.name_fr AS subject_fr, u.full_name AS teacher_name
       FROM teaching_assignments ta JOIN classes c ON c.id = ta.class_id JOIN subjects s ON s.id = ta.subject_id JOIN users u ON u.id = ta.teacher_id
       WHERE c.year_id = ?`).all(year.id)
-      .map((a) => ({ a, p: reports.progressFor(a, today) }))
-      .filter((x) => x.p.plan && x.p.total)
-      .sort((x, y) => x.p.gap - y.p.gap || x.p.pct - y.p.pct)
-      .slice(0, 5);
+      .map((a) => { const p = reports.progressFor(a, today); return { a, p, status: reports.curriculumStatus(p, s) }; })
+      .filter((x) => x.p.plan && x.p.total);
+    data.behindCount = data.behind.filter((x) => x.status === 'behind' || x.status === 'far_behind').length;
+    data.behind = data.behind.sort((x, y) => reports.STATUS_ORDER[x.status] - reports.STATUS_ORDER[y.status] || y.p.daysBehind - x.p.daysBehind || x.p.gap - y.p.gap).slice(0, 5);
   }
   if ((u.role === 'parent' || u.role === 'student') && year) {
     const ids = access.visibleStudentIds(u);

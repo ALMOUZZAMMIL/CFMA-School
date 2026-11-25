@@ -104,6 +104,8 @@ d.transaction(() => {
   const tLang = user('demo.prof.lettres', 'Mme Prof-Lettres DÉMO', 'teacher', 'fr');
   const tTech = user('demo.prof.tech', 'M. Prof-Tech DÉMO', 'teacher', 'fr');
   const tEng = user('demo.teacher.eng', 'Mrs Teacher-English DEMO', 'teacher', 'en');
+  // Staff numbers as typed on the fingerprint scanner (demo). Fingerprints themselves never reach the portal.
+  [tMath, tLang, tTech, tEng].forEach((id, i) => d.prepare('UPDATE users SET scanner_pin = ? WHERE id = ?').run(String(101 + i), id));
   user('demo.intendant', 'Intendant DÉMO', 'bursar', 'fr');
 
   const assign = (tid, cid, sid) => Number(d.prepare('INSERT INTO teaching_assignments (teacher_id, class_id, subject_id) VALUES (?, ?, ?)').run(tid, cid, sid).lastInsertRowid);
@@ -230,6 +232,57 @@ d.transaction(() => {
     const next = due[Math.max(0, due.length - lag)];
     if (next && lag > 0) d.prepare('INSERT INTO progress_entries (assignment_id, lesson_id, date, status, notes, recorded_by) VALUES (?, ?, ?, ?, ?, ?)').run(a.id, next.id, end, lag > 1 ? 'delayed' : 'in_progress', lag > 1 ? 'Cours manqués à rattraper (démo)' : null, a.teacher_id);
   }
+
+  // One class far behind (no lesson finished for four weeks), to show the alert.
+  d.prepare(`DELETE FROM progress_entries WHERE assignment_id = ? AND lesson_id IN (SELECT id FROM plan_lessons WHERE planned_date > ?)`).run(A.engF4, addDays(end, -30));
+
+  // Progression sheets: locking and change requests (demo).
+  const audit = (planId, action, userId, when, { before, after, reason } = {}) => d.prepare(`INSERT INTO audit_log (entity, entity_id, action, user_id, reason, before_json, after_json, at)
+    VALUES ('plan', ?, ?, ?, ?, ?, ?, ?)`).run(planId, action, userId, reason || null, before ? JSON.stringify(before) : null, after ? JSON.stringify(after) : null, when);
+  const stamp = (days, time) => `${addDays(today, days)} ${time}`;
+  const planId = (title) => d.prepare('SELECT id FROM plans WHERE title = ?').get(title).id;
+  // a) Mathematics 2nde C: submitted by the teacher in September, one change approved later.
+  const pMath2C = planId('Mathématiques — Seconde C (exemple)');
+  d.prepare('UPDATE plans SET created_by = ?, submitted_by = ?, submitted_at = ? WHERE id = ?').run(tMath, tMath, '2026-09-10 16:20:00', pMath2C);
+  audit(pMath2C, 'create', tMath, '2026-09-08 18:02:00', { after: { title: 'Mathématiques — Seconde C (exemple)' } });
+  audit(pMath2C, 'submitted', tMath, '2026-09-10 16:20:00', { after: { lessons: 17 } });
+  const moved = d.prepare(`SELECT l.* FROM plan_lessons l JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE ch.plan_id = ? ORDER BY ch.ordinal DESC, l.ordinal DESC LIMIT 1`).get(pMath2C);
+  const rq1 = Number(d.prepare(`INSERT INTO plan_change_requests (plan_id, requested_by, reason, status, decided_by, decided_at, decision_note, window_hours, closed_at, created_at)
+    VALUES (?, ?, ?, 'closed', ?, ?, ?, 48, ?, ?)`).run(pMath2C, tMath, 'Leçon 5.3 à décaler d’une semaine : examens blancs (démo).', admin, stamp(-20, '09:15:00'), 'Accordé pour 48 h.', stamp(-20, '17:40:00'), stamp(-21, '14:05:00')).lastInsertRowid);
+  audit(pMath2C, 'request_sent', tMath, stamp(-21, '14:05:00'), { reason: 'Leçon 5.3 à décaler d’une semaine : examens blancs (démo).', after: { request_id: rq1 } });
+  audit(pMath2C, 'request_approved', admin, stamp(-20, '09:15:00'), { reason: 'Accordé pour 48 h.', after: { request_id: rq1, teacher: 'M. Prof-Maths DÉMO', until: stamp(-18, '09:15:00'), hours: 48 } });
+  const newDate = addDays(moved.planned_date, 7);
+  d.prepare('UPDATE plan_lessons SET planned_date = ? WHERE id = ?').run(newDate, moved.id);
+  audit(pMath2C, 'lesson_changed', tMath, stamp(-20, '17:32:00'), { before: { lesson_id: moved.id, title: moved.title, planned_date: moved.planned_date, planned_hours: moved.planned_hours }, after: { lesson_id: moved.id, title: moved.title, planned_date: newDate, planned_hours: moved.planned_hours } });
+  audit(pMath2C, 'relocked', tMath, stamp(-20, '17:40:00'), { after: { lessons: 17 } });
+  // b) Mathematics Première F3: locked, a change request is waiting for the administration.
+  const pMath1F3 = planId('Mathématiques — Première F3 (exemple)');
+  d.prepare('UPDATE plans SET created_by = ?, submitted_by = ?, submitted_at = ? WHERE id = ?').run(tMath, tMath, '2026-09-11 08:45:00', pMath1F3);
+  audit(pMath1F3, 'submitted', tMath, '2026-09-11 08:45:00', { after: { lessons: 17 } });
+  const rq2 = Number(d.prepare('INSERT INTO plan_change_requests (plan_id, requested_by, reason, created_at) VALUES (?, ?, ?, ?)')
+    .run(pMath1F3, tMath, 'Ajouter une leçon de révision avant le chapitre 4 : la classe a besoin de remise à niveau (démo).', stamp(-1, '15:30:00')).lastInsertRowid);
+  audit(pMath1F3, 'request_sent', tMath, stamp(-1, '15:30:00'), { reason: 'Ajouter une leçon de révision avant le chapitre 4 : la classe a besoin de remise à niveau (démo).', after: { request_id: rq2 } });
+  // c) Physics 2nde C: the teacher is still writing it (draft, not yet locked).
+  const pPhys = Number(d.prepare("INSERT INTO plans (year_id, section_id, level, subject_id, title, created_by, status) VALUES (?, ?, '2nde C', ?, ?, ?, 'draft')")
+    .run(year, GEN, PHYS, 'Physique-Chimie — Seconde C (brouillon, exemple)', tMath).lastInsertRowid);
+  audit(pPhys, 'create', tMath, stamp(-2, '19:10:00'), { after: { title: 'Physique-Chimie — Seconde C (brouillon, exemple)' } });
+  [['Chapitre 1 : Mesures et incertitudes (démo)', ['Leçon 1.1', 'Leçon 1.2'], t1], ['Chapitre 2 : Le mouvement (démo)', ['Leçon 2.1', 'Leçon 2.2', 'Leçon 2.3'], t1]].forEach(([title, ls, termId], ci) => {
+    const cid = Number(d.prepare('INSERT INTO plan_chapters (plan_id, term_id, ordinal, title) VALUES (?, ?, ?, ?)').run(pPhys, termId, ci + 1, title).lastInsertRowid);
+    ls.forEach((l, li) => d.prepare('INSERT INTO plan_lessons (chapter_id, ordinal, title, planned_date, planned_hours) VALUES (?, ?, ?, ?, ?)').run(cid, li + 1, l, addDays('2026-09-14', (ci * 2 + li) * 7), 2));
+  });
+  audit(pPhys, 'lesson_added', tMath, stamp(-2, '19:25:00'), { after: { title: 'Leçon 2.3', planned_date: addDays('2026-09-14', 28) } });
+
+  // Exam timetable (demo): an exam week in two weeks' time; lessons stop during it.
+  const monday = addDays(today, 1 - weekday(today));
+  d.prepare(`INSERT INTO school_events (year_id, start_date, end_date, category, title_fr, title_en, pauses_lessons, source)
+    VALUES (?, ?, ?, 'evaluation', 'Évaluations de fin de trimestre (démo)', 'End-of-term tests (demo)', 1, 'admin')`).run(year, addDays(monday, 14), addDays(monday, 18));
+  // Upload window for the next term's progression sheets: open now (demo).
+  d.prepare('UPDATE terms SET plan_window_start = ?, plan_window_end = ? WHERE id = ?').run(addDays(today, -7), addDays(today, 14), t2);
+  // The draft sheet uses durations; its dates are worked out from them (skipping the exam week).
+  const durs = [[5, 5], [5, 10], [2, 2], [5, 5], [10, 15]];
+  d.prepare('SELECT l.id FROM plan_lessons l JOIN plan_chapters c ON c.id = l.chapter_id WHERE c.plan_id = ? ORDER BY c.ordinal, l.ordinal').all(pPhys)
+    .forEach((l, i) => d.prepare('UPDATE plan_lessons SET duration_days = ?, duration_max_days = ? WHERE id = ?').run(durs[i % durs.length][0], durs[i % durs.length][1], l.id));
+  require('../src/school-days').schedulePlan(d.prepare('SELECT * FROM plans WHERE id = ?').get(pPhys), () => true);
 
   // Announcements.
   const ann = (cat, tfr, bfr, ten, ben, audience, classId, publishAt) => d.prepare(`INSERT INTO announcements (category, title_fr, body_fr, title_en, body_en, audience, class_id, publish_at, status, created_by)
