@@ -1,0 +1,303 @@
+{
+ "section": "GEN",
+ "level": "2nde A",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 2nde A",
+ "source": "Projet pédagogique 2026/2027, Seconde littéraire, 5 h/semaine, 6 séquences de 30 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Le plan détaillé de dissertation",
+   "lessons": [
+    {
+     "title": "Les Tribus de Capitoline : étude des paratextes et d'un texte ouvroir",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Le texte narratif : caractéristiques",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dissertation : analyse d'un sujet (identification du problème, problématique), plans analytique et dialectique",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les facteurs de la communication",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Les types de phrase obligatoires",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "La notion de mot, unité lexicale",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Dissertation : recherche des idées",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Les fonctions du langage",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le sens des mots : dénotation et connotation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le texte argumentatif : caractéristiques",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Dissertation : élaboration d'un plan détaillé",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Les Tribus de Capitoline : contrôle de lecture et compte rendu",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – La rédaction de la dissertation",
+   "lessons": [
+    {
+     "title": "Le texte argumentatif : les stratégies argumentatives",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction de l'introduction et du paragraphe (idée principale, argument, exemple, citations, transitions)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Les registres de langue : familier et courant",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Exposé suivi d'un débat : préparation",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Dissertation : rédaction du paragraphe (production et amélioration)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Les notions de progression, de cohésion et de cohérence du texte",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Exposé suivi d'un débat : présenter l'exposé et mener un débat",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Dissertation : rédaction de la conclusion",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Les Tribus de Capitoline : inscription de l'œuvre dans son contexte, bilan et évaluation de l'étude",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Tartuffe : étude des paratextes et d'un texte ouvroir",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "La communication verbale et non verbale",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Le résumé de texte",
+   "lessons": [
+    {
+     "title": "L'énonciation : les marques explicites",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Les types de phrase : les types facultatifs",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Le texte théâtral : caractéristiques",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative et techniques de réduction",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Tartuffe : contrôle de lecture et compte rendu",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Le texte injonctif : caractéristiques",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Contraction de texte : techniques de rédaction et rédaction du résumé",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Les connecteurs logiques",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Le débat : préparer un débat autour d'un thème et y participer",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Tartuffe : inscription de l'œuvre dans son contexte et bilan de l'étude",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Les tons : comique et dramatique",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 4 – La contraction de texte : l'analyse",
+   "lessons": [
+    {
+     "title": "Tartuffe : évaluation de l'étude de l'œuvre intégrale",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Groupement de textes : présentation de l'exercice",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Les registres de langue : le registre soutenu",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Les figures d'analogie (comparaison, métaphore, personnification)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative et techniques de réduction",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Les relations lexicales et sémantiques : synonymie, antonymie",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Le texte descriptif : caractéristiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Contraction de texte : techniques de rédaction de l'analyse",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Le mode indicatif : valeur des temps simples",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Contraction de texte : rédaction et amélioration de l'analyse",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Groupement de textes : bilan de l'étude",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Œuvre poétique : étude des paratextes, fiche de lecture et consignes de lecture",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Les relations lexicales et sémantiques : champ lexical et champ sémantique",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 5 – Le plan de commentaire composé",
+   "lessons": [
+    {
+     "title": "Les codes de la communication par Internet",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les emprunts",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les figures d'opposition : antithèse, chiasme, oxymore",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Commentaire composé : analyse de la consigne et lecture méthodique du texte",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "La phrase verbale et la phrase non verbale",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Les procédés de formation des mots : la dérivation",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Le texte poétique : éléments de métrique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Commentaire composé : idée générale, centres d'intérêt et plan détaillé",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Œuvre poétique : test de lecture, compte rendu et négociation du projet d'étude",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Les procédés de formation des mots : la composition",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Les tons : lyrique et pathétique",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Les figures d'amplification et d'atténuation : hyperbole, litote, euphémisme",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 6 – L'introduction et la conclusion du commentaire composé",
+   "lessons": [
+    {
+     "title": "L'indicatif : les valeurs des temps composés",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Commentaire composé : rédaction et amélioration de l'introduction",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Œuvre poétique : inscription dans son contexte, bilan et évaluation de l'étude",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Les relations lexicales : paronymie, antonymie",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Commentaire composé : rédaction et amélioration de la conclusion",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

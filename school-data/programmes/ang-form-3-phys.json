@@ -1,0 +1,273 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "PHYS",
+ "subject_fr": "Physique",
+ "subject_en": "Physics",
+ "title": "Physics – Form 3",
+ "source": "National harmonised progression by week, 2 periods/week, 50 hours a year",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module I · Physical quantities",
+   "lessons": [
+    {
+     "title": "Definitions, examples and units of physical quantities; scalar and vector quantities",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Prefixes and standard form; basic equipment for the study of force (newton meter, balance, springs, masses)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Safety rules for working with equipment; comparison between mass and weight",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Measurement of mass and conversions between units of mass",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Measurement of volume, temperature and time",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module II · Density",
+   "lessons": [
+    {
+     "title": "Definition, calculation and unit of density",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Experiments to measure the density of regular and irregular objects",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Applications of the density of a material in engineering works",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module II · Pressure",
+   "lessons": [
+    {
+     "title": "Definition, calculation and unit of pressure; factors that affect pressure in solids; applications",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Pressure in liquids: calculation, factors and characteristics",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Applications of pressure in liquids; hydraulic machines",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Atmospheric pressure and weather: demonstration, measurement and applications; pressure and health",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Effects of pressure on boiling point; applications of high pressure",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module II · Elasticity and Hooke's law",
+   "lessons": [
+    {
+     "title": "Definition of elasticity; elastic and non-elastic materials; Hooke's law and elastic limit",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "F–e graphs within the elastic limit; experimental demonstration of Hooke's law; where Hooke's law applies",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Forms and sources of energy",
+   "lessons": [
+    {
+     "title": "Definition and forms of energy",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Sources of energy; renewable and non-renewable sources",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Energy transformations",
+   "lessons": [
+    {
+     "title": "The law of conservation of energy and its application; transducers and energy flow diagrams",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Energy transformations; calculating potential (gravitational and elastic) and kinetic energy",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Work",
+   "lessons": [
+    {
+     "title": "Definition and calculation of work (force and displacement in the same direction); examples",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Power",
+   "lessons": [
+    {
+     "title": "Definition and calculation of power; power ratings of devices (electric iron, bulbs, motors)",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module III · Simple machines",
+   "lessons": [
+    {
+     "title": "Definition and advantages of a machine",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "MA, VR and efficiency, and the relationship between them",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Simple machines (lever, inclined plane, pulley, hydraulic machines): experiments and calculations",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Optics · Reflection of light",
+   "lessons": [
+    {
+     "title": "Description and propagation of light; rays and beams; luminous and non-luminous sources; transparent, translucent and opaque objects; shadows",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Definition and laws of reflection; experiment to show that i = r",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Image formation by plane mirrors: characteristics, uses and simple calculations; curved mirrors",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Optics · Refraction of light",
+   "lessons": [
+    {
+     "title": "Refraction in everyday life; definition of refraction",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Laws of refraction; refractive index and speed of light; experiment to find the refractive index of a glass block",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Effects of refraction in everyday life; real and apparent depth",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Total internal reflection: conditions, everyday occurrence, ray diagrams",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Uses of total internal reflection; problems using sin c = 1/n",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Optics · Lenses",
+   "lessons": [
+    {
+     "title": "Lens action, types of lenses and definition of terms",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Ray diagrams for principal foci of converging and diverging lenses; measuring the focal length of a converging lens",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Image formation by converging and diverging lenses; the lens formula and magnification",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Optics · Dispersion of light",
+   "lessons": [
+    {
+     "title": "Definition and demonstration of dispersion; forming a pure spectrum from white light; dispersion in nature",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module IV · Understanding how to go about a project",
+   "lessons": [
+    {
+     "title": "Technical drawing: general notions; two-dimensional diagrams and orthogonal representation",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Types of technical projects and their elements; steps in planning a project",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Advantages of the project; feasibility studies; the energy components of a simple technical object",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Technical diagrams; movement of parts relative to others (guides, reducing friction)",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module IV · Investigating forces",
+   "lessons": [
+    {
+     "title": "New words; carrying out a project; uses and limits of measuring instruments; why and how things move; mass and volume through measurements",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Observing colours of light on a CD or DVD and explaining them",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Observing a pencil in a glass of water; using the image to estimate the refractive index of water",
+     "date": "2027-04-19"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+<%- include('partials/head') %>
+<div class="page-head"><h1><%= t('exams.title') %></h1><a class="btn" href="/calendar"><%= t('nav.calendar') %></a></div>
+<p class="help"><%= t('exams.help') %></p>
+<section class="card">
+  <% if (!exams.length) { %><p class="muted"><%= t('exams.none') %></p><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.date') %></th><th><%= t('exams.name') %></th><th><%= t('exams.lessons') %></th><th></th></tr></thead>
+    <tbody><% exams.forEach(function (e) { %>
+      <tr class="<%= e.start_date <= today && (e.end_date || e.start_date) >= today ? 'is-now' : '' %>">
+        <td><%= fmt.date(e.start_date) %><%= e.end_date && e.end_date !== e.start_date ? ' – ' + fmt.date(e.end_date) : '' %></td>
+        <td><%= ln(e, 'title') %><% if (e.source === 'admin') { %> <span class="small muted">(<%= t('exams.addedHere') %>)</span><% } %></td>
+        <td>
+          <form method="post" action="/calendar/exams/<%= e.id %>/pause" class="row-form">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <select name="pauses_lessons" aria-label="<%= t('exams.lessons') %>"><option value="1" <%= e.pauses_lessons ? 'selected' : '' %>><%= t('exams.pause') %></option><option value="0" <%= e.pauses_lessons ? '' : 'selected' %>><%= t('exams.continue') %></option></select>
+            <button class="btn btn-small"><%= t('common.save') %></button>
+          </form>
+        </td>
+        <td><% if (e.source === 'admin') { %><form method="post" action="/calendar/exams/<%= e.id %>/delete" data-confirm="<%= t('exams.confirmDelete') %>"><input type="hidden" name="_csrf" value="<%= csrf %>"><button class="linkbtn danger"><%= t('common.delete') %></button></form><% } %></td>
+      </tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+</section>
+<section class="card" id="add-exam">
+  <h2><%= t('exams.add') %></h2>
+  <form method="post" action="/calendar/exams" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="grid-2">
+      <div><label for="ex-start"><%= t('exams.from') %></label><input id="ex-start" type="date" name="start_date" required></div>
+      <div><label for="ex-end"><%= t('exams.to') %></label><input id="ex-end" type="date" name="end_date"></div>
+      <div><label for="ex-fr"><%= t('exams.nameFr') %></label><input id="ex-fr" name="title_fr" maxlength="200" placeholder="Examens du 2e trimestre"></div>
+      <div><label for="ex-en"><%= t('exams.nameEn') %></label><input id="ex-en" name="title_en" maxlength="200" placeholder="Second term exams"></div>
+    </div>
+    <label for="ex-pause"><%= t('exams.lessons') %></label>
+    <select id="ex-pause" name="pauses_lessons"><option value="1"><%= t('exams.pause') %></option><option value="0"><%= t('exams.continue') %></option></select>
+    <button class="btn btn-primary"><%= t('exams.add') %></button>
+  </form>
+</section>
+<%- include('partials/foot') %>

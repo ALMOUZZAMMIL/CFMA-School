@@ -1,0 +1,121 @@
+{
+ "section": "TECH",
+ "level": "A1",
+ "subject": "ANGL",
+ "subject_fr": "Anglais",
+ "subject_en": "English Language",
+ "title": "Anglais A1 (1re année)",
+ "source": "Fiche de progression harmonisée nationale A1, 2026/2027",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – Using language to assert oneself as a responsible member of the nuclear and extended family and school community",
+   "lessons": [
+    {
+     "title": "Situation 1: Making new acquaintances (personal and possessive pronouns)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Situation 2: Discussing the nuclear family members (simple present of to be, to have, to do)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Situation 3: Discussing the extended family members (possessive adjectives, numerals)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Situation 4: Exploring classes and school subjects (articles a/an/the)",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – Using language to make informed choices on consumption of goods and services and explore jobs and professions",
+   "lessons": [
+    {
+     "title": "Situation 1: Identifying coins, notes, bills and amounts (demonstrative pronouns)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Situation 2: Asking for locations inside a market or supermarket (modals can/may)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Situation 3: Buying and selling goods and services (countable and uncountable nouns)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Situation 4: Finding out about common types of jobs and professions (have got; likes and dislikes)",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – Using language to explore times and seasons, attend to basic health and safety needs and have responsible feeding habits",
+   "lessons": [
+    {
+     "title": "Situation 1: Knowing the times, seasons and their activities (interrogative words)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Situation 2: Looking for and giving information on health and treating illnesses (imperatives)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Situation 3: Learning basic safety needs as a member of a health or environment club (simple past of to be, to have, to do)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Situation 4: Planning and preparing a balanced diet (sequence markers)",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 – Using language to fulfil the rights and duties of a child and basic civic duties",
+   "lessons": [
+    {
+     "title": "Situation 1: Exploring the rights and duties of a child (short descriptive adjectives)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Situation 2: Finding out about birth, nationality and marriages (plurals of countable nouns)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Situation 3: Finding out about the country's emblems (present forms of regular verbs)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Situation 4: Finding out about national holidays, customs and cultural practices (past forms of regular verbs)",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Using language to explore audio-visual and print media and keep abreast of modern technology",
+   "lessons": [
+    {
+     "title": "Situation 1: Keeping informed about local news, breaking news and current issues",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Situation 2: Keeping informed about entertainment through audio-visual and print media (simple adjectives)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Situation 3: Making and receiving phone calls, SMS and e-mails",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Situation 4: Using the computer",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}

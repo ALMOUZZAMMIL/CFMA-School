@@ -214,4 +214,18 @@
     });
     check();
   }
+
+  // Fingerprint scanner file: read the chosen attendance file into the text box, so it can be
+  // checked before sending (the page also works by pasting the file's contents).
+  Array.prototype.forEach.call(document.querySelectorAll('input[type=file][data-fill]'), function (input) {
+    var target = document.getElementById(input.getAttribute('data-fill'));
+    if (!target || typeof FileReader !== 'function') return;
+    input.addEventListener('change', function () {
+      var f = input.files && input.files[0];
+      if (!f) return;
+      var reader = new FileReader();
+      reader.onload = function () { target.value = String(reader.result || ''); };
+      reader.readAsText(f);
+    });
+  });
 })();

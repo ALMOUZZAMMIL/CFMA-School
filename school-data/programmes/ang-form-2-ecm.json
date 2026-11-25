@@ -1,0 +1,115 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Citizenship Education – Form 2",
+ "source": "National harmonised syllabus coverage sheet 2026/2027: 3 modules, 15 lessons, 6 guided works, 2 periods a week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Promote national integration",
+   "lessons": [
+    {
+     "title": "Lesson 1: Manifestations of national integration",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Guided work 1: The discovery of tribes in Cameroon",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Lesson 2: Hindrances to national integration",
+     "date": "2026-10-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Protect the cultural identity of minorities",
+   "lessons": [
+    {
+     "title": "Lesson 3: The protection of minorities",
+     "date": "2026-10-23"
+    },
+    {
+     "title": "Guided work 2: Pygmies and the Bororos",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Lesson 4: The village",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Guided work 3: The village heritage",
+     "date": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 (continued): The local council",
+   "lessons": [
+    {
+     "title": "Guided work 4: Discussion with a patriarch or village head, or an enquiry by learners",
+     "date": "2026-12-04"
+    },
+    {
+     "title": "Lesson 5: The council",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Lesson 5 (continued): Obstacles or hindrances to national integration",
+     "date": "2026-12-18"
+    },
+    {
+     "title": "Guided work 5: Enquiry on the manifestations of and obstacles to integration in the local council",
+     "date": "2027-01-08"
+    },
+    {
+     "title": "Guided work 6: Councils (communal heritage)",
+     "date": "2027-01-29"
+    },
+    {
+     "title": "Lesson 6: The region: definition, organisation and functioning (insist on budget transparency)",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Guided work 6 (continued): Manifestations of national integration, obstacles to national integration",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Lesson 7: Administrative units",
+     "date": "2027-02-19"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3: Search for good and quality information",
+   "lessons": [
+    {
+     "title": "Lesson 8: The sources of information",
+     "date": "2027-03-12"
+    },
+    {
+     "title": "Further study 1: Importance of mass media",
+     "date": "2027-03-19"
+    },
+    {
+     "title": "Guided work: Traditional techniques of information (an interview with a resource person)",
+     "date": "2027-03-25"
+    },
+    {
+     "title": "Lesson 9: Misuses of the mass media: types and consequences",
+     "date": "2027-04-16"
+    },
+    {
+     "title": "Revision",
+     "date": "2027-05-07"
+    }
+   ]
+  }
+ ]
+}

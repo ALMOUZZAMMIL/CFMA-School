@@ -1,0 +1,147 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Citizenship Education – Form 4",
+ "source": "National harmonised syllabus coverage progression sheet 2026-27, 2 periods/week, 29 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Participate in the life of the state",
+   "lessons": [
+    {
+     "title": "Diagnostic evaluation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "L1–L2: National symbols; introduction to the national symbols of Cameroon",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L3–L4: The national flag; the motto",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L5: The coat of arms and the seal",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L6: The evolution of the Cameroon Constitution from 1961 to date",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "L7: The executive",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "L8: The legislature: (a) the Senate, (b) the National Assembly",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L9: The judiciary",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L10: Relationship between the three arms of government",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "L11: Democracy",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L12: The concept of separation of powers",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Educate the masses",
+   "lessons": [
+    {
+     "title": "L13: The electoral process in Cameroon",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L14: The citizen's participation in politics",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Further study 1: ELECAM",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L15: Introduction to social ills",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L16: Drug abuse",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Fight against social ills",
+   "lessons": [
+    {
+     "title": "L17: Juvenile delinquency",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L18: Prostitution",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "L19: Tribalism",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "L20: Bribery and corruption",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L21: Production",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L22: Enterprise and social security",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "L24: Money",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Promote income-generating activities",
+   "lessons": [
+    {
+     "title": "L25: Banking",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L26: The state budget",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L27: Economic growth and development",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L28: The role of citizens in promoting the economic development of the state",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "L29: The impact of tax evasion",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

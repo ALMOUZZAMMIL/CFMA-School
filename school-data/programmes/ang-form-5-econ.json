@@ -1,0 +1,229 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "ECON",
+ "subject_fr": "Économie",
+ "subject_en": "Economics",
+ "title": "Economics – Form 5",
+ "source": "National harmonised syllabus coverage progression sheet 2026-27, 3 periods/week, 35 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Better manage finances: money and banking",
+   "lessons": [
+    {
+     "title": "Diagnostic evaluation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 1: Fundamental notions of money",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: The demand for and supply of money",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 3: The value of money",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Practical work 1: The value of money",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 4: Inflation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 5: Deflation",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 6: Fundamental notions of banking",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 7: The commercial bank",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Further study 1: Cheques",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Lesson 8: The balance sheet of a commercial bank",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Lesson 9: Credit creation by commercial banks",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Practical work 2: Credit creation by commercial banks in Cameroon",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 10: The central bank",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Guided work 1: Case study of BEAC as a central bank",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Further study 2: Other financial institutions in Cameroon",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Better manage finances: public finance",
+   "lessons": [
+    {
+     "title": "Lesson 11: Fundamental notions of public finance",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 12: The budget",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 13: Fundamental notions of taxation",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Lesson 14: Types of taxes",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 15: The structure of taxation",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Practical work 3: The structure of taxation",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 16: The effects of taxation",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Further study 3: Taxation",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 17: Fundamental notions of public (national) debt",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Enhance Cameroon's competitiveness; international economic cooperation",
+   "lessons": [
+    {
+     "title": "Lesson 18: Fundamental notions of international trade",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 19: Theories of international trade",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 20: International trade restrictions",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 21: Terms of trade",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 22: Structure of the balance of payments",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Practical work 4: Balance of payments",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 23: Disequilibrium in the balance of payments",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 24: Types of exchange rate",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 25: Changes in the exchange rate",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 26: International economic institutions and regional groupings",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Further study 4: Globalisation",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Increase the level of national income",
+   "lessons": [
+    {
+     "title": "Lesson 27: Fundamental notions of national income",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Practical work 5: Measurement of national income",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 28: Fundamental notions of the circular flow of income",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 29: Ways of state intervention",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Alleviate poverty",
+   "lessons": [
+    {
+     "title": "Lesson 30: Economic growth",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 31: Economic development",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Guided work 2: Problems of economic development in Cameroon",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 32: Agriculture in Cameroon",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 33: Industrialisation in Cameroon",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 34: Full employment and unemployment",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Guided work 3: Problems of unemployment in Cameroon",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

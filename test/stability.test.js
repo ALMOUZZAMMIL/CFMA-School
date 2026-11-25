@@ -18,7 +18,7 @@ test('health check answers without signing in and reveals nothing private', asyn
   const body = await res.json();
   assert.strictEqual(body.status, 'ok');
   assert.strictEqual(body.database, 'ok');
-  assert.strictEqual(body.schemaVersion, 4);
+  assert.strictEqual(body.schemaVersion, 8);
   assert.deepStrictEqual(Object.keys(body).sort(), ['database', 'schemaVersion', 'status', 'uptimeSeconds']);
   assert.ok(!res.headers.get('set-cookie'), 'no session or CSRF cookie');
   assert.ok(res.headers.get('x-request-id'));

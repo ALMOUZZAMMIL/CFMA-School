@@ -1,0 +1,189 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "ECON",
+ "subject_fr": "Économie",
+ "subject_en": "Economics",
+ "title": "Economics – Form 3",
+ "source": "National harmonised syllabus coverage progression sheet 2026/2027, 2 periods/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Fundamentals and tools of economic analysis",
+   "lessons": [
+    {
+     "title": "Lesson 1: Fundamentals of economics (part 1)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 1: Fundamentals of economics (part 2)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 2: Introduction to the tools of economic analysis",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 2: Introduction to the tools of economic analysis (continued)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Practical work 1: Tools of economic analysis: graphs and charts (part 1)",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Practical work 1: Tools of economic analysis: graphs and charts (part 2)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 3: Utility concepts",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Practical work 2: Utility concepts",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Economic systems",
+   "lessons": [
+    {
+     "title": "Lesson 4: Fundamental notions of economic systems (part 1)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 4: Fundamental notions of economic systems (part 2)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 5: Market economic system (part 1)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 5: Market economic system (part 2)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 6: Planned economic system",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 7: Mixed economic system",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Production and the factors of production",
+   "lessons": [
+    {
+     "title": "Lesson 8: Fundamental notions of production",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 9: Wealth",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 10: The different factors of production (part 1)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 10: The different factors of production (part 2)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Guided work 1: Types and stages of production",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 11: Labour as a factor of production (part 1)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 11: Labour as a factor of production (part 2)",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 12: Mobility of labour",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Further study 1: Immobility of labour",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 13: Division of labour",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 14: Capital as a factor of production (part 1)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 14: Capital as a factor of production (part 2)",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 15: The entrepreneur",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Rewards, returns and costs",
+   "lessons": [
+    {
+     "title": "Lesson 16: Rewards to factors of production",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Further study 2: Trade unions and wage payments",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 17: Returns to variable factors of production (part 1)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 17: Returns to variable factors of production (part 2)",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 18: Returns to scale",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 19: Costs of production",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 20: Revenue concept",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Practical work 3: Costs of production and revenue concept",
+     "date": "2027-05-03"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Distribution",
+   "lessons": [
+    {
+     "title": "Lesson 21: Fundamental notions of distribution",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 22: The middleman (part 1)",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

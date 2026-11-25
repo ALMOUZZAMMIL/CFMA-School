@@ -1,0 +1,187 @@
+{
+ "section": "ANG",
+ "level": "Form 1",
+ "subject": "PHYS",
+ "subject_fr": "Physique",
+ "subject_en": "Physics",
+ "title": "Physics – Form 1",
+ "source": "Form 1 scheme of work 2026-27, 2 periods/week, 50 h a year; dates worked out from the week numbers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – The world of science",
+   "lessons": [
+    {
+     "title": "First contact; definition and branches of science",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Prominent scientists and their discoveries",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Introduction to physics: what physicists do; observing nature",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Basic equipment in the physics laboratory",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Safety rules in the physics laboratory",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Job opportunities for science students",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Simple measurements using measuring instruments",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Physical and non-physical quantities; units and SI units",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – Matter: properties and transformation",
+   "lessons": [
+    {
+     "title": "States of matter and their differences",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Interconversion of states",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Measurement of length: SI unit and sub-units",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Measurement of mass",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Measurement of weight; mass and weight compared",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Measurement of volume of liquids, regular and irregular solids",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Density: mass per unit volume",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Measurement of temperature: SI and other units",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Using information and safety rules on products",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – Energy: applications and uses",
+   "lessons": [
+    {
+     "title": "Forms and sources of energy",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Daily applications of energy; devices; conservation of energy",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Solar energy: components and uses",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Chemical energy: sources and uses",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Electrical energy: sources and uses",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Thermal energy: sources and uses of heat",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Heat transfer by conduction, convection and radiation",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Forces and their effects; types of motion",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Safety rules: seat belts, low speed, road signs",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 – Health education",
+   "lessons": [
+    {
+     "title": "Sound: definition and production; the ear and hearing",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Effects of loud sound and prevention",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Measuring body temperature; normal and abnormal temperatures",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Sports and physics: good body posture",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Environmental education and sustainable development",
+   "lessons": [
+    {
+     "title": "Harmful waste and background radiation; handling radioactive substances",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Global warming and climate change: the greenhouse effect; environmental sustainability",
+     "date": "2027-04-05"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 – Technology",
+   "lessons": [
+    {
+     "title": "Common tools: identifying machines and their uses",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Maintenance: lubrication, cleaning and repairs",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Technical drawing: instruments and sample drawing",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,341 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "French – Form 2",
+ "source": "Fiche de progression harmonisée 2026-27 (MINESEC), 77 rows",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Vie familiale et intégration sociale",
+   "lessons": [
+    {
+     "title": "Leçon 1. Lecture / écoute : interprétation d'images ; texte sur les membres de la famille",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2. Vocabulaire : lexique de la famille élargie (cousin, nièce, belle-sœur…) ; utiliser un dictionnaire",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3. Conjugaison : le présent de l'indicatif des verbes du 1er groupe avec modifications orthographiques (-ger, -cer, -eter, -eler)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 4. Lecture / écoute : textes sur les occupations domestiques",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 5. Grammaire : la phrase simple (formes affirmatives) ; les pronoms compléments d'objet direct (le, la, les, l')",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 6. Conjugaison : le passé composé (formation)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 7. Lecture / écoute : activité des clubs, investissement humain",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 8. Grammaire : la phrase simple (formes négatives)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 9. Conjugaison : le passé composé (emploi)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 10. Orthographe : la cédille ; homonymie / antonymie",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 11. Expression écrite : construire des phrases simples pour parler de la famille, de l'école ou de la communauté",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 12. Vocabulaire : interactions à l'école",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 13. Lecture : texte basé sur le module",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 14. Orthographe : les sons /f/",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 15. Expression orale : sketches sur les activités communautaires",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Environnement et santé",
+   "lessons": [
+    {
+     "title": "Leçon 16. Vocabulaire : lexique de l'hygiène et de la salubrité",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 17. Conjugaison : le présent de l'indicatif des verbes liés au module (sentir, choisir, lire, désinfecter…)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 18. Lecture : texte sur la protection de l'environnement et la santé physique",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 19. Grammaire : accord des adjectifs en « -al »",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 20. Conjugaison : les homophones quels, qu'elles / son, sont",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 21. Vocabulaire : les maladies",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 22. Vocabulaire : la protection de l'environnement",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 23. Grammaire : accord de l'adjectif qualificatif avec plusieurs noms",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 24. Expression orale : interprétation d'images liées au module",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 25. Grammaire : accord des adjectifs qualificatifs de couleur",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 26. Expression écrite : phrases simples liées au module (temps, climat, environnement, maladie)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 27. Orthographe : les sons /p/ et /b/",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 28. Grammaire : accord des adjectifs de couleur (suite)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 29. Vocabulaire : les maladies (suite)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 30. Expression orale : phrases simples pour parler d'une maladie ou d'un malade",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Vie citoyenne et ouverture au monde",
+   "lessons": [
+    {
+     "title": "Leçon 31. Vocabulaire : les loisirs et les jeux",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 32. Grammaire : les adjectifs qualificatifs, accord en genre et en nombre (révision)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 33. Expression écrite : phrases simples pour parler du temps, du climat",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 34. Vocabulaire : les loisirs et les jeux (suite)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 35. Grammaire : les adjectifs qualificatifs, accord en genre et en nombre (révision, suite)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 36. Expression écrite : phrases simples pour parler de son environnement ou d'une maladie",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 37. Grammaire : le pluriel des noms en « -ou »",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 38. Vocabulaire : les unités administratives (régions, départements, arrondissements)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 39. Expression écrite : phrases simples adossées au module",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 40. Vocabulaire : les actes d'état civil (acte de mariage, de naissance, carte nationale d'identité…)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 41. Grammaire : la phrase interro-négative",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 42. Orthographe : les sons /i/ (punir) et /b/ (bannir)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 43. Lecture : texte adossé au module",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 44. Vocabulaire : le code de la route (signaux et règles de base)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 45. Conjugaison : l'impératif des verbes du 2e groupe adossés au module",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 46. Grammaire : les noms comptables",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 47. Vocabulaire : champ lexical du commerce",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 48. Conjugaison : le passé composé (suite)",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Activités économiques et monde du travail",
+   "lessons": [
+    {
+     "title": "Leçon 49. Grammaire : les noms non comptables",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 50. Expression orale : interprétation d'images",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 51. Orthographe : les sons /e/ et /m/",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 52. Vocabulaire : les métiers",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 53. Conjugaison : le futur proche",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 54. Expression écrite : construction d'un court paragraphe",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 55. Grammaire : adjectifs qualificatifs à particularités de forme (fou, vieux, nouveau, beau…)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 56. Vocabulaire : la hiérarchie du travail (patron, employeur, employé…)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 57. Conjugaison : le futur simple",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 58. Vocabulaire : les opérations arithmétiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 59. Lecture : texte sur les opérations financières",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 60. Vocabulaire : répondre au téléphone (allô, bonjour, qui est à l'appareil ?)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 61. Conjugaison : le présent de l'indicatif et le futur proche des verbes liés au module (voir, envoyer, recevoir…)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 62. Grammaire : les adjectifs indéfinis",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 63. Conjugaison : le futur proche des verbes liés au module",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Communication et TIC",
+   "lessons": [
+    {
+     "title": "Leçon 64. Simulation d'une scène de communication téléphonique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 65. Lecture : texte lié au module",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 66. Grammaire : les pronoms indéfinis",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 67. Vocabulaire lié à l'internet : naviguer, zapper, surfer, télécharger…",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 68. L'imparfait des verbes liés au module",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 69. Orthographe : le son /œ̃/ (parfum, un)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 70. Grammaire : les pronoms indéfinis (suite)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 71. Expression écrite : la ponctuation (point, virgule, deux points)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 72. Vocabulaire : vocabulaire des TIC",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 73. Orthographe : le son /ɛ̃/ (vin, pain) ; le son /n/ (nature)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 74. Conjugaison : le présent des verbes liés au module (révision)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 75. Expression écrite : construction d'un court paragraphe (phrases simples)",
+     "date": "2027-03-15"
+    }
+   ]
+  }
+ ]
+}

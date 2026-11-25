@@ -34,6 +34,22 @@ const DEFAULT_SETTINGS = {
   show_progress_to_students: '1',
   repeat_absence_threshold: '3',
   repeat_absence_window_days: '30',
+  // Curriculum tracking: a class is "behind" when its oldest unfinished lesson was due more than
+  // progress_grace_days school days ago (weekends, holidays and exam periods not counted), and
+  // "far behind" after progress_alert_days.
+  progress_grace_days: '5',
+  progress_alert_days: '15',
+  // How long an approved change request keeps a locked progression sheet open.
+  plan_edit_window_hours: '48',
+  // Fingerprint scanner rules for teachers (minutes). See docs/fingerprint-scanner.md.
+  scanner_grace_min: '15',        // first scan this early or late still counts as on time
+  scanner_late_limit_min: '30',   // later than this: the lesson waits for an admin decision
+  scanner_early_min: '10',        // second scan this long before the end: flagged "left early"
+  scanner_exit_wait_min: '30',    // no second scan this long after the end: "unconfirmed"
+  scanner_double_scan_min: '2',   // two scans this close together count as one
+  scanner_back_to_back_min: '10', // lessons this close together are covered by one pair of scans
+  scanner_lock_manual: '1',       // once a scanner is active, teachers cannot type in timetabled lessons
+  scanner_start_date: '',         // set when the first scanner is approved; no "missed" lessons before it
 };
 
 let db;

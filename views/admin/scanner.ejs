@@ -1,0 +1,115 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('scanner.setupTitle') %></h1></div>
+<%- include('../partials/scanner-tabs') %>
+<p class="help"><%= t('scanner.setupIntro') %></p>
+<%- include('../partials/errors', { errors }) %>
+<% if (uploadResult) { %><div class="alert alert-ok" role="status"><span class="alert-icon" aria-hidden="true">✓</span> <%= t('scanner.uploadDone', { added: uploadResult.added, duplicates: uploadResult.duplicates, skipped: uploadResult.skipped }) %></div><% } %>
+
+<section class="card" id="devices">
+  <h2><%= t('scanner.devices') %></h2>
+  <p class="help"><%= t('scanner.devicesHelp') %></p>
+  <% if (!devices.length) { %><div class="empty"><p><%= t('scanner.noDevices') %></p></div><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('scanner.deviceName') %></th><th><%= t('scanner.serial') %></th><th><%= t('attendance.status') %></th><th><%= t('scanner.lastSeen') %></th><th><%= t('scanner.allowedIp') %></th><th></th></tr></thead>
+    <tbody><% devices.forEach(function (dv) { %>
+      <tr>
+        <td colspan="6">
+          <form method="post" action="/admin/scanner/devices/<%= dv.id %>" class="row-form">
+            <input type="hidden" name="_csrf" value="<%= csrf %>">
+            <input name="name" value="<%= dv.name %>" maxlength="60" aria-label="<%= t('scanner.deviceName') %>">
+            <code><%= dv.serial %></code>
+            <span class="badge badge-<%= dv.status === 'active' ? 'held' : (dv.status === 'pending' ? 'planned' : 'missed') %>"><%= t('scanner.dev.' + dv.status) %></span>
+            <span class="small"><%= dv.last_seen_at ? fmt.dateTime(dv.last_seen_at) : '—' %><%= dv.last_ip ? ' · ' + dv.last_ip : '' %></span>
+            <input name="allowed_ip" value="<%= dv.allowed_ip || '' %>" maxlength="45" placeholder="<%= dv.last_ip || '' %>" aria-label="<%= t('scanner.allowedIp') %>" class="w-code">
+            <% if (dv.status !== 'active') { %><button class="btn btn-primary btn-small" name="action" value="approve"><%= t('scanner.approveDevice') %></button><% } %>
+            <% if (dv.status === 'active') { %><button class="btn btn-small" name="action" value="disable" data-confirm="<%= t('scanner.confirmDisable') %>"><%= t('scanner.disableDevice') %></button><% } %>
+            <button class="btn btn-small" name="action" value="save"><%= t('common.save') %></button>
+          </form>
+          <% if (dv.clock_ahead_min) { %><p class="small warn-text"><%= t('scanner.clockAhead', { min: dv.clock_ahead_min }) %></p><% } %>
+        </td>
+      </tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+  <details class="subcard"><summary><%= t('scanner.howToConnect') %></summary>
+    <ol class="small">
+      <li><%= t('scanner.connect1') %></li>
+      <li><%= t('scanner.connect2') %></li>
+      <li><%= t('scanner.connect3') %></li>
+      <li><%= t('scanner.connect4') %></li>
+    </ol>
+  </details>
+</section>
+
+<section class="card" id="pins">
+  <h2><%= t('scanner.pins') %></h2>
+  <p class="help"><%= t('scanner.pinsHelp') %></p>
+  <form method="post" action="/admin/scanner/pins" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="table-wrap"><table>
+      <thead><tr><th><%= t('common.teacher') %></th><th><%= t('scanner.pin') %></th><th><%= t('scanner.lastScan') %></th></tr></thead>
+      <tbody><% teachers.forEach(function (tc) { %>
+        <tr><td><label for="pin_<%= tc.id %>"><%= tc.full_name %></label><% if (!tc.active) { %> <span class="small muted">(<%= t('scanner.noLogin') %>)</span><% } %></td>
+          <td><input id="pin_<%= tc.id %>" name="pin_<%= tc.id %>" value="<%= tc.scanner_pin || '' %>" inputmode="numeric" pattern="[0-9]{1,9}" maxlength="9" class="w-code"></td>
+          <td class="small"><%= tc.last_scan ? fmt.dateTime(tc.last_scan) : '—' %></td></tr>
+      <% }) %></tbody>
+    </table></div>
+    <button class="btn btn-primary"><%= t('common.save') %></button>
+  </form>
+  <% if (unknownPins.length) { %>
+  <div class="alert alert-pending" role="note"><span class="alert-icon" aria-hidden="true">!</span> <%= t('scanner.unknownPins') %>
+    <% unknownPins.forEach(function (u) { %><code><%= u.pin %></code> (<%= u.n %>) <% }) %></div>
+  <% } %>
+</section>
+
+<section class="card" id="rules">
+  <h2><%= t('scanner.rulesTitle') %></h2>
+  <p class="help"><%= t('scanner.rulesHelp') %></p>
+  <form method="post" action="/admin/scanner/rules" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="grid-2">
+      <% ['scanner_grace_min','scanner_late_limit_min','scanner_early_min','scanner_exit_wait_min','scanner_double_scan_min','scanner_back_to_back_min'].forEach(function (k) { %>
+      <div><label for="<%= k %>"><%= t('scanner.rule.' + k) %></label><input id="<%= k %>" name="<%= k %>" type="number" min="0" max="180" value="<%= settings[k] %>" required class="w-code"> <span class="small muted"><%= t('scanner.minutes') %></span>
+        <p class="help"><%= t('scanner.ruleHelp.' + k) %></p></div>
+      <% }) %>
+    </div>
+    <label class="check"><input type="checkbox" name="scanner_lock_manual" value="1" <%= settings.scanner_lock_manual === '1' ? 'checked' : '' %>> <%= t('scanner.rule.scanner_lock_manual') %></label>
+    <p class="help"><%= t('scanner.ruleHelp.scanner_lock_manual') %></p>
+    <button class="btn btn-primary"><%= t('common.save') %></button>
+  </form>
+</section>
+
+<section class="card" id="upload">
+  <h2><%= t('scanner.uploadTitle') %></h2>
+  <p class="help"><%= t('scanner.uploadHelp') %></p>
+  <form method="post" action="/admin/scanner/upload" class="form" data-once>
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <label for="log-file"><%= t('scanner.chooseFile') %></label>
+    <input id="log-file" type="file" accept=".dat,.txt,.csv" data-fill="log">
+    <label for="log"><%= t('scanner.pasteLog') %></label>
+    <textarea id="log" name="log" rows="6" placeholder="1	2026-11-23 07:28:04	0	1	0	0"><%= log %></textarea>
+    <button class="btn btn-primary"><%= t('scanner.uploadButton') %></button>
+  </form>
+</section>
+
+<% if (testAllowed) { %>
+<section class="card" id="test">
+  <h2><%= t('scanner.testTitle') %></h2>
+  <p class="help"><%= t('scanner.testHelp') %></p>
+  <form method="post" action="/admin/scanner/test-scan" class="form">
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <div class="grid-2">
+      <div><label for="t-pin"><%= t('scanner.pin') %></label><select id="t-pin" name="pin"><% teachers.filter(function (x) { return x.scanner_pin; }).forEach(function (tc) { %><option value="<%= tc.scanner_pin %>"><%= tc.scanner_pin %> · <%= tc.full_name %></option><% }) %></select></div>
+      <div><label for="t-date"><%= t('common.date') %></label><input id="t-date" name="date" type="date" value="<%= today %>" required></div>
+      <div><label for="t-time"><%= t('common.time') %></label><input id="t-time" name="time" type="time" required></div>
+    </div>
+    <button class="btn"><%= t('scanner.testButton') %></button>
+  </form>
+</section>
+<% } %>
+
+<section class="card">
+  <h2><%= t('scanner.privacyTitle') %></h2>
+  <p><%= t('scanner.privacyText') %></p>
+</section>
+<%- include('../partials/foot') %>

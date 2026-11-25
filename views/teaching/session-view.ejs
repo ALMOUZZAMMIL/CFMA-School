@@ -1,5 +1,6 @@
 <%- include('../partials/head') %>
-<div class="page-head"><h1><%= t('teaching.sessionTitle') %></h1><a class="btn" href="/sessions/<%= s.id %>/edit"><%= t('teaching.correct') %></a></div>
+<div class="page-head"><h1><%= t('teaching.sessionTitle') %></h1><% if (user.role === 'admin' || s.source === 'manual') { %><a class="btn" href="/sessions/<%= s.id %>/edit"><%= t('teaching.correct') %></a><% } else { %><a class="btn" href="/my-scans?date=<%= s.date %>"><%= t('scanner.requestCorrection') %></a><% } %></div>
+<% if (s.source !== 'manual') { %><div class="alert alert-info" role="note"><span class="alert-icon" aria-hidden="true">i</span> <%= t('scanner.source.' + s.source) %><% if (user.role === 'teacher') { %> <%= t('scanner.sessionLocked') %><% } %></div><% } %>
 <section class="card">
   <dl class="dl">
     <dt><%= t('common.class') %></dt><dd><%= a.class_name %> · <%= ln(a, 'subject') %></dd>

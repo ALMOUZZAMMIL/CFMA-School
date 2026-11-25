@@ -9,9 +9,12 @@ const ITEMS = {
   teaching: { href: '/teaching', key: 'nav.teaching', icon: 'clock', match: ['/teaching', '/sessions'] },
   attendance: { href: '/attendance', key: 'nav.attendance', icon: 'attendance', match: ['/attendance'] },
   progress: { href: '/progress', key: 'nav.progress', icon: 'progress', match: ['/progress'] },
-  plans: { href: '/plans', key: 'nav.plans', icon: 'book', match: ['/plans'] },
+  plans: { href: '/plans', key: 'nav.plans', icon: 'book', match: ['/plans'], count: 'planRequests' },
   timetable: { href: '/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/timetable'] },
+  calendar: { href: '/calendar', key: 'nav.calendar', icon: 'flag', match: ['/calendar'] },
   adminTimetable: { href: '/admin/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/admin/timetable'] },
+  scanner: { href: '/admin/scanner/calendar', key: 'nav.scanner', icon: 'fingerprint', match: ['/admin/scanner'] },
+  myScans: { href: '/my-scans', key: 'nav.myScans', icon: 'fingerprint', match: ['/my-scans'] },
   reports: { href: '/reports/hours', key: 'nav.reports', icon: 'chart', match: ['/reports'] },
   myRecord: { href: '/me', key: 'nav.myRecord', icon: 'file', match: ['/me', '/students'] },
   announcements: { href: '/announcements', key: 'nav.announcements', icon: 'megaphone', match: ['/announcements'] },
@@ -29,14 +32,14 @@ const ITEMS = {
 const MENUS = {
   admin: [
     [null, ['home']],
-    ['nav.groupTeaching', ['teaching', 'attendance', 'progress', 'plans', 'adminTimetable', 'reports']],
+    ['nav.groupTeaching', ['teaching', 'scanner', 'attendance', 'progress', 'plans', 'adminTimetable', 'calendar', 'reports']],
     ['nav.groupPeople', ['students', 'accounts', 'announcements', 'requests']],
     ['nav.groupSchool', ['structure', 'settings', 'outbox', 'audit']],
   ],
-  teacher: [[null, ['home', 'teaching', 'attendance', 'progress', 'plans', 'timetable', 'reports', 'announcements']]],
-  parent: [[null, ['home', 'timetable', 'announcements', 'notifications']]],
-  student: [[null, ['home', 'myRecord', 'timetable', 'announcements']]],
-  bursar: [[null, ['home']]],
+  teacher: [[null, ['home', 'teaching', 'myScans', 'attendance', 'progress', 'plans', 'timetable', 'calendar', 'reports', 'announcements']]],
+  parent: [[null, ['home', 'timetable', 'calendar', 'announcements', 'notifications']]],
+  student: [[null, ['home', 'myRecord', 'timetable', 'calendar', 'announcements']]],
+  bursar: [[null, ['home', 'calendar']]],
 };
 
 // Bottom tab bar on phones (at most four entries; 'more' opens the full menu).

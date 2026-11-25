@@ -1,0 +1,134 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "BIO",
+ "subject_fr": "Biologie",
+ "subject_en": "Biology",
+ "title": "Biology – Form 2",
+ "source": "Biology scheme of work for Form Two, 2026-2027",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: The living world – Reproduction",
+   "lessons": [
+    {
+     "title": "Need for reproduction; reproduction in plants; sexual reproduction in plants: from the flower to the seed and fruit; qualities of good grain: germination"
+    },
+    {
+     "title": "Vegetative multiplication as the basis of cloning: natural (plantains, sugar cane, onion, potato, cocoyam) and artificial (grafting, marcotting, cutting, layering)"
+    },
+    {
+     "title": "Other forms of asexual reproduction: budding in brewer's yeast, fission in bacteria"
+    },
+    {
+     "title": "Reproduction in animals; sexual reproduction: fertilisation and development"
+    },
+    {
+     "title": "Rearing techniques and animal husbandry: cycles of development, metamorphosis in insects and amphibians, impact of larval forms on plant yield"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 1: Improving the quality and quantity of production",
+   "lessons": [
+    {
+     "title": "Prevention and elimination of parasites: ecto-parasites (lice, ticks, jiggers), endo-parasites (intestinal worms, plant parasites), semi-parasites (African mistletoe), complete parasites (mildew, rust, corn smut)"
+    },
+    {
+     "title": "Biological and chemical control"
+    },
+    {
+     "title": "Transformation of foodstuffs: role of micro-organisms in the transformation of foods (fermentation: alcohol, lactic acid and butyric acid)"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Health education – Quality nutrition",
+   "lessons": [
+    {
+     "title": "Nutritional diseases due to poor feeding (obesity, kwashiorkor, beriberi, marasmus)"
+    },
+    {
+     "title": "Body mass as an indication of overfeeding or underfeeding; other diseases (diabetes, hypertension...)"
+    },
+    {
+     "title": "Calorific values of foods; project design to combat a deficiency or nutritional disease in the community"
+    },
+    {
+     "title": "Food hygiene"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Physical and social health",
+   "lessons": [
+    {
+     "title": "Definition and importance of exercise to the body (muscles, brain, bones, body mass, blood circulation)"
+    },
+    {
+     "title": "Practising work and recreational sports; definition and importance of rest to the body"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 2: Reproductive health",
+   "lessons": [
+    {
+     "title": "Health and social effects of alcohol consumption, cigarette smoking and drug consumption on the body"
+    },
+    {
+     "title": "Raising awareness of the health consequences of alcohol, cigarettes and drugs"
+    },
+    {
+     "title": "Practices harmful to adolescent reproductive health"
+    },
+    {
+     "title": "Emergent behaviour and reproductive health"
+    },
+    {
+     "title": "STIs and HIV/AIDS as consequences of harmful sexual behaviour: gonorrhoea, syphilis, chlamydia, hepatitis B"
+    },
+    {
+     "title": "HIV/AIDS; prevention of STIs and HIV/AIDS; hygiene of the reproductive organs"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3: Environmental education and sustainable development",
+   "lessons": [
+    {
+     "title": "Greenhouse effect and climate change: definition, causes, effects"
+    },
+    {
+     "title": "Indicators of climate change and global warming"
+    },
+    {
+     "title": "The ozone layer: definition, role, causes of destruction, prevention"
+    },
+    {
+     "title": "Conservation of biodiversity: effects of civil engineering works, forest exploitation and intensive agriculture"
+    },
+    {
+     "title": "Gardening (lawns, horticulture, green spaces); sustainable management of natural resources: water, air, soil; sensitisation and education"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 3: Natural disasters",
+   "lessons": [
+    {
+     "title": "Common natural disasters in Cameroon: causes"
+    },
+    {
+     "title": "Natural disasters: effects, impact and prevention"
+    }
+   ]
+  }
+ ]
+}

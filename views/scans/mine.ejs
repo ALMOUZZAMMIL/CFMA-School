@@ -1,0 +1,67 @@
+<%- include('../partials/head') %>
+<h1><%= t('scanner.myTitle') %></h1>
+<p class="help"><%= t('scanner.myIntro') %></p>
+<% if (!pin) { %><div class="alert alert-info" role="note"><span class="alert-icon" aria-hidden="true">i</span> <%= t('scanner.myNoPin') %></div>
+<% } else { %><p class="small muted"><%= t('scanner.myPin') %>: <code><%= pin %></code></p><% } %>
+<% [['nowLesson', current], ['nextLesson', next]].forEach(function (x) { var l = x[1]; if (!l) return; %>
+<section class="card now-card">
+  <p class="small muted"><%= t('scanner.' + x[0]) %></p>
+  <p class="now-main"><strong><%= l.start_time %>–<%= l.end_time %></strong> · <%= l.class_name %><% if (l.room) { %> · <%= l.room %><% } %> · <%= ln(l, 'subject') %></p>
+  <%- include('../partials/scan-state', { state: l.state }) %>
+</section>
+<% }) %>
+<form method="get" class="filters">
+  <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" min="<%= from %>" max="<%= today %>"></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<p class="muted"><%= fmt.longDate(date) %></p>
+
+<section class="card">
+  <h2><%= t('scanner.lessonsOfDay') %></h2>
+  <% if (!lessons.length) { %><div class="empty"><p><%= t('teaching.noSlots') %></p></div><% } else { %>
+  <ul class="tasks">
+    <% lessons.forEach(function (r) { var l = r.lesson; %>
+    <li class="task">
+      <div class="task-main">
+        <strong><%= r.start_time %>–<%= r.end_time %></strong> · <%= r.class_name %> · <%= ln(r, 'subject') %>
+        <div class="task-status"><%- include('../partials/scan-state', { state: r.state, late: r.late, lateMin: l ? l.late_min : 0, early: r.early, earlyMin: l ? l.early_min : 0 }) %>
+          <span class="small"><%= t('scanner.scanIn') %> <%= l && l.in_time ? l.in_time.slice(11, 16) : '—' %> · <%= t('scanner.scanOut') %> <%= l && l.out_time ? l.out_time.slice(11, 16) : '—' %></span></div>
+      </div>
+      <% if (['unconfirmed','review','no_scan','rejected'].includes(r.state) || r.early) { %>
+      <details class="task-actions"><summary class="btn btn-small"><%= t('scanner.requestCorrection') %></summary>
+        <form method="post" action="/my-scans/corrections" class="form" data-once>
+          <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="slot_id" value="<%= r.id %>"><input type="hidden" name="date" value="<%= date %>">
+          <label for="reason-<%= r.id %>"><%= t('scanner.correctionReason') %></label>
+          <textarea id="reason-<%= r.id %>" name="reason" rows="2" maxlength="500" required></textarea>
+          <button class="btn btn-primary btn-small"><%= t('scanner.sendRequest') %></button>
+        </form>
+      </details>
+      <% } %>
+    </li>
+    <% }) %>
+  </ul>
+  <% } %>
+</section>
+
+<section class="card">
+  <h2><%= t('scanner.myRequests') %></h2>
+  <% if (!requests.length) { %><p class="muted"><%= t('scanner.noRequests') %></p><% } else { %>
+  <ul class="list"><% requests.forEach(function (q) { %>
+    <li><%- include('../partials/badge', { kind: 'requests', value: q.status === 'approved' ? 'approved' : (q.status === 'rejected' ? 'rejected' : 'pending') }) %>
+      <%= fmt.date(q.date) %> <%= q.start_time %>–<%= q.end_time %> · <%= q.class_name %>
+      <div class="small muted"><%= q.reason %><%= q.admin_note ? ' — ' + q.admin_note : '' %></div></li>
+  <% }) %></ul>
+  <% } %>
+</section>
+
+<section class="card">
+  <h2><%= t('scanner.myScans') %></h2>
+  <% if (!scans.length) { %><p class="muted"><%= t('scanner.noScans') %></p><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.date') %></th><th><%= t('common.time') %></th><th><%= t('scanner.deviceName') %></th></tr></thead>
+    <tbody><% scans.forEach(function (s) { %><tr><td><%= fmt.date(s.scanned_at.slice(0, 10)) %></td><td><%= s.scanned_at.slice(11, 16) %></td><td class="small"><%= s.device_name || t('scanner.src.' + s.source) %></td></tr><% }) %></tbody>
+  </table></div>
+  <% } %>
+  <p class="small muted"><%= t('scanner.readOnlyNote') %></p>
+</section>
+<%- include('../partials/foot') %>

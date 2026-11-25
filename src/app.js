@@ -64,6 +64,9 @@ function createApp() {
     }
   });
 
+  // Fingerprint scanners on the school network send their scans here (no session, no cookies).
+  app.use(require('./routes/iclock'));
+
   // Brand colours from the settings, as CSS variables (no inline styles under the CSP).
   app.get('/brand.css', (req, res) => {
     res.type('text/css').set('Cache-Control', 'no-cache').send(brand.css(db.getSettings()));
@@ -114,6 +117,7 @@ function createApp() {
     if (req.user && !req.user.must_change_password) {
       const counts = { unread: res.locals.unread };
       if (req.user.role === 'admin') counts.requests = db.get().prepare("SELECT COUNT(*) n FROM access_requests WHERE status = 'pending'").get().n;
+      if (req.user.role === 'admin') counts.planRequests = db.get().prepare("SELECT COUNT(*) n FROM plan_change_requests WHERE status = 'pending'").get().n;
       res.locals.nav = nav.build(req.user.role, req.path, counts);
     }
     req.t = t;
@@ -132,7 +136,9 @@ function createApp() {
   app.use(require('./routes/announcements'));
   app.use(require('./routes/family'));
   app.use(require('./routes/plans'));
+  app.use(require('./routes/calendar'));
   app.use(require('./routes/reports'));
+  app.use(require('./routes/scans'));
   app.use(require('./routes/admin'));
 
   app.use((req, res) => auth.notFound(req, res));
