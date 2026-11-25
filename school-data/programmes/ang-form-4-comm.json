@@ -1,0 +1,141 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "COMM",
+ "subject_fr": "Commerce",
+ "subject_en": "Commerce",
+ "title": "Commerce – Form 4",
+ "source": "Annual progression sheet 2026-27 (Economics department), 3 h/week, 5 chapters",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Intermediaries of trade",
+   "lessons": [
+    {
+     "title": "Definition of middlemen; channels of distribution",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "The wholesaler as an intermediary of trade",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Retail trade",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Types of retail trade",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Modern trends in retailing",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Trade agents and warehousing",
+   "lessons": [
+    {
+     "title": "Definition and types of mercantile agents",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Agents and commission",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Warehousing",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Warehousing documents",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Post and communication",
+   "lessons": [
+    {
+     "title": "Definition and importance of communication",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "The services of post offices",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Telecommunication",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Financial services of the post office",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Transport",
+   "lessons": [
+    {
+     "title": "Definition and importance of transport",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Modes of transport; road transport",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Rail transport",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Air transport; containerisation",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "The Baltic Exchange; pipeline transport",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Transport documents",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "The banking system",
+   "lessons": [
+    {
+     "title": "Definition of banking",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Central banks; commercial banks",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Types of accounts opened with commercial banks",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Documents involved in banking",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Bank statement",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Bank giro",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

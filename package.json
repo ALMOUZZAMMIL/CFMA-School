@@ -12,7 +12,9 @@
     "check-i18n": "node scripts/check-i18n.js",
     "test": "node --test test/*.test.js",
     "backup": "node scripts/backup.js",
-    "restore": "node scripts/restore.js"
+    "restore": "node scripts/restore.js",
+    "export-demo": "node scripts/export-demo.js",
+    "import-school-data": "node scripts/import-school-data.js"
   },
   "engines": {
     "node": ">=20"
@@ -22,5 +24,8 @@
     "better-sqlite3": "^13.0.3",
     "ejs": "^7.0.2",
     "express": "^4.22.3"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.12"
   }
 }

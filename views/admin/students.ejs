@@ -11,7 +11,7 @@
   <tbody><% rows.forEach(function (s) { %><tr><td><a href="/admin/students/<%= s.id %>"><%= s.full_name %></a><% if (s.is_demo) { %> <span class="tag"><%= t('common.demo') %></span><% } %></td><td><%= s.student_number %></td><td><%= s.class_name || '—' %></td><td><%= s.username || '—' %></td><td><%= s.guardians %></td></tr><% }) %></tbody>
 </table></div>
 <% } %>
-<section class="card">
+<section class="card" id="add-student">
   <h2><%= t('admin.addStudent') %></h2>
   <%- include('../partials/errors', { errors }) %>
   <form method="post" action="/admin/students" class="form">

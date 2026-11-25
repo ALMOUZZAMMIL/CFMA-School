@@ -17,5 +17,6 @@ r.use(require('./students'));
 r.use(require('./timetable'));
 r.use(require('./requests'));
 r.use(require('./settings'));
+r.use(require('./scanner'));
 
 module.exports = r;

@@ -1,0 +1,311 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "HECON",
+ "subject_fr": "Économie familiale (Food and Nutrition)",
+ "subject_en": "Home Economics (Food and Nutrition)",
+ "title": "Home Economics – Form 2",
+ "source": "National harmonised progression sheet 2026-2027 (LESEEHB department)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Notion of macronutrients and types; functions of water in the body",
+   "lessons": [
+    {
+     "title": "Types of food; notion of macronutrients and types",
+     "date": "2026-09-11"
+    },
+    {
+     "title": "Carbohydrates: composition, sources, functions, deficiency; effects of heat on carbohydrates",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Notion of proteins: composition, sources, functions, deficiency; effects of heat on proteins",
+     "date": "2026-09-18"
+    },
+    {
+     "title": "Notion of fats: composition, sources, functions, deficiency; effects of heat on fats",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Notion of energy: types of energy, uses of energy in the body, calculation of energy values in macronutrients",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Notion, types and deficiencies of micronutrients (hidden hunger, anaemia...)",
+     "date": "2026-09-25"
+    },
+    {
+     "title": "Notion, types and sources of vitamins; functions of vitamins",
+     "date": "2026-10-02"
+    },
+    {
+     "title": "Notion, types and sources of minerals; functions of minerals",
+     "date": "2026-10-02"
+    },
+    {
+     "title": "Sources of water in food; uses of water in food; functions of water in the body",
+     "date": "2026-10-09"
+    },
+    {
+     "title": "Notion and types of water-borne diseases",
+     "date": "2026-10-23"
+    },
+    {
+     "title": "Prevention of water-borne diseases",
+     "date": "2026-10-23"
+    },
+    {
+     "title": "Notion and sources of non-starch polysaccharides (fibres)",
+     "date": "2026-10-30"
+    },
+    {
+     "title": "Functions of non-starch polysaccharides (fibre) in the diet",
+     "date": "2026-10-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Notion of a traditional kitchen",
+   "lessons": [
+    {
+     "title": "Items found in a traditional kitchen (local pots, firewood, sawdust pots, charcoal pots, grinding stone, mortar and pestle...)",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Types of fireplaces used in a traditional kitchen; diagram of the different types of fireplaces",
+     "date": "2026-11-06"
+    },
+    {
+     "title": "Advantages and disadvantages of a traditional kitchen; care of a traditional kitchen",
+     "date": "2026-11-06"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Notion of a modern kitchen",
+   "lessons": [
+    {
+     "title": "Notion of a modern kitchen; kitchen planning and management; different shapes of modern kitchens",
+     "date": "2026-11-13"
+    },
+    {
+     "title": "Kitchen elements and kitchen units, types of kitchen units; points to consider when planning a modern kitchen",
+     "date": "2026-11-13"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Small equipment in the kitchen",
+   "lessons": [
+    {
+     "title": "Advantages of time management in the kitchen; steps in timing and cooking food; care of a modern kitchen",
+     "date": "2026-11-20"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Notion of large equipment",
+   "lessons": [
+    {
+     "title": "Types of small equipment; diagram of small kitchen equipment",
+     "date": "2026-12-04"
+    },
+    {
+     "title": "Uses of small equipment; points to consider when choosing it; care of this equipment",
+     "date": "2026-12-04"
+    },
+    {
+     "title": "Types of large equipment (freezers, refrigerators, dish washers) and uses",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Diagram of large kitchen equipment; points to consider when choosing it; care of large kitchen equipment",
+     "date": "2026-12-11"
+    },
+    {
+     "title": "Types of labour-saving equipment (microwave oven, pressure cooker, blender, mixers, vacuum flask)",
+     "date": "2026-12-18"
+    },
+    {
+     "title": "Diagrams of labour-saving equipment",
+     "date": "2026-12-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "6. Notion of labour-saving equipment",
+   "lessons": [
+    {
+     "title": "Principles and uses of labour-saving equipment",
+     "date": "2027-01-08"
+    },
+    {
+     "title": "Things to consider when choosing the equipment; care of labour-saving equipment",
+     "date": "2027-01-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "7. Notion of accidents",
+   "lessons": [
+    {
+     "title": "Notion of kitchen accidents; types of kitchen accidents",
+     "date": "2027-01-08"
+    },
+    {
+     "title": "Causes of kitchen accidents; preventive measures",
+     "date": "2027-01-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Notion of kitchen waste",
+   "lessons": [
+    {
+     "title": "Different types of kitchen waste; generation and sorting of kitchen waste",
+     "date": "2027-01-29"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Methods of cooking food",
+   "lessons": [
+    {
+     "title": "Reasons for cooking food; classification of foods according to their cooking methods",
+     "date": "2027-01-29"
+    },
+    {
+     "title": "Moist methods: types, advantages and disadvantages",
+     "date": "2027-02-05"
+    },
+    {
+     "title": "Dry methods: types, advantages and disadvantages",
+     "date": "2027-02-05"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Heat transfer",
+   "lessons": [
+    {
+     "title": "Notion of heat conduction and how it occurs; examples, advantages and disadvantages",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Notion of convection and how it occurs",
+     "date": "2027-02-12"
+    },
+    {
+     "title": "Examples of convection; advantages and disadvantages",
+     "date": "2027-02-19"
+    },
+    {
+     "title": "Notion of radiation and how it occurs; examples, advantages and disadvantages",
+     "date": "2027-02-19"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Kwashiorkor and marasmus",
+   "lessons": [
+    {
+     "title": "Notion and causes of these deficiencies; signs and symptoms",
+     "date": "2027-02-26"
+    },
+    {
+     "title": "Children suffering from the deficiencies; preventive measures",
+     "date": "2027-02-26"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Night blindness",
+   "lessons": [
+    {
+     "title": "Causes of night blindness; signs and symptoms; preventive measures",
+     "date": "2027-03-05"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "13. Rickets and osteomalacia",
+   "lessons": [
+    {
+     "title": "Causes of rickets and osteomalacia; picture of a child suffering from rickets; preventive measures",
+     "date": "2027-03-19"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "14. Obesity",
+   "lessons": [
+    {
+     "title": "Causes of obesity; signs and symptoms; preventive measures",
+     "date": "2027-03-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "15. Scurvy and anaemia",
+   "lessons": [
+    {
+     "title": "Causes of scurvy and anaemia; signs and symptoms; preventive measures",
+     "date": "2027-03-25"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "16. Notion of embroidery",
+   "lessons": [
+    {
+     "title": "Classification of embroidery: traditional and modern",
+     "date": "2027-04-16"
+    },
+    {
+     "title": "Embroidery techniques; types of stitches (backstitch, straight stitch, zigzag stitch, satin stitch, running stitch, buttonhole...)",
+     "date": "2027-04-16"
+    },
+    {
+     "title": "Types of fabrics (cotton, silk, linen, wool, polyester...)",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "Types of embroidery designs: counted thread",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "White work, candle wicking, shadow work",
+     "date": "2027-04-30"
+    },
+    {
+     "title": "Etiquette of clothing (size, fabric type, trade mark, machine or hand wash)",
+     "date": "2027-05-07"
+    },
+    {
+     "title": "Embroidery tools: sewing needle, embroidery thread, scissors...",
+     "date": "2027-05-07"
+    },
+    {
+     "title": "Notion of laundry and ironing; types of laundry: commercial, on-premises (in-house)",
+     "date": "2027-05-14"
+    }
+   ]
+  }
+ ]
+}

@@ -19,7 +19,7 @@
     <td class="small"><%= u.last_login_at ? fmt.dateTime(u.last_login_at) : '—' %></td></tr><% }) %></tbody>
 </table></div>
 <% } %>
-<section class="card">
+<section class="card" id="add-user">
   <h2><%= t('admin.addUser') %></h2>
   <p class="help"><%= t('admin.addUserHelp') %></p>
   <%- include('../partials/errors', { errors }) %>

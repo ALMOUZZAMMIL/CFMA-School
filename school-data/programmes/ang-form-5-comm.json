@@ -1,0 +1,149 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "COMM",
+ "subject_fr": "Commerce",
+ "subject_en": "Commerce",
+ "title": "Commerce – Form 5",
+ "source": "Annual progression sheet 2026-27 (Economics department), 3 h/week, 5 chapters",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Business performance",
+   "lessons": [
+    {
+     "title": "Financial statements of a business",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Rate of turnover",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Return on capital invested",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Balance sheet",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Working capital",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Market communication and information systems",
+   "lessons": [
+    {
+     "title": "Advertisement",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Channels of advertisement",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Measuring advertisement effectiveness",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Sales promotion",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Public relations",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Consumer protection",
+   "lessons": [
+    {
+     "title": "Definition and methods of protecting consumers",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Government and consumer organisations",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Insurance",
+   "lessons": [
+    {
+     "title": "Definition and some terms in insurance",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Risk and premium",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Principles and doctrines of insurance",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Types of insurance",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Life assurance policies and types",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Insurance claims",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Self-insurance",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Documents used in insurance",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "International trade",
+   "lessons": [
+    {
+     "title": "Meaning of international trade",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Reasons for international trade",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Terms of trade",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Balance of payments surplus",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Documents in foreign trade",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Methods of payment in international trade",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Incoterms",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

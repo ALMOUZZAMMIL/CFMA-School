@@ -1,0 +1,119 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "LIT",
+ "subject_fr": "Littérature anglaise",
+ "subject_en": "Literature in English",
+ "title": "Literature in English – Form 2",
+ "source": "Annual progression sheet 2026-2027, 2 hours a week. Set books: Going Home (prose), A Time to Reconcile (drama), An Introduction to Poetry vol. 2",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Introduction to literature",
+   "lessons": [
+    {
+     "title": "First contact and diagnostic test; background and function of literature",
+     "date": "2026-09-13"
+    },
+    {
+     "title": "Lesson 1: Forms of literature; exploring traditional oral literary forms in Cameroon",
+     "date": "2026-09-20"
+    },
+    {
+     "title": "Lesson 2: Types of oral literature; stylistic devices",
+     "date": "2026-09-27"
+    },
+    {
+     "title": "Lesson 3: Elements of literature; genres",
+     "date": "2026-10-04"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Prose: Going Home",
+   "lessons": [
+    {
+     "title": "Lesson 5: Introduction to prose elements; background of the text and the author",
+     "date": "2026-10-25"
+    },
+    {
+     "title": "Lesson 6: Textual analysis of chapters 1 and 2; summary",
+     "date": "2026-11-01"
+    },
+    {
+     "title": "Lesson 7: Textual analysis of chapters 3 and 4; summary",
+     "date": "2026-11-08"
+    },
+    {
+     "title": "Lesson 8: Textual analysis of chapters 5 and 6; summary",
+     "date": "2026-11-15"
+    },
+    {
+     "title": "Lesson 9: Textual analysis of chapter 7; summary",
+     "date": "2026-11-29"
+    },
+    {
+     "title": "Lesson 10: Textual analysis of chapters 8 and 9; summary",
+     "date": "2026-12-06"
+    },
+    {
+     "title": "Lesson 11: Textual analysis of chapters 10 and 11; summary",
+     "date": "2026-12-13"
+    },
+    {
+     "title": "General summary of the text",
+     "date": "2027-01-10"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Drama: A Time to Reconcile",
+   "lessons": [
+    {
+     "title": "Lesson 12: Introduction to dramatic elements; background of the text and the author",
+     "date": "2027-01-24"
+    },
+    {
+     "title": "Lesson 13: Textual analysis of Act 1, scenes 1 and 2; summary",
+     "date": "2027-01-31"
+    },
+    {
+     "title": "Lesson 14: Textual analysis of Act 1 scene 3 and Act 2 scene 1; summary",
+     "date": "2027-02-07"
+    },
+    {
+     "title": "Lesson 15: Textual analysis of Act 2, scenes 2 and 3; summary",
+     "date": "2027-02-21"
+    },
+    {
+     "title": "Lesson 16: Textual analysis of Act 3, scenes 1 and 2; summary",
+     "date": "2027-03-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Drama (continued) and poetry: An Introduction to Poetry, vol. 2",
+   "lessons": [
+    {
+     "title": "Lesson 17: Textual analysis of Act 3, scenes 3 and 4; summary",
+     "date": "2027-03-14"
+    },
+    {
+     "title": "Lesson 18: General summary of the text; introduction to the elements of poetry; analysis of \"Baby Shower\" and \"The Housemaid\"",
+     "date": "2027-03-21"
+    },
+    {
+     "title": "Lesson 19: Analysis and summary of \"Fighting Poverty\", \"Near and Far Fathers\" and \"Time and the Changing\"",
+     "date": "2027-04-04"
+    },
+    {
+     "title": "Lesson 20: Analysis and summary of \"Power\", \"Service to the Country\" and \"Academic Battles and Determination\"",
+     "date": "2027-04-25"
+    }
+   ]
+  }
+ ]
+}

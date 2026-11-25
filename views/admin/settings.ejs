@@ -53,6 +53,13 @@
     <div><label for="repeat_absence_threshold"><%= t('absences.threshold') %></label><input id="repeat_absence_threshold" type="number" min="1" max="99" name="repeat_absence_threshold" value="<%= settings.repeat_absence_threshold %>" class="w-num"></div>
     <div><label for="repeat_absence_window_days"><%= t('absences.days') %></label><input id="repeat_absence_window_days" type="number" min="1" max="365" name="repeat_absence_window_days" value="<%= settings.repeat_absence_window_days %>" class="w-num"></div>
   </div>
+  <h2><%= t('settings.curriculumTitle') %></h2>
+  <p class="help"><%= t('settings.curriculumHelp') %></p>
+  <div class="grid-3">
+    <div><label for="progress_grace_days"><%= t('settings.progressGrace') %></label><input id="progress_grace_days" type="number" min="0" max="99" name="progress_grace_days" value="<%= settings.progress_grace_days %>" class="w-num"></div>
+    <div><label for="progress_alert_days"><%= t('settings.progressAlert') %></label><input id="progress_alert_days" type="number" min="1" max="365" name="progress_alert_days" value="<%= settings.progress_alert_days %>" class="w-num"></div>
+    <div><label for="plan_edit_window_hours"><%= t('settings.planWindow') %></label><input id="plan_edit_window_hours" type="number" min="1" max="336" name="plan_edit_window_hours" value="<%= settings.plan_edit_window_hours %>" class="w-num"></div>
+  </div>
   <button class="btn btn-primary"><%= t('common.save') %></button>
 </form>
 <%- include('../partials/foot') %>

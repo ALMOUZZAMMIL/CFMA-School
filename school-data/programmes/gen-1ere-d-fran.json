@@ -1,0 +1,247 @@
+{
+ "section": "GEN",
+ "level": "1ère D",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 1ère D",
+ "source": "Projet pédagogique 2026/2027, Première scientifique, 6 séquences de 18 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Le plan détaillé de dissertation",
+   "lessons": [
+    {
+     "title": "Au cœur des ténèbres : étude des paratextes et lecture du texte ouvroir",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les situations de communication",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dissertation : analyse d'un sujet (identification du problème, problématique)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "La ponctuation",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Le texte narratif : caractéristiques",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Dissertation : recherche des idées",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Le sens des mots : dénotation et connotation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L'énonciation : les implicites",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Dissertation : élaboration d'un plan détaillé",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Au cœur des ténèbres : contrôle de lecture et compte rendu",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Le texte descriptif : caractéristiques",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – La dissertation littéraire",
+   "lessons": [
+    {
+     "title": "Au cœur des ténèbres : négociation du projet d'étude",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Le texte argumentatif : caractéristiques",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction de l'introduction",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "La structure de la phrase : phrase simple, composée, complexe",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Dissertation : rédaction du paragraphe (idée directrice, argument, exemple)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Les fonctions du langage",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Dissertation : rédaction de la conclusion",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Le texte argumentatif : stratégies",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Le résumé de texte",
+   "lessons": [
+    {
+     "title": "Les figures de construction : parallélisme, ellipse, asyndète et polysyndète",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative du texte",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Contraction de texte : technique de réduction",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Au cœur des ténèbres : inscription de l'œuvre dans son contexte",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Les notions de progression, de cohésion et de cohérence du texte",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Contraction de texte : rédaction du résumé",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Au cœur des ténèbres : bilan de l'étude de l'œuvre",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 4 – L'analyse de texte",
+   "lessons": [
+    {
+     "title": "Le Lion et la perle : étude des paratextes et lecture du texte ouvroir",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "La communication par l'image",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative du texte",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "La valeur des modes et des temps : le conditionnel",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Contraction de texte : technique de l'analyse",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Le lexique commun et le lexique spécialisé",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Les tonalités : comique, lyrique, satirique",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Contraction de texte : rédaction de l'analyse",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Le Lion et la perle : contrôle de lecture et compte rendu",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 5 – Le plan détaillé de la discussion",
+   "lessons": [
+    {
+     "title": "Le Lion et la perle : négociation du projet d'étude",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les relations lexicales : hyperonymie, hyponymie",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Discussion : analyse du sujet",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les tonalités : dramatique, polémique, pathétique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Discussion : recherche des idées",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Les figures d'amplification et d'atténuation : hyperbole, euphémisme, litote",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Discussion : élaboration d'un plan détaillé",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 6 – La discussion",
+   "lessons": [
+    {
+     "title": "Les emprunts",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Discussion : rédaction de l'introduction",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Le Lion et la perle : inscription de l'œuvre dans son contexte",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Le texte injonctif",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Discussion : rédaction du paragraphe",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Le Lion et la perle : bilan de l'étude de l'œuvre",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Le texte explicatif",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Discussion : rédaction de la conclusion",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

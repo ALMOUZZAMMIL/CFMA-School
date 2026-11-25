@@ -9,6 +9,7 @@ const log = require('./log');
 const migrate = require('./migrate');
 const auth = require('./auth');
 const brand = require('./brand');
+const nav = require('./nav');
 const { translator, formatters, LANGS } = require('./i18n');
 const { todayIn } = require('./util');
 
@@ -63,13 +64,16 @@ function createApp() {
     }
   });
 
+  // Fingerprint scanners on the school network send their scans here (no session, no cookies).
+  app.use(require('./routes/iclock'));
+
   // Brand colours from the settings, as CSS variables (no inline styles under the CSP).
   app.get('/brand.css', (req, res) => {
     res.type('text/css').set('Cache-Control', 'no-cache').send(brand.css(db.getSettings()));
   });
   // Version tag on the stylesheet and script links, so browsers fetch the new files after an update
   // instead of keeping an old copy for 7 days.
-  const assetV = ['style.css', 'app.js'].map((f) => Math.floor(fs.statSync(path.join(__dirname, '..', 'public', f)).mtimeMs).toString(36)).join('');
+  const assetV = ['style.css', 'app.js', 'icons.svg'].map((f) => Math.floor(fs.statSync(path.join(__dirname, '..', 'public', f)).mtimeMs).toString(36)).join('');
   app.use((req, res, next) => { res.locals.assetV = assetV; next(); });
   app.use('/static', express.static(path.join(__dirname, '..', 'public'), { maxAge: '7d' }));
   app.use(express.urlencoded({ extended: false, limit: '300kb', parameterLimit: 5000 }));
@@ -108,6 +112,14 @@ function createApp() {
     res.flash = (type, key) => res.append('Set-Cookie', `flash=${type}|${key}; Path=/; Max-Age=60; SameSite=Lax; HttpOnly`);
     res.locals.unread = req.user
       ? db.get().prepare('SELECT COUNT(*) n FROM notifications WHERE user_id = ? AND read_at IS NULL').get(req.user.id).n : 0;
+    // Menu for the signed-in portal (display only: every route checks permissions itself).
+    res.locals.nav = null;
+    if (req.user && !req.user.must_change_password) {
+      const counts = { unread: res.locals.unread };
+      if (req.user.role === 'admin') counts.requests = db.get().prepare("SELECT COUNT(*) n FROM access_requests WHERE status = 'pending'").get().n;
+      if (req.user.role === 'admin') counts.planRequests = db.get().prepare("SELECT COUNT(*) n FROM plan_change_requests WHERE status = 'pending'").get().n;
+      res.locals.nav = nav.build(req.user.role, req.path, counts);
+    }
     req.t = t;
     next();
   });
@@ -124,7 +136,9 @@ function createApp() {
   app.use(require('./routes/announcements'));
   app.use(require('./routes/family'));
   app.use(require('./routes/plans'));
+  app.use(require('./routes/calendar'));
   app.use(require('./routes/reports'));
+  app.use(require('./routes/scans'));
   app.use(require('./routes/admin'));
 
   app.use((req, res) => auth.notFound(req, res));

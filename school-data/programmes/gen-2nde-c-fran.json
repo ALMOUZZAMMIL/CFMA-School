@@ -1,0 +1,247 @@
+{
+ "section": "GEN",
+ "level": "2nde C",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 2nde C",
+ "source": "Projet pédagogique 2026/2027, Seconde scientifique, 3 h/semaine, 6 séquences de 18 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Le plan détaillé de dissertation",
+   "lessons": [
+    {
+     "title": "Les Tribus de Capitoline : étude des paratextes et lecture du texte ouvroir",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les facteurs de la communication",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dissertation : analyse du sujet (mots clés, reformulation, problématique)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les registres de langue : familier et courant",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "La dénotation et la connotation",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Dissertation : recherche des idées",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Les Tribus de Capitoline : contrôle de lecture et compte rendu",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le texte narratif : caractéristiques",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Dissertation : élaboration d'un plan détaillé",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "La valeur des temps de l'indicatif : les temps simples",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "La valeur des temps de l'indicatif : les temps composés",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Le texte descriptif : caractéristiques",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – La dissertation",
+   "lessons": [
+    {
+     "title": "Les fonctions du langage",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Les types de phrase obligatoires",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Le texte argumentatif : caractéristiques",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction de l'introduction",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction d'un paragraphe (idée directrice, argument, exemple)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Dissertation : rédaction d'une conclusion",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Le résumé de texte",
+   "lessons": [
+    {
+     "title": "La structure de la phrase",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative du texte",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Les Tribus de Capitoline : inscription de l'œuvre dans son contexte",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "La notion de mot, unité lexicale",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Contraction de texte : technique de réduction",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Les Tribus de Capitoline : évaluation de l'œuvre intégrale",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Les notions de progression, de cohérence et de cohésion",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Contraction de texte : rédaction d'un résumé",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 4 – L'analyse de texte",
+   "lessons": [
+    {
+     "title": "Tartuffe : activités augurales",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "La communication par l'image",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative et technique d'analyse",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Les types de phrase facultatifs",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Les tonalités : comique et tragique",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Contraction de texte : rédaction de l'analyse",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Les relations lexicales et sémantiques : synonymie, antonymie, homonymie",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Exposé : préparation, présentation suivie du débat",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 5 – Le plan détaillé de la discussion",
+   "lessons": [
+    {
+     "title": "Tartuffe : contrôle de lecture et compte rendu",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Le texte théâtral : caractéristiques",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Discussion : analyse du sujet",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Le texte explicatif : caractéristiques",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Discussion : recherche des idées",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Le champ lexical et le champ sémantique",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Discussion : élaboration d'un plan détaillé",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 6 – La discussion",
+   "lessons": [
+    {
+     "title": "Les figures d'analogie : comparaison, métaphore",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Discussion : rédaction de l'introduction",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Tartuffe : inscription de l'œuvre dans son contexte",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Les figures d'opposition : antithèse, oxymore, chiasme",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Discussion : rédaction d'un paragraphe",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Tartuffe : évaluation de l'étude de l'œuvre",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Les procédés de formation des mots : dérivation et composition",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Discussion : rédaction d'une conclusion",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Les emprunts",
+     "date": "2027-05-31"
+    }
+   ]
+  }
+ ]
+}

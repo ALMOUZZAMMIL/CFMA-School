@@ -1,0 +1,321 @@
+{
+ "section": "GEN",
+ "level": "6e",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 6e",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027, 17 chapitres, 4 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Ensemble ℕ des entiers naturels",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Entiers naturels : lecture et écriture",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Entiers naturels et ordre ; entiers naturels consécutifs",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Addition, soustraction, multiplication et division de nombres entiers naturels",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 4 : Multiple et diviseur d'un nombre entier naturel",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Critères de divisibilité par 10, 100, 1000 ; par 2, 3, 5, 9",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Droite du plan",
+   "lessons": [
+    {
+     "title": "Leçon 6 : Appartenance d'un point à une droite ; notation ; points alignés",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 7 : Droites passant par un point ; par deux points",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 8 : Régionnement du plan par une droite ; demi-droites",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 9 : Droites sécantes ; droites perpendiculaires",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 10 : Droites parallèles",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Nombres décimaux arithmétiques",
+   "lessons": [
+    {
+     "title": "Leçon 11 : Lecture, écriture et comparaison des nombres décimaux",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 12 : Addition et soustraction des nombres décimaux",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 13 : Multiplication et division des nombres décimaux",
+     "date": "2026-10-12"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Nombres décimaux relatifs",
+   "lessons": [
+    {
+     "title": "Leçon 14 : Présentation des nombres décimaux ; opposé d'un nombre décimal",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 15 : Comparaison des nombres décimaux relatifs",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 16 : Addition de deux nombres décimaux relatifs",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Segments",
+   "lessons": [
+    {
+     "title": "Leçon 17 : Segments ; support d'un segment",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 18 : Appartenance d'un point à un segment",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 19 : Milieu d'un segment ; médiatrice d'un segment",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Cercle",
+   "lessons": [
+    {
+     "title": "Leçon 20 : Cercle : rayon, diamètre, corde, arc ; disque",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 21 : Périmètre ou circonférence du cercle ; aire du disque",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 22 : Positions d'un point par rapport à un cercle ; régionnement du plan par un cercle",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Fractions",
+   "lessons": [
+    {
+     "title": "Leçon 23 : Numérateur, dénominateur, fractions égales ; inverse d'une fraction",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 24 : Écriture fractionnaire d'un nombre décimal et simplification",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 25 : Propriétés de l'addition et de la multiplication des fractions",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 26 : Comparaison des fractions ayant ou non le même dénominateur",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "8. Angles",
+   "lessons": [
+    {
+     "title": "Leçon 27 : Notions d'angle ou de secteur angulaire ; angles saillant, nul, aigu, droit, obtus, plat, rentrant, plein",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 28 : Mesures (en degrés) et bissectrice d'un angle",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Triangles",
+   "lessons": [
+    {
+     "title": "Leçon 29 : Vocabulaire : sommets, angles, côtés ; triangles particuliers",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Leçon 30 : Droites particulières d'un triangle : hauteur, médiane, bissectrice, médiatrice d'un côté",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Leçon 31 : Périmètre et aire",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Proportionnalité",
+   "lessons": [
+    {
+     "title": "Leçon 32 : Tableau de proportionnalité ; coefficients de proportionnalité",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 33 : Quatrième proportionnelle",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 34 : Pourcentage, échelle",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Symétries centrales",
+   "lessons": [
+    {
+     "title": "Leçon 35 : Points symétriques par rapport à un point ; figures symétriques par rapport à un point",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 36 : Conservation de l'alignement, des longueurs, des mesures des angles, des formes",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Parallélogramme",
+   "lessons": [
+    {
+     "title": "Leçon 37 : Parallélogramme, losange, rectangle, carré ; périmètre et aire",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Leçon 38 : Longueur des côtés opposés, diagonales, angles aux sommets opposés",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "13. Cube et pavé droit",
+   "lessons": [
+    {
+     "title": "Leçon 39 : Observation et description d'un cube et d'un pavé droit",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 40 : Patrons d'un cube et d'un pavé droit",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 41 : Propriétés des faces, des arêtes et des sommets",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 42 : Aires et volume",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "14. Calcul littéral",
+   "lessons": [
+    {
+     "title": "Leçon 43 : Expression littérale",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Leçon 44 : Règles de priorité des opérations avec et sans parenthèses",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "15. Cylindre de révolution",
+   "lessons": [
+    {
+     "title": "Leçon 45 : Forme et éléments caractéristiques (base, hauteur, surface latérale, surface de base, axe, rayon)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 46 : Calcul des éléments métriques (aire et volume)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 47 : Patron d'un cylindre de révolution",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "16. Repérage d'un point sur une droite",
+   "lessons": [
+    {
+     "title": "Leçon 48 : Demi-droite graduée, droite graduée : origine, unité, abscisse d'un point",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Leçon 49 : Milieu d'un segment ; distance entre deux points d'abscisses données",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "17. Symétries orthogonales",
+   "lessons": [
+    {
+     "title": "Leçon 50 : Points symétriques par rapport à une droite",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 51 : Figures symétriques par rapport à une droite",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 52 : Conservation de l'alignement, des longueurs, des mesures des angles, des formes",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

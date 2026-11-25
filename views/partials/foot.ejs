@@ -1,6 +1,16 @@
+<% var menu = (typeof nav !== "undefined" && nav) || null; %>
 </main>
 <footer class="footer">
   <p><%= settings.school_name %> · <%= t('common.footerPrivacy') %></p>
 </footer>
+</div>
+<% if (menu && menu.tabs.length) { %>
+<nav class="tabbar" aria-label="<%= t('nav.quick') %>">
+  <% menu.tabs.forEach(function (i) { %>
+  <a class="tab<%= i.active ? ' on' : '' %>" href="<%= i.href %>"<% if (i.active) { %> aria-current="page"<% } %><% if (i.id === 'more') { %> aria-controls="menu"<% } %>><%- include('icon', { name: i.icon }) %><span><%= t(i.key) %></span><% if (i.count) { %><span class="count"><%= i.count %><span class="sr"> <%= t('common.unread') %></span></span><% } %></a>
+  <% }) %>
+</nav>
+<% } %>
+</div>
 </body>
 </html>

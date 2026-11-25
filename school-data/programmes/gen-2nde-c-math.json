@@ -1,0 +1,239 @@
+{
+ "section": "GEN",
+ "level": "2nde C",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 2nde C",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027 (2nde C-E), 12 chapitres, 5 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Calculs dans ℝ",
+   "lessons": [
+    {
+     "title": "Leçon 1 : ℝ et ses sous-ensembles",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Opérations dans ℝ",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Comparaisons dans ℝ",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 4 : Valeurs absolues",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Puissances",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 6 : Calculs approchés",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Vecteurs du plan",
+   "lessons": [
+    {
+     "title": "Leçon 7 : Construction et égalité de vecteurs",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Leçon 8 : Combinaisons linéaires et bases",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Équations et inéquations",
+   "lessons": [
+    {
+     "title": "Leçon 9 : Équations et inéquations du 1er degré dans ℝ",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 10 : Équations et inéquations du 2nd degré dans ℝ",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 11 : Équations et inéquations rationnelles dans ℝ",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 12 : Systèmes d'équations et d'inéquations dans ℝ²",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Angles inscrits et polygones réguliers",
+   "lessons": [
+    {
+     "title": "Leçon 13 : Mesure d'un angle inscrit dans un cercle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 14 : Quadrilatère inscriptible dans un cercle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 15 : Construction des polygones réguliers",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 16 : Angles inscrits définis par une demi-tangente",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Fonctions numériques d'une variable réelle",
+   "lessons": [
+    {
+     "title": "Leçon 17 : Quelques généralités",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 18 : Étude graphique",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 19 : Fonctions usuelles",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Angles orientés et trigonométrie",
+   "lessons": [
+    {
+     "title": "Leçon 20 : Orientation du plan et cercle trigonométrique",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 21 : Présentation d'un angle orienté à partir d'un cercle trigonométrique",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 22 : Mesure d'un angle orienté",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 23 : Point image d'un réel sur le cercle trigonométrique",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 24 : Cos, sin et tan d'un angle orienté",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 25 : Points images des angles associés à un réel donné",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "7. Notion de groupe",
+   "lessons": [
+    {
+     "title": "Leçon 26 : Loi de composition interne",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 27 : Groupe (abélien)",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Produit scalaire de deux vecteurs du plan",
+   "lessons": [
+    {
+     "title": "Leçon 28 : Produit scalaire et ses expressions",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 29 : Relations métriques",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 30 : Tableaux des effectifs et fréquences cumulés",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 31 : Diagrammes statistiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 32 : Caractéristiques de position et de dispersion",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Droites et cercles dans le plan",
+   "lessons": [
+    {
+     "title": "Leçon 33 : Droites du plan",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 34 : Cercles du plan",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Géométrie dans l'espace",
+   "lessons": [
+    {
+     "title": "Leçon 35 : Description et représentation de l'espace",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 36 : Droites et plans de l'espace",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Transformations du plan",
+   "lessons": [
+    {
+     "title": "Leçon 37 : Utilisation des symétries et des translations",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 38 : Propriétés des homothéties",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 39 : Rotations et propriétés",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

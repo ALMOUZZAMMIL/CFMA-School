@@ -1,4 +1,6 @@
-</main>
+<% if (locals.split) { %></main>
+</div>
+<% } else { %></main>
 <footer class="site-footer">
   <div class="site-footer-inner">
     <div class="foot-col">
@@ -24,5 +26,6 @@
   </div>
   <p class="foot-privacy small"><%= t('common.footerPrivacy') %></p>
 </footer>
+<% } %>
 </body>
 </html>

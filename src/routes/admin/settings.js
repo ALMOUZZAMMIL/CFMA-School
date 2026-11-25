@@ -33,6 +33,9 @@ const SETTING_RULES = {
   show_progress_to_students: (v) => ['0', '1'].includes(v),
   repeat_absence_threshold: (v) => /^\d{1,2}$/.test(v) && Number(v) >= 1,
   repeat_absence_window_days: (v) => /^\d{1,3}$/.test(v) && Number(v) >= 1,
+  progress_grace_days: (v) => /^\d{1,2}$/.test(v),
+  progress_alert_days: (v) => /^\d{1,3}$/.test(v) && Number(v) >= 1,
+  plan_edit_window_hours: (v) => /^\d{1,3}$/.test(v) && Number(v) >= 1 && Number(v) <= 336,
 };
 const CHECKBOXES = ['allow_account_requests', 'prepare_sms_for_absences', 'show_attendance_to_parents', 'show_attendance_to_students', 'show_progress_to_students'];
 

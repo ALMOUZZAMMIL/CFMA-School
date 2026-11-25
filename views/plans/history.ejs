@@ -1,0 +1,38 @@
+<%# Full history of a progression sheet: change requests and every recorded step. %>
+<section class="card" id="history">
+  <div class="card-head"><h2><%= t('plans.hist.title') %></h2></div>
+  <% if (requests.length) { %>
+  <h3><%= t('plans.hist.requests') %></h3>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.date') %></th><th><%= t('common.teacher') %></th><th><%= t('plans.lock.reason') %></th><th><%= t('plans.req.decision') %></th></tr></thead>
+    <tbody><% requests.forEach(function (r) { %>
+      <tr><td><%= fmt.dateTime(r.created_at) %></td><td><%= r.requester %></td><td><%= r.reason %></td>
+        <td><span class="badge badge-<%= r.status === 'approved' || r.status === 'closed' ? 'completed' : r.status === 'rejected' ? 'missed' : 'pending' %>"><%= t('plans.req.st.' + r.status) %></span>
+          <% if (r.decider) { %><span class="small muted"> <%= r.decider %> · <%= fmt.dateTime(r.decided_at) %></span><% } %>
+          <% if (r.decision_note) { %><br><span class="small"><%= r.decision_note %></span><% } %></td></tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+  <% if (!history.length) { %><p class="muted"><%= t('plans.hist.empty') %></p><% } else { %>
+  <ol class="hist-list">
+    <% history.forEach(function (h) { var a = h.after || {}; var b = h.before || {}; %>
+    <li>
+      <span class="small muted"><%= fmt.dateTime(h.at) %> · <%= h.full_name || '—' %></span><br>
+      <strong><%= t('plans.hist.' + h.action) %></strong>
+      <% if (h.action === 'lesson_changed') { %>
+        <% if (b.title !== a.title) { %><br><span class="small">« <%= b.title %> » → « <%= a.title %> »</span><% } %>
+        <% if (b.planned_date !== a.planned_date) { %><br><span class="small"><%= t('plans.plannedDate') %> : <%= b.planned_date ? fmt.date(b.planned_date) : '—' %> → <%= a.planned_date ? fmt.date(a.planned_date) : '—' %></span><% } %>
+        <% if (b.planned_hours !== a.planned_hours) { %><br><span class="small"><%= t('plans.hours') %> : <%= b.planned_hours === null ? '—' : b.planned_hours %> → <%= a.planned_hours === null ? '—' : a.planned_hours %></span><% } %>
+      <% } else if (h.action === 'lesson_added') { %> <span class="small">« <%= a.title %> »<%= a.planned_date ? ' · ' + fmt.date(a.planned_date) : '' %></span>
+      <% } else if (h.action === 'lesson_deleted') { %> <span class="small">« <%= b.title %> »</span>
+      <% } else if (h.action === 'chapter_added') { %> <span class="small">« <%= a.title %> »</span>
+      <% } else if (h.action === 'chapter_deleted') { %> <span class="small">« <%= b.title %> » (<%= (b.lessons || []).length %>)</span>
+      <% } else if (h.action === 'imported') { %> <span class="small"><%= t('plans.hist.lessonsN', { n: a.lessons }) %></span>
+      <% } else if (h.action === 'request_approved' || h.action === 'reopened') { %> <span class="small"><%= a.teacher ? a.teacher + ' · ' : '' %><%= t('plans.hist.until', { until: fmt.dateTime(a.until) }) %></span>
+      <% } %>
+      <% if (h.reason) { %><br><span class="small">“<%= h.reason %>”</span><% } %>
+    </li>
+    <% }) %>
+  </ol>
+  <% } %>
+</section>

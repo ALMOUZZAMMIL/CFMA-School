@@ -1,0 +1,291 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "GEO",
+ "subject_fr": "Géographie",
+ "subject_en": "Geography",
+ "title": "Geography – Form 5",
+ "source": "Harmonised syllabus coverage progression sheet 2026-27 (MINESEC), 3 h/week, 53 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: Management of manufacturing and tertiary activities",
+   "lessons": [
+    {
+     "title": "First contact, diagnostic evaluation and presentation of the programme",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 1: Manufacturing industries",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: The agglomeration of industries (meaning, examples in LICs and AICs, factors)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 3: Industrialisation in the LICs (characteristics, reasons for low level)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 4: Industrialisation in AICs and LICs (characteristics, reasons for high level)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 5: Weber's industrial location model",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 6: Secondary industries in Cameroon",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Practical work 1: Location of economic activities and description of land use",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 7: Communication",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 8: Development of road transport",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 9: Development of rail transport",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 10: Impact of road and railway on the economy",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Lesson 11: Air and water transport",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Further study 2: Containerisation",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 12: Specialised forms of transport (motorways, cableways)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 13: Pipelines",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 14: Globalisation",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 15: Telecommunications",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 16: Transport development in Cameroon",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Practical work 2: Communication on maps",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 17: Volume of trade",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 18: Trade blocs",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 19: Tourism (meaning, types, promotion, destinations, attractions)",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Lesson 20: General effects of tourism (on people, the economy, the environment)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 21: Development of tourism in Cameroon",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 22: Economic growth of Cameroon",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Preservation of natural resources",
+   "lessons": [
+    {
+     "title": "Lesson 23: Land reclamation",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 24: Multipurpose river-development projects",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 25: Multipurpose river-development projects in Cameroon",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 26: Problems of waste management",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 27: Pollution",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3: Management of population and space colonisation",
+   "lessons": [
+    {
+     "title": "Lesson 28: Basic notions on population",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Further study 3: Sources of population data",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 29: Population distribution and density",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Practical work 3: Population densities in Cameroon",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 30: Spatial distribution of the world's population",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 31: Age and sex composition of population",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 32: Basic types of age-sex pyramids",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 33: Population growth",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 34: The demographic transition model",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 35: Rapid population growth in LICs",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Further study 4: Control of population growth",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 36: Migration",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 37: Optimum population, over-population and under-population",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 38: Population and resource model (Malthus)",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Lesson 39: Population of Cameroon (growth pattern, structure, distribution)",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 40: Migration patterns in Cameroon",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Practical work 4: Calculating the determinants of population growth (BR, DR, NI, PGR)",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3: Settlement",
+   "lessons": [
+    {
+     "title": "Lesson 41: Settlement",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 42: Location of settlements",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 43: Concept of rural settlement",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 44: Rural settlement form",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 45: Rural settlement distribution and patterns",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 46: The concept of urban settlement",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 47: Urbanisation",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 48: Consequences of the urbanisation process",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Further study 5: Shanty settlements",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 49: Functions of urban settlements",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 50: Urban fields or spheres of influence",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 51: Settlement size–function relationship",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Practical work 5: Settlements on maps",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 52: Settlements in Cameroon",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 53: Urban spheres of influence in Cameroon",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Further study 6: Site and situation of Douala or Yaoundé",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

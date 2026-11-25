@@ -16,15 +16,59 @@
 </form>
 <% if (!slots.length) { %>
   <div class="empty"><p><%= t('timetable.empty') %></p></div>
-<% } else { %>
+<% } else {
+  var showClass = !(typeof query !== 'undefined' && query.class) && user.role !== 'student' && user.role !== 'parent';
+  var showTeacher = user.role !== 'teacher' && !(typeof query !== 'undefined' && query.teacher);
+  var hours = slots.reduce(function (n, s) { var a = s.start_time.split(':'), b = s.end_time.split(':'); return n + ((+b[0] * 60 + +b[1]) - (+a[0] * 60 + +a[1])); }, 0) / 60;
+%>
+  <p class="muted small tt-summary"><%= t('timetable.summary', { lessons: slots.length, hours: fmt.number(hours) }) %></p>
+  <% if (exams.length) { %>
+  <section class="card tt-exams">
+    <h2>‖ <%= t('timetable.examsTitle') %></h2>
+    <ul class="exam-list"><% exams.forEach(function (e) { var now = e.start_date <= today && (e.end_date || e.start_date) >= today; %>
+      <li class="<%= now ? 'is-now' : '' %>"><span class="badge <%= now ? 'badge-in_progress' : e.end_date < today ? 'badge-none' : 'badge-planned' %>"><%= fmt.date(e.start_date) %><%= e.end_date && e.end_date !== e.start_date ? ' – ' + fmt.date(e.end_date) : '' %></span> <%= ln(e, 'title') %><% if (!e.pauses_lessons) { %> <span class="small muted">(<%= t('timetable.examContinue') %>)</span><% } %></li>
+    <% }) %></ul>
+  </section>
+  <% } %>
+  <% if (grid) { %>
+  <section class="card tt-grid-card">
+    <div class="table-wrap"><table class="tt-grid">
+      <thead><tr><th class="tt-time"><%= t('common.time') %></th><% grid.days.forEach(function (d) { %><th><%= t('days.' + d) %></th><% }) %></tr></thead>
+      <tbody>
+      <% grid.rows.forEach(function (r) { if (r.type === 'break') { %>
+        <tr class="tt-break"><td class="tt-time"><%= r.start %>–<%= r.end %></td><td colspan="<%= grid.days.length %>"><%= t(r.minutes >= 30 ? 'timetable.longBreak' : 'timetable.shortBreak', { minutes: r.minutes }) %></td></tr>
+      <% } else { %>
+        <tr><td class="tt-time"><%= r.start %><span>–<%= r.end %></span></td>
+        <% grid.days.forEach(function (d) { var c = r.cells[d]; if (!c || c.covered) return; %>
+          <% var clash = user.role === 'admin' && c.slots.some(function (s) { return s.subject_id !== c.slots[0].subject_id; }); %>
+          <td<% if (c.span > 1) { %> rowspan="<%= c.span %>"<% } %> class="<%= c.slots.length ? 'tt-lesson tt-c' + (c.slots[0].subject_id % 8) : 'tt-free' %><%= clash ? ' tt-clash' : '' %>"<% if (clash) { %> title="<%= t('timetable.clash') %>"<% } %>>
+            <% if (clash) { %><span class="tt-clash-note"><%= t('timetable.clash') %></span><% } %>
+            <% c.slots.forEach(function (s, i) { if (i && c.slots[i - 1].subject_id === s.subject_id && c.slots[i - 1].teacher_name === s.teacher_name) { %><span class="tt-extra"><%= s.class_name %></span><% return; } %>
+              <strong><%= ln(s, 'subject') %></strong>
+              <% if (showClass) { %><span><%= s.class_name %></span><% } %>
+              <% if (showTeacher) { %><span class="tt-who"><%= s.teacher_name %></span><% } %>
+              <% if (s.room) { %><span class="tt-who"><%= s.room %></span><% } %>
+              <% if (s.track && s.track.p.plan) { var tk = s.track; %><span class="tt-track tt-track-<%= tk.status %>" title="<%= t('progress.shouldBeOn') %>"><%= tk.status === 'far_behind' || tk.status === 'behind' ? '⚠' : tk.status === 'not_submitted' ? '✎' : '▶' %> <%= tk.p.shouldBeOn ? tk.p.shouldBeOn.title : t('progress.allDone') %></span><% } %>
+            <% }) %>
+          </td>
+        <% }) %>
+        </tr>
+      <% } }) %>
+      </tbody>
+    </table></div>
+  </section>
+  <% } %>
+  <div class="tt-list<%= grid ? ' tt-list-phone' : '' %>">
   <% [1,2,3,4,5,6,7].forEach(function (d) { var day = slots.filter(function (s) { return s.day_of_week === d; }); if (!day.length) return; %>
   <section class="card day">
     <h2><%= t('days.' + d) %></h2>
     <div class="table-wrap"><table>
-      <thead><tr><th><%= t('common.time') %></th><th><%= t('common.subject') %></th><th><%= t('common.class') %></th><th><%= t('common.teacher') %></th><th><%= t('common.room') %></th></tr></thead>
-      <tbody><% day.forEach(function (s) { %><tr><td><%= s.start_time %>–<%= s.end_time %></td><td><%= ln(s, 'subject') %></td><td><%= s.class_name %></td><td><%= s.teacher_name %></td><td><%= s.room || '—' %></td></tr><% }) %></tbody>
+      <thead><tr><th><%= t('common.time') %></th><th><%= t('common.subject') %></th><th><%= t('common.class') %></th><th><%= t('common.teacher') %></th><th><%= t('common.room') %></th><% if (user.role === 'admin' || user.role === 'teacher') { %><th><%= t('timetable.currentLesson') %></th><% } %></tr></thead>
+      <tbody><% day.forEach(function (s) { %><tr><td><%= s.start_time %>–<%= s.end_time %></td><td><%= ln(s, 'subject') %></td><td><%= s.class_name %></td><td><%= s.teacher_name %></td><td><%= s.room || '—' %></td>
+        <% if (user.role === 'admin' || user.role === 'teacher') { %><td class="small"><% if (s.track && s.track.p.plan) { %><%= s.track.p.shouldBeOn ? s.track.p.shouldBeOn.title : t('progress.allDone') %><% if (s.track.p.actualLesson) { %><br><span class="muted">✓ <%= s.track.p.actualLesson.title %></span><% } %> <%- include('partials/curriculum-status', { status: s.track.status, p: s.track.p }) %><% } else { %>—<% } %></td><% } %></tr><% }) %></tbody>
     </table></div>
   </section>
   <% }) %>
+  </div>
 <% } %>
 <%- include('partials/foot') %>

@@ -30,8 +30,8 @@ function groupRows(rows, by) {
   const map = new Map();
   for (const x of rows) {
     const k = keyOf(x);
-    const g = map.get(k) || { ...x, scheduled: 0, held: 0, missed: 0, cancelled: 0, makeup: 0, delivered: 0, notRecorded: 0, makeupPending: 0 };
-    for (const f of ['scheduled', 'held', 'missed', 'cancelled', 'makeup', 'delivered', 'notRecorded', 'makeupPending']) g[f] = Math.round((g[f] + x[f]) * 10) / 10;
+    const g = map.get(k) || { ...x, scheduled: 0, held: 0, scanned: 0, missed: 0, cancelled: 0, makeup: 0, delivered: 0, notRecorded: 0, makeupPending: 0 };
+    for (const f of ['scheduled', 'held', 'scanned', 'missed', 'cancelled', 'makeup', 'delivered', 'notRecorded', 'makeupPending']) g[f] = Math.round((g[f] + x[f]) * 10) / 10;
     map.set(k, g);
   }
   return [...map.values()].map((g) => ({ ...g, rate: g.scheduled ? Math.round((g.delivered / g.scheduled) * 100) : null }));
@@ -49,8 +49,8 @@ r.get('/reports/hours', auth.requireRole('admin', 'teacher'), (req, res) => {
   if (req.query.format === 'csv') {
     res.type('text/csv; charset=utf-8').attachment(`teaching-hours-${from}-${to}.csv`);
     return res.send(toCsv(
-      [t('common.teacher'), t('common.class'), t('common.subject'), t('hours.scheduled'), t('hours.held'), t('hours.makeup'), t('hours.missed'), t('hours.cancelled'), t('hours.delivered'), t('hours.rate'), t('hours.notRecorded'), t('hours.makeupPending')],
-      grouped.map((x) => [by === 'class' || by === 'subject' ? '' : x.teacher_name, by === 'teacher' || by === 'subject' ? '' : x.class_name, by === 'teacher' || by === 'class' ? '' : ln(x, 'subject'), x.scheduled, x.held, x.makeup, x.missed, x.cancelled, x.delivered, x.rate === null ? '' : `${x.rate}%`, x.notRecorded, x.makeupPending]),
+      [t('common.teacher'), t('common.class'), t('common.subject'), t('hours.scheduled'), t('hours.held'), t('hours.scanned'), t('hours.makeup'), t('hours.missed'), t('hours.cancelled'), t('hours.delivered'), t('hours.rate'), t('hours.notRecorded'), t('hours.makeupPending')],
+      grouped.map((x) => [by === 'class' || by === 'subject' ? '' : x.teacher_name, by === 'teacher' || by === 'subject' ? '' : x.class_name, by === 'teacher' || by === 'class' ? '' : ln(x, 'subject'), x.scheduled, x.held, x.scanned, x.makeup, x.missed, x.cancelled, x.delivered, x.rate === null ? '' : `${x.rate}%`, x.notRecorded, x.makeupPending]),
     ));
   }
   const d = db.get();

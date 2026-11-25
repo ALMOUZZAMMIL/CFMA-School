@@ -1,0 +1,293 @@
+{
+ "section": "GEN",
+ "level": "4e",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 4e",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027, 15 chapitres, 4 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Arithmétique",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Décomposition en produit de facteurs premiers",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : PGCD de deux entiers naturels",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : PPCM de deux entiers naturels",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Distances",
+   "lessons": [
+    {
+     "title": "Leçon 4 : Distance d'un point à une droite",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Distance de deux droites parallèles",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 6 : Caractérisation de la bissectrice d'un angle",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Nombres rationnels",
+   "lessons": [
+    {
+     "title": "Leçon 7 : Caractérisation des nombres rationnels",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Leçon 8 : Nombres rationnels particuliers",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Leçon 9 : Règles d'addition et de soustraction des nombres rationnels",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 10 : Règles de multiplication et de division des nombres rationnels",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 11 : Règles de comparaison des nombres rationnels",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 12 : Puissance entière d'un nombre rationnel et écriture scientifique",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Triangles",
+   "lessons": [
+    {
+     "title": "Leçon 13 : Droite des milieux dans un triangle",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 14 : Médianes et centre de gravité d'un triangle",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 15 : Bissectrices et centre du cercle inscrit dans un triangle",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 16 : Hauteurs et orthocentre d'un triangle",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 17 : Propriété directe de Pythagore",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 18 : Propriété réciproque de Pythagore",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Cercle",
+   "lessons": [
+    {
+     "title": "Leçon 19 : Positions relatives d'une droite et d'un cercle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 20 : Tangente à un cercle",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 21 : Tangente passant par un point extérieur au cercle",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Leçon 22 : Secteurs angulaires au centre d'un cercle et angles au centre",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Vecteurs",
+   "lessons": [
+    {
+     "title": "Leçon 23 : Notion de vecteur",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 24 : Égalité de vecteurs",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 25 : Addition des vecteurs",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Calcul littéral",
+   "lessons": [
+    {
+     "title": "Leçon 26 : Expressions littérales",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 27 : Développement d'une expression littérale : identités remarquables",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 28 : Factorisation d'une expression littérale",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Translations",
+   "lessons": [
+    {
+     "title": "Leçon 29 : Translations et vecteurs",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Leçon 30 : Propriétés des translations",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Équations et inéquations",
+   "lessons": [
+    {
+     "title": "Leçon 31 : Équations de la forme ax + b = 0",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 32 : Inéquations de la forme ax + b ≥ 0 (≥ pouvant être remplacé par ≤, >, <)",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Repérage",
+   "lessons": [
+    {
+     "title": "Leçon 33 : Repère orthogonal, orthonormé",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Leçon 34 : Couple de coordonnées d'un point",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Plans et droites de l'espace",
+   "lessons": [
+    {
+     "title": "Leçon 35 : Droites et plans de l'espace",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 36 : Positions relatives des droites et plans",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Proportionnalité",
+   "lessons": [
+    {
+     "title": "Leçon 37 : Suites de nombres proportionnels",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Leçon 38 : Propriétés dans un tableau de proportionnalité",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "13. Pyramide",
+   "lessons": [
+    {
+     "title": "Leçon 39 : Reconnaissance et description d'une pyramide",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 40 : Patrons d'une pyramide",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 41 : Éléments métriques : aires et volume",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "14. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 42 : Vocabulaire statistique",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 43 : Tableau des effectifs ou des fréquences",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 44 : Mode, moyenne",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 45 : Diagrammes à bâtons, à bandes",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "15. Cône de révolution",
+   "lessons": [
+    {
+     "title": "Leçon 46 : Reconnaissance et description d'un cône de révolution",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 47 : Patron d'un cône de révolution",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Leçon 48 : Éléments métriques : aires et volume",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}
