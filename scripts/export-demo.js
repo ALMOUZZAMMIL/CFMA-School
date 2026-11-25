@@ -36,8 +36,8 @@ const LABELS = {
     banner: 'Demo preview (fictional data). Links work; forms do not save anything.', view: 'View as:',
     missing: 'This page is not included in the preview.', back: 'Back to home', saved: 'Preview only: nothing was saved.' },
 };
-const PRIORITY = /^\/(plans|progress\/now)/;
-const SKIP = /^\/(logout|lang|session\/status|healthz|brand\.css|static\/)|\.(csv|pdf|zip)(\?|$)|[?&](format|download|step)=/;
+const PRIORITY = /^\/(plans|progress\/now|admin\/scanner\/calendar)/;
+const SKIP = /^\/(logout|lang|session\/status|healthz|brand\.css|static\/)|\.(csv|pdf|zip)(\?|$)|[?&](format|download|step)=|^\/admin\/scanner\/(calendar|board)\?(.*&)?date=/;
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'csma-demo-'));
 const env = { ...process.env, NODE_ENV: 'development', DATABASE_FILE: path.join(tmp, 'demo.db'), PORT: String(PORT) };
@@ -74,7 +74,7 @@ class Browser {
 }
 
 async function crawl(b, start) {
-  const pages = new Map(); const queue = [start];
+  const pages = new Map(); const queue = [].concat(start);
   while (queue.length && pages.size < LIMIT) {
     const key = queue.shift();
     if (pages.has(key)) continue;
@@ -177,6 +177,11 @@ async function main() {
   execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'import-school-data.js')], { env, stdio: 'ignore' });
   // Fictional progress for those imported classes, so the curriculum tracker has something to show.
   execFileSync(process.execPath, [path.join(__dirname, 'export-demo', 'demo-progress.js')], { env, stdio: 'ignore' });
+  // Simulated fingerprint scans, with the clock frozen at a school-day morning so the class
+  // calendar shows lessons finished, in progress and not yet started.
+  const scanOut = execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'demo-scans.js')], { env, encoding: 'utf8' }).trim().split('\n');
+  env.DEMO_CLOCK = scanOut[scanOut.length - 1];
+  console.log(`  ${scanOut[0]}`);
   const server = spawn(process.execPath, [path.join(ROOT, 'server.js')], { env, stdio: 'ignore' });
   try {
     for (let i = 0; i < 50; i++) {
@@ -196,7 +201,8 @@ async function main() {
       if (res.status !== 302) throw new Error(`Login failed for ${role.user} (${res.status})`);
       for (const lang of LANGS) {
         await b.post('/lang', { _csrf: await b.csrf('/'), lang, back: '/' });
-        save(await crawl(b, '/'), lang, role.dir);
+        // The scanner pages first for the administration, so the page limit never leaves them out.
+        save(await crawl(b, role.dir === 'admin' ? ['/', '/admin/scanner/calendar', '/admin/scanner/board'] : (role.dir === 'enseignant' ? ['/', '/my-scans'] : '/')), lang, role.dir);
       }
     }
     const css = path.join(OUT, 'assets', 'style.css');

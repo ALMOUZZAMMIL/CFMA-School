@@ -9,4 +9,5 @@ module.exports = [
   require('./005-school-calendar'),
   require('./006-plan-locking'),
   require('./007-plan-schedule'),
+  require('./008-fingerprint-scanner'),
 ];

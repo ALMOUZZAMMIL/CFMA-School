@@ -1,7 +1,15 @@
 'use strict';
 // Small helpers: dates in the school's time zone, validation, and duration maths.
 
+// The static demo export freezes "now" at a school-day morning. Ignored in production.
+function demoClock() {
+  const v = process.env.DEMO_CLOCK;
+  return v && process.env.NODE_ENV !== 'production' && /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(v) ? v : null;
+}
+
 function todayIn(timezone) {
+  const demo = demoClock();
+  if (demo) return demo.slice(0, 10);
   // en-CA gives YYYY-MM-DD
   return new Intl.DateTimeFormat('en-CA', { timeZone: timezone, year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
 }
@@ -98,4 +106,4 @@ function parseCsv(text) {
   return rows.map((r) => r.map((x) => x.trim()));
 }
 
-module.exports = { todayIn, isDate, isTime, minutesBetween, weekday, addDays, eachDate, int, str, Validator, toCsv, parseCsv };
+module.exports = { demoClock, todayIn, isDate, isTime, minutesBetween, weekday, addDays, eachDate, int, str, Validator, toCsv, parseCsv };

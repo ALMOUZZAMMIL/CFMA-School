@@ -1,0 +1,6 @@
+<%# Fingerprint lesson state: icon + word, never colour alone. %>
+<% var sIcons = { waiting: '○', in_class: '▶', done: '✓', unconfirmed: '?', review: '⚠', no_scan: '✗', approved: '✓', rejected: '✗' };
+   var sClass = { waiting: 'pending', in_class: 'in_progress', done: 'held', unconfirmed: 'late', review: 'late', no_scan: 'missed', approved: 'held', rejected: 'missed' }; %>
+<span class="badge badge-<%= sClass[state] %>"><span aria-hidden="true"><%= sIcons[state] %></span> <%= t('scanner.st.' + state) %></span>
+<% if (typeof late !== 'undefined' && late) { %><span class="badge badge-late"><span aria-hidden="true">◷</span> <%= t('scanner.lateBy', { min: lateMin }) %></span><% } %>
+<% if (typeof early !== 'undefined' && early) { %><span class="badge badge-late"><span aria-hidden="true">◷</span> <%= t('scanner.earlyBy', { min: earlyMin }) %></span><% } %>

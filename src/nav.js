@@ -13,6 +13,8 @@ const ITEMS = {
   timetable: { href: '/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/timetable'] },
   calendar: { href: '/calendar', key: 'nav.calendar', icon: 'flag', match: ['/calendar'] },
   adminTimetable: { href: '/admin/timetable', key: 'nav.timetable', icon: 'calendar', match: ['/admin/timetable'] },
+  scanner: { href: '/admin/scanner/calendar', key: 'nav.scanner', icon: 'fingerprint', match: ['/admin/scanner'] },
+  myScans: { href: '/my-scans', key: 'nav.myScans', icon: 'fingerprint', match: ['/my-scans'] },
   reports: { href: '/reports/hours', key: 'nav.reports', icon: 'chart', match: ['/reports'] },
   myRecord: { href: '/me', key: 'nav.myRecord', icon: 'file', match: ['/me', '/students'] },
   announcements: { href: '/announcements', key: 'nav.announcements', icon: 'megaphone', match: ['/announcements'] },
@@ -30,11 +32,11 @@ const ITEMS = {
 const MENUS = {
   admin: [
     [null, ['home']],
-    ['nav.groupTeaching', ['teaching', 'attendance', 'progress', 'plans', 'adminTimetable', 'calendar', 'reports']],
+    ['nav.groupTeaching', ['teaching', 'scanner', 'attendance', 'progress', 'plans', 'adminTimetable', 'calendar', 'reports']],
     ['nav.groupPeople', ['students', 'accounts', 'announcements', 'requests']],
     ['nav.groupSchool', ['structure', 'settings', 'outbox', 'audit']],
   ],
-  teacher: [[null, ['home', 'teaching', 'attendance', 'progress', 'plans', 'timetable', 'calendar', 'reports', 'announcements']]],
+  teacher: [[null, ['home', 'teaching', 'myScans', 'attendance', 'progress', 'plans', 'timetable', 'calendar', 'reports', 'announcements']]],
   parent: [[null, ['home', 'timetable', 'calendar', 'announcements', 'notifications']]],
   student: [[null, ['home', 'myRecord', 'timetable', 'calendar', 'announcements']]],
   bursar: [[null, ['home', 'calendar']]],
