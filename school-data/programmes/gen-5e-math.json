@@ -1,0 +1,315 @@
+{
+ "section": "GEN",
+ "level": "5e",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – 5e",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027, 16 chapitres, 4 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Arithmétique",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Introduction et division euclidienne",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Critères de divisibilité par 4 et 25",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3 : Écriture d'une puissance entière d'un nombre entier",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 4 : Calculs des puissances entières",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 5 : Nombres premiers et décomposition",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 6 : Liste des diviseurs d'un nombre entier naturel",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 7 : PGCD de deux entiers naturels",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Leçon 8 : PPCM de deux entiers naturels",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Distances",
+   "lessons": [
+    {
+     "title": "Leçon 9 : Caractérisation d'un segment par les distances",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 10 : Inégalité triangulaire",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 11 : Caractérisation de la médiatrice d'un segment par les distances",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Fractions",
+   "lessons": [
+    {
+     "title": "Leçon 12 : Simplification des fractions ; fractions irréductibles",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 13 : Réduction de fractions au même dénominateur",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 14 : Comparaison de fractions de même dénominateur ou numérateur",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 15 : Comparaison de fractions de numérateur et dénominateur différents",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 16 : Encadrement des fractions",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 17 : Addition et soustraction des fractions",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 18 : Multiplication et division des fractions",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Triangles",
+   "lessons": [
+    {
+     "title": "Leçon 19 : Construction des triangles",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 20 : Somme des angles dans un triangle",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 21 : Triangles particuliers",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 22 : Droites particulières dans un triangle",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 23 : Aire d'un triangle",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Nombres décimaux relatifs",
+   "lessons": [
+    {
+     "title": "Leçon 24 : Comparaison des nombres décimaux relatifs de même signe",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Leçon 25 : Comparaison des nombres décimaux relatifs de signes contraires",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Leçon 26 : Somme, différence, produit et quotient des nombres décimaux relatifs",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 27 : Opposé ; puissance d'exposant entier des nombres décimaux relatifs",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Polygones",
+   "lessons": [
+    {
+     "title": "Leçon 28 : Représentation des polygones usuels",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 29 : Propriétés",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 30 : Aire d'un parallélogramme et d'un trapèze",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Calcul littéral",
+   "lessons": [
+    {
+     "title": "Leçon 31 : Expressions littérales",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 32 : Équations",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Leçon 33 : Problèmes",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Symétries",
+   "lessons": [
+    {
+     "title": "Leçon 34 : Symétries centrales ; symétries orthogonales",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Leçon 35 : Propriétés de conservation",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Proportionnalités",
+   "lessons": [
+    {
+     "title": "Leçon 36 : Coefficients de proportionnalité particuliers : vitesse, masse volumique, débit",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 37 : Représentation graphique d'une situation de proportionnalité",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Angles",
+   "lessons": [
+    {
+     "title": "Leçon 38 : Angles complémentaires, angles supplémentaires",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 39 : Angles formés par deux droites parallèles et une sécante",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 40 : Angles alternes-internes, alternes-externes, correspondants",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Leçon 41 : Angles opposés par le sommet",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Cercle",
+   "lessons": [
+    {
+     "title": "Leçon 42 : Cercle circonscrit à un triangle, à un triangle rectangle",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Leçon 43 : Positions relatives de deux cercles",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "12. Repérage d'un point sur une droite",
+   "lessons": [
+    {
+     "title": "Leçon 44 : Distance à zéro d'un nombre",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Leçon 45 : Distance de deux nombres d'abscisses données",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "13. Repérage d'un point sur un quadrillage",
+   "lessons": [
+    {
+     "title": "Leçon 46 : Notion de couple de coordonnées",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "14. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 47 : Vocabulaire",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Leçon 48 : Fréquence",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "15. Prisme droit",
+   "lessons": [
+    {
+     "title": "Leçon 49 : Formes et propriétés d'un prisme droit",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 50 : Calcul des éléments métriques",
+     "date": "2027-04-12"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "16. Sphère",
+   "lessons": [
+    {
+     "title": "Leçon 51 : Description d'une sphère et d'une boule",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 52 : Éléments métriques",
+     "date": "2027-04-19"
+    }
+   ]
+  }
+ ]
+}

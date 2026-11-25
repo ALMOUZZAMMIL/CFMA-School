@@ -1,0 +1,6 @@
+<%# Short status of a progression sheet. status: 'draft' | 'locked' | null (no sheet yet). %>
+<% if (!status) { %><span class="badge badge-none">– <%= t('plans.sheet.none') %></span>
+<% } else if (status === 'draft') { %><span class="badge badge-draft">✎ <%= t('plans.sheet.draft') %></span>
+<% } else if (windowOpen) { %><span class="badge badge-in_progress">✎ <%= t('plans.sheet.open') %></span>
+<% } else { %><span class="badge badge-completed">🔒 <%= t('plans.sheet.locked') %></span><% } %>
+<% if (pending) { %><span class="badge badge-pending">◷ <%= t('plans.sheet.pending') %></span><% } %>

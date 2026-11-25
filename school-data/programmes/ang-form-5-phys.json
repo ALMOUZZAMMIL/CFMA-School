@@ -1,0 +1,139 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "PHYS",
+ "subject_fr": "Physique",
+ "subject_en": "Physics",
+ "title": "Physics – Form 5",
+ "source": "Form 5 scheme of work 2026-27, 3 periods/week, 63 h a year; dates worked out from the week numbers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – Fields: magnetic fields and their effects",
+   "lessons": [
+    {
+     "title": "First contact and presentation of the scheme of work",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "1.0–1.1 Magnets: magnetic and non-magnetic substances; identifying magnets",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "1.2 Law of magnetism; applications; making magnets and caring for them; hard and soft magnetic materials",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "1.3–1.4 Magnetic field and flux patterns (bar magnet, the earth, horseshoe magnet, two poles)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "1.5 Magnetic effect of a current: straight conductor and solenoid",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Force on a current-carrying conductor in a magnetic field; principle of the electric motor",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "1.6 Electromagnetic induction: Faraday's law",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lenz's law and conservation of energy",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "1.7 Alternating current; mutual inductance",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "The transformer: energy losses, turns ratio",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Efficiency, practical transformers and power transmission; applications",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – Environmental protection: modern physics and basic electronics",
+   "lessons": [
+    {
+     "title": "2.0–2.1 The nuclear model of the atom; the electron (Q = Ne)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "2.2–2.3 The nucleus; nuclear stability; radioactivity and decay equations",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "2.4 Radioactive decay: α, β and γ and their properties; cloud chamber",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "2.5 Half-life; importance and use of isotopes; background radiation",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "2.6–2.7 Uses of radioactive isotopes; safety and hazards of radioactivity",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "2.8 Semiconductors: intrinsic and extrinsic, p-type and n-type; p-n junctions and rectification",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 – Mechanics",
+   "lessons": [
+    {
+     "title": "3.1–3.2 Vector and scalar quantities; forces: types, resolution, free-body diagrams, Archimedes' principle",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "3.3–3.4 Mass and weight; turning effect of forces: moments, couples",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "3.5 Linear motion: distance, displacement, speed, velocity, acceleration; motion graphs",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "3.6 Uniformly accelerated motion; free fall; experiment to determine g",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "3.7 Linear momentum: conservation of momentum",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "3.8 Newton's laws of motion",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 4 – Projects and elementary engineering",
+   "lessons": [
+    {
+     "title": "Preservation and maintenance of appliances; the essential elements of a repair box",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Understanding the labelling on appliances",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Techniques for dismantling and assembling appliances (FOLI and LIFO)",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

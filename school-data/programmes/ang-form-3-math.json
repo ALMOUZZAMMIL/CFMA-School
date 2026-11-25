@@ -1,0 +1,389 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathematics – Form 3",
+ "source": "National harmonised progression sheet (2025-26 dates moved to 2026-27 by week), 4 periods/week, 74 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Simple algebra",
+   "lessons": [
+    {
+     "title": "Lesson 1: Algebraic expressions (simplification)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Expansion of algebraic expressions: a(b ± c), (a ± b)², (a ± b)(c ± d)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Factorisation of algebraic expressions: common factors and grouping",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Factorising quadratic trinomials (a = 1, a ≠ 1)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 5: Factorising the difference of two squares",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Transposition of formulae and variation",
+   "lessons": [
+    {
+     "title": "Lesson 6: Transposition of formulae (change of subject)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 7: Direct and inverse variation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 8: Joint variation and graphs",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "1. Simple algebra: equations",
+   "lessons": [
+    {
+     "title": "Lesson 9: Solving simple linear equations",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 10: Solving simultaneous linear equations by elimination",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 11: Solving simultaneous linear equations by substitution",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 12: Building and solving equations from real-life problems",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 13: Solving quadratic equations by factorisation",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 13 (continued): Solving quadratic equations by the quadratic formula",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Trigonometry in a right-angled triangle",
+   "lessons": [
+    {
+     "title": "Lesson 14: Right-angled triangles and Pythagoras' theorem",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 15: Trigonometric ratios for acute angles; sine and cosine of complementary angles",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 16: Trigonometric ratios of special angles; using calculators",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 17: Solving triangles",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Matrices",
+   "lessons": [
+    {
+     "title": "Lesson 18: Definition and types of matrices",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 19: Addition, subtraction and scalar multiplication of matrices",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 20: Multiplying a matrix by another matrix",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 21: Transpose, determinant and adjoint of a matrix",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 22: Inverse of a 2 × 2 matrix",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Congruency and similarities",
+   "lessons": [
+    {
+     "title": "Lesson 23: Congruency and congruent plane figures",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 24: Congruency in triangles (SSS, SAS, ASA, RHS)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 25: Similar plane figures and the constant of proportionality",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 26: Areas and volumes of similar figures",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 27: Thales' property and its converse",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 28: Applying similarities to areas and volumes",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Indices and logarithms",
+   "lessons": [
+    {
+     "title": "Lesson 29: Laws of indices",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 30: Simple exponential equations",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 31: Laws of logarithms",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 32: Simple logarithmic equations",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "7. Vectors in two dimensions",
+   "lessons": [
+    {
+     "title": "Lesson 33: Scalar and vector quantities; vector notation and representation",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 34: Position vectors, free vectors and localised vectors",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 35: Operations with vectors: equal vectors, addition and subtraction",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 36: Multiplying a vector by a scalar; dot product of two vectors",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 37: Magnitude, direction and sense of a vector",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "8. Sets",
+   "lessons": [
+    {
+     "title": "Lesson 38: Sets of numbers (N, Z, Q, Q', R)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 39: Operations in the sets Z and Q",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 40: Set language and notation",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 41: Types of sets (finite, infinite, null, singleton, equal and equivalent sets)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 42: The universal set; complement and relative complement",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 43: Cardinality, subsets and power sets",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 44: Intersection and union of sets; disjoint sets",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 45: Venn diagrams and De Morgan's laws",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 46: Sets, Venn diagrams and real-life problems",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Relations and functions",
+   "lessons": [
+    {
+     "title": "Lesson 47: Relations between two sets and in a set",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 48: Cartesian product A×B and A²",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 49: Types of relations",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 50: Properties of relations in a set",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 51: Equivalence relations",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 52: Domain, codomain, image and range",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 53: Types of mappings",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 54: Flow diagrams",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 55: Functions",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 56: Inverse functions",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 57: Composite functions (two functions)",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "10. Mensuration",
+   "lessons": [
+    {
+     "title": "Lesson 58: Spheres: surface area and volume",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 59: Right circular cylinder: net, surface area and volume",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 60: Right circular cone: net, surface area and volume",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 61: Pyramids: nets, surface area and volume",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 62: Prisms: nets, surface area and volume",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 63: Frustums of cones and their volume",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 64: Frustums of pyramids and their volume",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "11. Statistics",
+   "lessons": [
+    {
+     "title": "Lesson 65: Representing data: bar chart",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Lesson 66: Representing data: pie chart",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Lesson 67: Representing data: frequency distribution tables (ungrouped and grouped data)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 68: Representing data: histogram of grouped data (equal class widths)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 69: Measures of central tendency (ungrouped data): mode and median",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 70: Measures of central tendency (ungrouped data): mean",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "12. Probability",
+   "lessons": [
+    {
+     "title": "Lesson 71: Sample space and events",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 72: Equiprobable events",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 73: Probability of an event",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Lesson 74: The probability scale",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

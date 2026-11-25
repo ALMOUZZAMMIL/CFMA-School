@@ -1,0 +1,283 @@
+{
+ "section": "GEN",
+ "level": "1ère A",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 1ère A",
+ "source": "Projet pédagogique 2026/2027, Première littéraire, 6 séquences de 30 h ; semaines réparties sur l'année",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Le plan détaillé de dissertation",
+   "lessons": [
+    {
+     "title": "Au cœur des ténèbres : étude des paratextes et d'un texte ouvroir",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "La communication par l'image",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Dissertation : analyse d'un sujet (explication du jugement, consigne, problème, problématique), plans analytique et dialectique",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Les situations de communication",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "La ponctuation",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Dissertation : recherche des idées",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L'énonciation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le sens des mots : dénotation et connotation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Le texte narratif : la focalisation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Dissertation : élaboration d'un plan détaillé",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Au cœur des ténèbres : contrôle de lecture, compte rendu et négociation du projet d'étude",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – La rédaction de la dissertation",
+   "lessons": [
+    {
+     "title": "Le texte argumentatif : caractéristiques",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Dissertation : rédaction de l'introduction (production et amélioration)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Au cœur des ténèbres : inscription de l'œuvre dans son contexte",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Les types de phrase",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Dissertation : rédaction d'un paragraphe (idée, argument, exemple, citations, transitions)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Au cœur des ténèbres : évaluation de l'étude de l'œuvre",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Groupement de textes : présentation",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Les notions de progression, de cohésion et de cohérence du texte",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Le texte argumentatif : stratégies",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Dissertation : rédaction d'une conclusion (production et amélioration)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Groupement de textes : bilan",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "La phonétique combinatoire : variations phoniques",
+     "date": "2026-11-23"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Le plan de commentaire composé",
+   "lessons": [
+    {
+     "title": "Balafon : étude des paratextes et poème ouvroir",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Le texte poétique : éléments de métrique",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Commentaire composé : analyse du sujet et lecture méthodique du texte",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "La valeur des modes et des temps : le conditionnel",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Les procédés de formation des mots : néologie et emprunt",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Les figures de construction : le parallélisme, l'ellipse",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Commentaire composé : idée générale, centres d'intérêt, combinaison du fond et de la forme",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "La structure de la phrase",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Les relations lexicales : hyperonymie, hyponymie",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Le rythme dans la phrase",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Commentaire composé : élaboration du plan détaillé",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Balafon : contrôle de lecture, compte rendu et négociation du projet d'étude",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Les figures d'amplification et d'atténuation : litote, hyperbole, euphémisme",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 4 – Le commentaire composé et le compte rendu oral",
+   "lessons": [
+    {
+     "title": "Le lexique commun et le lexique spécialisé",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Compte rendu : préparation et production",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Le texte injonctif : caractéristiques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Commentaire composé : rédaction d'une introduction et d'un paragraphe (allier le fond et la forme)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Balafon : inscription de l'œuvre dans son contexte et évaluation de l'étude",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Les figures de construction : l'asyndète et la polysyndète",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Commentaire composé : rédaction d'une conclusion",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Groupement de textes : présentation et bilan",
+     "date": "2027-03-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 5 – L'exposé et le résumé de texte",
+   "lessons": [
+    {
+     "title": "Le Lion et la perle : activités augurales et texte ouvroir",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Le texte théâtral (dialogue, monologue, tirade)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Exposé : préparation et présentation",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative du texte",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Les tonalités : comique, dramatique, satirique",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Contraction de texte : techniques de réduction et de rédaction",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Le Lion et la perle : contrôle de lecture et compte rendu",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Les tonalités : lyrique, pathétique, ironique",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Contraction de texte : rédaction du résumé",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Le texte descriptif : caractéristiques et fonctions",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 6 – L'analyse de texte",
+   "lessons": [
+    {
+     "title": "Le texte explicatif : caractéristiques",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Contraction de texte : structure argumentative et logique du texte, techniques de réduction",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Le Lion et la perle : inscription de l'œuvre dans son contexte et évaluation de l'étude",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Contraction de texte : techniques de rédaction de l'analyse",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Contraction de texte : rédaction de l'analyse",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

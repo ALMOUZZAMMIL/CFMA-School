@@ -1,0 +1,419 @@
+{
+ "section": "GEN",
+ "level": "Tle D",
+ "subject": "SVT",
+ "subject_fr": "SVTEEHB",
+ "subject_en": "Life and Earth Sciences (SVTEEHB)",
+ "title": "SVTEEHB – Tle D",
+ "source": "Fiche de progression harmonisée nationale annuelle 2026/2027, 6 h/semaine, 97 séances",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Séquence 1 – Les échanges cellulaires",
+   "lessons": [
+    {
+     "title": "Séance 1 : Échanges d'eau (TP 1 et 2 : cellules animales et végétales au microscope, comportement dans des solutions de concentrations différentes)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Séance 2 : Interprétation des échanges d'eau (TP 3 : osmose et/ou dialyse)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Séance 3 : Échanges des substances dissoutes et des particules ; importance et application chez les végétaux et les animaux",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 2 – Quelques aspects du métabolisme énergétique chez l'Homme",
+   "lessons": [
+    {
+     "title": "Séance 5 : Structure d'une fibre musculaire squelettique striée et composition chimique",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Séance 6 : Mécanisme de la contraction musculaire",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Séance 7 : Voies de restauration de l'ATP et adaptation aux exercices sportifs",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 3 – Les mécanismes fondamentaux de la reproduction sexuée chez les mammifères et les spermaphytes",
+   "lessons": [
+    {
+     "title": "Séance 9 : Structures et rôles des gonades chez les mammifères (TP 4 : dissection d'un mammifère)",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Séance 10 : Structures et rôles des gonades chez les spermaphytes (TP 5 : dissection d'une fleur)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Séance 11 : La méiose (TP 6 : préparations microscopiques)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Séance 12 : Gamétogenèse chez les mammifères",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Séance 13 : Gamétogenèse chez les spermaphytes",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Séance 14 : Fécondation chez les mammifères",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Séance 15 : Fécondation chez les spermaphytes",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 4 – Brassage génétique et unicité génétique des individus",
+   "lessons": [
+    {
+     "title": "Séance 17 : Monohybridisme avec dominance",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 18 : Monohybridisme avec dominance intermédiaire",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 19 : Monohybridisme gonosomal",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 20 : Dihybridisme",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 21 : Trihybridisme",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Séance 22 : Brassage intrachromosomique",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Séance 23 : Quelques exceptions à la monogénie",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Séance 24 : Origine des nouveaux allèles, mutations ; importance du brassage (TP 7 : maquettes ADN, caryotypes)",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 5 – Prévision en génétique humaine",
+   "lessons": [
+    {
+     "title": "Séance 26 : Notion d'arbre généalogique",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 27 : Transmissions autosomiques récessive et dominante",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 28 : Transmissions gonosomiques récessive et dominante",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 29 : Évaluation d'un risque génétique",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Séance 30 : Applications et implications des connaissances en génétique humaine",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 6 – Activités réflexes",
+   "lessons": [
+    {
+     "title": "Séance 32 : Structure du tissu nerveux (TP 8 : dissection de l'encéphale)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Séance 33 : Réflexes innés, le réflexe médullaire (TP 9)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Séance 34 : Réflexe myotatique et importance",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Séance 35 : Réflexes acquis ou conditionnels",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 7 – Fonctionnement des neurones",
+   "lessons": [
+    {
+     "title": "Séance 37 : Le potentiel de repos (TP 10)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 38 : Le potentiel d'action (TP 11)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 39 : Naissance du potentiel d'action au niveau des récepteurs sensoriels et d'un neurone",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 40 : Propagation du potentiel d'action le long de la fibre nerveuse",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Séance 42 : La synapse, structure",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Séance 43 : La synapse, fonctionnement",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Séance 44 : L'intégration neuronale",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Séance 45 : Effets de certaines substances sur la transmission synaptique",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 8 – Activités cérébrales et motricité volontaire",
+   "lessons": [
+    {
+     "title": "Séance 47 : Les différentes aires de l'encéphale",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Séance 48 : Quelques aspects de la motricité dirigée",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Séquence 9 – Les mécanismes de l'immunité",
+   "lessons": [
+    {
+     "title": "Séance 50 : Origine des cellules immunitaires (TP 12 : frottis sanguin)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Séance 51 : Structure de reconnaissance du non-soi (TP 13 : maquette d'un anticorps)",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Séance 52 : Mécanisme de la réponse immunitaire non spécifique",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Séance 53 : Mécanisme de la réponse immunitaire spécifique",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Séance 54 : Mémoire immunitaire",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 10 – Dysfonctionnements du système immunitaire",
+   "lessons": [
+    {
+     "title": "Séance 55 : Maladies auto-immunes",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Séance 56 : Pandémies et leurs conséquences socioculturelles (TP 14 : sérologie VIH)",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 11 – La santé reproductive",
+   "lessons": [
+    {
+     "title": "Séance 58 : Régulation des hormones sexuelles chez l'homme, la testostérone",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Séance 59 : Action de la testostérone sur le complexe hypothalamo-hypophysaire",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Séance 60 : Régulation des hormones sexuelles chez la femme, les cycles sexuels",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Séance 61 : Régulation chez la femme, sécrétion et rôles des hormones ovariennes, rôle du complexe hypothalamo-hypophysaire",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Séance 62 : Action des hormones ovariennes sur le complexe hypothalamo-hypophysaire, schéma bilan",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Séance 63 : Maîtrise de la reproduction par la régulation des hormones sexuelles",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Séance 64 : Dérèglements des hormones sexuelles",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Séance 65 : Stérilité",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 12 – La santé nutritionnelle",
+   "lessons": [
+    {
+     "title": "Séance 67 : Glycémie, mesure et causes de sa variation",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Séance 68 : Glycémie, régulation (TP 15 : foie lavé ; TP 16 : test de contrôle de la glycémie)",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Séance 69 : Glycémie, conséquences d'une élévation permanente : le diabète",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Séance 70 : Pression artérielle, définition, mesure et facteurs de variation (TP 17)",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Séance 71 : Pression artérielle, régulation nerveuse",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Séance 72 : Pression artérielle, régulation hormonale",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Séance 73 : Pression artérielle, conséquences d'une élévation ou d'une baisse permanente",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 13 – Le secourisme",
+   "lessons": [
+    {
+     "title": "Séance 75 : Arrêt cardiaque (TP 18 : gestes qui sauvent)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Séance 76 : Étouffement total du nourrisson, de l'adulte et de la femme enceinte (TP 19)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Séance 77 : Perte de connaissance (TP 20)",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Séquence 14 – Les mouvements de la lithosphère et leurs conséquences",
+   "lessons": [
+    {
+     "title": "Séance 79 : Plancher océanique, morphologie des fonds océaniques",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 80 : Plancher océanique, fonctionnement d'un rift (TP 21)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 81 : Plancher océanique, mouvements de convergence (TP 22 : roches des zones de subduction)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 82 : Mouvements de convergence (suite et fin)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Séance 83 : Mouvements de coulissage (TP 23 et 24 : roches métamorphiques, maquette du globe)",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Séance 84 : Catastrophes naturelles associées aux mouvements des plaques",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquence 15 – Évolution de l'Homme",
+   "lessons": [
+    {
+     "title": "Séance 86 : Les preuves de l'évolution de l'Homme",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Séance 87 : Les critères de l'hominisation",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Séance 88 : Capacité d'adaptation de l'Homme à l'évolution de son environnement",
+     "date": "2027-04-12"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Séquences 16 à 19 – Biotechnologie",
+   "lessons": [
+    {
+     "title": "Séance 90 : Transformation et conservation des fruits, cas de la mangue et de la tomate (TP 25)",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Séance 92 : Entomophagie, insectes comestibles et thérapeutiques ; lutte biologique contre les ravageurs",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Séance 94 : Production des biocarburants (TP 26)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Séance 96 : Valorisation des déchets papiers (TP 27 : recyclage du papier)",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

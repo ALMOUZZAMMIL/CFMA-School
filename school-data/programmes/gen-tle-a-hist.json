@@ -1,0 +1,133 @@
+{
+ "section": "GEN",
+ "level": "Tle A",
+ "subject": "HIST",
+ "subject_fr": "Histoire",
+ "subject_en": "History",
+ "title": "Histoire – Tle A",
+ "source": "Fiche de progression annuelle harmonisée 2026/2027 (Terminales), 2 h/semaine, 19 leçons annoncées, 1 TD, 7 dossiers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "La Deuxième Guerre mondiale et le monde d'après-guerre",
+   "lessons": [
+    {
+     "title": "L1 : La Deuxième Guerre mondiale",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "L2 : Les conséquences de la Deuxième Guerre mondiale et la naissance de l'ONU",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "TD1 : L'Afrique dans la Deuxième Guerre mondiale",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "D1 : Le rôle du Cameroun dans la Deuxième Guerre mondiale",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "L3 : L'Europe sous l'influence des super-grands",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "L4 : L'Europe sous l'influence des vents de l'Est",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L5 : La Chine, de la révolution culturelle à l'émergence économique",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "D2 : Les grandes figures de la Chine moderne, les hommes et leurs œuvres",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L6 : La décolonisation de l'Asie du Sud-Est",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Conflits et émancipations",
+   "lessons": [
+    {
+     "title": "L7 : Le problème israélo-palestinien, une poudrière au Proche-Orient",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L8 : Les conflits du Moyen-Orient et du golfe Persique",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "L9 : L'Amérique des révolutions marxistes",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "L10 : L'émancipation des territoires britanniques",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "L11 : L'émancipation des territoires français : Algérie et Congo",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "D3 : L'indépendance de la Guinée Conakry",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L12 : L'émancipation des autres territoires : Angola et Guinée équatoriale",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "D4 : Le Congo belge, de l'émancipation aux problèmes post-indépendance",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "L13 : L'Afrique sous l'emprise du néocolonialisme",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "D5 : Le terrorisme et les replis identitaires",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Sciences, techniques et Cameroun contemporain",
+   "lessons": [
+    {
+     "title": "L14 : Les grandes découvertes scientifiques",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L15 : Les grandes innovations techniques",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L16 : La tutelle de l'ONU sur le Cameroun",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "L17 : Le nationalisme camerounais après la Deuxième Guerre mondiale",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "D6 : Les grandes figures du nationalisme camerounais",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L18 : Le Cameroun de 1960 à 1982",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "D7 : Ahmadou Ahidjo",
+     "date": "2027-04-12"
+    }
+   ]
+  }
+ ]
+}

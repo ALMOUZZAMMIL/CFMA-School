@@ -1,0 +1,139 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "HBIO",
+ "subject_fr": "Biologie humaine",
+ "subject_en": "Human Biology",
+ "title": "Human Biology – Form 5",
+ "source": "Form 5 scheme of work, 3 h/week; dates approximate, worked out from the sequence and week numbers",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1: The living world – cells, food, clothing and shelter",
+   "lessons": [
+    {
+     "title": "1. The cell: ultrastructure of an animal cell; animal and plant cells compared; osmosis, diffusion, active transport",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "2. Food hygiene and preservation: methods and principles; hygiene of a food-processing factory",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "3. Clothing: types of fabrics, uses and care",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "4. Shelter: site, size, lighting, ventilation, materials and health; use and care of houses; town planning",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 1: The living world – genetics",
+   "lessons": [
+    {
+     "title": "5. Basic terms in genetics: chromosomes and genes, DNA, the human karyotype",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "6.1–6.4 Transmission of genetic information: mitosis and meiosis; cancer; sex determination and linkage",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "6.5–6.7 Variation; Mendelian genetics and monohybrid inheritance; genetic anomalies (sickle-cell anaemia)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "7–8. Genes and diversity: ABO blood groups, albinism, Rh factor; alleles and dominance; DNA fingerprinting and forensic science",
+     "date": "2026-10-26"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Health education – reproduction and family planning",
+   "lessons": [
+    {
+     "title": "1.1–1.4 Reproduction in humans: reproductive organs, gametogenesis, fertilisation, pregnancy, birth, parental care",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "1.5–1.7 Placenta and foetal circulation; growth of the child; puberty and the menstrual cycle",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "2.1–2.3 Family planning: birth control methods, advantages and disadvantages",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "2.4–2.7 Early pregnancies, abortions and miscarriages; hygiene of the reproductive system",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2: Health education – STIs, hormones and biotechnology",
+   "lessons": [
+    {
+     "title": "3. STIs: gonorrhoea, syphilis, herpes, candidiasis, trichomoniasis; causes, prevention, treatment",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "4. HIV/AIDS: causes, signs, transmission, prevention and treatment",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "5. The endocrine system: glands and hormones; imbalances; hormonal control of the menstrual cycle",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "6.1–6.2 Modern biotechnology: DNA and gene technology; techniques",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "6.3 Applications: production of insulin; cancer therapy and monoclonal antibodies",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 2: Health education – nervous coordination and first aid",
+   "lessons": [
+    {
+     "title": "7.1–7.5 Nervous coordination: neurones, the nerve impulse, central and peripheral nervous systems",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "7.6–7.7 Reflex actions; the sense organs: ear, eye and skin, their defects and hygiene",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "8. Elementary first aid: fractures, dislocations, sprains, burns, bites and stings, epilepsy, electrocution",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3: Conserving the natural environment",
+   "lessons": [
+    {
+     "title": "2.1–2.4 Ecology: concepts, components of the ecosystem, energy flow and biogeochemical cycles, biotic and abiotic factors",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "2.5–2.6 Human impacts: pollution, its control and legislation; sewage and garbage disposal; conservation",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "2.7–2.11 Water sources and purification; hazards of ionising rays; shelter and town planning",
+     "date": "2027-03-15"
+    }
+   ]
+  }
+ ]
+}

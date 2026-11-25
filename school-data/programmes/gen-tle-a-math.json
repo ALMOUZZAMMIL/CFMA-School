@@ -1,0 +1,203 @@
+{
+ "section": "GEN",
+ "level": "Tle A",
+ "subject": "MATH",
+ "subject_fr": "Mathématiques",
+ "subject_en": "Mathematics",
+ "title": "Mathématiques – Tle A",
+ "source": "Fiche simplifiée de progression harmonisée nationale 2026-2027 (Tle A-ABI), 10 chapitres, 2 h/semaine",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Équations, inéquations, systèmes",
+   "lessons": [
+    {
+     "title": "Leçon 1 : Équations et inéquations de degré 3 dans ℝ",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2 : Équations et inéquations faisant intervenir des inconnues auxiliaires",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 3 : Systèmes linéaires d'équations dans ℝ²",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Leçon 4 : Systèmes linéaires d'équations dans ℝ³",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Fonctions : limites et continuité",
+   "lessons": [
+    {
+     "title": "Leçon 5 : Limite d'une fonction en l'infini",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Leçon 6 : Limite d'une fonction en un réel x₀",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 7 : Limite d'une fonction à droite et à gauche d'un réel x₀",
+     "date": "2026-10-12"
+    },
+    {
+     "title": "Leçon 8 : Limites et opérations",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 9 : Continuité",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Statistiques",
+   "lessons": [
+    {
+     "title": "Leçon 10 : Types de représentations graphiques d'une série statistique",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 11 : Caractéristiques de position : mode, médiane, moyenne, quartile, décile",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Leçon 12 : Série statistique à deux caractères",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Leçon 13 : Ajustement linéaire",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "4. Fonctions : dérivée",
+   "lessons": [
+    {
+     "title": "Leçon 14 : Dérivées usuelles",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 15 : Dérivées des fonctions composées",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Leçon 16 : Dérivée et sens de variation",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "5. Courbes représentatives",
+   "lessons": [
+    {
+     "title": "Leçon 17 : Centre de symétrie, axe de symétrie",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Leçon 18 : Asymptotes",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "6. Primitives d'une fonction sur un intervalle",
+   "lessons": [
+    {
+     "title": "Leçon 19 : Primitives des fonctions usuelles",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "7. Fonction logarithme népérien",
+   "lessons": [
+    {
+     "title": "Leçon 20 : Définition : ensemble de définition ; propriétés algébriques",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 21 : Équations, inéquations et systèmes ayant pour inconnue auxiliaire ln",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Leçon 22 : Limites usuelles",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 23 : Dérivée et primitives",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Fonctions exponentielles",
+   "lessons": [
+    {
+     "title": "Leçon 24 : Définition : ensemble de définition ; propriétés algébriques",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 25 : Équations du type ln x = y ou eˣ = y",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 26 : Équations, inéquations et systèmes ayant pour inconnue auxiliaire eˣ",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Leçon 27 : Limites usuelles",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Leçon 28 : Dérivée et primitives",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Probabilités",
+   "lessons": [
+    {
+     "title": "Leçon 29 : Vocabulaire des événements",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Leçon 30 : Propriétés des probabilités",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "10. Étude des fonctions",
+   "lessons": [
+    {
+     "title": "Leçon 31 : Fonctions polynômes",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Leçon 32 : Fonctions rationnelles",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Leçon 33 : Fonctions logarithmes népériens et exponentielles",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

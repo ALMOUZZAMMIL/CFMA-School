@@ -1,0 +1,337 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – Form 3",
+ "source": "Fiche de progression harmonisée 2026-27 (MINESEC), 74 leçons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "I. Vie familiale et intégration sociale",
+   "lessons": [
+    {
+     "title": "Leçon 1. Grammaire : l'adjectif qualificatif, emploi",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 2. Conjugaison : le passé composé, formation et emploi",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 3. Vocabulaire : synonymes",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 4. Orthographe : la ponctuation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 5. Lecture : texte adossé au module",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 6. Expression écrite : initiation à la description et au portrait",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 7. Vocabulaire : antonymes (suite)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 8. Grammaire : l'accord du participe passé avec être",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 9. Grammaire : les conjonctions de coordination",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 10. Expression écrite : initiation à la narration (raconter des petits événements)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 11. Expression orale : sketches adossés au module",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 12. Orthographe : les doubles consonnes",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 13. Grammaire : l'accord du GN avec l'adjectif qualificatif",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 14. Conjugaison : l'imparfait de l'indicatif, formation et emploi (suite)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Leçon 15. Vocabulaire : lexique de la sympathie et de l'antipathie",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "II. Environnement et santé",
+   "lessons": [
+    {
+     "title": "Leçon 16. Grammaire : pluriel des noms en « al », « ail »",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 17. Conjugaison : l'imparfait, présent",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 18. Orthographe : les lettres muettes (au milieu du mot) : sept fonctions",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 19. Vocabulaire : les maladies : épidémies, pandémies et endémies",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 20. Expression orale : chansons, récitations, jeux de rôles, dialogues",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 21. Lecture : textes adossés au module",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 22. Expression écrite : initiation à la description, portrait (suite)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 23. Vocabulaire : les sites touristiques",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 24. Grammaire : les adverbes de manière",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 25. Orthographe : les homophones ver, vers, verre, vert",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 26. Conjugaison : le futur simple (suite)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 27. Vocabulaire : l'hygiène et la salubrité",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 28. Expression écrite : initiation à la narration (suite)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 29. Vocabulaire : la protection de l'environnement",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Leçon 30. Traduction : les adverbes de manière",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "III. Vie citoyenne et ouverture au monde",
+   "lessons": [
+    {
+     "title": "Leçon 31. Conjugaison : le gérondif et le participe présent",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 32. Orthographe : les homophones par, part, pars",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 33. Grammaire : pluriel des noms en « ou », « eu »",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 34. Grammaire : les pronoms indéfinis",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 35. Vocabulaire : les cultures d'ailleurs (pays hors d'Afrique, autres pays francophones)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 36. Expression orale : interprétation d'images",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 37. Lecture : textes adossés au module",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 38. Traduction : traduction des pronoms indéfinis",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 39. Vocabulaire : violences faites aux femmes et aux enfants",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 40. Vocabulaire : les conflits sociaux (discrimination et ségrégation sociales, tribalisme)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 41. Expression orale : chansons, récitations, jeux de rôle, dialogue",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 42. Lecture : texte adossé au module",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 43. Vocabulaire : activités sportives (sports de compétition)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 44. Expression écrite : description et portrait",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Leçon 45. Expression orale : interprétation d'images",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "IV. Activités économiques et monde du travail",
+   "lessons": [
+    {
+     "title": "Leçon 46. Grammaire : les pronoms personnels",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 47. Conjugaison : l'imparfait",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 48. Orthographe : les sons /f/ et /v/",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 49. Grammaire : la phrase composée (propositions indépendantes, coordonnées ou juxtaposées)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 50. Vocabulaire : vocabulaire lié à la publicité d'un produit ou d'un service",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 51. Vocabulaire : mots et expressions liés aux obligations du travail (contrat, congé, grève, salaire)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 52. Conjugaison : le passé simple",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 53. Lecture : textes liés au module",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 54. Expression écrite : description, portrait",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 55. Traduction : traduction des pronoms personnels",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 56. Conjugaison : le plus-que-parfait",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 57. Orthographe : les homophones peut, peux, peu",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 58. Expression écrite : narration",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 59. Grammaire : les fonctions du nom : sujet",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Leçon 60. Traduction : traduction des pronoms possessifs",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "V. Communication et TIC",
+   "lessons": [
+    {
+     "title": "Leçon 61. Grammaire : les pronoms possessifs sujets",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 62. Vocabulaire : lexique lié aux métiers",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 63. Grammaire : les fonctions du nom : COD, COI",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 64. Orthographe : les homophones c'est, ces, s'est, ses, sais, sait",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 65. Orthographe : révision des sons /j/, /w/, /oj/",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 66. Vocabulaire : vocabulaire des réseaux sociaux et des médias",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 67. Expression orale : chansons, récitations, jeux de rôle, dialogues, interprétation d'images",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 68. Lecture : textes adossés au module",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 69. Expression écrite : initiation à la lettre informelle",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 70. Conjugaison : le mode participial",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 71. Orthographe : la ponctuation",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 72. Vocabulaire : vocabulaire de la correspondance",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 73. Grammaire : l'accord du participe passé",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Leçon 74. Vocabulaire : mots et expressions liés à la communication téléphonique (suite)",
+     "date": "2027-03-15"
+    }
+   ]
+  }
+ ]
+}

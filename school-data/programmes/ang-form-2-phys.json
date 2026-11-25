@@ -1,0 +1,239 @@
+{
+ "section": "ANG",
+ "level": "Form 2",
+ "subject": "PHYS",
+ "subject_fr": "Physique",
+ "subject_en": "Physics",
+ "title": "Physics – Form 2",
+ "source": "National harmonised progression, 2 periods a week, 50 hours a year",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – The world of science · Chapter 1: Scientific method (part 2)",
+   "lessons": [
+    {
+     "title": "First contact with students and presentation of the scheme of work"
+    },
+    {
+     "title": "Collecting data: importance of data"
+    },
+    {
+     "title": "Interpreting data and concluding"
+    },
+    {
+     "title": "Predicting and evaluating"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 1 · Chapter 2: Simple application of measurements",
+   "lessons": [
+    {
+     "title": "Planning (recall of basic quantities, units and instruments)"
+    },
+    {
+     "title": "Measurement of speed and units"
+    },
+    {
+     "title": "Measurement of density and units"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – Matter, properties and transformation · Chapter 3: Change of state",
+   "lessons": [
+    {
+     "title": "Physical states of matter"
+    },
+    {
+     "title": "Characteristics of matter in the different states"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 · Chapter 4: Temperature",
+   "lessons": [
+    {
+     "title": "Temperature: measurement, units and effects on matter"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 · Chapter 5: Thermal and electrical insulation",
+   "lessons": [
+    {
+     "title": "Thermal and electrical insulation"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 · Chapter 6: Action of heat and electrical energy",
+   "lessons": [
+    {
+     "title": "Action of heat on materials"
+    },
+    {
+     "title": "Action of electrical energy on materials"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – Energy, value and uses · Chapter 9: Energy needs of human beings",
+   "lessons": [
+    {
+     "title": "Sources and uses of energy; transmission of energy"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 · Chapter 10: Renewable energy",
+   "lessons": [
+    {
+     "title": "Solar panel for heating; other sources"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 · Chapter 11: Electricity",
+   "lessons": [
+    {
+     "title": "Electricity for the home and the simple electric circuit"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 · Chapter 12: Light",
+   "lessons": [
+    {
+     "title": "Sources of light"
+    },
+    {
+     "title": "Types of light receivers"
+    },
+    {
+     "title": "Beams and shadows"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 · Chapter 13: Energy exchange",
+   "lessons": [
+    {
+     "title": "Linking one form of energy to other forms"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 3 · Chapter 14: Motion",
+   "lessons": [
+    {
+     "title": "Distance, time and speed"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 – Health education · Chapter 15: Distribution of pressure in a liquid",
+   "lessons": [
+    {
+     "title": "Average blood pressure"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 · Chapter 16: Muscle stress",
+   "lessons": [
+    {
+     "title": "Sports and physical education"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 · Chapter 17: Types of lenses and their uses",
+   "lessons": [
+    {
+     "title": "The eye as an imaging device; lenses to aid eyes with vision defects"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Environmental protection and sustainable development · Chapter 18: Radiation",
+   "lessons": [
+    {
+     "title": "Introduction; radiation emitted into the atmosphere; cosmic waves from the sun"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 · Chapter 19: Weather and communication",
+   "lessons": [
+    {
+     "title": "The greenhouse effect"
+    },
+    {
+     "title": "Global warming"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 5 · Chapter 19 (continued)",
+   "lessons": [
+    {
+     "title": "Climate change"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 – Technology · Chapter 22: Introduction to technology",
+   "lessons": [
+    {
+     "title": "Introduction to technology; review of Form One"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 · Chapter 23: Project",
+   "lessons": [
+    {
+     "title": "Fabrication of common instruments"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 · Chapter 24: Care and maintenance",
+   "lessons": [
+    {
+     "title": "Care and maintenance; principle of functioning of some common appliances"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 · Chapter 25: Technical drawing",
+   "lessons": [
+    {
+     "title": "Technical drawing"
+    }
+   ]
+  }
+ ]
+}

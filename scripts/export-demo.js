@@ -1,0 +1,220 @@
+#!/usr/bin/env node
+// Builds a static, read-only copy of the portal with the fictional demo data,
+// for previews on static hosts (Vercel, GitHub Pages). Nothing real is used:
+// a throw-away database is seeded with demo records, the app is started
+// locally, every page each demo account can open is saved as HTML, and the
+// links are rewritten to point at those files. Forms do not save anything.
+//
+//   npm run export-demo            -> writes ./dist
+//
+// The real school installation never uses this; it runs `npm start`.
+'use strict';
+const { spawn, execFileSync } = require('child_process');
+const crypto = require('crypto');
+const fs = require('fs');
+const os = require('os');
+const path = require('path');
+
+const ROOT = path.join(__dirname, '..');
+const OUT = path.join(ROOT, 'dist');
+const PORT = 3900 + Math.floor(Math.random() * 90);
+const BASE = `http://127.0.0.1:${PORT}`;
+const LIMIT = 800; // pages per role and language
+const LANGS = ['fr', 'en'];
+const ROLES = [
+  { dir: 'admin', user: 'demo.admin' },
+  { dir: 'enseignant', user: 'demo.prof.maths' },
+  { dir: 'parent', user: 'demo.parent' },
+  { dir: 'eleve', user: 'demo.eleve' },
+  { dir: 'intendant', user: 'demo.intendant' },
+];
+const LABELS = {
+  fr: { visiteur: 'Visiteur', admin: 'Administration', enseignant: 'Enseignant', parent: 'Parent', eleve: 'Élève', intendant: 'Intendant',
+    banner: 'Aperçu de démonstration (données fictives). Les liens fonctionnent, les formulaires n’enregistrent rien.', view: 'Voir en tant que :',
+    missing: 'Cette page n’est pas incluse dans l’aperçu.', back: 'Retour à l’accueil', saved: 'Aperçu seulement : rien n’a été enregistré.' },
+  en: { visiteur: 'Visitor', admin: 'Administration', enseignant: 'Teacher', parent: 'Parent', eleve: 'Student', intendant: 'Bursar',
+    banner: 'Demo preview (fictional data). Links work; forms do not save anything.', view: 'View as:',
+    missing: 'This page is not included in the preview.', back: 'Back to home', saved: 'Preview only: nothing was saved.' },
+};
+const PRIORITY = /^\/(plans|progress\/now|admin\/scanner\/calendar)/;
+const SKIP = /^\/(logout|lang|session\/status|healthz|brand\.css|static\/)|\.(csv|pdf|zip)(\?|$)|[?&](format|download|step)=|^\/admin\/scanner\/(calendar|board)\?(.*&)?date=/;
+
+const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'csma-demo-'));
+const env = { ...process.env, NODE_ENV: 'development', DATABASE_FILE: path.join(tmp, 'demo.db'), PORT: String(PORT) };
+
+function fileFor(key) {
+  if (key === '/') return 'index.html';
+  return key.replace(/^\//, '').replace(/[^a-zA-Z0-9]+/g, '_').replace(/_$/, '') + '.html';
+}
+
+class Browser {
+  constructor() { this.jar = {}; }
+  cookie() { return Object.entries(this.jar).map(([k, v]) => `${k}=${v}`).join('; '); }
+  keep(res) {
+    for (const c of res.headers.getSetCookie()) {
+      const [pair] = c.split(';'); const i = pair.indexOf('=');
+      this.jar[pair.slice(0, i).trim()] = pair.slice(i + 1).trim();
+    }
+  }
+  async get(p) {
+    const res = await fetch(BASE + p, { headers: { cookie: this.cookie() }, redirect: 'manual' });
+    this.keep(res);
+    return res;
+  }
+  async post(p, form) {
+    const res = await fetch(BASE + p, { method: 'POST', body: new URLSearchParams(form), headers: { cookie: this.cookie(), 'content-type': 'application/x-www-form-urlencoded' }, redirect: 'manual' });
+    this.keep(res);
+    return res;
+  }
+  async csrf(p) {
+    const html = await (await this.get(p)).text();
+    const m = html.match(/name="_csrf" value="([^"]+)"/);
+    return m && m[1];
+  }
+}
+
+async function crawl(b, start) {
+  const pages = new Map(); const queue = [].concat(start);
+  while (queue.length && pages.size < LIMIT) {
+    const key = queue.shift();
+    if (pages.has(key)) continue;
+    const res = await b.get(key);
+    if (res.status !== 200 || !(res.headers.get('content-type') || '').includes('text/html')) { await res.arrayBuffer().catch(() => {}); continue; }
+    const html = await res.text();
+    pages.set(key, html);
+    for (const m of html.matchAll(/<a\b[^>]*?\shref="(\/[^"#]*)/g)) {
+      const k = m[1].replace(/&amp;/g, '&');
+      if (SKIP.test(k) || pages.has(k) || queue.includes(k)) continue;
+      // Progression sheets and the "classes right now" days first, so the page limit never cuts them.
+      if (PRIORITY.test(k)) queue.unshift(k); else queue.push(k);
+    }
+  }
+  return pages;
+}
+
+// Speed (slow mobile networks): the three stylesheets and two scripts are
+// joined and minified into one file each, and every file gets a name that
+// changes when its content changes (site.3f9a1c2b7d.css). Browsers can then
+// keep them for a year (see vercel.json) and each new page is a single small
+// download. The look is unchanged: same CSS, same order.
+let A = null; // published names of the fingerprinted files, filled by buildAssets()
+
+function useAssets(html) {
+  return html
+    .replace(/<link rel="preload" href="\.\.\/\.\.\/assets\/fonts\/[^"]*"[^>]*>/g, '')
+    .replace(/<link rel="stylesheet" href="\.\.\/\.\.\/assets\/(brand|preview)\.css">/g, '')
+    .replace(/<script src="\.\.\/\.\.\/assets\/preview\.js" defer><\/script>/g, '')
+    .replace(/<link rel="stylesheet" href="\.\.\/\.\.\/assets\/style\.css">/, `${A.preload}<link rel="stylesheet" href="../../assets/v/${A.css}">`)
+    .replace(/<script src="\.\.\/\.\.\/assets\/app\.js" defer><\/script>/g, `<script src="../../assets/v/${A.js}" defer></script>`)
+    .replace(/\.\.\/\.\.\/assets\/(icons\.svg|brand\/logo\.svg)/g, (m, f) => `../../assets/v/${A[f]}`);
+}
+
+function rewrite(html, pages, lang, dir) {
+  return useAssets(rewritePage(html, pages, lang, dir));
+}
+
+function rewritePage(html, pages, lang, dir) {
+  const L = LABELS[lang];
+  const roleLinks = ['visiteur', ...ROLES.map((r) => r.dir)].map((d) => `<a href="../${d}/index.html"${d === dir ? ' class="on" aria-current="true"' : ''}>${L[d]}</a>`).join(' ');
+  const banner = `<div class="pvw-banner" role="note"><strong>${L.banner}</strong> <span>${L.view} ${roleLinks}</span></div>`;
+  return html
+    .replace(/(href|src)="\/static\/([^"?#]*)(\?[^"#]*)?/g, '$1="../../assets/$2')
+    .replace(/href="\/brand\.css[^"]*"/g, 'href="../../assets/brand.css"')
+    .replace(/id="session-warning"/, 'id="session-warning-off"')
+    .replace(/<a\b([^>]*?)\shref="(\/[^"#]*)([^"]*)"/g, (all, attrs, p, frag) => {
+      const k = p.replace(/&amp;/g, '&');
+      const target = pages.has(k) ? fileFor(k) : 'missing.html';
+      return `<a${attrs} href="${target}${frag}"`;
+    })
+    .replace('</head>', '<link rel="stylesheet" href="../../assets/preview.css"><script src="../../assets/preview.js" defer></script></head>')
+    .replace(/<body([^>]*)>/, `<body$1 data-pvw-lang="${lang}" data-pvw-role="${dir}">${banner}`);
+}
+
+function fingerprint(name, data) {
+  const hash = crypto.createHash('sha256').update(data).digest('hex').slice(0, 10);
+  const ext = path.extname(name);
+  const out = `${path.basename(name, ext)}.${hash}${ext}`;
+  write(path.join(OUT, 'assets', 'v', out), data);
+  return out;
+}
+
+async function buildAssets(brandCss) {
+  const esbuild = require('esbuild');
+  const pub = (f) => fs.readFileSync(path.join(ROOT, 'public', f));
+  const extra = (f) => fs.readFileSync(path.join(__dirname, 'export-demo', f), 'utf8');
+  // Plain copies at the old addresses, for anything outside the demo pages.
+  fs.cpSync(path.join(ROOT, 'public'), path.join(OUT, 'assets'), { recursive: true });
+  write(path.join(OUT, 'assets', 'brand.css'), brandCss);
+  const fonts = {};
+  for (const f of fs.readdirSync(path.join(ROOT, 'public', 'fonts')).filter((n) => n.endsWith('.woff2'))) fonts[f] = fingerprint(f, pub(path.join('fonts', f)));
+  let css = [pub('style.css').toString('utf8'), brandCss, extra('preview.css')].join('\n');
+  css = css.replace(/url\("\/static\/fonts\/([^"]+)"\)/g, (m, f) => `url("${fonts[f]}")`);
+  css = (await esbuild.transform(css, { loader: 'css', minify: true })).code;
+  const js = (await esbuild.transform([pub('app.js').toString('utf8'), extra('preview.js')].join(';\n'), { loader: 'js', minify: true, target: 'es2015' })).code;
+  A = {
+    css: fingerprint('site.css', css),
+    js: fingerprint('site.js', js),
+    'icons.svg': fingerprint('icons.svg', pub('icons.svg')),
+    'brand/logo.svg': fingerprint('logo.svg', pub(path.join('brand', 'logo.svg'))),
+  };
+  // Start downloading both fonts at once instead of after the stylesheet arrives.
+  A.preload = Object.values(fonts).map((f) => `<link rel="preload" href="../../assets/v/${f}" as="font" type="font/woff2" crossorigin>`).join('');
+}
+
+function write(file, text) { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, text); }
+
+function save(pages, lang, dir) {
+  const L = LABELS[lang];
+  for (const [key, html] of pages) write(path.join(OUT, lang, dir, fileFor(key)), rewrite(html, pages, lang, dir));
+  write(path.join(OUT, lang, dir, 'missing.html'), `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${L.missing}</title><link rel="stylesheet" href="../../assets/v/${A.css}"></head><body class="pvw-missing"><main class="container"><div class="empty card"><p>${L.missing}</p><a class="btn btn-primary" href="index.html">${L.back}</a></div></main></body></html>`);
+  console.log(`  ${lang}/${dir}: ${pages.size} pages`);
+}
+
+async function main() {
+  fs.rmSync(OUT, { recursive: true, force: true });
+  execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'seed.js')], { env, stdio: 'ignore' });
+  // The school's own calendar, timetable and programmes (teachers by code only, never names).
+  execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'import-school-data.js')], { env, stdio: 'ignore' });
+  // Fictional progress for those imported classes, so the curriculum tracker has something to show.
+  execFileSync(process.execPath, [path.join(__dirname, 'export-demo', 'demo-progress.js')], { env, stdio: 'ignore' });
+  // Simulated fingerprint scans, with the clock frozen at a school-day morning so the class
+  // calendar shows lessons finished, in progress and not yet started.
+  const scanOut = execFileSync(process.execPath, [path.join(ROOT, 'scripts', 'demo-scans.js')], { env, encoding: 'utf8' }).trim().split('\n');
+  env.DEMO_CLOCK = scanOut[scanOut.length - 1];
+  console.log(`  ${scanOut[0]}`);
+  const server = spawn(process.execPath, [path.join(ROOT, 'server.js')], { env, stdio: 'ignore' });
+  try {
+    for (let i = 0; i < 50; i++) {
+      try { if ((await fetch(BASE + '/healthz')).ok) break; } catch { /* not up yet */ }
+      await new Promise((r) => setTimeout(r, 200));
+    }
+    await buildAssets(await (await fetch(BASE + '/brand.css')).text());
+    for (const lang of LANGS) {
+      const visitor = new Browser();
+      visitor.jar.lang = lang;
+      save(await crawl(visitor, '/'), lang, 'visiteur');
+    }
+    for (const role of ROLES) {
+      const b = new Browser();
+      const token = await b.csrf('/login');
+      const res = await b.post('/login', { _csrf: token, username: role.user, password: 'demo-password' });
+      if (res.status !== 302) throw new Error(`Login failed for ${role.user} (${res.status})`);
+      for (const lang of LANGS) {
+        await b.post('/lang', { _csrf: await b.csrf('/'), lang, back: '/' });
+        // The scanner pages first for the administration, so the page limit never leaves them out.
+        save(await crawl(b, role.dir === 'admin' ? ['/', '/admin/scanner/calendar', '/admin/scanner/board'] : (role.dir === 'enseignant' ? ['/', '/my-scans'] : '/')), lang, role.dir);
+      }
+    }
+    const css = path.join(OUT, 'assets', 'style.css');
+    fs.writeFileSync(css, fs.readFileSync(css, 'utf8').replace(/url\("\/static\//g, 'url("'));
+    fs.copyFileSync(path.join(__dirname, 'export-demo', 'preview.css'), path.join(OUT, 'assets', 'preview.css'));
+    fs.copyFileSync(path.join(__dirname, 'export-demo', 'preview.js'), path.join(OUT, 'assets', 'preview.js'));
+    write(path.join(OUT, 'index.html'), '<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Démo · Demo</title><meta http-equiv="refresh" content="0; url=fr/visiteur/index.html"></head><body><p><a href="fr/visiteur/index.html">Ouvrir la démonstration</a> · <a href="en/visiteur/index.html">Open the demo</a></p></body></html>');
+    console.log(`Static demo written to ${path.relative(ROOT, OUT)}/`);
+  } finally {
+    server.kill();
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+main().catch((e) => { console.error(e); process.exitCode = 1; });

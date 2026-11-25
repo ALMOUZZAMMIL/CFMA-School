@@ -220,7 +220,8 @@ test('language preference is saved on the account', async () => {
 
 test('plan import rejects bad rows without importing anything', async () => {
   const admin = await loginAs('demo.admin');
-  const plan = q('SELECT id FROM plans LIMIT 1').id;
+  // Only a draft sheet can take an import: locked sheets refuse every change (plan-lock.test.js).
+  const plan = q("SELECT id FROM plans WHERE status = 'draft' LIMIT 1").id;
   const count = () => q('SELECT COUNT(*) n FROM plan_lessons l JOIN plan_chapters ch ON ch.id = l.chapter_id WHERE ch.plan_id = ?', plan).n;
   const n0 = count();
   await admin.get(`/plans/${plan}`);

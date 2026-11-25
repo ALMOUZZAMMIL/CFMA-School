@@ -1,0 +1,175 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "COMM",
+ "subject_fr": "Commerce",
+ "subject_en": "Commerce",
+ "title": "Commerce – Form 3",
+ "source": "School annual progression sheet 2026/2027, 2 h/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "The notion of commerce",
+   "lessons": [
+    {
+     "title": "Introduction: origin and definition of commerce",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Comparison between commerce and economics",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Branches and importance of commerce",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Production",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Branches of production",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Categories of production",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Specialisation and division of labour",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The enterprise",
+   "lessons": [
+    {
+     "title": "Definition and elements of an enterprise",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Classification of enterprises",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Organisation of an enterprise",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Flow of activities in an enterprise",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Socio-economic role of an enterprise",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Problems faced by enterprises in Cameroon",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Storage documents",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Handling equipment",
+     "date": "2026-11-16"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Business organisation",
+   "lessons": [
+    {
+     "title": "Definition of business organisation",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Classification of business units",
+     "date": "2026-11-23"
+    },
+    {
+     "title": "Types of business organisations",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "The sole proprietor",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Partnership",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Deed of partnership; sole proprietor and partnership compared",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Joint stock companies",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Types of joint stock companies",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Formation of limited liability companies",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Sources of finance to a company",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Shares and debentures",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Non-profit making businesses",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Privatisation and nationalisation",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "The stock exchange market",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Buying and selling operations",
+   "lessons": [
+    {
+     "title": "Sales contract; customer credit",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Types of credit sales",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Documents used for buying and selling",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Documents used in home trade",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Financial deductions",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Documents involved in payment",
+     "date": "2027-05-03"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,305 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "CHEM",
+ "subject_fr": "Chimie",
+ "subject_en": "Chemistry",
+ "title": "Chemistry – Form 3",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 60 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Chapter 1: Atoms",
+   "lessons": [
+    {
+     "title": "Lesson 1: Review of the simple structure of the atom",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Simple experiments to illustrate diffusion and Brownian motion",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Characteristics of subatomic particles",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Atomic number and mass number",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 5: Isotopy and calculation of relative atomic mass (RAM)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 6: RAM of an element and the mole of atoms",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 7: A mole of atoms and the Avogadro constant",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chapter 2: Structure of the atom in relation to the periodic table",
+   "lessons": [
+    {
+     "title": "Lesson 8: Structure of the atom: nucleus and electrons",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 9: Electronic configuration of the first 20 elements of the periodic table",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 10: Valence electrons and the periodic table",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 11: Electronic configuration and chemical properties (alkali metals and halogens)",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 12: Electronic configuration and chemical properties (alkaline earth metals and halogens)",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chapter 3: Structure and bonding",
+   "lessons": [
+    {
+     "title": "Lesson 13: The octet rule (noble gas electronic configuration)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 14: Chemical bond formation and the octet rule",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 15: Ionic bonding: formation",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 16: Properties of ionic compounds",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 17: Covalent bonding: formation",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 18: Properties of covalent compounds",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 19: Structure and shapes of simple covalent molecules (VSEPR theory)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 20: The metallic bond: formation",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 21: Properties of metals",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 22: Crystals: definition and types of crystal structure",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 23: Giant molecular structures: diamond and graphite",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 24: Properties of substances related to bond type and structure",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chapter 4: Acidic and alkaline solutions",
+   "lessons": [
+    {
+     "title": "Lesson 25: Acidic solutions: definitions and classification",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 26: Properties and uses of acidic solutions",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 27: Alkalis and bases: definitions and classification",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 28: Alkalis and bases: properties and uses",
+     "date": "2026-11-20"
+    },
+    {
+     "title": "Lesson 29: Neutralisation reactions and their uses",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 30: The pH scale and acid-base indicators",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 31: Classifying oxides as acidic, basic or amphoteric from metallic or non-metallic character",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 5: Chemistry of hydrogen",
+   "lessons": [
+    {
+     "title": "Lesson 32: Laboratory preparation and physical properties of hydrogen",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 33: Chemical properties of hydrogen",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 34: Effect of dilute acids and alkalis on some metals",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 35: Reaction of hydrogen with oxygen and chlorine",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 6: Chemistry of oxygen",
+   "lessons": [
+    {
+     "title": "Lesson 36: Physical properties of oxygen (state, colour, odour, solubility)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 37: Laboratory preparation of oxygen from KClO₃ and common reagents",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 38: Chemical test for oxygen",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 39: Preparing oxides of common elements by direct combination; definition of oxidation",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 40: Order of reactivity of elements with oxygen, from experiments",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 41: Reaction of oxides with water; classification of oxides (soluble, insoluble, acidic, basic, neutral)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 42: Reduction of oxides with hydrogen and carbon",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 7: Chemistry of phosphorus",
+   "lessons": [
+    {
+     "title": "Lesson 43: Structural forms of phosphorus: white, red, black",
+     "date": "2027-02-19"
+    },
+    {
+     "title": "Lesson 44: Reactions of phosphorus with air, oxygen and chlorine",
+     "date": "2027-02-19"
+    },
+    {
+     "title": "Lesson 45: Uses of phosphorus and its compounds",
+     "date": "2027-02-19"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chapter 8: Chemistry of the halogens",
+   "lessons": [
+    {
+     "title": "Lesson 46: Occurrence, physical properties and electronic configuration of the halogens",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 47: Laboratory preparation and properties of chlorine",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 48: Chemical properties and uses of chlorine",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 49: Preparation, properties, test and uses of hydrogen chloride",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 50: Obtaining chlorine from sodium chloride and sodium chloride from chlorine",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 51: Preparation of other halides of the alkali metals",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 52: Displacement of one halogen by another",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 53: Tests for chlorides, bromides and iodides",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 54: Some uses of halogens and their compounds",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Chapter 9: Chemistry of carbon",
+   "lessons": [
+    {
+     "title": "Lesson 55: Structural forms of carbon: structure, physical properties and uses",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 56: Reactions of carbon with metal oxides (carbon as a reducing agent)",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 57: Carbon dioxide: preparation, properties, reactions, tests and uses",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 58: Carbon monoxide: preparation, properties and reactions",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 59: Preparation and reactions of carbonates",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 60: Uses and hazards of carbon dioxide and carbon monoxide",
+     "date": "2027-04-19"
+    }
+   ]
+  }
+ ]
+}

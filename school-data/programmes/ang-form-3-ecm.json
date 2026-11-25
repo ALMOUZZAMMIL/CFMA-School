@@ -1,0 +1,245 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "ECM",
+ "subject_fr": "Éducation à la citoyenneté (ECM)",
+ "subject_en": "Citizenship Education",
+ "title": "Citizenship Education – Form 3",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 42 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "School life",
+   "lessons": [
+    {
+     "title": "L1: School life",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Highway code",
+   "lessons": [
+    {
+     "title": "L2: From home to school",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "L2 (continued and end)",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Rights and duties in school",
+   "lessons": [
+    {
+     "title": "L3: The rights and duties of students in the school and community",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "L3 (continued and end)",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Guided work 1: Internal rules and regulations of the school",
+     "date": "2026-09-14"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Relationships within the school",
+   "lessons": [
+    {
+     "title": "L4: Duties of the different members of the school administration",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L5: Inter-personal relationships within the school milieu",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Guided work 2: The school and its environment",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L6: Relationship between the school and its community",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "L7: Social ills within the school environment",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Guided work 3: Extracurricular activities in the school",
+     "date": "2026-10-19"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The family",
+   "lessons": [
+    {
+     "title": "L8: The family",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "L9: Forms of family protection in Cameroon",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The village",
+   "lessons": [
+    {
+     "title": "L10: Villages in Cameroon: definition and types of villages",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L11: Political authority in the village",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L12: Communal activities in the village (local examples)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "L13: Cultural activities in the village",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L14: Socio-cultural problems in the village",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Guided work 4: Life in the village",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "L15: Rural exodus",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Guided work 5: Witchcraft in your school locality",
+     "date": "2026-11-30"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Town life",
+   "lessons": [
+    {
+     "title": "L16: Towns",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Leadership and management of the council area",
+   "lessons": [
+    {
+     "title": "L17: The council",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "L18: Sources of council revenue",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Guided work 6: Living together in your council area",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Administrative units and their functioning",
+   "lessons": [
+    {
+     "title": "L19: The administrative organisation of Cameroon",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L20: The sub-division: organisation and functions of the divisional officer",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L21: The division",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "L22: The region",
+     "date": "2027-01-25"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "State governance",
+   "lessons": [
+    {
+     "title": "L23: Decentralisation and deconcentration in Cameroon",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L24: Devolution of power to regions",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L25: Introduction to governance",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "L26: The fight against corruption in Cameroon",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "L27: The role of citizens in promoting good governance",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Further study 1: The National Programme for Governance",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Environmental degradation and preservation",
+   "lessons": [
+    {
+     "title": "L28: The natural environment",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L29: Forms of environmental degradation",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L30: Individual contribution to the protection of the environment",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L31: Conservation and protection of the environment at organisational level",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "L31 (continued and end)",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Guided work 7: Garbage disposal in your community",
+     "date": "2027-03-22"
+    }
+   ]
+  }
+ ]
+}

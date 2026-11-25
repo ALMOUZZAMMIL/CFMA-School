@@ -11,6 +11,7 @@
 </form>
 <p class="muted"><%= fmt.longDate(date) %></p>
 <% if (closure) { %><div class="alert alert-info" role="status"><span class="alert-icon" aria-hidden="true">i</span> <%= t('teaching.closedDay', { reason: closure.reason }) %></div><% } %>
+<% if (scannerLocked) { %><div class="alert alert-info" role="note"><span class="alert-icon" aria-hidden="true">i</span> <%= t('scanner.dayLockedNote') %></div><% } %>
 <% if (!slots.length) { %>
   <div class="empty"><p><%= t('teaching.noSlots') %></p></div>
 <% } else { %>
@@ -25,6 +26,7 @@
     </div>
     <div class="task-actions">
       <% if (s.session_id) { %><a class="btn" href="/sessions/<%= s.session_id %>"><%= t('common.view') %></a>
+      <% } else if (scannerLocked) { %><a class="btn" href="/my-scans?date=<%= date %>"><%= t('scanner.myTitle') %></a>
       <% } else if (date <= today && !closure) { %><a class="btn btn-primary" href="/sessions/new?slot=<%= s.id %>&date=<%= date %>"><%= t('teaching.recordSession') %></a><% } %>
     </div>
   </li>

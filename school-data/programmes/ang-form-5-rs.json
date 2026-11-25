@@ -1,0 +1,143 @@
+{
+ "section": "ANG",
+ "level": "Form 5",
+ "subject": "RS",
+ "subject_fr": "Études religieuses",
+ "subject_en": "Religious Studies",
+ "title": "Religious Studies – Form 5",
+ "source": "Teacher's handwritten progression 2026-27 (Gospel of Saint Luke)",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Introduction to Saint Luke's Gospel",
+   "lessons": [
+    {
+     "title": "Introduction to Saint Luke's Gospel",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "The synoptic problem",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Religious sects and institutions",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Characteristics of Luke's Gospel",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The infancy narratives",
+   "lessons": [
+    {
+     "title": "Birth and annunciation of John the Baptist",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Annunciation of the birth of Jesus",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Presentation of Jesus in the temple",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Jesus' baptism and temptation",
+     "date": "2026-11-09"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Jesus and his disciples",
+   "lessons": [
+    {
+     "title": "Events between Jesus and his close disciples",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Call of the first disciples",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Sending out of the twelve disciples",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "The final revelation",
+     "date": "2027-01-18"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Teachings of Jesus",
+   "lessons": [
+    {
+     "title": "The Sermon on the Plain",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Teachings about happiness",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "The narrow door",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Some outstanding events: messengers that provoke Jesus to teach",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Accusations of the Pharisees and teachers of the law",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Miracles",
+   "lessons": [
+    {
+     "title": "Miracles",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Division of miracles",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Miracles of command, touch and distance",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Parables and the kingdom of God",
+   "lessons": [
+    {
+     "title": "Parables",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "The kingdom of God",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Parousia, prayer and wealth",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "The Passion narratives",
+     "date": "2027-04-26"
+    }
+   ]
+  }
+ ]
+}

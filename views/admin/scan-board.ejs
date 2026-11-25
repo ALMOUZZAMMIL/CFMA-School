@@ -1,0 +1,86 @@
+<%- include('../partials/head') %>
+<div class="page-head"><h1><%= t('scanner.boardTitle') %></h1></div>
+<%- include('../partials/scanner-tabs') %>
+<form method="get" class="filters">
+  <label><%= t('common.date') %> <input type="date" name="date" value="<%= date %>" max="<%= today %>"></label>
+  <button class="btn"><%= t('common.show') %></button>
+</form>
+<p class="muted"><%= fmt.longDate(date) %></p>
+<% if (!devices.some(function (d) { return d.status === 'active'; })) { %>
+<div class="alert alert-pending" role="note"><span class="alert-icon" aria-hidden="true">!</span> <a href="/admin/scanner#devices"><%= devices.length ? t('scanner.devicePending') : t('scanner.noActiveDevice') %></a></div>
+<% } %>
+
+<section class="dash-grid cols-4" aria-label="<%= t('scanner.boardTitle') %>">
+  <%- include('../partials/kpi', { tone: 1, icon: 'fingerprint', value: fmt.number(counts.in_class || 0), label: t('scanner.st.in_class') }) %>
+  <%- include('../partials/kpi', { tone: 2, icon: 'check', value: fmt.number((counts.done || 0) + (counts.approved || 0)), label: t('scanner.st.done') }) %>
+  <%- include('../partials/kpi', { tone: 3, icon: 'alert', value: fmt.number((counts.unconfirmed || 0) + (counts.review || 0)), label: t('scanner.needsDecision') }) %>
+  <%- include('../partials/kpi', { tone: 4, icon: 'close', value: fmt.number(counts.no_scan || 0), label: t('scanner.st.no_scan') }) %>
+</section>
+
+<section class="card">
+  <h2><%= t('scanner.lessonsOfDay') %></h2>
+  <% if (!rows.length) { %><div class="empty"><p><%= t('teaching.noSlots') %></p></div><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.time') %></th><th><%= t('common.teacher') %></th><th><%= t('scanner.lesson') %></th><th><%= t('scanner.scanIn') %></th><th><%= t('scanner.scanOut') %></th><th><%= t('attendance.status') %></th></tr></thead>
+    <tbody><% rows.forEach(function (r) { var l = r.lesson; %>
+      <tr><td><strong><%= r.start_time %>–<%= r.end_time %></strong></td>
+        <td><%= r.teacher_name %><% if (!r.has_pin) { %> <span class="small muted">(<%= t('scanner.noPin') %>)</span><% } %></td>
+        <td><a href="/admin/scanner/calendar?class=<%= r.class_id %><%= date !== today ? '&date=' + date : '' %>"><%= r.class_name %></a> · <%= ln(r, 'subject') %></td>
+        <td><%= l && l.in_time ? l.in_time.slice(11, 16) : '—' %></td>
+        <td><%= l && l.out_time ? l.out_time.slice(11, 16) : '—' %></td>
+        <td><%- include('../partials/scan-state', { state: r.state, late: r.late, lateMin: l ? l.late_min : 0, early: r.early, earlyMin: l ? l.early_min : 0 }) %>
+          <% if (r.session) { %> <a class="small" href="/sessions/<%= r.session.id %>"><%= t('common.view') %></a><% } %></td></tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+</section>
+
+<section class="card" id="review">
+  <h2><%= t('scanner.reviewTitle') %> (<%= review.length + corrections.length %>)</h2>
+  <p class="help"><%= t('scanner.reviewHelp') %></p>
+  <% if (!review.length && !corrections.length) { %><div class="empty"><p><%= t('scanner.nothingToReview') %></p></div><% } %>
+  <% corrections.forEach(function (c) { %>
+  <div class="subcard">
+    <p><strong><%= t('scanner.correctionRequest') %></strong> · <%= c.full_name %> · <%= fmt.date(c.date) %> <%= c.start_time %>–<%= c.end_time %> · <%= c.class_name %> · <%= ln(c, 'subject') %></p>
+    <p class="pre"><%= c.reason %></p>
+    <form method="post" action="/admin/scanner/corrections/<%= c.id %>" class="row-form">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <input name="admin_note" maxlength="500" placeholder="<%= t('scanner.notePlaceholder') %>" aria-label="<%= t('scanner.notePlaceholder') %>">
+      <button class="btn btn-primary btn-small" name="decision" value="approved"><%= t('scanner.approveLesson') %></button>
+      <button class="btn btn-small" name="decision" value="rejected"><%= t('scanner.refuse') %></button>
+    </form>
+  </div>
+  <% }) %>
+  <% review.forEach(function (l) { %>
+  <div class="subcard">
+    <p><%- include('../partials/scan-state', { state: l.state }) %> <strong><%= l.full_name %></strong> · <%= fmt.date(l.date) %> <%= l.start_time %>–<%= l.end_time %> · <%= l.class_name %> · <%= ln(l, 'subject') %></p>
+    <p class="small"><%= t('scanner.scanIn') %>: <%= l.in_time ? l.in_time.slice(11, 16) : '—' %> · <%= t('scanner.scanOut') %>: <%= l.out_time ? l.out_time.slice(11, 16) : '—' %><% if (l.late_min > rules.grace) { %> · <%= t('scanner.lateBy', { min: l.late_min }) %><% } %></p>
+    <form method="post" action="/admin/scanner/lessons/decide" class="row-form">
+      <input type="hidden" name="_csrf" value="<%= csrf %>"><input type="hidden" name="slot_id" value="<%= l.slot_id %>"><input type="hidden" name="date" value="<%= l.date %>">
+      <input name="reason" maxlength="500" required placeholder="<%= t('scanner.reasonPlaceholder') %>" aria-label="<%= t('scanner.reasonPlaceholder') %>">
+      <button class="btn btn-primary btn-small" name="decision" value="approved"><%= t('scanner.approveLesson') %></button>
+      <button class="btn btn-small" name="decision" value="rejected"><%= t('scanner.markMissed') %></button>
+    </form>
+  </div>
+  <% }) %>
+</section>
+
+<section class="card" id="unmatched">
+  <h2><%= t('scanner.unmatchedTitle') %> (<%= unmatched.length %>)</h2>
+  <p class="help"><%= t('scanner.unmatchedHelp') %></p>
+  <% if (!unmatched.length) { %><div class="empty"><p><%= t('scanner.noUnmatched') %></p></div><% } else { %>
+  <div class="table-wrap"><table>
+    <thead><tr><th><%= t('common.time') %></th><th><%= t('common.teacher') %></th><th><%= t('scanner.why') %></th><th></th></tr></thead>
+    <tbody><% unmatched.forEach(function (s) { %>
+      <tr><td><%= s.scanned_at.slice(11, 16) %></td>
+        <td><%= s.full_name || (t('scanner.pin') + ' ' + s.pin) %></td>
+        <td class="small"><%= t('scanner.why_' + s.why) %><%= s.source !== 'device' ? ' · ' + t('scanner.src.' + s.source) : '' %></td>
+        <td><form method="post" action="/admin/scanner/scans/<%= s.id %>/dismiss" class="row-form">
+          <input type="hidden" name="_csrf" value="<%= csrf %>">
+          <input name="reason" maxlength="300" required placeholder="<%= t('scanner.dismissPlaceholder') %>" aria-label="<%= t('scanner.dismissPlaceholder') %>">
+          <button class="btn btn-small"><%= t('scanner.dismiss') %></button></form></td></tr>
+    <% }) %></tbody>
+  </table></div>
+  <% } %>
+</section>
+<%- include('../partials/foot') %>

@@ -1,0 +1,7 @@
+<%# Curriculum status badge. Expects: status (see reports.curriculumStatus), p (progressFor result). %>
+<% if (status === 'far_behind') { %><span class="badge badge-missed"><span aria-hidden="true">⚠</span> <%= t('progress.st.far_behind', { n: p.lateCount, days: p.daysBehind }) %></span>
+<% } else if (status === 'behind') { %><span class="badge badge-delayed"><span aria-hidden="true">⚠</span> <%= t('progress.st.behind', { n: p.lateCount, days: p.daysBehind }) %></span>
+<% } else if (status === 'ahead') { %><span class="badge badge-completed"><span aria-hidden="true">▲</span> <%= t('progress.st.ahead', { n: p.gap }) %></span>
+<% } else if (status === 'on_track') { %><span class="badge badge-held"><span aria-hidden="true">✓</span> <%= t('progress.st.on_track') %></span>
+<% } else if (status === 'not_submitted') { %><span class="badge badge-draft"><span aria-hidden="true">✎</span> <%= t('progress.st.not_submitted') %></span>
+<% } else { %><span class="badge badge-none"><span aria-hidden="true">–</span> <%= t('progress.st.no_plan') %></span><% } %>

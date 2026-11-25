@@ -1,0 +1,227 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "ECON",
+ "subject_fr": "Économie",
+ "subject_en": "Economics",
+ "title": "Economics – Form 4",
+ "source": "National harmonised syllabus coverage progression sheet 2026-27, 3 periods/week, 38 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Create and organise business units properly",
+   "lessons": [
+    {
+     "title": "Diagnostic evaluation",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 1: Fundamental notions of business units – the sole proprietor",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: A partnership",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 3: Joint-stock or limited liability companies",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Guided work 1: Types of business units",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 4: Capital structure of companies",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Practical work 1: Calculations on the capital structure of companies",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 5: Cooperative societies",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 6: Public enterprises",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Guided work 2: Formation of a business unit in a given locality",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 7: Nationalisation of industries",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 8: Privatisation of industries",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 9: Economies of scale",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 10: Diseconomies of scale",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 11: Growth of firms",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 12: Small firms",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 13: Location of firms",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 14: Government intervention in the location of industries",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Further study 1: Development of small firms in Cameroon",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Guided work 3: Location of an industry in a given locality",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 15: Localisation of industries",
+     "date": "2026-12-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Match population growth with available resources",
+   "lessons": [
+    {
+     "title": "Lesson 16: Fundamental notions of population studies",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 17: Population size",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Practical work 2: Population growth rate",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 18: Population structure",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 19: Population distribution",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Practical work 3: Population distribution",
+     "date": "2027-01-18"
+    },
+    {
+     "title": "Lesson 20: Migration (geographical mobility of population)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Further study 2: Rural-urban migration and urban-rural drift in Cameroon",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 21: Notions of population and resources",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Lesson 22: Population theories",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Organise market structures properly",
+   "lessons": [
+    {
+     "title": "Lesson 23: Fundamental notions of demand",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 24: The demand curve",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 25: Changes in demand",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Lesson 26: Types of demand",
+     "date": "2027-03-01"
+    },
+    {
+     "title": "Lesson 27: Fundamental notions of supply",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 28: The supply curve",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 29: Changes in supply",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 30: Types of supply",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Lesson 31: Elasticity of demand",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Practical work 4: Elasticity of demand for some selected goods",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 32: Elasticity of supply",
+     "date": "2027-04-12"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Better organise market structures",
+   "lessons": [
+    {
+     "title": "Lesson 33: Price determination",
+     "date": "2027-04-19"
+    },
+    {
+     "title": "Lesson 34: Price controls",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Guided work 4: Price control in Cameroon",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 35: Definition of market",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 36: Perfect competition",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 37: Imperfect competition",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

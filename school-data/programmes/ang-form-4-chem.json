@@ -1,0 +1,337 @@
+{
+ "section": "ANG",
+ "level": "Form 4",
+ "subject": "CHEM",
+ "subject_fr": "Chimie",
+ "subject_en": "Chemistry",
+ "title": "Chemistry – Form 4",
+ "source": "Harmonised progression sheet 2026-27 (MINESEC), 68 lessons",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Chemistry of sulphur",
+   "lessons": [
+    {
+     "title": "Lesson 1: Occurrence; extraction of sulphur by the Frasch process",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Properties and allotropes of sulphur",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Laboratory preparation and physical properties of SO₂",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 4: Chemical properties of SO₂",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 5: Laboratory preparation and physical properties of H₂S",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 6: Chemical properties of H₂S",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 7: Preparation of the sulphides of sodium and iron, and their properties",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 8: Chemical properties of sulphuric acid",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 9: Uses of sulphur and its compounds",
+     "date": "2026-09-07"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Chemistry of nitrogen",
+   "lessons": [
+    {
+     "title": "Lesson 10: Occurrence and properties of nitrogen",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 11: Laboratory preparation and properties of ammonia",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 12: Laboratory preparation and properties of nitric acid",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 13: Effect of heat on nitrates",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 14: Oxides of nitrogen (NO₂, NO, N₂O): preparation and properties",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 15: The nitrogen cycle",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 16: Uses of nitrogen compounds",
+     "date": "2026-10-05"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Formulae, moles and equations",
+   "lessons": [
+    {
+     "title": "Lesson 17: Relative atomic mass, relative molecular mass, molar mass, molar volume",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 18: The mole and Avogadro's number L, applied to atoms, molecules and ions",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 19: Basic calculations on the mole concept",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 20: Experimental determination of the formulae of magnesium oxide and copper oxide",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 21: Percentage composition by mass",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 22: Empirical and molecular formulae",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 23: Masses and volumes of gases from balanced equations",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 24: Limiting reagents; theoretical and percentage yield; molar volumes",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 25: Calculating percentage yields of reactions",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 26: Balancing equations using the mole concept; stoichiometry",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 27: Writing chemical equations with state symbols",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "The gaseous state",
+   "lessons": [
+    {
+     "title": "Lesson 28: Changes of state of matter and the kinetic theory",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 29: Evidence for the kinetic theory (diffusion, Brownian motion)",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 30: Molar enthalpies of evaporation and fusion",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 31: Boyle's and Charles's laws",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 32: The combined gas law: P₁V₁/T₁ = P₂V₂/T₂",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Alkali metals and alkaline-earth metals",
+   "lessons": [
+    {
+     "title": "Lesson 33: Group I: alkali metals and their properties",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 34: Preparation of hydroxides, halides, sulphates, nitrates and carbonates",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 35: Solubility and thermal stability of hydroxides, halides, sulphates, nitrates and carbonates",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 36: Group II: alkaline-earth metals; action on water; magnesium with acid",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 37: Preparation of oxide, hydroxide, carbonate and chloride",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 38: Properties of the oxides and hydroxides of magnesium and calcium",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 39: Hardness of water: causes, effects, methods of removal",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 40: Industrial uses of calcium carbonate",
+     "date": "2027-01-11"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Chemistry of the transition metals",
+   "lessons": [
+    {
+     "title": "Lesson 41: Position of transition metals in the periodic table; general characteristics",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 42: Properties and uses of iron",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 43: Properties and uses of copper",
+     "date": "2027-02-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Identification of ions",
+   "lessons": [
+    {
+     "title": "Lesson 44: Identifying cations by the flame test",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Lesson 45: Identifying cations with appropriate reagents",
+     "date": "2027-02-22"
+    },
+    {
+     "title": "Lesson 46: Identifying anions with appropriate reagents",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Salts",
+   "lessons": [
+    {
+     "title": "Lesson 47: Definition and types of salts",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 48: Preparing soluble salts from acids and metals, hydroxides, oxides and carbonates",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 49: Solubility of salts and solubility curves",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 50: Determining solubility from solubility curves",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 51: Action of heat on salts",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 52: Deliquescent, hygroscopic and efflorescent compounds",
+     "date": "2027-03-08"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Organic chemistry 1: hydrocarbons",
+   "lessons": [
+    {
+     "title": "Lesson 53: Introduction to organic chemistry; unique characteristics of carbon",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 54: Homologous series and general physical properties",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 55: Shapes and properties of organic compounds",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 56: Hydrocarbons: definition, types and examples",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 57: Alkanes (C1–C4): structure, formulae and nomenclature",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 58: Laboratory preparation and uses of methane",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 59: Chemical properties of alkanes; cracking",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 60: Isomerism in alkanes (e.g. butane)",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 61: Alkenes (C1–C4): structure, formulae and nomenclature",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 62: Preparation, manufacture, properties and uses of ethene",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 63: Chemical properties of ethene",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 64: Alkynes (C1–C4): structure, formulae and nomenclature",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 65: Preparation, manufacture, properties and uses of ethyne",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 66: Test for unsaturation; polymerisation",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 67: Fractional distillation of crude oil",
+     "date": "2027-04-05"
+    },
+    {
+     "title": "Lesson 68: Properties and uses of crude oil products",
+     "date": "2027-04-05"
+    }
+   ]
+  }
+ ]
+}

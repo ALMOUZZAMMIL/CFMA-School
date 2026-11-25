@@ -1,0 +1,355 @@
+{
+ "section": "GEN",
+ "level": "6e",
+ "subject": "FRAN",
+ "subject_fr": "Français",
+ "subject_en": "French",
+ "title": "Français – 6e",
+ "source": "Séquences didactiques 2026/2027 (Inspection de pédagogie LAL), 6 modules de 32 h ; les semaines sont réparties sur l'année car les fiches ne portent pas de dates",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "Module 1 – La vie quotidienne (le dialogue)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : Les Contes de Korotomou (Amadou Koné), activités augurales",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Grammaire : les types de phrases obligatoires (interrogative, impérative, exclamative)",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Orthographe : la ponctuation dans le dialogue",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Oral : le code oral, les moyens de communication non verbale",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Écrit : le dialogue, ponctuer un dialogue",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Grammaire : le registre familier",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Conjugaison : les temps simples de l'indicatif, le présent et le futur simple",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Oral : l'alternance des prises de parole",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Écrit : le dialogue, faire parler des personnages",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Grammaire : les pronoms personnels et possessifs",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Vocabulaire : la famille et l'école ; la formation des mots, la dérivation",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Oral : les formules de politesse, les verbes introducteurs, les temps et adverbes du discours oral",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Écrit : produire un dialogue bien structuré (introduction, corps, conclusion)",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 2 – La vie socioculturelle (la lettre privée)",
+   "lessons": [
+    {
+     "title": "Grammaire : la phrase minimale",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Conjugaison : les temps composés de l'indicatif, le passé composé et le futur antérieur",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Oral : le compte rendu oral, préparer le compte rendu d'un texte lu",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Écrit : la lettre privée, l'en-tête et la formule finale",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Grammaire : le registre courant",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Orthographe : les homophones lexicaux (père/pair/paire ; mère/mer/maire)",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Oral : rédiger le compte rendu oral d'un texte lu",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Écrit : la lettre privée, le corps de la lettre",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lecture suivie : Les Contes de Korotomou, bilan de l'étude de l'œuvre",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Grammaire : les formes de phrases (négative, affirmative)",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Vocabulaire : le lexique des sentiments et des sensations ; synonymes et antonymes",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Oral : présenter le compte rendu oral d'un texte lu",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Écrit : produire une lettre privée",
+     "date": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "Module 3 – Citoyenneté et environnement (le portrait)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : Les Bimanes (Séverin Cécile Abéga), activités augurales",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Grammaire : les verbes d'état et les verbes d'action",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Conjugaison : les auxiliaires avoir et être",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Oral : la récitation, les techniques de mémorisation",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Écrit : faire le portrait physique d'une personne ou d'un animal",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Grammaire : l'accord sujet-verbe, règle générale et cas particuliers",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Orthographe : l'utilisation des lettres majuscules et minuscules",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Oral : la récitation, gestuelle appropriée et techniques de diction",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Écrit : faire le portrait moral d'une personne ou d'un animal",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Grammaire : les expansions du nom, l'adjectif qualificatif et le complément du nom",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Vocabulaire : la citoyenneté et l'environnement ; les homonymes",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Oral : la récitation, déclamer un poème",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Écrit : produire un portrait",
+     "date": "2026-12-14"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 4 – La vie économique (la description)",
+   "lessons": [
+    {
+     "title": "Grammaire : le groupe nominal (le déterminant, le nom, l'adjectif qualificatif)",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Conjugaison : les groupes des verbes",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Oral : commentaire de l'image, identifier la nature de l'image et en décrire les composantes",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Écrit : la description, nommer et qualifier l'objet ou le lieu et en déterminer les composantes",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Grammaire : la phrase négative",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Orthographe : les homophones grammaticaux (a/à ; son/sont ; ce/se)",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Oral : commentaire de l'image, analyse et interprétation",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Écrit : organiser la description",
+     "date": "2027-02-01"
+    },
+    {
+     "title": "Grammaire : les pronoms relatifs sujets",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Vocabulaire : la vie économique ; les paronymes",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Oral : commenter une image liée à une activité économique",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Écrit : enrichir la description",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "Module 5 – Bien-être et santé (le récit à portée éducative)",
+   "lessons": [
+    {
+     "title": "Lecture suivie : Les Chants de la forêt (Lucien Anya Noa), activités augurales",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Grammaire : les temps du récit (le présent, l'imparfait et le passé simple de l'indicatif)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Conjugaison : les verbes des 2e et 3e groupes au passé simple de l'indicatif",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Oral : le compte rendu oral, lire un texte en prenant des notes",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Écrit : la narration, présenter le cadre spatio-temporel et les personnages d'un récit",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Grammaire : les adverbes",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Orthographe : le pluriel des noms, règle générale et cas particuliers (noms en « au », « eu »)",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Oral : organiser un compte rendu",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Écrit : la narration, construire le schéma narratif",
+     "date": "2027-03-15"
+    },
+    {
+     "title": "Grammaire : la voix active et la voix passive",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Vocabulaire : la formation des mots, la composition",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Oral : présenter un compte rendu",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Écrit : produire un texte narratif",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "Module 6 – Médias et communication (le texte narratif)",
+   "lessons": [
+    {
+     "title": "Grammaire : le groupe verbal (le verbe, les compléments, les adjectifs)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Conjugaison : les verbes pronominaux aux temps composés de l'indicatif (règle générale)",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Oral : la dramatisation, préparation, lecture et distribution des rôles",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Écrit : la narration, raconter le début d'une histoire",
+     "date": "2027-04-26"
+    },
+    {
+     "title": "Grammaire : les fonctions dans la phrase, l'épithète et l'attribut du sujet",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Orthographe : le pluriel des noms composés",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Oral : la dramatisation, mémorisation et mise en scène",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Écrit : la narration, raconter la suite d'une histoire",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lecture suivie : Les Chants de la forêt, bilan de l'étude de l'œuvre",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Grammaire : les fonctions dans la phrase, le complément d'objet",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Vocabulaire : les médias et la communication",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Oral : la dramatisation, restitution",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Écrit : la narration, raconter un événement du début jusqu'à la fin",
+     "date": "2027-05-10"
+    }
+   ]
+  }
+ ]
+}

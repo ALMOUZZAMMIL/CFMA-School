@@ -1,0 +1,283 @@
+{
+ "section": "ANG",
+ "level": "Form 3",
+ "subject": "BIO",
+ "subject_fr": "Biologie",
+ "subject_en": "Biology",
+ "title": "Biology – Form 3",
+ "source": "Harmonised annual progression sheet 2026/2027 (IPSC), 2 h/week",
+ "chapters": [
+  {
+   "term": 1,
+   "title": "1. Cells and water relations",
+   "lessons": [
+    {
+     "title": "Lesson 1: Notion of cells; prokaryotic and eukaryotic cells; cell theory",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 2: Ultrastructure of plant and animal cells",
+     "date": "2026-09-07"
+    },
+    {
+     "title": "Lesson 3: Experiment 1: observing plant and animal cells",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 4: Water and its importance to living organisms",
+     "date": "2026-09-14"
+    },
+    {
+     "title": "Lesson 5: The water cycle",
+     "date": "2026-09-21"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "2. Cellular exchange in different conditions",
+   "lessons": [
+    {
+     "title": "Lesson 6: Diffusion and active transport",
+     "date": "2026-09-21"
+    },
+    {
+     "title": "Lesson 7: Osmosis: notion, experiment, importance",
+     "date": "2026-09-28"
+    },
+    {
+     "title": "Lesson 8: Experiment 2: practical on diffusion and osmosis",
+     "date": "2026-09-28"
+    }
+   ]
+  },
+  {
+   "term": 1,
+   "title": "3. Classification (nature and variety of life forms)",
+   "lessons": [
+    {
+     "title": "Lesson 9: Reasons for classification and the five-kingdom system",
+     "date": "2026-10-05"
+    },
+    {
+     "title": "Lesson 13: Viruses: characteristics, structure of the T2 virus, replication",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 14: Prokaryotae: bacteria (characteristics, forms, structure, importance)",
+     "date": "2026-10-19"
+    },
+    {
+     "title": "Lesson 15: Kingdom Protoctista: general characteristics; Amoeba, structure and mode of life",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 16: Spirogyra, structure and mode of life; Plasmodium, simplified life cycle and malaria control",
+     "date": "2026-10-26"
+    },
+    {
+     "title": "Lesson 17: Kingdom Fungi: general characteristics and examples; mould fungus",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 18: Kingdom Fungi (mushroom and yeast): structure, mode of life, importance",
+     "date": "2026-11-02"
+    },
+    {
+     "title": "Lesson 19: Kingdom Plantae: characteristics and classification; monocots (maize plant)",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 20: Kingdom Plantae: dicots (bean plant); monocots and dicots compared; importance of plants",
+     "date": "2026-11-09"
+    },
+    {
+     "title": "Lesson 21: Kingdom Animalia: bony fish (tilapia): structure, adaptations, economic importance",
+     "date": "2026-11-16"
+    },
+    {
+     "title": "Lesson 25: Insects: general characteristics, metamorphosis, the housefly and its life cycle",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 26: Social insects (honey bee or termite) and the importance of insects",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 27: Amphibians: characteristics; the toad (structure, life cycle, adaptation)",
+     "date": "2026-11-30"
+    },
+    {
+     "title": "Lesson 28: Reptiles: characteristics; the agama lizard (structure, adaptations to life on land)",
+     "date": "2026-12-07"
+    },
+    {
+     "title": "Lesson 29: Birds: characteristics and structure",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 30: Birds: adaptations to flight and feeding; economic importance",
+     "date": "2026-12-14"
+    },
+    {
+     "title": "Lesson 31: Mammals: characteristics, classification (herbivores, carnivores, omnivores), economic importance",
+     "date": "2027-01-04"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "4. Cultivation and rearing of organisms",
+   "lessons": [
+    {
+     "title": "Lesson 32: Cultivation of a local monocot plant",
+     "date": "2027-01-04"
+    },
+    {
+     "title": "Lesson 33: Cultivation of a local dicot plant",
+     "date": "2027-01-11"
+    },
+    {
+     "title": "Lesson 37: Rearing of snails",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 38: Rearing of fish",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 39: Rearing of birds",
+     "date": "2027-01-25"
+    },
+    {
+     "title": "Lesson 40: Rearing of mammals (guinea pigs, Wistar rats)",
+     "date": "2027-02-01"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "5. Dieting in farm animals",
+   "lessons": [
+    {
+     "title": "Lesson 41: Dietary needs and composition of animal feed (chicken, pig, rabbit)",
+     "date": "2027-02-08"
+    },
+    {
+     "title": "Lesson 42: Experiment 3: producing animal feed",
+     "date": "2027-02-08"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "6. Plant nutrients",
+   "lessons": [
+    {
+     "title": "Lesson 43: Major and minor plant nutrients: sources, importance, deficiency effects",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 44: Fertilisers: notion, types, application, differences and effects on the soil",
+     "date": "2027-02-15"
+    },
+    {
+     "title": "Lesson 45: Experiment 4: making compost manure",
+     "date": "2027-02-22"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "7. Classes of food",
+   "lessons": [
+    {
+     "title": "Lesson 49: Classes of food: sources, composition, importance and deficiency (carbohydrates, proteins, lipids)",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 50: Balanced diet: composing a local balanced diet",
+     "date": "2027-03-08"
+    },
+    {
+     "title": "Lesson 51: Nutritional and calorific requirements: Reference Intake and Guideline Daily Amounts for a common meal",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "8. Personal hygiene",
+   "lessons": [
+    {
+     "title": "Lesson 52: Rules of personal hygiene",
+     "date": "2027-03-15"
+    }
+   ]
+  },
+  {
+   "term": 2,
+   "title": "9. Auto-medication",
+   "lessons": [
+    {
+     "title": "Lesson 53: Auto-medication: notion, advantages and disadvantages",
+     "date": "2027-03-22"
+    },
+    {
+     "title": "Lesson 54: Traditional medicines: notion, advantages, disadvantages and precautions",
+     "date": "2027-03-22"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "10. Emergent diseases",
+   "lessons": [
+    {
+     "title": "Lesson 55: Ebola, COVID-19, monkeypox: causative agent, spread and prevention",
+     "date": "2027-04-12"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "11. Intestinal worms",
+   "lessons": [
+    {
+     "title": "Lesson 56: Tapeworm: structure, life cycle, adaptation, prevention",
+     "date": "2027-04-12"
+    },
+    {
+     "title": "Lesson 57: Ascaris: structure, life cycle, adaptation, prevention",
+     "date": "2027-04-19"
+    }
+   ]
+  },
+  {
+   "term": 3,
+   "title": "12. Interdependence between living organisms",
+   "lessons": [
+    {
+     "title": "Lesson 61: Interdependence of organisms and ecological balance",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 62: Social organisation: the bee colony",
+     "date": "2027-05-03"
+    },
+    {
+     "title": "Lesson 63: Social organisation as interspecific interdependence: the termite colony",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 64: Water ecosystems (fresh and marine): notion and significance",
+     "date": "2027-05-10"
+    },
+    {
+     "title": "Lesson 65: Project: visiting and studying a water ecosystem",
+     "date": "2027-05-17"
+    }
+   ]
+  }
+ ]
+}
